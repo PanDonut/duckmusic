@@ -13,9 +13,6 @@ function PlaylistDetails({data}) {
                 <TitleS>{data.type}</TitleS>
                 <h1>{data.title}</h1>
                 <div className={styles.Artist}>
-                    <figure>
-                        <img src={data.imgUrl} />
-                    </figure>
                     <TextBoldM>{data.artist}</TextBoldM>
                 </div>
             </div>

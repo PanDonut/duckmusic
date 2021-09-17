@@ -12,102 +12,147 @@ export const PLAYLIST = [
 		playlistData: [
 			{
 				index: "1",
-				songName: "Yaşıyorum Sil Baştan",
+				songName: "Call Me Maybe",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e02d3ee4bf67c2ac2154006ad72",
+				songArtist: "Carly Rae Jepsen",
 				link:
-					"https://server1.indiryuklemp3.org/mp3_files/yasiyorum-sil-bastan-h8OmycopAr-0.mp3",
+					"https://data.pandasuite.com/audios/60f19d8267425919ea00108e.mp3",
 			},
 			{
 				index: "2",
-				songName: "Salaksın",
+				songName: "ME!",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				songArtist: "Taylor Swift",
 				link:
-					"https://server1.indiryuklemp3.org/mp3_files/salaksin-I6hfUKt21R-0.mp3",
-				trackTime: "5:12",
+					"https://www.mboxdrive.com/Taylor%20Swift%20-%20ME%20(Lyrics).mp3",
 			},
 			{
 				index: "3",
-				songName: "Yanlızlık Kanında Var",
+				songName: "The Man",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				songArtist: "Taylor Swift",
 				link:
-					"https://server1.indiryuklemp3.org/mp3_files/yalnizlik-kaninda-var-0vWfgutCZj-0.mp3",
-				trackTime: "3:48",
+					"https://www.mboxdrive.com/Taylor%20Swift%20-%20The%20Man%20(Lyrics).mp3",
 			},
 			{
 				index: "4",
-				songName: "Gavurlar",
+				songName: "Blank Space",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e0252b2a3824413eefe9e33817a",
+				songArtist: "Taylor Swift",
 				link:
-					"https://server1.indiryuklemp3.org/mp3_files/gavurlar-hzfjF7ZWLE-0.mp3",
-				trackTime: "4:08",
+					"https://www.mboxdrive.com/Blank%20Space%20-%20Taylor%20Swift%20(Lyrics)%20.mp3",
 			},
 			{
 				index: "5",
-				songName: "Yalan (Demo)",
+				songName: "I Forgot That You Existed",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				songArtist: "Taylor Swift",
 				link:
-					"https://p.scdn.co/mp3-preview/8dd8fbb1721d4964028ad362a80ad3ae2422f547?cid=6d083ea30aaa46428fbf1590d31f6750",
-				trackTime: "0:30",
+					"https://www.mboxdrive.com/Taylor%20Swift%20-%20I%20Forgot%20That%20You%20Existed%20(Lyric%20Video).mp3",
 			},
 			{
 				index: "6",
-				songName: "Beyni Yok (Demo)",
+				songName: "Lover",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				songArtist: "Taylor Swift",
 				link:
-					"https://p.scdn.co/mp3-preview/70bcfb8ae773f9e74501a6b28d545ac04abd0fdd?cid=6d083ea30aaa46428fbf1590d31f6750",
-				trackTime: "0:30",
+					"https://www.mboxdrive.com/Taylor%20Swift%20-%20Lover%20(Lyrics).mp3",
 			},
 			{
 				index: "7",
-				songName: "Nafile (Demo)",
+				songName: "Riptide",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
+				songArtist: "Vance Joy",
 				link:
-					"https://p.scdn.co/mp3-preview/225415a01d8093fbde5462def2f54c805d5ce4a5?cid=6d083ea30aaa46428fbf1590d31f6750",
-				trackTime: "0:30",
+					"https://www.mboxdrive.com/Vance Joy - Riptide (Lyrics).mp3",
 			},
 			{
 				index: "8",
-				songName: "Ömrümüz Yine Geçiyor (Demo)",
+				songName: "Trofea",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e02c4aa14d6f01b64808cf9ae31",
+				songArtist: "Dawid Podsiadło",
 				link:
-					"https://p.scdn.co/mp3-preview/d306c50b99606e47644c5ed8a405da31094d0e2b?cid=6d083ea30aaa46428fbf1590d31f6750",
-				trackTime: "0:30",
+					"https://www.mboxdrive.com/Trofea.mp3",
 			},
 			{
 				index: "9",
-				songName: "Yangın Var (Demo)",
+				songName: "Africa",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e024a052b99c042dc15f933145b",
+				songArtist: "Toto",
 				link:
-					"https://p.scdn.co/mp3-preview/8e8aa510101ebb69e5c8c7ae3fd0c20ee21be3ef?cid=6d083ea30aaa46428fbf1590d31f6750",
-				trackTime: "0:30",
+					"https://www.mboxdrive.com/Toto Africa Lyrics (high quality audio).mp3",
 			},
 			{
 				index: "10",
-				songName: "Egotango (Demo)",
+				songName: "The Lazy Song",
 				songimg:
-					"https://i.scdn.co/image/ab67616d0000b2731d26b3e7ea803059a6e4ffea",
-				songArtist: "Ari Barokos",
+					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
+				songArtist: "Bruno Mars",
 				link:
-					"https://p.scdn.co/mp3-preview/a74af1d9813db16e08ffdcb52c0c3d43c1b15a61?cid=6d083ea30aaa46428fbf1590d31f6750",
-				trackTime: "0:30",
+					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+			},
+			{
+				index: "11",
+				songName: "How Bad Can I Be?",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02d228a76299b89385a7f642fd",
+				songArtist: "Ed Helms",
+				link:
+					"https://www.mboxdrive.com/The Lorax How Bad Can I Be.mp3",
+			},
+			{
+				index: "12",
+				songName: "Señorita",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02e6095c382c2853667c1623eb",
+				songArtist: "Camila Cabello feat. Shawn Mendes",
+				link:
+					"https://www.mboxdrive.com/Shawn Mendes, Camila Cabello - Señorita (Lyrics).mp3",
+			},
+			{
+				index: "13",
+				songName: "The Lazy Song",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
+				songArtist: "Bruno Mars",
+				link:
+					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+			},
+			{
+				index: "14",
+				songName: "The Lazy Song",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
+				songArtist: "Bruno Mars",
+				link:
+					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+			},
+			{
+				index: "15",
+				songName: "The Lazy Song",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
+				songArtist: "Bruno Mars",
+				link:
+					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+			},
+			{
+				index: "16",
+				songName: "The Lazy Song",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
+				songArtist: "Bruno Mars",
+				link:
+					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
 			},
 		],
 	},

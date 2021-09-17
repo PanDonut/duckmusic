@@ -26,6 +26,10 @@ function PlaylistPage(props) {
 		setIsthisPlay(playlistIndex === props.trackData.trackKey[0])
 	})
 
+	oncontextmenu = function (e) {
+		e.preventDefault();
+	};
+
 	return (
 		<div className={styles.PlaylistPage}>
 			<div className={styles.gradientBg}></div>

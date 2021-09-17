@@ -8,6 +8,10 @@ import styles from "./home.module.css";
 
 import { PLAYLIST } from '../data/index'
 
+oncontextmenu = function (e) {
+    e.preventDefault();
+};
+
 function Home(){
     return (
         <div className={styles.Home}>
