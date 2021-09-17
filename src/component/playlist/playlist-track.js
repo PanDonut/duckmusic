@@ -54,7 +54,6 @@ function PlaylistTrack(props) {
 				<TextRegularM>{props.data.song.songArtist}</TextRegularM>
 			</span>
 
-			<p>{props.data.song.trackTime}</p>
 		</div>
 	);
 }
