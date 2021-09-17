@@ -120,39 +120,102 @@ export const PLAYLIST = [
 			},
 			{
 				index: "13",
-				songName: "The Lazy Song",
+				songName: "I Think He Knows",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
-				songArtist: "Bruno Mars",
+					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				songArtist: "Taylor Swift",
 				link:
-					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+					"https://www.mboxdrive.com/Taylor Swift - I Think He Knows (Lyrics).mp3",
 			},
 			{
 				index: "14",
-				songName: "The Lazy Song",
+				songName: "Treat You Better",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
-				songArtist: "Bruno Mars",
+					"https://i.scdn.co/image/ab67616d00001e021376b4b16f4bfcba02dc571b",
+				songArtist: "Shawn Mendes",
 				link:
-					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+					"https://www.mboxdrive.com/Shawn Mendes - Treat You Better (Lyrics).mp3",
 			},
 			{
 				index: "15",
-				songName: "The Lazy Song",
+				songName: "When I Fall in Love",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
-				songArtist: "Bruno Mars",
+					"https://i.scdn.co/image/ab67616d00001e025755e164993798e0c9ef7d7a",
+				songArtist: "Rick Astley",
 				link:
-					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+					"https://www.mboxdrive.com/Rick Astley - When I Fall in Love (Audio).mp3",
 			},
 			{
 				index: "16",
-				songName: "The Lazy Song",
+				songName: "Feel This Moment",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
-				songArtist: "Bruno Mars",
+					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
+				songArtist: "Pitbull feat. Christina Aguilera",
 				link:
-					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+			},
+			{
+				index: "17",
+				songName: "Fight Song",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02a9e4d7fae5dfcc8f9cc96bc9",
+				songArtist: "Rachel Platten",
+				link:
+					"https://www.mboxdrive.com/Rachel Platten _ Fight Song Lyrics.mp3",
+			},
+			{
+				index: "18",
+				songName: "Counting Stars",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e029e2f95ae77cf436017ada9cb",
+				songArtist: "OneRepublic",
+				link:
+					"https://www.mboxdrive.com/OneRepublic - Counting Stars [Lyrics].mp3",
+			},
+			{
+				index: "19",
+				songName: "No Roots",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e027d53a512292b565a520aaca1",
+				songArtist: "Alice Merton",
+				link:
+					"https://www.mboxdrive.com/No Roots - Alice Merton (Lyrics).mp3",
+			},
+			{
+				index: "20",
+				songName: "Feel This Moment",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
+				songArtist: "Pitbull feat. Christina Aguilera",
+				link:
+					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+			},
+			{
+				index: "21",
+				songName: "Feel This Moment",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
+				songArtist: "Pitbull feat. Christina Aguilera",
+				link:
+					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+			},
+			{
+				index: "22",
+				songName: "Feel This Moment",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
+				songArtist: "Pitbull feat. Christina Aguilera",
+				link:
+					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+			},
+			{
+				index: "23",
+				songName: "Feel This Moment",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
+				songArtist: "Pitbull feat. Christina Aguilera",
+				link:
+					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
 			},
 		],
 	},
