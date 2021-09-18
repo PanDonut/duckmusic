@@ -227,7 +227,7 @@ export const PLAYLIST = [
 		imgUrl:
 			"https://i.ibb.co/GsD7sgw/heavybeat.png",
 		hoverColor: "rgb(97, 82, 255)",
-		artist: "TheDuck Studios, Alexandra Stan",
+		artist: "TheDuck Studios feat. Alexandra Stan",
 		playlistBg: "rgb(132, 82, 163)",
 		playlistData: [
 			{
