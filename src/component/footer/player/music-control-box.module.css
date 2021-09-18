@@ -1,14 +1,15 @@
-.musicControl{
+.musicControl {
     width: 125px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 12px;
+    -webkit-tap-highlight-color: transparent;
 }
 .musicControl div button svg{
     fill: black !important;
 }
-.button{
+.button {
     border: 0;
     background: transparent;
     width: 32px;
@@ -17,6 +18,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    -webkit-tap-highlight-color: transparent;
 }
 .button svg{
     font-size: 16px;

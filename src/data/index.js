@@ -183,19 +183,19 @@ export const PLAYLIST = [
 			},
 			{
 				index: "20",
-				songName: "Feel This Moment",
+				songName: "High Hopes",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
-				songArtist: "Pitbull feat. Christina Aguilera",
+					"https://i.scdn.co/image/ab67616d00001e02c5148520a59be191eea16989",
+				songArtist: "Panic! at the Disco",
 				link:
-					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+					"https://www.mboxdrive.com/Panic At the Disco - High Hopes (Lyrics).mp3",
 			},
 			{
 				index: "21",
-				songName: "Feel This Moment",
+				songName: "Happier",
 				songimg:
 					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
-				songArtist: "Pitbull feat. Christina Aguilera",
+				songArtist: "Marshmello feat. Bastille",
 				link:
 					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
 			},
