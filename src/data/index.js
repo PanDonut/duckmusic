@@ -194,28 +194,28 @@ export const PLAYLIST = [
 				index: "21",
 				songName: "Happier",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
+					"https://i.scdn.co/image/ab67616d00001e0204bfd5a5fd5aa6ca648f66aa",
 				songArtist: "Marshmello feat. Bastille",
 				link:
-					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+					"https://www.mboxdrive.com/Marshmello, Bastille - Happier (Lyrics).mp3",
 			},
 			{
 				index: "22",
-				songName: "Feel This Moment",
+				songName: "Uptown Funk",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
-				songArtist: "Pitbull feat. Christina Aguilera",
+					"https://i.scdn.co/image/ab67616d00001e02e419ccba0baa8bd3f3d7abf2",
+				songArtist: "Mark Ronson feat. Bruno Mars",
 				link:
-					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+					"https://www.mboxdrive.com/Mark Ronson - Uptown Funk (Lyrics) ft. Bruno Mars.mp3",
 			},
 			{
 				index: "23",
-				songName: "Feel This Moment",
+				songName: "Moves Like Jagger",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
-				songArtist: "Pitbull feat. Christina Aguilera",
+					"https://i.scdn.co/image/ab67616d00001e02c5e1cecaedcd413599e4e866",
+				songArtist: "Maroon 5 feat. Christina Aguilera",
 				link:
-					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+					"https://www.mboxdrive.com/Maroon 5 - Moves Like Jagger (Lyrics) ft. Christina Aguilera.mp3",
 			},
 		],
 	},

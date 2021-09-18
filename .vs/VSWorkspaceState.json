@@ -3,10 +3,12 @@
     "",
     "\\src",
     "\\src\\component",
+    "\\src\\component\\footer",
+    "\\src\\component\\footer\\player",
     "\\src\\data",
     "\\src\\pages",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\pages\\home.js",
+  "SelectedNode": "\\src\\component\\footer\\player\\music-control-box.module.css",
   "PreviewInSolutionExplorer": false
 }
