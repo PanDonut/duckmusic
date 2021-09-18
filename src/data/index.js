@@ -219,6 +219,28 @@ export const PLAYLIST = [
 			},
 		],
 	},
+	{
+		index: "1",
+		type: "piosenka",
+		title: "Mr. Heavybeat",
+		link: "heavybeat",
+		imgUrl:
+			"https://i.ibb.co/GsD7sgw/heavybeat.png",
+		hoverColor: "rgb(97, 82, 255)",
+		artist: "TheDuck Studios, Alexandra Stan",
+		playlistBg: "rgb(132, 82, 163)",
+		playlistData: [
+			{
+				index: "1",
+				songName: "Mr. Heavybeat",
+				songimg:
+					"https://i.ibb.co/GsD7sgw/heavybeat.png",
+				songArtist: "TheDuck Studios feat. Alexandra Stan",
+				link:
+					"https://www.mboxdrive.com/heavy_mr_saxobeat.mp3",
+			},
+		],
+	},
 ];
 
 export const MUSICLINKS = [
