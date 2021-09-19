@@ -305,6 +305,8 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e020ae4f4d42e4a09f3a29f64ad",
 				songArtist: "Avicii",
 					"https://www.mboxdrive.com/Avicii - The Nights (Lyrics).mp3",
+				link:
+					"https://www.mboxdrive.com/Avicii - The Nights (Lyrics).mp3",
 			},
 		],
 	},
