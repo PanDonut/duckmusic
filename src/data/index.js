@@ -217,6 +217,95 @@ export const PLAYLIST = [
 				link:
 					"https://www.mboxdrive.com/Maroon 5 - Moves Like Jagger (Lyrics) ft. Christina Aguilera.mp3",
 			},
+			{
+				index: "24",
+				songName: "This Girl (Kungs Vs. Cookin' On 3 Burners)",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02af72d0856c5527dc97f3ea08",
+				songArtist: "Kungs",
+				link:
+					"https://www.mboxdrive.com/Kungs vs Cookin on 3 Burners This Girl Audio.mp3",
+			},
+			{
+				index: "25",
+				songName: "Never Really Over",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e029bea3b79b95f86d1b66ac960",
+				songArtist: "Katy Perry",
+				link:
+					"https://www.mboxdrive.com/Katy Perry - Never Really Over (Lyrics).mp3",
+			},
+			{
+				index: "26",
+				songName: "Firework",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02f619042d5f6b2149a4f5e0ca",
+				songArtist: "Katy Perry",
+				link:
+					"https://www.mboxdrive.com/Katy Perry - Firework (Lyrics).mp3",
+			},
+			{
+				index: "27",
+				songName: "Thunder",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e025675e83f707f1d7271e5cf8a",
+				songArtist: "Imagine Dragons",
+				link:
+					"https://www.mboxdrive.com/Imagine Dragons - Thunder (Lyrics).mp3",
+			},
+			{
+				index: "28",
+				songName: "Believer",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e025675e83f707f1d7271e5cf8a",
+				songArtist: "Imagine Dragons",
+				link:
+					"https://www.mboxdrive.com/Imagine Dragons Believer LYRICS.mp3",
+			},
+			{
+				index: "29",
+				songName: "Happier",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02ba5db46f4b838ef6027e6f96",
+				songArtist: "Ed Sheeran",
+				link:
+					"https://www.mboxdrive.com/Happier - Ed Sheeran [Lyric].mp3",
+			},
+			{
+				index: "30",
+				songName: "We Are Young",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e0205fb4e9947c6edaf3836766e",
+				songArtist: "Fun feat. Janelle Monáe",
+				link:
+					"https://www.mboxdrive.com/Fun. ft Janelle Monae - We Are Young Official Lyrics.mp3",
+			},
+			{
+				index: "31",
+				songName: "Can't stop the feeling",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02ef37416970812293c08e8a78",
+				songArtist: "Justin Timberlake",
+				link:
+					"https://www.mboxdrive.com/CANT STOP THE FEELING - Justin Timberlake (Lyrics) .mp3",
+			},
+			{
+				index: "32",
+				songName: "Pompeii",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02faee7306ec2f36aeccc4bc98",
+				songArtist: "Bastille (Kat Krazy Remix)",
+				link:
+					"https://www.mboxdrive.com/Bastille - Pompeii (Kat Krazy Remix).mp3",
+			},
+			{
+				index: "33",
+				songName: "The Nights",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e020ae4f4d42e4a09f3a29f64ad",
+				songArtist: "Avicii",
+					"https://www.mboxdrive.com/Avicii - The Nights (Lyrics).mp3",
+			},
 		],
 	},
 	{
