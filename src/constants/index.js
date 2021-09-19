@@ -11,7 +11,7 @@ export const MENU = [
     path: '/',
     icon: <Icon.Home />,
     iconSelected: <Icon.HomeActive />
-  }
+    }
 ]
 
 export const PLAYLISTBTN = [

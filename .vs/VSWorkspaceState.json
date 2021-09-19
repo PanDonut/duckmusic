@@ -5,10 +5,12 @@
     "\\src\\component",
     "\\src\\component\\footer",
     "\\src\\component\\footer\\player",
+    "\\src\\component\\sidebar",
+    "\\src\\constants",
     "\\src\\data",
     "\\src\\pages",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\component\\footer\\player\\music-control-box.module.css",
+  "SelectedNode": "\\src\\component\\footer\\footer-left.module.css",
   "PreviewInSolutionExplorer": false
 }
