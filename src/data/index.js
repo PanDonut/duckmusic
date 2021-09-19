@@ -287,7 +287,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02ef37416970812293c08e8a78",
 				songArtist: "Justin Timberlake",
 				link:
-					"https://www.mboxdrive.com/CANT STOP THE FEELING - Justin Timberlake (Lyrics) .mp3",
+					"https://www.mboxdrive.com/CANT%20STOP%20THE%20FEELING%20-%20Justin%20Timberlake%20(Lyrics)%20.mp3",
 			},
 			{
 				index: "32",
