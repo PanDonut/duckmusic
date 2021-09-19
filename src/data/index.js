@@ -215,7 +215,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02c5e1cecaedcd413599e4e866",
 				songArtist: "Maroon 5 feat. Christina Aguilera",
 				link:
-					"https://www.mboxdrive.com/Maroon 5 - Moves Like Jagger (Lyrics) ft. Christina Aguilera.mp3",
+					"https://www.mboxdrive.com/Moves%20Like%20Jagger%20-%20Maroon%205%20featuring%20Christina%20Aguilera.mp3",
 			},
 			{
 				index: "24",
@@ -224,7 +224,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02af72d0856c5527dc97f3ea08",
 				songArtist: "Kungs",
 				link:
-					"https://www.mboxdrive.com/Kungs vs Cookin on 3 Burners This Girl Audio.mp3",
+					"https://www.mboxdrive.com/Kungs%20vs%20Cookin%20on%203%20Burners%20%20%20This%20Girl%20Audio.mp3",
 			},
 			{
 				index: "25",
