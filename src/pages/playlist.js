@@ -59,7 +59,6 @@ function PlaylistPage(props) {
 							<div className={styles.ListHead}>
 								<TextRegularM></TextRegularM>
 								<TextRegularM>UTWORY</TextRegularM>
-								<Icons.Time/>
 							</div>
 
 							<div className={styles.PlaylistSongs}>
