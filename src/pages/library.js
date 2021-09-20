@@ -6,28 +6,28 @@ import { PLAYLIST } from "../data/index";
 
 import styles from "./library.module.css";
 
-function Library(){
+function Library() {
     return (
         <div className={styles.LibPage}>
-                <Topnav tabButtons={true}/>
-                <div className={styles.Library}>
-                        <Route exact path="/library"><PlaylistTab /></Route>
-                        <Route path="/library/podcasts"><PodcastTab /></Route>
-                        <Route path="/library/artists"><ArtistTab /></Route>
-                        <Route path="/library/albums"><AlbumTab /></Route>
-                </div>
+            <Topnav tabButtons={true} />
+            <div className={styles.Library}>
+                <Route exact path="/library"><PlaylistTab /></Route>
+                <Route path="/library/podcasts"><PodcastTab /></Route>
+                <Route path="/library/artists"><ArtistTab /></Route>
+                <Route path="/library/albums"><AlbumTab /></Route>
+            </div>
         </div>
     );
 }
 
-function PlaylistTab(){
+function PlaylistTab() {
     return (
         <div>
             <TitleM>Çalma Listeleri</TitleM>
             <div className={styles.Grid}>
                 {PLAYLIST.filter(item => item.type == 'playlist').map((item) => {
                     return (
-                        <PlaylistCardM 
+                        <PlaylistCardM
                             key={item.title}
                             data={item}
                         />
@@ -38,14 +38,14 @@ function PlaylistTab(){
     );
 }
 
-function PodcastTab(){
+function PodcastTab() {
     return (
         <div>
             <TitleM>Podcast'ler</TitleM>
             <div className={styles.Grid}>
                 {PLAYLIST.filter(item => item.type == 'podcast').map((item) => {
                     return (
-                        <PlaylistCardM 
+                        <PlaylistCardM
                             key={item.title}
                             data={item}
                         />
@@ -56,7 +56,7 @@ function PodcastTab(){
     );
 }
 
-function ArtistTab(){
+function ArtistTab() {
     return (
         <div>
             <TitleM>Sanatçılar</TitleM>
@@ -64,14 +64,14 @@ function ArtistTab(){
     );
 }
 
-function AlbumTab(){
+function AlbumTab() {
     return (
         <div>
             <TitleM>Albümler</TitleM>
             <div className={styles.Grid}>
-                {PLAYLIST.filter(item => item.type == 'albüm').map((item) => {
+                {PLAYLIST.filter(item => item.type == 'album').map((item) => {
                     return (
-                        <PlaylistCardM 
+                        <PlaylistCardM
                             key={item.title}
                             data={item}
                         />

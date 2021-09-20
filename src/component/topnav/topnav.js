@@ -10,8 +10,6 @@ function Topnav({search = false, tabButtons = false}) {
       <nav className={styles.Topnav}>
           <div>
                 <span>
-                </span>
-                <span>
                     <PrevPageBtn />
                     <NextPageBtn />
                     {search ? <SearchBox /> : ''}

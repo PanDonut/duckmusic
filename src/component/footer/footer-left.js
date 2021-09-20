@@ -21,7 +21,7 @@ function FooterLeft(props){
 function ImgBox({ trackData }){
     return (
         <div className={styles.imgBox}>
-            <img src={trackData.trackImg} alt="Gavurlar"/>
+            <img src={trackData.trackImg} alt=" "/>
         </div>
     );
 }

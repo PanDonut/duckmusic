@@ -1,6 +1,8 @@
 .SeachBox{
-    position: relative;
-    max-width: 368px;
+    position:absolute;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 .SeachBox svg{
     position: absolute;
@@ -28,6 +30,6 @@
     .SeachBox input{
         padding: 6px 42px;
         height: 24px;
-        width: 160px;
+        width: 90%;
     }
 }

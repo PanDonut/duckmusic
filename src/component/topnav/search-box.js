@@ -1,11 +1,12 @@
 import * as Icons from '../icons';
 import styles from './search-box.module.css';
+import Search from '../../pages/search.js'
 
 function SearchBox() {
     return (
         <div className={styles.SeachBox}>
             <Icons.Search />
-            <input placeholder="Sanatçılar, şarkılar veya podcast'ler" maxLength="80"/>
+            <input placeholder="Wyszukaj tytuł piosenki, autora lub playlistę" maxLength="80"/>
         </div>
     );
 }

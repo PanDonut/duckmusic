@@ -1,11 +1,11 @@
 import Topnav from '../component/topnav/topnav';
 import TitleM from '../component/text/title-m'
-import SearchPageCard from '../component/cards/searchpage-card';
-import { SEARCHCARDS } from '../data/index';
+import PlaylistCardS from '../component/cards/playlist-card-s';
+import { PLAYLIST } from '../data/index';
 
 import styles from "./search.module.css";
 
-function Search(){
+function Search() {
     return (
         <div className={styles.SearchPage}>
             <Topnav search={true}/>
@@ -13,15 +13,11 @@ function Search(){
             <div className={styles.Search}>
                 <TitleM>Szukaj</TitleM>
                 <div className={styles.SearchCardGrid}>
-                    {SEARCHCARDS.map((card) => {
+                    {PLAYLIST.map((item) => {
                         return (
-                            <SearchPageCard 
-                                key={card.title}
-                                cardData={{
-                                    bgcolor: card.bgcolor,
-                                    title: card.title,
-                                    imgurl: card.imgurl,
-                                }}
+                            <PlaylistCardS
+                                key={item.title}
+                                data={item}
                             />
                         );
                     })}

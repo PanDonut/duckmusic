@@ -9,12 +9,47 @@
     padding-bottom: 32px;
     margin-bottom: 95px;
 }
-.SearchCardGrid{
+.SearchCardGrid {
     display: grid;
-    grid-gap: 24px;
-    grid-template-columns: repeat(auto-fill,minmax(180px,1fr));
+    grid-template-columns: repeat(auto-fill,minmax(var(--small-cards-column-width),1fr));
     padding-top: 16px;
+    column-gap: 24px;
 }
+.SectionCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(var(--small-cards-column-width),1fr));
+    row-gap: 16px;
+    column-gap: 24px;
+    max-height: 352px;
+    overflow-y: hidden;
+}
+.SeachBox {
+    position: absolute;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .SeachBox svg {
+        position: absolute;
+        color: black;
+        top: 8px;
+        left: 12px;
+    }
+
+    .SeachBox input {
+        color: #000;
+        padding: 6px 48px;
+        height: 28px;
+        width: 100%;
+        border: 0;
+        border-radius: 500px;
+        text-overflow: ellipsis;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 16px;
+    }
+
 @media screen and (max-width: 640px) {
     .Search{
         padding: 16px;
@@ -24,5 +59,23 @@
     .SearchCardGrid{
         grid-gap: 16px;
         grid-template-columns: 1fr 1fr;
+    }
+    .SectionCardsMedium {
+        grid-gap: 16px;
+        overflow-y: auto;
+        grid-auto-rows: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .SeachBox svg {
+        left: 26px;
+        top: 15px;
+    }
+
+    .SeachBox input {
+        padding: 6px 42px;
+        height: 24px;
+        width: 90%;
     }
 }

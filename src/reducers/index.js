@@ -4,10 +4,10 @@ import { PLAYPAUSE, CHANGETRACK } from "../actions/index";
 const INITIAL_STATE = {
   trackData: {
     trackKey: [0, 0],
-    track: `${PLAYLIST[0].playlistData[0].link}`,
-    trackName: `${PLAYLIST[0].playlistData[0].songName}`,
-    trackImg: `${PLAYLIST[0].playlistData[0].songimg}`,
-    trackArtist: `${PLAYLIST[0].playlistData[0].songArtist}`
+    track: `https://www.mboxdrive.com/Zakonczenie%20(3).mp3`,
+    trackName: ` `,
+    trackImg: `https://i.ibb.co/jzp9qcm/trans.png`,
+    trackArtist: ` `
   },
   isPlaying: false
 };

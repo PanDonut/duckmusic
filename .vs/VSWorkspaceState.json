@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\actions",
     "\\src\\component",
-    "\\src\\component\\footer",
-    "\\src\\component\\footer\\player",
+    "\\src\\component\\cards",
     "\\src\\component\\sidebar",
-    "\\src\\constants",
-    "\\src\\data",
+    "\\src\\component\\topnav",
     "\\src\\pages",
+    "\\src\\reducers",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\component\\footer\\audio.js",
+  "SelectedNode": "\\src\\constants\\index.js",
   "PreviewInSolutionExplorer": false
 }
