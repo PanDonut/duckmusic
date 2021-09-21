@@ -38,7 +38,7 @@ function Home(){
                 </section>
 
                 <section>
-                    <div className={styles.SectionTitle}>
+                    <div className={styles.SectionTitle1}>
                         <TitleM>Odkrywaj</TitleM>
                     </div>
                     

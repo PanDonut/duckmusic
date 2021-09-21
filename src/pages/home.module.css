@@ -41,12 +41,22 @@
     margin: 0;
     color: #fff;
 }
+
+.SectionTitle1 {
+    margin-bottom: 22px;
+}
+
+    .SectionTitle1 h1,
+    .SectionTitle1 h2 {
+        margin: 0;
+        color: #fff;
+    }
 .SectionCards {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(var(--small-cards-column-width),1fr));
     row-gap: 16px;
     column-gap: 24px;
-    max-height: 352px;
+    max-height: 372px;
     overflow-y: hidden;
 }
 .SectionCardsMedium{
@@ -71,9 +81,20 @@ body {
         grid-template-rows: auto;
         -webkit-tap-highlight-color: transparent;
     }
+    .SectionCards {
+        display: none;
+    }
     .Content {
         padding: 16px;
         padding-bottom: 100px;
         -webkit-tap-highlight-color: transparent;
     }
+    .SectionTitle1 {
+        display: none;
+    }
+
+        .SectionTitle1 h1,
+        .SectionTitle1 h2 {
+            display: none;
+        }
 }
