@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\actions",
     "\\src\\component",
-    "\\src\\component\\cards",
+    "\\src\\component\\playlist",
     "\\src\\component\\sidebar",
     "\\src\\component\\topnav",
+    "\\src\\data",
     "\\src\\pages",
     "\\src\\reducers",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\constants\\index.js",
+  "SelectedNode": "\\src\\style\\variables.css",
   "PreviewInSolutionExplorer": false
 }

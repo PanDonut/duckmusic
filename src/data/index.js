@@ -311,7 +311,7 @@ export const PLAYLIST = [
 	},
 	{
 		index: "1",
-		type: "utwór",
+		type: "parodia",
 		title: "Mr. Heavybeat",
 		link: "heavybeat",
 		imgUrl:
@@ -520,6 +520,28 @@ export const PLAYLIST = [
 				songimg: "https://i.scdn.co/image/ab67616d00001e0266f688086d483cf5781942e0",
 				songArtist: "ElyOtto",
 				link: "https://www.dl.dropboxusercontent.com/s/36sdxnx8dgofkf6/ElyOtto%20-%20SugarCrash%20%28Lyrics%29%20ft.%20Kim%20Petras%20%20Curtis%20Waters.mp3",
+			},
+		],
+	},
+	{
+		index: "3",
+		type: "parodia",
+		title: "Down Under",
+		link: "downunder_robots",
+		imgUrl:
+			"https://i.ibb.co/4j70KRF/downunder.jpg",
+		hoverColor: "rgb(232, 176, 139)",
+		artist: "SharaX",
+		playlistBg: "rgb(75, 44, 39)",
+		playlistData: [
+			{
+				index: "1",
+				songName: "🅴 Down Under",
+				songimg:
+					"https://i.ibb.co/4j70KRF/downunder.jpg",
+				songArtist: "SharaX",
+				link:
+					"https://www.mboxdrive.com/[TF2%20Remix]%20SharaX%20-%20Down%20Under%20(More%20Gun).mp3",
 			},
 		],
 	},
