@@ -1,30 +1,37 @@
 import { useParams } from 'react-router';
 import { connect } from 'react-redux';
 import { changeTrack } from '../actions';
-import Topnav from '../component/topnav/topnav';
 import TextRegularM from "../component/text/text-regular-m";
 import PlayButton from '../component/buttons/play-button';
 import IconButton from '../component/buttons/icon-button';
-import PlaylistDetails from '../component/playlist/playlist-details';
+import PlaylistDetails from '../component/playlist/embed-details';
 import PlaylistTrack from '../component/playlist/playlist-track';
 import * as Icons from '../component/icons';
 import { PLAYLIST } from "../data/index";
-
-import styles from './playlist.module.css';
-import { useEffect, useState } from 'react';
-
-import Sidebar from '../component/sidebar/sidebar';
-import lay from '../style/App.module.css';
+import React, { useState, useEffect } from 'react';
 import {
 	BrowserRouter as Router,
 	Switch,
 	Route
 } from "react-router-dom";
-import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
+import Home from './home';
+import Search from './search';
+import Library from './library';
+import PlaylistPage from './playlist';
+import Embed from './embed';
+import Sidebar from '../component/sidebar/sidebar';
+import CONST from '../constants/index';
+import styles from './embed.module.css';
+import lay from '../style/App.module.css';
+import App from '../App.js';
 
-function PlaylistPage(props) {
+
+
+function EmbedPage(props) {
+
+	const size = useWindowSize();
 	const[playlistIndex, setPlaylistIndex] = useState(undefined);
 	const[isthisplay, setIsthisPlay] = useState(false);
 	const { path } = useParams();
@@ -40,19 +47,19 @@ function PlaylistPage(props) {
 	oncontextmenu = function (e) {
 		e.preventDefault();
 	};
-	const size = useWindowSize();
+
 	return (
-		<div className={lay.layout}>
-			{size.width > CONST.MOBILE_SIZE
-				? <Sidebar />
-				: <MobileNavigation />
-			}
 		<div className={styles.PlaylistPage}>
+			<title>Website Name</title>
+			<meta content="Embed Title" property="og:title" />
+			<meta content="Site Description" property="og:description" />
+			<meta content="https://duckmusic.vercel.app/playlist/:path" property="og:url" />
+			<meta content="https://embed.com/embedimage.png" property="og:image" />
+			<meta content="#43B581" data-react-helmet="true" name="theme-color" />
 			<div className={styles.gradientBg}></div>
             <div className={styles.gradientBgSoft}></div>
 			<div className={styles.Bg}></div>
 
-			<Topnav />
 
 			{PLAYLIST.map((item) => {
                 if(item.link == path){
@@ -74,7 +81,7 @@ function PlaylistPage(props) {
 
 							<div className={styles.ListHead}>
 								<TextRegularM></TextRegularM>
-								<TextRegularM>UTWORY</TextRegularM>
+								<TextRegularM>SONGS</TextRegularM>
 							</div>
 
 							<div className={styles.PlaylistSongs}>
@@ -100,7 +107,6 @@ function PlaylistPage(props) {
                 }
 			})}
 		</div>
-		</div>
 	);
 }
 
@@ -112,4 +118,4 @@ const mapStateToProps = (state) => {
 	};
 };
   
-export default connect(mapStateToProps, { changeTrack })(PlaylistPage);
+export default connect(mapStateToProps, { changeTrack })(EmbedPage);

@@ -6,14 +6,34 @@ import PlaylistCardM from '../component/cards/playlist-card-m';
 
 import styles from "./home.module.css";
 
+
+import Sidebar from '../component/sidebar/sidebar';
+import lay from '../style/App.module.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+} from "react-router-dom";
+import CONST from '../constants/index';
+import useWindowSize from '../hooks/useWindowSize';
+import MobileNavigation from '../component/sidebar/mobile-navigation';
+
+
 import { PLAYLIST } from '../data/index'
 
 oncontextmenu = function (e) {
     e.preventDefault();
 };
 
-function Home(){
+
+function Home() {
+    const size = useWindowSize();
     return (
+        <div className={lay.layout}>
+            {size.width > CONST.MOBILE_SIZE
+                ? <Sidebar />
+                : <MobileNavigation />
+            }
         <div className={styles.Home}>
             <div className={styles.HoverBg}></div>
             <div className={styles.Bg}></div>
@@ -54,6 +74,7 @@ function Home(){
                     </div>
                 </section>
             </div>
+        </div>
         </div>
     );
 }

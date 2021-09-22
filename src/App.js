@@ -11,32 +11,36 @@ import Home from './pages/home';
 import Search from './pages/search';
 import Library from './pages/library';
 import PlaylistPage from './pages/playlist';
+import Embed from './pages/embed';
 
 import CONST from './constants/index';
 import { PLAYLIST } from './data/index';
 import styles from './style/App.module.css';
+import Card from './component/cards/playlist-card-m';
 
 function App() {
   const size = useWindowSize();
 
-  return (
+    return (
         <Router>
         <div className={styles.layout}>
-          {size.width > CONST.MOBILE_SIZE 
-            ? <Sidebar /> 
-            : <MobileNavigation />
-          }
           <Switch>
             <Route exact path="/">
                 <Home />
             </Route>
             <Route exact path="/playlist/:path">
                 <PlaylistPage />
+                  </Route>
+            <Route exact path="/card/:path">
+                <Card />
+            </Route>
+            <Route exact path="/embed/:path">
+               <Embed />
             </Route>
           </Switch>
           <Footer />
-        </div>
-      </Router>
+          </div>
+            </Router>
   );
 }
 

@@ -33,7 +33,7 @@ function Sidebar() {
     });
 
     return (
-      <nav className={styles.SideNavbar} style={{width: `${width}px`}}>
+        <nav className={styles.SideNavbar} style={{ width: `${width}px` }}>
         <div className={styles.Fixed}>
           <div>
               <Logo/>
