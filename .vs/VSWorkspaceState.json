@@ -3,14 +3,13 @@
     "",
     "\\src",
     "\\src\\component",
-    "\\src\\component\\playlist",
-    "\\src\\component\\sidebar",
+    "\\src\\component\\cards",
     "\\src\\component\\topnav",
     "\\src\\data",
     "\\src\\pages",
     "\\src\\reducers",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\style\\variables.css",
+  "SelectedNode": "\\src\\pages\\home.js",
   "PreviewInSolutionExplorer": false
 }
