@@ -546,7 +546,7 @@ export const PLAYLIST = [
 		],
 	},
 	{
-		index: "3",
+		index: "4",
 		type: "parodia",
 		title: "Blinding Squad",
 		link: "squad_remix_theduck",
