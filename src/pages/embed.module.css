@@ -13,6 +13,7 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    width: 100%;
 }
 ::-webkit-scrollbar {
     width: 0px;

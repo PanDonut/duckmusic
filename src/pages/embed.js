@@ -5,7 +5,7 @@ import TextRegularM from "../component/text/text-regular-m";
 import PlayButton from '../component/buttons/play-button';
 import IconButton from '../component/buttons/icon-button';
 import PlaylistDetails from '../component/playlist/embed-details';
-import PlaylistTrack from '../component/playlist/playlist-track';
+import PlaylistTrack from '../component/playlist/embed-track';
 import * as Icons from '../component/icons';
 import { PLAYLIST } from "../data/index";
 import React, { useState, useEffect } from 'react';
