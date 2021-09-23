@@ -24,7 +24,7 @@ import Embed from './embed';
 import Sidebar from '../component/sidebar/sidebar';
 import CONST from '../constants/index';
 import styles from './embed.module.css';
-import lay from '../style/App.module.css';
+import lay from '../style/lay.module.css';
 import App from '../App.js';
 
 
@@ -49,13 +49,8 @@ function EmbedPage(props) {
 	};
 
 	return (
+		<div className={lay.layout}>
 		<div className={styles.PlaylistPage}>
-			<title>Website Name</title>
-			<meta content="Embed Title" property="og:title" />
-			<meta content="Site Description" property="og:description" />
-			<meta content="https://duckmusic.vercel.app/playlist/:path" property="og:url" />
-			<meta content="https://embed.com/embedimage.png" property="og:image" />
-			<meta content="#43B581" data-react-helmet="true" name="theme-color" />
 			<div className={styles.gradientBg}></div>
             <div className={styles.gradientBgSoft}></div>
 			<div className={styles.Bg}></div>
@@ -106,7 +101,8 @@ function EmbedPage(props) {
                     );
                 }
 			})}
-		</div>
+			</div>
+			</div>
 	);
 }
 
