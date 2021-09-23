@@ -553,7 +553,7 @@ export const PLAYLIST = [
 		imgUrl:
 			"https://i.ibb.co/RCvsgpj/squad.png",
 		hoverColor: "rgb(179, 199, 206)",
-		artist: "SharaX",
+		artist: "TheDuck Studios",
 		playlistBg: "rgb(223, 204, 200)",
 		playlistData: [
 			{
