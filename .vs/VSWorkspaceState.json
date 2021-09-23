@@ -3,13 +3,14 @@
     "",
     "\\src",
     "\\src\\component",
-    "\\src\\component\\cards",
-    "\\src\\component\\topnav",
+    "\\src\\component\\playlist",
+    "\\src\\constants",
     "\\src\\data",
+    "\\src\\hooks",
     "\\src\\pages",
     "\\src\\reducers",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\pages\\home.js",
+  "SelectedNode": "\\src\\pages\\playlist.js",
   "PreviewInSolutionExplorer": false
 }

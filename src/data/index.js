@@ -545,6 +545,28 @@ export const PLAYLIST = [
 			},
 		],
 	},
+	{
+		index: "3",
+		type: "parodia",
+		title: "Blinding Squad",
+		link: "squad_remix_theduck",
+		imgUrl:
+			"https://i.ibb.co/4j70KRF/downunder.jpg",
+		hoverColor: "rgb(179, 199, 206)",
+		artist: "SharaX",
+		playlistBg: "rgb(223, 204, 200)",
+		playlistData: [
+			{
+				index: "1",
+				songName: "🅴 Blinding Squad",
+				songimg:
+					"https://i.ibb.co/RCvsgpj/squad.png",
+				songArtist: "TheDuck Studios",
+				link:
+					"https://www.mboxdrive.com/squad_remix_theduck.mp3",
+			},
+		],
+	},
 
 ];
 
