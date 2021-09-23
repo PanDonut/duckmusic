@@ -551,7 +551,7 @@ export const PLAYLIST = [
 		title: "Blinding Squad",
 		link: "squad_remix_theduck",
 		imgUrl:
-			"https://i.ibb.co/4j70KRF/downunder.jpg",
+			"https://i.ibb.co/RCvsgpj/squad.png",
 		hoverColor: "rgb(179, 199, 206)",
 		artist: "SharaX",
 		playlistBg: "rgb(223, 204, 200)",
