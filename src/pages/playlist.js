@@ -16,6 +16,7 @@ import styles from './playlist.module.css';
 import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import copy from "copy-to-clipboard";
 
 import Sidebar from '../component/sidebar/sidebar';
 import lay from '../style/App.module.css';
@@ -96,12 +97,12 @@ function PlaylistPage(props) {
 							</div>
 							<div className={styles.PlaylistIcons1}>
 							<button
-								onClick={() => { navigator.clipboard.writeText(link11); {notify();}}}
+								onClick={() => {copy(link11); {notify();}}}
 							>
 								<LinkButton/>
 							</button>
 							<button
-								onClick={() => { navigator.clipboard.writeText(embed11); {notifyembed();}}}
+								onClick={() => { copy(embed11); {notifyembed();}}}
 							>
 								<EmbedButton/>
 							</button>
