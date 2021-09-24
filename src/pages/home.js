@@ -8,7 +8,6 @@ import styles from "./home.module.css";
 
 
 import Sidebar from '../component/sidebar/sidebar';
-import lay from '../style/App.module.css';
 import {
     BrowserRouter as Router,
     Switch,
@@ -17,6 +16,7 @@ import {
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
+import lay from '../style/App.module.css';
 
 
 import { PLAYLIST } from '../data/index'

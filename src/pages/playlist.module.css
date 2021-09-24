@@ -39,6 +39,9 @@
 
     background-color: var(--hover-home-bg);
 }
+.GridIcons {
+    display: inline-block;
+}
 .Bg{
     position: fixed;
     top: 0;
@@ -50,10 +53,12 @@
 }
 
 .PlaylistIcons{
-    display: flex;
+    display: inline-flex;
     align-items: center;
     flex-direction: row;
-    padding: 24px 32px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 32px;
     position: relative;
 }
 .PlaylistIcons button{
@@ -61,7 +66,6 @@
     background-color: transparent;
 }
 .PlaylistIcons div{
-    margin-right: 32px;
     width: 56px;
     height: 56px;
     border-radius: 28px;
@@ -77,6 +81,42 @@
 }
 .PlaylistIcons button svg{
     font-size: 28px;
+}
+.PlaylistIcons1{
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    position: relative;
+    transition: all 0.25s;
+    margin-left: 15px;
+}
+.PlaylistIcons1 button{
+    border: 0;
+    background-color: transparent;
+    transition: all 0.25s;
+}
+.PlaylistIcons1 div{
+    width: 28px;
+    height: 56px;
+    border-radius: 28px;
+    background-color: transparent;
+    transition: all 0.25s;
+}
+.PlaylistIcons1 div button{
+    width: 28px;
+    height: 56px;
+    transition: all 0.25s;
+}
+.PlaylistIcons1 div button svg{
+    font-size: 28px;
+    fill: #fff !important;
+    transition: all 0.25s;
+}
+.PlaylistIcons1 button svg{
+    font-size: 28px;
+    transition: all 0.25s;
 }
 .moreIcon{
     margin-left: 24px;
@@ -136,7 +176,7 @@
     .PlaylistIcons div{
         width: 38px;
         height: 38px;
-        margin-right: 24px;
+        margin-right: 0px;
     }
     .PlaylistIcons div button{
         width: 38px;
@@ -156,5 +196,14 @@
     .SongBtn {
         padding: 0;
         -webkit-tap-highlight-color: transparent;
+    }
+    .PlaylistIcons1 {
+        display: inline-flex;
+        align-items: center;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        position: relative;
+        transition: all 0.25s;
+        margin-left: 0px;
     }
 }

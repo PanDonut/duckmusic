@@ -62,11 +62,12 @@
 .SectionCardsMedium{
     display: grid;
     grid-column-gap: 24px;
+    row-gap: 15px;
     column-gap: 24px;
     grid-template-columns: repeat(auto-fill,minmax(var(--cards-column-width),1fr));
-    overflow-y: hidden;
-    grid-auto-rows: 0;
+    grid-auto-rows: min-content;
     grid-template-rows: 1fr;
+    height: 100%;
 }
 
 body {

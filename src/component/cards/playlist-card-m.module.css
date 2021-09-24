@@ -9,6 +9,7 @@
     border-radius: 4px;
     -webkit-transition: background-color .3s ease;
     transition: background-color .3s ease;
+    min-height: 100px;
 }
 .ImgBox{
     position: relative;

@@ -4,6 +4,8 @@ import { changeTrack } from '../actions';
 import Topnav from '../component/topnav/topnav';
 import TextRegularM from "../component/text/text-regular-m";
 import PlayButton from '../component/buttons/play-button';
+import LinkButton from '../component/buttons/link-button';
+import EmbedButton from '../component/buttons/embed-button';
 import IconButton from '../component/buttons/icon-button';
 import PlaylistDetails from '../component/playlist/playlist-details';
 import PlaylistTrack from '../component/playlist/playlist-track';
@@ -12,6 +14,8 @@ import { PLAYLIST } from "../data/index";
 
 import styles from './playlist.module.css';
 import { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Sidebar from '../component/sidebar/sidebar';
 import lay from '../style/App.module.css';
@@ -41,6 +45,14 @@ function PlaylistPage(props) {
 		e.preventDefault();
 	};
 	const size = useWindowSize();
+	const notify = () => toast.info("Skopiowano link!", {
+		position: toast.POSITION.TOP_RIGHT
+	});
+	const notifyembed = () => toast.info("Skopiowano kod embed!", {
+		position: toast.POSITION.TOP_RIGHT
+	});
+	var link11 = "https://duckmusic.vercel.app/embed/" + path;
+	var embed11 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	return (
 		<div className={lay.layout}>
 			{size.width > CONST.MOBILE_SIZE
@@ -48,6 +60,16 @@ function PlaylistPage(props) {
 				: <MobileNavigation />
 			}
 		<div className={styles.PlaylistPage}>
+				<ToastContainer
+					position="bottom-center"
+					autoClose={5000}
+					hideProgressBar={false}
+					newestOnTop
+					closeOnClick
+					rtl={false}
+					pauseOnFocusLoss
+					draggable
+					pauseOnHover				/>
 			<div className={styles.gradientBg}></div>
             <div className={styles.gradientBgSoft}></div>
 			<div className={styles.Bg}></div>
@@ -64,12 +86,26 @@ function PlaylistPage(props) {
 
 							<PlaylistDetails data={item} />
 
+							<div className={styles.GridIcons}>
 							<div className={styles.PlaylistIcons}>
 								<button
 									onClick={() => props.changeTrack([PLAYLIST.indexOf(item), 0])} 
 								>
 									<PlayButton isthisplay={isthisplay}/>
 								</button>
+							</div>
+							<div className={styles.PlaylistIcons1}>
+							<button
+								onClick={() => { navigator.clipboard.writeText(link11); {notify();}}}
+							>
+								<LinkButton/>
+							</button>
+							<button
+								onClick={() => { navigator.clipboard.writeText(embed11); {notifyembed();}}}
+							>
+								<EmbedButton/>
+							</button>
+							</div>
 							</div>
 
 							<div className={styles.ListHead}>

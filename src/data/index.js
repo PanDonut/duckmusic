@@ -567,6 +567,28 @@ export const PLAYLIST = [
 			},
 		],
 	},
+	{
+		index: "4",
+		type: "parodia",
+		title: "Dmuch Guy",
+		link: "dmuch_guy",
+		imgUrl:
+			"https://i.ibb.co/wLTXNyZ/dmuchboys.png",
+		hoverColor: "rgb(170, 0, 255)",
+		artist: "Dmuch Boys",
+		playlistBg: "rgb(191, 214, 13)",
+		playlistData: [
+			{
+				index: "1",
+				songName: "Dmuch Guy",
+				songimg:
+					"https://i.ibb.co/wLTXNyZ/dmuchboys.png",
+				songArtist: "Dmuch Boys",
+				link:
+					"https://www.mboxdrive.com/duch_guy.mp3",
+			},
+		],
+	},
 
 ];
 

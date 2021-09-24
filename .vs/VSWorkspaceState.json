@@ -3,7 +3,7 @@
     "",
     "\\src",
     "\\src\\component",
-    "\\src\\component\\playlist",
+    "\\src\\component\\text",
     "\\src\\constants",
     "\\src\\data",
     "\\src\\hooks",
@@ -11,6 +11,6 @@
     "\\src\\reducers",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\pages\\playlist.js",
+  "SelectedNode": "\\src\\pages\\embed.js",
   "PreviewInSolutionExplorer": false
 }
