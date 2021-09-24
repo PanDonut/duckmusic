@@ -25,6 +25,7 @@ import {
 	Switch,
 	Route
 } from "react-router-dom";
+import NotFound from './404';
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
@@ -63,7 +64,7 @@ function PlaylistPage(props) {
 		<div className={styles.PlaylistPage}>
 				<ToastContainer
 					position="bottom-center"
-					autoClose={5000}
+					autoClose={2000}
 					hideProgressBar={false}
 					newestOnTop
 					closeOnClick

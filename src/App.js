@@ -17,6 +17,7 @@ import CONST from './constants/index';
 import { PLAYLIST } from './data/index';
 import styles from './style/App.module.css';
 import Card from './component/cards/playlist-card-m';
+import NotFound from './pages/404';
 
 function App() {
   const size = useWindowSize();
@@ -36,6 +37,9 @@ function App() {
             </Route>
             <Route exact path="/embed/:path">
                <Embed />
+            </Route>
+            <Route>
+               <NotFound />
             </Route>
           </Switch>
           <Footer />
