@@ -50,7 +50,7 @@ function PlaylistPage(props) {
 	const notify = () => toast.info("Skopiowano link!", {
 		position: toast.POSITION.TOP_RIGHT
 	});
-	const notifyembed = () => toast.info("Skopiowano kod embed!", {
+	const notifyembed = () => toast.info("Skopiowano kod do umieszczenia na stronie!", {
 		position: toast.POSITION.TOP_RIGHT
 	});
 	var link11 = "https://duckmusic.vercel.app/embed/" + path;
