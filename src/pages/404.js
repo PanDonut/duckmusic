@@ -29,15 +29,17 @@ oncontextmenu = function (e) {
     e.preventDefault();
 };
 
+const errr = toast.error('Wystąpił błąd', {
+    transition: Slide,
+    position: toast.POSITION.TOP_CENTER
+});
+
 
 function NotFound() {
     const size = useWindowSize();
-    const showerr = toast.error('Wystąpił błąd', {
-        transition: Slide,
-        position: toast.POSITION.TOP_CENTER
-    });
+    
     return (
-        <div className={lay.layout} onLoad={() => { { showerr(); } }}>
+        <div className={lay.layout}>
             {size.width > CONST.MOBILE_SIZE
                 ? <Sidebar />
                 : <MobileNavigation />
@@ -55,8 +57,7 @@ function NotFound() {
                     pauseOnHover
                     limit={1}
                 />
-                <div className={styles.Bg}></div>
-                <Topnav />
+                <div></div>
                 
                 <div className={styles.Content}>
                 </div>

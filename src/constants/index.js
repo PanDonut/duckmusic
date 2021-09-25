@@ -13,10 +13,10 @@ export const MENU = [
     iconSelected: <Icon.HomeActive />
     },
     {
-        title: 'Biblioteka',
-        path: '/library',
-        icon: <Icon.Library />,
-        iconSelected: <Icon.LibraryActive />
+        title: 'Szukaj',
+        path: '/search',
+        icon: <Icon.Search />,
+        iconSelected: <Icon.SearchActive />
     }
 ]
 

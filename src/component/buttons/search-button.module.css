@@ -1,0 +1,10 @@
+.playBtn{
+    width: 56px;
+    height: 56px;
+    border-radius: 32px;
+    color: #000;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    transition: .2s;
+}

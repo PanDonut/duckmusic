@@ -17,7 +17,26 @@ import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import lay from '../style/App.module.css';
 
+
+import SearchButton from '../component/buttons/search-button';
+
 function Search() {
+
+    class MyComponent extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                inputValue: ''
+            };
+        }
+        updateInputValue(evt) {
+            this.setState({
+                inputValue: evt.target.value
+            });
+        }
+    }
+
+
     const size = useWindowSize();
 
 
@@ -37,7 +56,9 @@ function Search() {
                 // our fetch codes
             }, []);
 
-
+    var substring = document.getElementsByClassName('{styles.SeachInpt}').inputValue;
+    var area = document.getElementsByClassName('{styles.SeachInpt}');
+ 
     return (
         <div className={lay.layout}>
             {size.width > CONST.MOBILE_SIZE
@@ -47,15 +68,18 @@ function Search() {
                 <meta charset="UTF-8" />
             <div className={styles.SearchPage}>
                 <Topnav />
-                <div className={styles.SeachBox}>
-                    <Icons.Search />
-                    <input placeholder="Wyszukaj tytu³ piosenki, autora lub playlistê" maxLength="80" />
-                </div>
+                
 
             <div className={styles.Search}>
-                <TitleM>Szukaj</TitleM>
+                    <div className={styles.SeachBox}>
+                            <input className={styles.SeachInpt} placeholder="Wyszukaj tytu³ piosenki, autora lub playlistê" maxLength="80" ></input>
+                        <button className={styles.Btnn}>
+                            <SearchButton />
+                        </button>
+                        </div>
+                        
                 <div className={styles.SearchCardGrid}>
-                    {PLAYLIST.map((item) => {
+                    {PLAYLIST.filter(item => item.title == area.input).map((item) => {
                         var title = item.title;
                         return (
                             <PlaylistCardS
@@ -66,6 +90,7 @@ function Search() {
                     })}
                 </div>
             </div>
+                    
         </div>
         </div>
     );
