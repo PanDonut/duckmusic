@@ -1,3 +1,10 @@
+:root {
+    --expand: 180px;
+    --disp: block;
+    --disp1: none;
+    --rot: rotate(0deg);
+}
+
 .Home {
     overflow-y: scroll;
     background: transparent;
@@ -56,8 +63,9 @@
     grid-template-columns: repeat(auto-fill,minmax(var(--small-cards-column-width),1fr));
     row-gap: 16px;
     column-gap: 24px;
-    max-height: 372px;
+    max-height: var(--expand);
     overflow-y: hidden;
+    transition: all 0.5s ease-in-out;
 }
 .SectionCardsMedium{
     display: grid;
@@ -68,6 +76,34 @@
     grid-auto-rows: min-content;
     grid-template-rows: 1fr;
     height: 100%;
+}
+
+.Btn {
+    background-color: transparent;
+    border: none;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: var(--disp);
+    transition: all 0.25s;
+}
+.Btn1 {
+    background-color: transparent;
+    border: none;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: var(--disp1);
+    transform: var(--rot);
+    transition: all 1s;
+}
+
+.BtnDiv {
+    justify-content: center;
+    align-items: center;
+    display: flex;
 }
 
 body {
@@ -98,4 +134,24 @@ body {
         .SectionTitle1 h2 {
             display: none;
         }
+    .Btn {
+        background-color: transparent;
+        border: none;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: none;
+    }
+
+    .Btn1 {
+        background-color: transparent;
+        border: none;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display:  none;
+        transform: rotate(180deg);
+    }
 }

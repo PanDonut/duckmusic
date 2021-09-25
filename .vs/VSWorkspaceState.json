@@ -3,14 +3,12 @@
     "",
     "\\src",
     "\\src\\component",
-    "\\src\\component\\text",
-    "\\src\\constants",
+    "\\src\\component\\buttons",
+    "\\src\\component\\cards",
     "\\src\\data",
-    "\\src\\hooks",
     "\\src\\pages",
-    "\\src\\reducers",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\pages\\embed.js",
+  "SelectedNode": "\\src\\data\\index.js",
   "PreviewInSolutionExplorer": false
 }

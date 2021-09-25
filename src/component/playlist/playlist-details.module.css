@@ -1,8 +1,14 @@
-.playlistDetails{
+.playlistDetails {
     padding: 24px 32px 24px;
     display: grid;
     grid-template-columns: 232px 1fr;
     column-gap: 24px;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 .imgBox{
     width: 232px;
@@ -13,6 +19,12 @@
     height: 100%;
     -webkit-box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
     box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
 }
 .textBox{
     display: flex;
