@@ -29,15 +29,16 @@ oncontextmenu = function (e) {
     e.preventDefault();
 };
 
-const errr = toast.error('Wystąpił błąd', {
-    transition: Slide,
-    position: toast.POSITION.TOP_CENTER
-});
 
 
 function NotFound() {
     const size = useWindowSize();
-    
+
+    const errr = toast.error('Wystąpił błąd', {
+        transition: Slide,
+        position: toast.POSITION.TOP_CENTER
+    });
+
     return (
         <div className={lay.layout}>
             {size.width > CONST.MOBILE_SIZE
