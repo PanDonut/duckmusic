@@ -80,3 +80,45 @@
     bottom: 106px;
     opacity: 1;
 }
+
+@media (prefers-color-scheme: dark) {
+    .PlaylistCardS {
+        position: relative;
+        padding: 16px;
+        background: #181818;
+        border-radius: 4px;
+        -webkit-transition: background-color .3s ease;
+        transition: background-color .3s ease;
+        min-height: 100px;
+    }
+    .Title p {
+        margin: 0px;
+        color: #fff;
+    }
+        .Title p:last-child {
+            color: rgb(179, 179, 179);
+            margin-top: 4px;
+            -webkit-line-clamp: 2;
+        }
+}
+
+@media (prefers-color-scheme: light) {
+    .PlaylistCardS {
+        position: relative;
+        padding: 16px;
+        background: #e9e9e9;
+        border-radius: 4px;
+        -webkit-transition: background-color .3s ease;
+        transition: background-color .3s ease;
+        min-height: 100px;
+    }
+    .Title p {
+        margin: 0px;
+        color: #000;
+    }
+    .Title p:last-child{
+    color: rgb(118 118 118);
+    margin-top: 4px;
+    -webkit-line-clamp: 2;
+}
+}

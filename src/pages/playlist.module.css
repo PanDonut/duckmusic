@@ -207,3 +207,17 @@
         margin-left: 0px;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .SongBtn span p:last-child,
+    .SongBtn p:last-child {
+        color: rgb(179, 179, 179);
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .SongBtn span p:last-child,
+    .SongBtn p:last-child {
+        color: rgba(0,0,0,.5);
+    }
+}

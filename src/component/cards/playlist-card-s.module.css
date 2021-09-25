@@ -78,3 +78,41 @@
 .PlaylistCardSBox:hover .IconBox{
     opacity: 1;
 }
+
+@media (prefers-color-scheme: dark) {
+    .PlaylistCardS {
+        position: relative;
+        height: 80px;
+        background-color: hsla(0,0%,100%,.1);
+        border-radius: 4px;
+        -webkit-transition: background-color .3s ease;
+        display: grid;
+        grid-template-columns: 80px 1fr;
+    }
+    .Title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 16px;
+        color: #fff;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .PlaylistCardS {
+        position: relative;
+        height: 80px;
+        background-color: hsla(0,0%,0%,.27);
+        border-radius: 4px;
+        -webkit-transition: background-color .3s ease;
+        display: grid;
+        grid-template-columns: 80px 1fr;
+    }
+    .Title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0px 16px;
+        color: #000;
+    }
+}
