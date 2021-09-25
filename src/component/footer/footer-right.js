@@ -1,6 +1,7 @@
 import * as Icons from '../icons';
 import RangeSlider from './range-slider';
 import IconButton from '../buttons/icon-button';
+import Footer from './footer';
 
 import styles from "./footer-right.module.css";
 import { useState } from 'react';

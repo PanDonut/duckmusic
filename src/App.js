@@ -38,12 +38,12 @@ function App() {
             <Route exact path="/embed/:path">
                <Embed />
             </Route>
-            <Route>
-               <NotFound />
+            <Route exact path="/library">
+               <Library />
             </Route>
           </Switch>
           <Footer />
-          </div>
+            </div>
             </Router>
   );
 }

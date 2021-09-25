@@ -20,29 +20,14 @@ import lay from '../style/App.module.css';
 
 import SearchButton from '../component/buttons/search-button';
 
-function Search() {
+function Search(){
 
-    class MyComponent extends React.Component {
-        constructor(props) {
-            super(props);
-            this.state = {
-                inputValue: ''
-            };
-        }
-        updateInputValue(evt) {
-            this.setState({
-                inputValue: evt.target.value
-            });
-        }
-    }
 
 
     const size = useWindowSize();
 
 
-    const [error, setError] = useState(null);
-    const [isLoaded, setIsLoaded] = useState(false);
-    const [items, setItems] = useState([]);
+    const [val, setVal] = useState('');
 
             const [q, setQ] = useState("");
             //     set search parameters
@@ -65,21 +50,16 @@ function Search() {
                 ? <Sidebar />
                 : <MobileNavigation />
             }
-                <meta charset="UTF-8" />
             <div className={styles.SearchPage}>
                 <Topnav />
                 
 
-            <div className={styles.Search}>
                     <div className={styles.SeachBox}>
-                            <input className={styles.SeachInpt} placeholder="Wyszukaj tytu³ piosenki, autora lub playlistê" maxLength="80" ></input>
-                        <button className={styles.Btnn}>
-                            <SearchButton />
-                        </button>
+                    <input className={styles.SeachInpt} placeholder={'Wyszukaj tytu³. Jest wra¿liwy na WIELKOŒÆ LITER'} maxLength="80" value={val} onChange={setVal}></input>
                         </div>
                         
                 <div className={styles.SearchCardGrid}>
-                    {PLAYLIST.filter(item => item.title == area.input).map((item) => {
+                    {PLAYLIST.filter(item => item.title.includes(area.state.value)).map((item) => {
                         var title = item.title;
                         return (
                             <PlaylistCardS
@@ -89,7 +69,6 @@ function Search() {
                         );
                     })}
                 </div>
-            </div>
                     
         </div>
         </div>

@@ -18,3 +18,15 @@
         padding: 8px 12px;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .tabBtn {
+        color: #fff;
+    }
+}
+
+@media (prefers-color-scheme: light) {
+    .tabBtn {
+        color: #000;
+    }
+}

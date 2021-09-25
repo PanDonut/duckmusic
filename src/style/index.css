@@ -111,6 +111,9 @@ p{
         -moz-osx-font-smoothing: grayscale;
         background-color: #0d0c11;
     }
+    .activeTabBtn {
+        background-color: #333;
+    }
 }
 
 @media (prefers-color-scheme: light) {
@@ -120,5 +123,13 @@ p{
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         background-color: #fff;
+    }
+    .activeTabBtn {
+        background-color: #9b9b9b;
+        color: #fff;
+    }
+    .TabBtn {
+        background-color: #9b9b9b;
+        color: #fff;
     }
 }

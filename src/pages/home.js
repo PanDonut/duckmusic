@@ -25,7 +25,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
 
-import { PLAYLIST } from '../data/index'
+import { PLAYLIST } from '../data/index';
 
 oncontextmenu = function (e) {
     e.preventDefault();

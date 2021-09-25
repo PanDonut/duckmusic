@@ -31,11 +31,12 @@ import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 
 function PlaylistPage(props) {
-	const[playlistIndex, setPlaylistIndex] = useState(undefined);
-	const[isthisplay, setIsthisPlay] = useState(false);
+	const size = useWindowSize();
+	const [playlistIndex, setPlaylistIndex] = useState(undefined);
+	const [isthisplay, setIsthisPlay] = useState(false);
 	const { path } = useParams();
 
-	function changeBg(color){
+	function changeBg(color) {
 		document.documentElement.style.setProperty('--hover-home-bg', color);
 	}
 
@@ -46,12 +47,12 @@ function PlaylistPage(props) {
 	oncontextmenu = function (e) {
 		e.preventDefault();
 	};
-	const size = useWindowSize();
 	const notify = () => toast.info("Skopiowano link!", {
 		position: toast.POSITION.TOP_RIGHT
 	});
 	const notifyembed = () => toast.info("Skopiowano kod do umieszczenia na stronie!", {
-		position: toast.POSITION.TOP_RIGHT
+		position: toast.POSITION.TOP_RIGHT,
+		autoClose: 5000
 	});
 	var link11 = "https://duckmusic.vercel.app/embed/" + path;
 	var embed11 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";

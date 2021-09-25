@@ -10,3 +10,21 @@
 .soundBar input{
     width: 93px;
 }
+
+.pip {
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+    color: #000;
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    transition: .2s;
+}
+
+.pip svg {
+    fill: #fff !important;
+    width: 16px;
+    height: 16px;
+    transition: 0.2s;
+}

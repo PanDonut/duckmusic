@@ -13,6 +13,7 @@ import MobileNavigation from '../component/sidebar/mobile-navigation';
 import lay from '../style/App.module.css';
 
 
+
 function Library() {
     const size = useWindowSize();
     return (
@@ -21,15 +22,15 @@ function Library() {
                 ? <Sidebar />
                 : <MobileNavigation />
             }
-        <div className={styles.LibPage}>
-            <Topnav/>
-            <div className={styles.Library}>
-                <Route exact path="/library"><PlaylistTab /></Route>
-                <Route path="/library/podcasts"><PodcastTab /></Route>
-                <Route path="/library/artists"><ArtistTab /></Route>
-                <Route path="/library/albums"><AlbumTab /></Route>
+            <div className={styles.LibPage}>
+                <Topnav tabButtons={true} />
+                <div className={styles.Library}>
+                    <Route exact path="/library"><PlaylistTab /></Route>
+                    <Route path="/library/podcasts"><PodcastTab /></Route>
+                    <Route path="/library/artists"><ArtistTab /></Route>
+                    <Route path="/library/albums"><AlbumTab /></Route>
+                </div>
             </div>
-        </div>
         </div>
     );
 }
@@ -39,7 +40,7 @@ function PlaylistTab() {
         <div>
             <TitleM>Parodie</TitleM>
             <div className={styles.Grid}>
-                {PLAYLIST.filter(item => item.type == 'parodia').map((item) => {
+                {PLAYLIST.filter(item => item.type == "parodia").map((item) => {
                     return (
                         <PlaylistCardM
                             key={item.title}

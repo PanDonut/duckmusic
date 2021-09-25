@@ -3,7 +3,7 @@ import TextBoldM from '../text/text-bold-m';
 
 import styles from "./playlist-details.module.css";
 
-function PlaylistDetails({data}) {
+function PlaylistDetails({ data }) {
 	return (
         <div className={styles.playlistDetails}>
             <div className={styles.imgBox}>
