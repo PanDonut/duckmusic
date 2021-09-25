@@ -568,7 +568,7 @@ export const PLAYLIST = [
 		],
 	},
 	{
-		index: "4",
+		index: "5",
 		type: "parodia",
 		title: "Dmuch Guy",
 		link: "dmuch_guy",
