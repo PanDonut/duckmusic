@@ -28,3 +28,16 @@
         grid-template-columns: 1fr 1fr;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    .LibPage {
+        background-color: #121212;
+        color: #fff;
+    }
+}
+@media (prefers-color-scheme: light) {
+    .LibPage {
+        background-color: #fff;
+        color: #000;
+    }
+}

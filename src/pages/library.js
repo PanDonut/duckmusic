@@ -6,10 +6,23 @@ import { PLAYLIST } from "../data/index";
 
 import styles from "./library.module.css";
 
+import Sidebar from '../component/sidebar/sidebar';
+import CONST from '../constants/index';
+import useWindowSize from '../hooks/useWindowSize';
+import MobileNavigation from '../component/sidebar/mobile-navigation';
+import lay from '../style/App.module.css';
+
+
 function Library() {
+    const size = useWindowSize();
     return (
+        <div className={lay.layout}>
+            {size.width > CONST.MOBILE_SIZE
+                ? <Sidebar />
+                : <MobileNavigation />
+            }
         <div className={styles.LibPage}>
-            <Topnav tabButtons={true} />
+            <Topnav/>
             <div className={styles.Library}>
                 <Route exact path="/library"><PlaylistTab /></Route>
                 <Route path="/library/podcasts"><PodcastTab /></Route>
@@ -17,15 +30,16 @@ function Library() {
                 <Route path="/library/albums"><AlbumTab /></Route>
             </div>
         </div>
+        </div>
     );
 }
 
 function PlaylistTab() {
     return (
         <div>
-            <TitleM>Çalma Listeleri</TitleM>
+            <TitleM>Parodie</TitleM>
             <div className={styles.Grid}>
-                {PLAYLIST.filter(item => item.type == 'playlist').map((item) => {
+                {PLAYLIST.filter(item => item.type == 'parodia').map((item) => {
                     return (
                         <PlaylistCardM
                             key={item.title}
