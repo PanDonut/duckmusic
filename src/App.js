@@ -31,7 +31,7 @@ function App() {
             </Route>
             <Route exact path="/playlist/:path">
                 <PlaylistPage />
-                  </Route>
+                    </Route>
             <Route exact path="/card/:path">
                 <Card />
             </Route>

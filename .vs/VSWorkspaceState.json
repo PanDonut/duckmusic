@@ -5,10 +5,11 @@
     "\\src\\component",
     "\\src\\component\\buttons",
     "\\src\\component\\cards",
+    "\\src\\component\\topnav",
     "\\src\\data",
     "\\src\\pages",
+    "\\src\\reducers",
     "\\src\\style"
   ],
-  "SelectedNode": "\\src\\data\\index.js",
   "PreviewInSolutionExplorer": false
 }
