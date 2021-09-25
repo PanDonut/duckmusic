@@ -35,9 +35,6 @@ function App() {
             <Route exact path="/card/:path">
                 <Card />
             </Route>
-            <Route exact path="/library">
-                <Library />
-            </Route>
             <Route exact path="/embed/:path">
                <Embed />
             </Route>
