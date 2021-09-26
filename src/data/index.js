@@ -4,6 +4,7 @@ export const PLAYLIST = [
 		type: "album",
 		title: "Duck Mix",
 		link: "duckmix1",
+		suggestion: "true",
 		imgUrl:
 			"https://i.ibb.co/gTcL5Hx/thenight.png",
 		hoverColor: "rgb(161, 0, 0)",
@@ -336,6 +337,7 @@ export const PLAYLIST = [
 		type: "album",
 		title: "Rytm Jesieni",
 		link: "rytm_jesieni",
+		suggestion: "true",
 		imgUrl: "https://i.ibb.co/m6srfZz/playlist-jesien.png",
 		hoverColor: "rgb(255, 183, 0)",
 		artist: "Maroon 5, Adele, Sia, Bruno Mars, Pitbull, Whitney Houston, P!nk, Nate Ruess, Shawn Mendes i inni",
