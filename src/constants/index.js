@@ -11,12 +11,6 @@ export const MENU = [
     path: '/',
     icon: <Icon.Home />,
     iconSelected: <Icon.HomeActive />
-    },
-    {
-        title: 'Biblioteka',
-        path: '/library',
-        icon: <Icon.Library />,
-        iconSelected: <Icon.LibraryActive />
     }
 ]
 

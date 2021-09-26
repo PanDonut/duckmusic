@@ -31,15 +31,12 @@ function App() {
             </Route>
             <Route exact path="/playlist/:path">
                 <PlaylistPage />
-                    </Route>
+            </Route>
             <Route exact path="/card/:path">
                 <Card />
             </Route>
             <Route exact path="/embed/:path">
                <Embed />
-            </Route>
-            <Route exact path="/library">
-               <Library />
             </Route>
           </Switch>
           <Footer />

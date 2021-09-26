@@ -30,7 +30,7 @@ function Playlist() {
         <hr className={styles.hr}/>
 
         <div>
-          {PLAYLIST.filter((item) => item.type = 'album').map((list) => {
+          {PLAYLIST.filter((item) => item.type == 'album').map((list) => {
             return (
               <Link to={`/playlist/${list.link}`} key={list.title}>
                   <TextRegularM>{list.title}</TextRegularM>
