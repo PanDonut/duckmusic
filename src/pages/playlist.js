@@ -118,7 +118,7 @@ function PlaylistPage(props) {
 
 							<div className={styles.PlaylistSongs}>
 								{item.playlistData.map((song) => {
-									return (
+									return
 										<button 
 											key={song.index} 
 											onClick={() => props.changeTrack([PLAYLIST.indexOf(item), item.playlistData.indexOf(song)])} 
@@ -131,7 +131,6 @@ function PlaylistPage(props) {
 												}}
 											/>
 										</button>
-									);
 								})}
 							</div>
                         </div>

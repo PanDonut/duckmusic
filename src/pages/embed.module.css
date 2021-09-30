@@ -4,7 +4,6 @@
     background: transparent;
     position: relative;
     margin-bottom: 95px;
-    padding-bottom: 16px;
     color: var(--text-white);
     -webkit-tap-highlight-color: transparent;
     user-drag: none;
@@ -135,8 +134,9 @@
     color: rgb(179, 179, 179);
 }
 @media screen and (max-width: 640px) {
-    .PlaylistPage{
+    .PlaylistPage {
         margin-bottom: 180px;
+        margin-top: 20px;
     }
     .PlaylistIcons{
         padding: 20px 16px;
