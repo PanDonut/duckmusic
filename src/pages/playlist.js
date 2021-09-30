@@ -118,19 +118,20 @@ function PlaylistPage(props) {
 
 							<div className={styles.PlaylistSongs}>
 								{item.playlistData.map((song) => {
-									return
-										<button 
-											key={song.index} 
-											onClick={() => props.changeTrack([PLAYLIST.indexOf(item), item.playlistData.indexOf(song)])} 
+									return (
+										<button
+											key={song.index}
+											onClick={() => props.changeTrack([PLAYLIST.indexOf(item), item.playlistData.indexOf(song)])}
 											className={styles.SongBtn}
 										>
-											<PlaylistTrack 
+											<PlaylistTrack
 												data={{
 													listType: item.type,
 													song: song
 												}}
 											/>
 										</button>
+									);
 								})}
 							</div>
                         </div>
