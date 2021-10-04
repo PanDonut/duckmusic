@@ -7,11 +7,13 @@ import useWindowSize from './hooks/useWindowSize';
 import Sidebar from './component/sidebar/sidebar';
 import MobileNavigation from './component/sidebar/mobile-navigation';
 import Footer from './component/footer/footer';
+import FooterTop from './component/footer/footertop';
 import Home from './pages/home';
 import Search from './pages/search';
 import Library from './pages/library';
 import PlaylistPage from './pages/playlist';
 import Embed from './pages/embed';
+import EmbedSmall from './pages/embed-s';
 
 import CONST from './constants/index';
 import { PLAYLIST } from './data/index';
@@ -38,11 +40,14 @@ function App() {
             <Route exact path="/embed/:path">
                <Embed />
             </Route>
+            <Route exact path="/embed-small/:path">
+               <EmbedSmall />
+            </Route>
             <Route>
                <NotFound />
             </Route>
-          </Switch>
-          <Footer />
+                </Switch>
+                <Footer className={styles.foot}/>
             </div>
             </Router>
   );

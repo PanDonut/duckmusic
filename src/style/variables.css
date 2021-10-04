@@ -11,4 +11,6 @@
     --small-cards-column-width: 270px;
     --cards-column-width: 180px;
     --hover-home-bg: #0d0c11;
+    --to: -1;
+    --bot: 0;
 }

@@ -2,8 +2,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    bottom: var(--bot);
-    top: var(--to);
+    top: 0;
     height: auto;
     width: 100%;
     z-index: 9;
@@ -21,6 +20,9 @@
     align-items: center;
 }
 @media screen and (max-width: 640px) {
+    .footer{
+        bottom: 45px;
+    }
     .nowplayingbar{
         padding: 8px 16px;
         grid-template-columns: 1fr;

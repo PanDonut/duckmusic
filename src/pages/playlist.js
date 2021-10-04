@@ -1,6 +1,7 @@
 import { useParams } from 'react-router';
 import { connect } from 'react-redux';
 import { changeTrack } from '../actions';
+import react from 'react';
 import Topnav from '../component/topnav/topnav';
 import TextRegularM from "../component/text/text-regular-m";
 import PlayButton from '../component/buttons/play-button';
@@ -12,6 +13,11 @@ import PlaylistTrack from '../component/playlist/playlist-track';
 import * as Icons from '../component/icons';
 import { PLAYLIST } from "../data/index";
 
+import { decode } from 'he';
+
+import Footer from '../component/footer/footer';
+import Modal from 'react-responsive-modal-scroll/lib/css';
+import './react-responsive-modal.css';
 import styles from './playlist.module.css';
 import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
@@ -54,8 +60,10 @@ function PlaylistPage(props) {
 		position: toast.POSITION.TOP_RIGHT,
 		autoClose: 5000
 	});
+	const [open, setOpen] = react.useState(false);
 	var link11 = "https://duckmusic.vercel.app/embed/" + path;
 	var embed11 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
+	var embed111 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed-small/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	return (
 		<div className={lay.layout}>
 			{size.width > CONST.MOBILE_SIZE
@@ -104,10 +112,20 @@ function PlaylistPage(props) {
 								<LinkButton/>
 							</button>
 							<button
-								onClick={() => { copy(embed11); {notifyembed();}}}
+								onClick={() => setOpen(true)}
 							>
 								<EmbedButton/>
 							</button>
+									<Modal open={open} onClose={() => setOpen(false)}>
+										<div className={styles.pop}>
+											<button onClick={() => { copy(embed11); { notifyembed(); { setOpen(false); }} }}>
+												{decode("Zwyk&#322;y embed")}
+											</button>
+											<button onClick={() => { copy(embed111); { notifyembed(); { setOpen(false); }} }}>
+												{decode("Ma&#322;y embed")}
+											</button>
+											</div>
+									</Modal>
 							</div>
 							</div>
 
@@ -138,7 +156,7 @@ function PlaylistPage(props) {
                     );
                 }
 			})}
-		</div>
+			</div>
 		</div>
 	);
 }

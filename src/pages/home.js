@@ -18,7 +18,7 @@ import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import lay from '../style/App.module.css';
-
+import Footer from '../component/footer/footer';
 import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
@@ -125,7 +125,7 @@ function Home({ isExpanded = false }) {
                     </div>
                 </section>
             </div>
-        </div>
+            </div>
         </div>
     );
 }

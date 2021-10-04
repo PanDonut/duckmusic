@@ -4,7 +4,7 @@
     border-radius: 32px;
     color: #000;
     border: none;
-    background-color: #fff;
+    background-color: transparent;
     padding: 0;
     transition: .2s;
 }
