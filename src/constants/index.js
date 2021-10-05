@@ -11,6 +11,12 @@ export const MENU = [
     path: '/',
     icon: <Icon.Home />,
     iconSelected: <Icon.HomeActive />
+    },
+    {
+        title: 'Szukaj',
+        path: '/search',
+        icon: <Icon.Search />,
+        iconSelected: <Icon.SearchActive />
     }
 ]
 

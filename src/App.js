@@ -43,6 +43,9 @@ function App() {
             <Route exact path="/embed-small/:path">
                <EmbedSmall />
             </Route>
+            <Route exact path="/search">
+               <Search />
+            </Route>
             <Route>
                <NotFound />
             </Route>

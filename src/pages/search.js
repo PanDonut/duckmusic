@@ -17,17 +17,20 @@ import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import lay from '../style/App.module.css';
 
+import {decode} from 'he';
+
 
 import SearchButton from '../component/buttons/search-button';
+
 
 function Search(){
 
 
 
     const size = useWindowSize();
+    const [input, setInput] = useState(''); // '' is the initial state value
 
-
-    const [val, setVal] = useState('');
+    const [val, setVal] = useState("");
 
             const [q, setQ] = useState("");
             //     set search parameters
@@ -41,8 +44,8 @@ function Search(){
                 // our fetch codes
             }, []);
 
-    var substring = document.getElementsByClassName('{styles.SeachInpt}').inputValue;
-    var area = document.getElementsByClassName('{styles.SeachInpt}');
+    console.log(input);
+
  
     return (
         <div className={lay.layout}>
@@ -55,16 +58,16 @@ function Search(){
                 
 
                     <div className={styles.SeachBox}>
-                    <input className={styles.SeachInpt} placeholder={'Wyszukaj tytu³. Jest wra¿liwy na WIELKOŒÆ LITER'} maxLength="80" value={val} onChange={setVal}></input>
+                    <input className={styles.SeachInpt} id="txts" placeholder={decode("Wyszukaj tytu&#322;. Jest wra&#380;liwy na WIELKO&#346;&#262; LITER")} maxLength="80" value={input} onInput={e => setInput(e.target.value)}></input>
                         </div>
                         
                 <div className={styles.SearchCardGrid}>
-                    {PLAYLIST.filter(item => item.title.includes(area.state.value)).map((item) => {
-                        var title = item.title;
+                    {PLAYLIST.filter(item => item.title.includes(input)).map((list) => {
+                        var title = list.title;
                         return (
                             <PlaylistCardS
-                                key={item.title}
-                                data={item}
+                                key={list.title}
+                                data={list}
                             />
                         );
                     })}

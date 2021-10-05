@@ -1,5 +1,5 @@
-.SearchPage{
-    background-color: #121212;
+.SearchPage {
+    background-color: #0d0c11;
     color: #fff;
     overflow-y: scroll;
     overflow-x: hidden;
@@ -9,6 +9,7 @@
     max-width: 50%;
     margin-left: auto;
     margin-right: auto;
+    padding-left: 50px;
 }
 
     .SeachBox svg {
@@ -20,7 +21,7 @@
 
     .SeachBox input {
         color: #000;
-        padding: 6px 48px;
+        padding: 6px 24px;
         height: 28px;
         width: 100%;
         border: 0;
@@ -54,6 +55,7 @@
     padding-top: 100px;
     column-gap: 24px;
     row-gap: 16px;
+    padding-left: 50px;
 }
 .SectionCards {
     display: grid;
