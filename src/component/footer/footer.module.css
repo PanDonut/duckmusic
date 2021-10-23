@@ -21,6 +21,9 @@
     align-items: center;
 }
 @media screen and (max-width: 640px) {
+    .footer {
+        bottom: 45px;
+    }
     .nowplayingbar{
         padding: 8px 16px;
         grid-template-columns: 1fr;

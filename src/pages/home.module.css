@@ -5,12 +5,18 @@
     --rot: rotate(0deg);
 }
 
+@keyframes goIn {
+    0%{opacity:0;transform:translateX(100px)}
+    50%{opacity:1;}
+    100%{opacity:1;}
+}
+
 .Home {
     overflow-y: scroll;
     background: transparent;
     position: relative;
     margin-bottom: 95px;
-    padding-bottom: 16px;
+    padding-bottom: 16px;    
 }
 .HoverBg {
     height: 332px;
@@ -33,9 +39,10 @@
     background: #0d0c11;
     z-index: -2;
 }
-.Content{
+.Content {
     padding: 0 32px;
     padding-top: 24px;
+    animation: goIn ease 500ms;
 }
 .Content section:not(:first-child) {
     margin-top: 32px;
