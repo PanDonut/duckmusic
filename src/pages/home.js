@@ -67,9 +67,6 @@ function Home({ isExpanded = false }) {
             history.push('/search');
         }
 
-        if (touchStart - touchEnd < -150) {
-            // do your stuff here for right swipe
-        }
     }
 
     function Expand() {
