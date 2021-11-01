@@ -12,13 +12,14 @@ export const PLAYLIST = [
 		playlistBg: "rgb(161, 0, 0)",
 		playlistData: [
 			{
-				index: "1",
+				index: "1",				
 				songName: "Call Me Maybe",
 				songimg:
 					"https://i.scdn.co/image/ab67616d00001e02d3ee4bf67c2ac2154006ad72",
 				songArtist: "Carly Rae Jepsen",
 				link:
 					"https://data.pandasuite.com/audios/60f19d8267425919ea00108e.mp3",
+				songID: "1",
 			},
 			{
 				index: "2",
@@ -566,6 +567,7 @@ export const PLAYLIST = [
 				songArtist: "TheDuck Studios",
 				link:
 					"https://www.mboxdrive.com/squad_remix_theduck.mp3",
+				songID: "2",
 			},
 		],
 	},

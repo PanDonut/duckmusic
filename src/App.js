@@ -13,6 +13,7 @@ import Search from './pages/search';
 import Library from './pages/library';
 import PlaylistPage from './pages/playlist';
 import Embed from './pages/embed';
+import Info from './pages/info';
 import EmbedSmall from './pages/embed-s';
 
 import CONST from './constants/index';
@@ -20,13 +21,14 @@ import { PLAYLIST } from './data/index';
 import styles from './style/App.module.css';
 import Card from './component/cards/playlist-card-m';
 import NotFound from './pages/404';
+import LyricsCard from './component/lyrics/lyrics-main';
 
 function App() {
   const size = useWindowSize();
 
     return (
         <Router>
-        <div className={styles.layout}>
+            <div className={styles.layout}>
           <Switch>
             <Route exact path="/">
                 <Home />
@@ -45,6 +47,9 @@ function App() {
             </Route>
             <Route exact path="/search">
                <Search />
+            </Route>
+            <Route exact path="/info">
+               <Info />
             </Route>
             <Route>
                <NotFound />

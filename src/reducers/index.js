@@ -2,12 +2,13 @@ import { PLAYLIST } from "../data/index";
 import { PLAYPAUSE, CHANGETRACK } from "../actions/index";
 
 const INITIAL_STATE = {
-  trackData: {
+    trackData: {
+    songid: '0',
     trackKey: [0, 0],
     track: ``,
     trackName: ` `,
     trackImg: `https://i.ibb.co/jzp9qcm/trans.png`,
-    trackArtist: ` `
+    trackArtist: ` `    
   },
   isPlaying: false
 };
@@ -36,6 +37,9 @@ export const reducer = (state = INITIAL_STATE, action) => {
           }`,
           trackArtist: `${
             PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songArtist
+          }`,
+          id: `${
+            PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songID
           }`
         }
       };

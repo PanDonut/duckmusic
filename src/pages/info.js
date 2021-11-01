@@ -5,9 +5,13 @@ import PlaylistCardS from '../component/cards/playlist-card-s';
 import PlaylistCardM from '../component/cards/playlist-card-m';
 import ExpandButton from '../component/buttons/expand-button';
 
-import styles from "./home.module.css";
+import "./info.module.css";
+
+
+import styl from "./info.module.css";
 
 import React from 'react';
+import GitInfo from 'react-git-info/macro';
 
 import Sidebar from '../component/sidebar/sidebar';
 import {
@@ -45,7 +49,7 @@ function Hide() {
 
 
 function Home({ isExpanded = false }) {
-
+    const gitInfo = GitInfo();
     const history = useHistory();
     const size = useWindowSize();
 
@@ -85,13 +89,19 @@ function Home({ isExpanded = false }) {
         document.documentElement.style.setProperty('--disp1', 'none');
         document.documentElement.style.setProperty('--rot', 'rotate(0deg)');
     };
+    console.log(gitInfo.branch);
+    console.log(gitInfo.tags);
+    console.log(gitInfo.commit.date);
+    console.log(gitInfo.commit.hash);
+    console.log(gitInfo.commit.message);
+    console.log(gitInfo.commit.shortHash);
     return (
         <div className={lay.layout} onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()}>
             {size.width > CONST.MOBILE_SIZE
                 ? <Sidebar />
                 : <MobileNavigation />
             }
-        <div className={styles.Home}>
+            <div className={styl.Home}>
                 <ToastContainer
                     transition={Slide}
                     position="top-center"
@@ -104,62 +114,21 @@ function Home({ isExpanded = false }) {
                     pauseOnHover
                     limit={1}
                 />
-            <div className={styles.HoverBg}></div>
-            <div className={styles.Bg}></div>
 
-            <Topnav />
-            <div className={styles.Content}>
-                <section>
-                    <div className={styles.SectionTitle}>
-                        <TitleL>Witaj!</TitleL>
-                    </div>
+                <Topnav />
+                    <div className={styl.left}>
 
-                    <div className={styles.SectionCards}>
-                        {PLAYLIST.map((item) => {
-                            return (
-                                <PlaylistCardS 
-                                    key={item.title}
-                                    data={item}
-                                />
-                            );
-                        })}
-                    </div>
-                        <div className={styles.BtnDiv}>
-                                <button
-                                    className={styles.Btn}
-                                    onClick={Expand}
-                                >
-                                    <ExpandButton />
-                                </button>
-                                <button
-                                    className={styles.Btn1}
-                                    onClick={Hide}
-                                >
-                                    <ExpandButton />
-                                </button>
-                        </div>
-                </section>
-
-                <section>
-                    <div className={styles.SectionTitle1}>
-                        <TitleM>Odkrywaj</TitleM>
-                    </div>
-                    
-                    <div className={styles.SectionCardsMedium}>
-                        {PLAYLIST.slice(0, 6).map((item) => {
-                            return (
-                                <PlaylistCardM 
-                                    key={item.title}
-                                    data={item}
-                                />
-                            );
-                        })}
-                    </div>
-                </section>
                 </div>
+                <div className={styl.right}>
+                    <img alt="MEEM" src="https://github.com/PanDonut/pandonut.github.io/raw/main/logomusic.png"></img>
+                    <h4>{gitInfo.branch + "-" + gitInfo.commit.hash + "-" + gitInfo.commit.message}</h4>
+                    <h2>Hash:</h2>
+                    <h4>{gitInfo.commit.shortHash}</h4>
+                    <h2>Data aktualizacji:</h2>
+                    <h4>{gitInfo.commit.date}</h4>
+                    </div>
+                    </div>
             </div>
-            
-        </div>
     );
 }
 

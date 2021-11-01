@@ -23,17 +23,17 @@ svg{
   font-size: 24px;
 }
 ::-webkit-scrollbar {
-    width: 14px;
+    width: 10px;
     height: 14px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: hsla(0, 0%, 90%, .03);
+    background: hsla(0, 0%, 90%, .07);
     border-radius: 10px;
 }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: hsla(0, 0%, 100%, .05);
+        background: hsla(0, 0%, 100%, .08);
     }
 
 ::-webkit-scrollbar-track {

@@ -50,6 +50,7 @@
     ]
   },
   "devDependencies": {
-    "@svgr/cli": "^5.5.0"
+    "@svgr/cli": "^5.5.0",
+    "react-git-info": "^2.0.0"
   }
 }
