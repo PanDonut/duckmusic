@@ -7,7 +7,7 @@
     height: var(--footersize);
     width: 100%;
     z-index: 9;
-    transition: 0.75s height ease;
+    transition: 0.25s height ease;
 }
 .nowplayingbar{
     display: grid;
@@ -15,11 +15,9 @@
     background-color: var(--card-background);
     padding: 17px 16px;
     color: #fff;
-    height: var(--footersize)
+    height: var(--footersize);
 }
-:root {
-    --botf: 45px;
-}
+
 
 .footerMid{
     display: flex;
@@ -48,5 +46,6 @@
     object-fit: cover;
     z-index: 1;
     filter: blur(10px) grayscale(25%) brightness(50%);
-    display: var(--dispbg);
+    opacity: var(--dispbg);
+    transition: 0.5s ease;
 }

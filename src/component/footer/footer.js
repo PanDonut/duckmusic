@@ -17,6 +17,8 @@ import CONST from '../../constants/index';
 import styles from "./footer.module.css";
 import '../lyrics/lyrics.modular.css';
 
+import TextTransition, { presets } from "react-text-transition";
+
 import convertTime from '../../functions/convertTime';
 
 function Footer(props) {
@@ -36,14 +38,14 @@ function Footer(props) {
     function Expand1() {
         document.documentElement.style.setProperty('--footersize', '100%');
         document.documentElement.style.setProperty('--botf', '0px');
-        document.documentElement.style.setProperty('--dispbg', 'block');
+        document.documentElement.style.setProperty('--dispbg', '1');
         document.documentElement.style.setProperty('--expanded', 'translateX(0px)');
     };
 
     function Hide1() {
         document.documentElement.style.setProperty('--footersize', '150px');
         document.documentElement.style.setProperty('--botf', '60px');
-        document.documentElement.style.setProperty('--dispbg', 'none');
+        document.documentElement.style.setProperty('--dispbg', '0');
         document.documentElement.style.setProperty('--expanded', 'translateX(1000px)');
     };
 
@@ -56,6 +58,12 @@ function Footer(props) {
 
     function handleTouchMove(e) {
         setTouchEnd(e.targetTouches[0].clientY);
+        if (touchStart - touchEnd > 10 && touchStart - touchEnd < 349) {
+            document.documentElement.style.setProperty('--footersize', touchStart - touchEnd / 2 + "px");
+        }
+        if (touchStart - touchEnd > 100 && touchStart - touchEnd < 349) {
+            document.documentElement.style.setProperty('--dispbg', '1');
+        }
     }
 
     function handleTouchEnd() {
@@ -64,6 +72,9 @@ function Footer(props) {
         }
 
         if (touchStart - touchEnd < -150) {
+            Hide1();
+        }
+        if (touchStart - touchEnd < 349) {
             Hide1();
         }
     }
@@ -110,7 +121,12 @@ function Footer(props) {
             }
         })
     });
-    console.log(Math.round(currentTime));
+
+    
+
+    console.log('ts ' + touchStart);
+    console.log('te ' + touchEnd);
+    console.log(touchStart - touchEnd / 2);
 
     return (
         <footer className={styles.footer}>
@@ -146,8 +162,8 @@ function Footer(props) {
                     
                 </div>
             </div>
-            <img className={styles.bgron} src={props.trackData.trackImg} onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()}/>
-            <div className={styles.nowplayingbar} onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()}>
+            <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg}/>
+            <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>
                 <FooterLeft />
                 <div className={styles.footerMid}>
                     <MusicControlBox />

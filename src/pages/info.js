@@ -117,7 +117,7 @@ function Home({ isExpanded = false }) {
 
                 <Topnav />
                     <div className={styl.left}>
-
+                    <h4>{gitInfo.tags}</h4>
                 </div>
                 <div className={styl.right}>
                     <img alt="MEEM" src="https://github.com/PanDonut/pandonut.github.io/raw/main/logomusic.png"></img>

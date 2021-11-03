@@ -5,6 +5,7 @@ export const PLAYLIST = [
 		title: "Duck Mix",
 		link: "duckmix1",
 		suggestion: "true",
+		promoted: "prawda",
 		imgUrl:
 			"https://i.ibb.co/gTcL5Hx/thenight.png",
 		hoverColor: "rgb(161, 0, 0)",

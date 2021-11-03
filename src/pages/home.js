@@ -49,26 +49,6 @@ function Home({ isExpanded = false }) {
     const history = useHistory();
     const size = useWindowSize();
 
-    const [touchStart, setTouchStart] = React.useState(0);
-    const [touchEnd, setTouchEnd] = React.useState(0);
-
-    function handleTouchStart(e) {
-        setTouchStart(e.targetTouches[0].clientX);
-        document.documentElement.style.setProperty('--hop', '0');
-    }
-
-    function handleTouchMove(e) {
-        setTouchEnd(e.targetTouches[0].clientX);
-    }
-
-    function handleTouchEnd() {
-        if (touchStart - touchEnd > 150) {
-            // do your stuff here for left swipe
-            history.push('/search');
-        }
-
-    }
-
     function Expand() {
         document.documentElement.style.setProperty('--expand', '380px');
         document.documentElement.style.setProperty('--disp', 'none');
@@ -83,7 +63,7 @@ function Home({ isExpanded = false }) {
         document.documentElement.style.setProperty('--rot', 'rotate(0deg)');
     };
     return (
-        <div className={lay.layout} onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()}>
+        <div className={lay.layout}>
             {size.width > CONST.MOBILE_SIZE
                 ? <Sidebar />
                 : <MobileNavigation />
@@ -111,6 +91,15 @@ function Home({ isExpanded = false }) {
                         <TitleL>Witaj!</TitleL>
                     </div>
 
+                        <section>
+                                {PLAYLIST.filter(item => item.promoted == 'prawda').map((list) => {
+                                    return (
+                                        <div className={styles.gradC}>
+
+                                        </div>
+                                    );
+                                })}
+                        </section>
                     <div className={styles.SectionCards}>
                         {PLAYLIST.map((item) => {
                             return (
