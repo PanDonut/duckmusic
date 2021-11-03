@@ -44,7 +44,7 @@ function Footer(props) {
 
     function Hide1() {
         document.documentElement.style.setProperty('--footersize', '150px');
-        document.documentElement.style.setProperty('--botf', '60px');
+        document.documentElement.style.setProperty('--botf', '65px');
         document.documentElement.style.setProperty('--dispbg', '0');
         document.documentElement.style.setProperty('--expanded', 'translateX(1000px)');
     };
