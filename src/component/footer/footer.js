@@ -74,7 +74,7 @@ function Footer(props) {
         if (touchStart - touchEnd < -150) {
             Hide1();
         }
-        if (touchStart - touchEnd < 349) {
+        if (touchStart - touchEnd < 340) {
             Hide1();
         }
     }
