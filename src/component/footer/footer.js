@@ -63,6 +63,7 @@ function Footer(props) {
         }
         if (touchStart - touchEnd > 100 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--dispbg', '1');
+            document.documentElement.style.setProperty('--botf', '0px');
         }
     }
 
