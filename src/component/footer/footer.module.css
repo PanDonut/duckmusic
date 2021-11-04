@@ -7,7 +7,7 @@
     height: var(--footersize);
     width: 100%;
     z-index: 9;
-    transition: 0.25s height ease;
+    transition: 0.25s ease;
 }
 .nowplayingbar{
     display: grid;
