@@ -59,7 +59,7 @@ function Footer(props) {
     function handleTouchMove(e) {
         setTouchEnd(e.targetTouches[0].clientY);
         if (touchStart - touchEnd > 10 && touchStart - touchEnd < 349) {
-            document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 2 + "px");
+            document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 2 + "%");
         }
         if (touchStart - touchEnd > 100 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--dispbg', '1');
