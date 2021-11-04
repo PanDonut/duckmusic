@@ -61,7 +61,7 @@ function Footer(props) {
         if (touchStart - touchEnd > 10 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 4 + "vh");
         }
-        if (touchStart - touchEnd > 100 && touchStart - touchEnd < 349) {
+        if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--dispbg', '1');
             document.documentElement.style.setProperty('--botf', '0px');
         }
