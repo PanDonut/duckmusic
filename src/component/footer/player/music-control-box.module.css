@@ -5,7 +5,7 @@
     justify-content: space-between;
     margin-bottom: 12px;
     -webkit-tap-highlight-color: transparent;
-    z-index: 10000;
+    z-index: 1000000;
 }
 .musicControl div button svg{
     fill: black !important;
