@@ -29,7 +29,7 @@
 }
 .songDetails p{
     margin: 0px;
-    color: var(--text-tit);
+    color: var(--text-white);
 }
 .songDetails p small{
     color: var(--text-gray);
