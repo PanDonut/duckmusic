@@ -55,12 +55,36 @@ function Footer(props) {
 
     const [touchStart, setTouchStart] = React.useState(0);
     const [touchEnd, setTouchEnd] = React.useState(0);
+    const [isOpen, setisOpen] = React.useState("false");
 
     function handleTouchStart(e) {
+if(isOpen == "true") {
         setTouchStart(e.targetTouches[0].clientY);
+}
     }
 
     function handleTouchMove(e) {
+if(isOpen == "true") {
+        setTouchEnd(e.targetTouches[0].clientY);
+}
+    }
+
+    function handleTouchEnd() {
+if(isOpen == "true") {
+        if (touchStart - touchEnd < -150) {
+            Hide1();
+            setIsOpen("false");
+        }
+}
+    }
+function handleTouchStart1(e) {
+        if(isOpen == "false") {
+        setTouchStart(e.targetTouches[0].clientY);
+}
+    }
+
+    function handleTouchMove1(e) {
+if(isOpen == "false") {
         setTouchEnd(e.targetTouches[0].clientY);
         if (touchStart - touchEnd > 10 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 4 + "vh");
@@ -69,19 +93,20 @@ function Footer(props) {
             document.documentElement.style.setProperty('--dispbg', '1');
             document.documentElement.style.setProperty('--botf', '0px');
         }
+}
     }
 
-    function handleTouchEnd() {
+    function handleTouchEnd1() {
+if(isOpen == "false") {
         if (touchStart - touchEnd > 300) {
             Expand1();
+            setIsOpen("true");
         }
 
-        if (touchStart - touchEnd < -150) {
-            Hide1();
-        }
         if (touchStart - touchEnd < 340) {
             Hide1();
         }
+}
     }
 
     const size = useWindowSize();
@@ -186,7 +211,7 @@ function Footer(props) {
                 </div>
             </div>
             <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg}/>
-            <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>
+            <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent1)} onTouchMove={touchMoveEvent1 => handleTouchMove1(touchMoveEvent1)} onTouchEnd={() => handleTouchEnd1()} className={styles.nowplayingbar}>
                 <FooterLeft />
                 <div className={styles.footerMid}>
                     <MusicControlBox />
