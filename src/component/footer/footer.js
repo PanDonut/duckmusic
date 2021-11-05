@@ -55,7 +55,7 @@ function Footer(props) {
 
     const [touchStart, setTouchStart] = React.useState(0);
     const [touchEnd, setTouchEnd] = React.useState(0);
-    const [isOpen, setisOpen] = React.useState("false");
+    const [isOpen, setIsOpen] = React.useState("false");
 
     function handleTouchStart(e) {
 if(isOpen == "true") {
