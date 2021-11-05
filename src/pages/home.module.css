@@ -119,60 +119,7 @@
 body {
     background-color: #0d0c11;
 }
-@media screen and (max-width: 640px) {
-    .SectionCardsMedium {
-        grid-gap: 16px;
-        overflow-y: auto;
-        grid-auto-rows: auto;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: auto;
-        -webkit-tap-highlight-color: transparent;
-    }
-    .SectionCards {
-        display: none;
-    }
-    .Content {
-        padding: 16px;
-        padding-bottom: 100px;
-        -webkit-tap-highlight-color: transparent;
-    }
-    .SectionTitle1 {
-        display: none;
-    }
 
-        .SectionTitle1 h1,
-        .SectionTitle1 h2 {
-            display: none;
-        }
-    .Btn {
-        background-color: transparent;
-        border: none;
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        display: none;
-    }
-
-    .mrag h3 {
-        display: none;
-    }
-
-    .mrag h4 {
-        display: none;
-    }
-
-    .Btn1 {
-        background-color: transparent;
-        border: none;
-        margin-top: 10px;
-        margin-left: auto;
-        margin-right: auto;
-        text-align: center;
-        display:  none;
-        transform: rotate(180deg);
-    }
-}
 
 .gradC {
     background: rgb(0,0,0);
@@ -229,4 +176,72 @@ body {
     border: none;
     color: var(--text-gray);
     border-radius: 5px;
+}
+
+@media screen and (max-width: 640px) {
+    .gradC img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .mrag {
+        margin-left: 0px;
+    }
+
+    .SectionCardsMedium {
+        grid-gap: 16px;
+        overflow-y: auto;
+        grid-auto-rows: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .SectionCards {
+        display: none;
+    }
+
+    .Content {
+        padding: 16px;
+        padding-bottom: 100px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .SectionTitle1 {
+        display: none;
+    }
+
+        .SectionTitle1 h1,
+        .SectionTitle1 h2 {
+            display: none;
+        }
+
+    .Btn {
+        background-color: transparent;
+        border: none;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: none;
+    }
+
+    .mrag h3 {
+        display: none;
+    }
+
+    .mrag h4 {
+        display: none;
+    }
+
+    .Btn1 {
+        background-color: transparent;
+        border: none;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: none;
+        transform: rotate(180deg);
+    }
 }
