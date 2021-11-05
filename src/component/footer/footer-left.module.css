@@ -29,9 +29,10 @@
 }
 .songDetails p{
     margin: 0px;
+    color: var(--text-tit);
 }
 .songDetails p small{
-    color: var(--text-black);
+    color: var(--text-gray);
     font-size: 11px;
 }
 @media screen and (max-width: 640px) {
