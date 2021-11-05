@@ -61,11 +61,24 @@ function Footer(props) {
 if(isOpen == "true") {
         setTouchStart(e.targetTouches[0].clientY);
 }
+if(isOpen == "false") {
+        setTouchStart(e.targetTouches[0].clientY);
+}
     }
 
     function handleTouchMove(e) {
 if(isOpen == "true") {
         setTouchEnd(e.targetTouches[0].clientY);
+}
+if(isOpen == "false") {
+        setTouchEnd(e.targetTouches[0].clientY);
+        if (touchStart - touchEnd > 10 && touchStart - touchEnd < 349) {
+            document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 4 + "vh");
+        }
+        if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
+            document.documentElement.style.setProperty('--dispbg', '1');
+            document.documentElement.style.setProperty('--botf', '0px');
+        }
 }
     }
 
@@ -74,6 +87,16 @@ if(isOpen == "true") {
         if (touchStart - touchEnd < -150) {
             Hide1();
             setIsOpen("false");
+        }
+}
+if(isOpen == "false") {
+        if (touchStart - touchEnd > 300) {
+            Expand1();
+            setIsOpen("true");
+        }
+
+        if (touchStart - touchEnd < 340) {
+            Hide1();
         }
 }
     }
