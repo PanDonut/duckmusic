@@ -211,7 +211,7 @@ if(isOpen == "false") {
                 </div>
             </div>
             <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg}/>
-            <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent1)} onTouchMove={touchMoveEvent1 => handleTouchMove1(touchMoveEvent1)} onTouchEnd={() => handleTouchEnd1()} className={styles.nowplayingbar}>
+            <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove1(touchMoveEvent)} onTouchEnd={() => handleTouchEnd1()} className={styles.nowplayingbar}>
                 <FooterLeft />
                 <div className={styles.footerMid}>
                     <MusicControlBox />
