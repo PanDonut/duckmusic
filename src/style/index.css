@@ -34,6 +34,7 @@ body {
     --sepe: #fff2;
     --card-bg1: #1818181;
     --card-small: hsla(0,0%,100%,.1);
+    --text-tit: #fff;
 }
 
 .theme-light {
@@ -59,6 +60,7 @@ body {
     --sepe: #0002;
     --card-bg1: #a3a3a3;
     --card-small: hsla(0, 0%, 0%, 0.40);
+    --text-tit: #000;
 }
 a{
   text-decoration: none;
