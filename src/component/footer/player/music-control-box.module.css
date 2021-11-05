@@ -7,9 +7,6 @@
     -webkit-tap-highlight-color: transparent;
     z-index: 10000;
 }
-.musicControl div button svg{
-    fill: black !important;
-}
 .button {
     border: 0;
     background: transparent;
@@ -23,11 +20,11 @@
 }
 .button svg{
     font-size: 16px;
-    fill: hsla(0,0%,100%,.7);
+    fill: var(--btns);
     color: hsla(0,0%,100%,.7);
 }
-.musicControl svg:hover {
-    fill: rgb(255, 255, 255);
+.button svg:hover {
+    fill: var(--btns);
     color: rgb(255, 255, 255);
     width: 20px;
     height: 20px;

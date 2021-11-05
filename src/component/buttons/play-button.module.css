@@ -4,7 +4,7 @@
     border-radius: 32px;
     color: #000;
     border: none;
-    background-color: #fff;
+    background-color: var(--outline);
     padding: 0;
     transition: .2s;
 }
@@ -14,5 +14,5 @@
     }
 
     .playBtn svg {
-        fill: #000 !important;
+        fill: var(--fillsvg);
     }

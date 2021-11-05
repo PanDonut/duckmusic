@@ -49,3 +49,15 @@
     opacity: var(--dispbg);
     transition: 0.5s ease;
 }
+
+.buttt {
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    z-index: 10000000;
+}
+
+.whi svg {
+    fill: var(--col);
+}

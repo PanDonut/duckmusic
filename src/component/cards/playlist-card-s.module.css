@@ -4,7 +4,7 @@
 .PlaylistCardS{
     position: relative;
     height: 80px;
-    background-color: hsla(0,0%,100%,.1);
+    background-color: var(--card-small);
     border-radius: 4px;
     -webkit-transition: background-color .3s ease;
     display: grid;

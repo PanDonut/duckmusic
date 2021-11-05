@@ -24,8 +24,9 @@ import { ToastContainer, toast } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
-
+import { decode } from 'he';
 
 import { PLAYLIST } from '../data/index';
 
@@ -45,6 +46,24 @@ function Hide() {
 
 
 function Home({ isExpanded = false }) {
+
+    var today = new Date()
+    var curHr = today.getHours()
+    const [timetext, setTimetext] = React.useState("");
+    if (timetext == "") {
+        if (curHr < 12) {
+            console.log('Dzieñ dobry')
+            setTimetext(decode("Dzie&#324; dobry"));
+        } else if (curHr < 18) {
+            console.log('Mi³ego popo³udnia')
+            setTimetext(decode("Mi&#322;ego popo&#322;udnia"));
+        } else {
+            console.log('Dobry wieczór')
+            setTimetext(decode("Dobry wiecz&#243;r"));
+        }
+    }
+
+    
 
     const history = useHistory();
     const size = useWindowSize();
@@ -88,14 +107,23 @@ function Home({ isExpanded = false }) {
             <div className={styles.Content}>
                 <section>
                     <div className={styles.SectionTitle}>
-                        <TitleL>Witaj!</TitleL>
+                            <TitleL>{timetext}</TitleL>
                     </div>
 
                         <section>
                                 {PLAYLIST.filter(item => item.promoted == 'prawda').map((list) => {
                                     return (
                                         <div className={styles.gradC}>
-
+                                            <img src={list.imgUrl} />
+                                            <div className={styles.mrag}>
+                                                <h2>{list.title}</h2>
+                                                <h4>{list.artist}</h4>
+                                                <h3>{list.promodesc}</h3>
+                                                <Link to={"/playlist/" + list.link}>
+                                                <button>{decode("S&#322;uchaj")}</button>
+                                                </Link>
+                                            </div>
+                                            <button className={styles.sponsored}>Sponsorowane</button>
                                         </div>
                                     );
                                 })}

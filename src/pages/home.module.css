@@ -26,8 +26,8 @@
     left: 0;
     right: 0;
     z-index: -1;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(#0d0c11));
-    background-image: linear-gradient(rgba(0,0,0,.6),#0d0c11);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--bgcol)));
+    background-image: linear-gradient(rgba(0,0,0,.6),var(--bgcol));
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
     background-color: var(--hover-home-bg);
@@ -38,7 +38,7 @@
     right: 0;
     top: 60px;
     bottom: 0px;
-    background: #0d0c11;
+    background: var(--bgcol);
     z-index: -2;
 }
 .Content {
@@ -173,4 +173,52 @@ body {
     height: 250px;
     margin-top: 50px;
     margin-bottom: 50px;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+.gradC img {
+    bottom: 0;
+    width: 175px;
+    height: 175px;
+    margin-top: 3%;
+    margin-left: 15px;
+}
+
+.mrag {
+    margin-left: 40px;
+    color: white;
+}
+
+.mrag h4 {
+    color: var(--text-gray);
+    font-weight: 200;
+    font-size: 15px;
+    width: calc(45vw - 170px);
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mrag h3 {
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.mrag button {
+    background-color: #5b88e1;
+    border: none;
+    bottom: 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.sponsored {
+    right: 0;
+    margin-top: 10px;
+    height: 50px;
+    background-color: #0005;
+    border: none;
+    color: var(--text-gray);
+    border-radius: 5px;
 }

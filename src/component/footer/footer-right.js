@@ -33,6 +33,7 @@ function SoundLevel({ volume, setVolume }){
             </div>
             <RangeSlider minvalue={0} maxvalue={1} value={volume} handleChange={setVolume}/>
         </div>
+
     );
 }
 

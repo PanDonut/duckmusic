@@ -5,7 +5,8 @@ export const PLAYLIST = [
 		title: "Duck Mix",
 		link: "duckmix1",
 		suggestion: "true",
-		promoted: "prawda",
+		promoted: "nieprawda",
+		promodesc: "Posłuchaj teraz!",
 		imgUrl:
 			"https://i.ibb.co/gTcL5Hx/thenight.png",
 		hoverColor: "rgb(161, 0, 0)",
@@ -344,6 +345,8 @@ export const PLAYLIST = [
 		hoverColor: "rgb(255, 183, 0)",
 		artist: "Maroon 5, Adele, Sia, Bruno Mars, Pitbull, Whitney Houston, P!nk, Nate Ruess, Shawn Mendes i inni",
 		playlistBg: "rgb(255, 140, 0)",
+		promoted: "prawda",
+		promodesc: "Już niedługo zima! Posłuchaj Rytmu Jesieni!",
 		playlistData: [
 
 			{

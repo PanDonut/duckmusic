@@ -1,5 +1,5 @@
 .SearchPage {
-    background-color: #0d0c11;
+    background-color: var(--bgcol);
     color: #fff;
     overflow-y: scroll;
     overflow-x: hidden;

@@ -35,7 +35,7 @@
 }
 @media screen and (max-width: 640px) {
     .Topnav{
-        background-color: #121212;
+        background-color: var(--fillsvg);
         height: 50px;
     }
     .Topnav div{
@@ -66,4 +66,19 @@
         overflow-x: scroll;
     }
 }
+
+.btn {
+    margin-top: 5px;
+    border: none;
+    background: none;
+}
+
+    .btn svg {
+        width: 25px;
+        height: 25px;
+    }
+
+        .btn svg path {
+            fill: var(--outline);
+        }
 

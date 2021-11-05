@@ -10,3 +10,7 @@
     max-width: 131px;
     height: 40px;
 }
+
+.logo path {
+    fill: var(--logo);
+}

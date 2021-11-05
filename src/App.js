@@ -22,9 +22,18 @@ import styles from './style/App.module.css';
 import Card from './component/cards/playlist-card-m';
 import NotFound from './pages/404';
 import LyricsCard from './component/lyrics/lyrics-main';
+import { keepTheme } from './theme';
+import Connection from './pages/connection';
+import Settings from './pages/settings';
+
 
 function App() {
+
+    useEffect(() => {
+        keepTheme();
+    })
   const size = useWindowSize();
+
 
     return (
         <Router>
@@ -32,6 +41,12 @@ function App() {
           <Switch>
             <Route exact path="/">
                 <Home />
+            </Route>
+            <Route exact path="/settings">
+                <Settings />
+            </Route>
+            <Route exact path="/connect">
+                <Connection />
             </Route>
             <Route exact path="/playlist/:path">
                 <PlaylistPage />

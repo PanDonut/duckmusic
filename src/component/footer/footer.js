@@ -10,7 +10,9 @@ import FooterRight from './footer-right';
 import Audio from './audio';
 import * as Icons from '../icons';
 import { LYRICSNEW } from "../../data/lyrics";
-
+import database from 'firebase/database';
+import firebase from '../../firebase.js'
+import { getDatabase, ref, set } from "firebase/database";
 
 import { PLAYLIST } from "../../data/index";
 import CONST from '../../constants/index';
@@ -20,6 +22,8 @@ import '../lyrics/lyrics.modular.css';
 import TextTransition, { presets } from "react-text-transition";
 
 import convertTime from '../../functions/convertTime';
+
+const code = "420";
 
 function Footer(props) {
 
@@ -124,10 +128,28 @@ function Footer(props) {
 
     
 
+    const [remo, setRemo] = useState("false");
+    console.log(remo);
     console.log('ts ' + touchStart);
     console.log('te ' + touchEnd);
     console.log(touchStart - touchEnd / 2);
 
+        const db = getDatabase();
+    if (remo == "true") {
+        document.documentElement.style.setProperty('--col', '#4287f5');
+        set(ref(db, "remote-play/" + code), {
+            time: currentTime,
+            trackk: props.trackData.trackKey
+        })
+            .then(() => {
+                console.log("Gotowe");
+            })
+            .catch((error) => {
+                console.log("Problem");
+            });
+    } else {
+        document.documentElement.style.setProperty('--col', '#fff');
+    }
     return (
         <footer className={styles.footer}>
             
@@ -179,12 +201,13 @@ function Footer(props) {
                         trackData={props.trackData}
                         isPlaying={props.isPlaying}
                     />
-                </div>
+                </div>                
                 {size.width > CONST.MOBILE_SIZE && 
                     <FooterRight 
                         volume={volume} 
                         setVolume={setVolume}
-                    />
+                ></FooterRight>
+                    
                 }
             </div>
             

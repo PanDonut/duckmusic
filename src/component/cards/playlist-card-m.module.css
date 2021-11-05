@@ -5,7 +5,7 @@
 .PlaylistCardS{
     position: relative;
     padding: 16px;
-    background: #181818;
+    background: var(--card-bg1);
     border-radius: 4px;
     -webkit-transition: background-color .3s ease;
     transition: background-color .3s ease;
@@ -68,7 +68,7 @@
     color: var(--text-white);
 }
 .Title p:last-child{
-    color: rgb(179, 179, 179);
+    color: var(--text-gray);
     margin-top: 4px;
     -webkit-line-clamp: 2;
 }

@@ -1,16 +1,4 @@
 :root {
-    --sidenav-black: #000;
-    --sidenav-active: #0d0c11;
-    --text-gray: #b3b3b3;
-    --text-white: #fff;
-    --main-background: #0d0c11;
-    --card-background: #100e14;
-    --sidenav-width: 238px;
-    --sidenav-margin-left: 24px;
-    --sidenav-margin-right: 24px;
-    --small-cards-column-width: 270px;
-    --cards-column-width: 180px;
-    --hover-home-bg: #0d0c11;
     --to: -1;
     --bot: 0;
     --botf: 45px;
