@@ -8,7 +8,7 @@
     bottom: 0;
 }
 .musicControl div button svg{
-    fill: black !important;
+    fill: var(--fillsvg);
 }
 .button {
     border: 0;
