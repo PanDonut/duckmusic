@@ -154,6 +154,14 @@ body {
         display: none;
     }
 
+    .mrag h3 {
+        display: none;
+    }
+
+    .mrag h4 {
+        display: none;
+    }
+
     .Btn1 {
         background-color: transparent;
         border: none;
