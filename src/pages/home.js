@@ -51,14 +51,14 @@ function Home({ isExpanded = false }) {
     var curHr = today.getHours()
     const [timetext, setTimetext] = React.useState("");
     if (timetext == "") {
-        if (curHr < 12) {
-            console.log('Dzieñ dobry')
+        if (curHr < 13) {
+            console.log('DzieÃ± dobry')
             setTimetext(decode("Dzie&#324; dobry"));
         } else if (curHr < 18) {
-            console.log('Mi³ego popo³udnia')
+            console.log('MiÂ³ego popoÂ³udnia')
             setTimetext(decode("Mi&#322;ego popo&#322;udnia"));
         } else {
-            console.log('Dobry wieczór')
+            console.log('Dobry wieczÃ³r')
             setTimetext(decode("Dobry wiecz&#243;r"));
         }
     }
