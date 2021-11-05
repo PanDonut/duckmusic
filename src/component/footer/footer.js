@@ -48,7 +48,7 @@ function Footer(props) {
 
     function Hide1() {
         document.documentElement.style.setProperty('--footersize', '150px');
-        document.documentElement.style.setProperty('--botf', '60px');
+        document.documentElement.style.setProperty('--botf', '65px');
         document.documentElement.style.setProperty('--dispbg', '0');
         document.documentElement.style.setProperty('--expanded', 'translateX(1000px)');
     };
@@ -63,10 +63,11 @@ function Footer(props) {
     function handleTouchMove(e) {
         setTouchEnd(e.targetTouches[0].clientY);
         if (touchStart - touchEnd > 10 && touchStart - touchEnd < 349) {
-            document.documentElement.style.setProperty('--footersize', touchStart - touchEnd / 2 + "px");
+            document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 4 + "vh");
         }
-        if (touchStart - touchEnd > 100 && touchStart - touchEnd < 349) {
+        if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--dispbg', '1');
+            document.documentElement.style.setProperty('--botf', '0px');
         }
     }
 
@@ -78,7 +79,7 @@ function Footer(props) {
         if (touchStart - touchEnd < -150) {
             Hide1();
         }
-        if (touchStart - touchEnd < 349) {
+        if (touchStart - touchEnd < 340) {
             Hide1();
         }
     }
