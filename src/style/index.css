@@ -34,7 +34,7 @@ body {
     --sepe: #fff2;
     --card-bg1: #1818181;
     --card-small: hsla(0,0%,100%,.1);
-    --text-tit: #000;
+    --text-tit: #fff;
 }
 
 .theme-light {
