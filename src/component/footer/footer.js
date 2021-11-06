@@ -46,7 +46,7 @@ function Footer(props) {
     function Expand1() {
         document.documentElement.style.setProperty('--footersize', '100%');
         document.documentElement.style.setProperty('--botf', '0px');
-        document.documentElement.style.setProperty('--dispbg', '1');
+        document.documentElement.style.setProperty('--dispbg', 'block');
         document.documentElement.style.setProperty('--expanded', 'translateX(0px)');
         document.documentElement.style.setProperty('--imgfull', 'block');
         document.documentElement.style.setProperty('--imgn', 'none');
@@ -58,7 +58,7 @@ function Footer(props) {
     function Hide1() {
         document.documentElement.style.setProperty('--footersize', '62px');
         document.documentElement.style.setProperty('--botf', '52px');
-        document.documentElement.style.setProperty('--dispbg', '0');
+        document.documentElement.style.setProperty('--dispbg', 'none');
         document.documentElement.style.setProperty('--expanded', 'translateX(1000px)');
         document.documentElement.style.setProperty('--imgfull', 'none');
         document.documentElement.style.setProperty('--imgn', 'block');
