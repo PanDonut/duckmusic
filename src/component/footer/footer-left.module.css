@@ -51,6 +51,7 @@
         color: var(--text-white);
         font-weight: 500;
         font-size: 15px;
+        height: auto;
     }
 
     .songDetails {
@@ -104,6 +105,7 @@
     color: #fff;
     font-weight: 500;
     font-size: 20px;
+    height: auto;
 }
 
 
