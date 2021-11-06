@@ -27,13 +27,27 @@
 }
 
 @media screen and (max-width: 640px) {
+    :root {
+        --footersize: 62px;
+        --botf: 52px;
+        --phmu: none;
+    }
+
     .footer {
         bottom: var(--botf);
     }
     .nowplayingbar{
         padding: 0px 0px;
-        grid-template-columns: 1fr;
+        grid-template-columns: 75vw 25vw;
         row-gap: 0px;
+    }
+    .footerMe {
+        display: var(--phmu);
+        position: absolute;
+        width: 100%;
+        bottom: 15vh;
+        z-index: 100000;
+        flex-direction: column;
     }
 }
 

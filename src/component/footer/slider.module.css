@@ -30,7 +30,6 @@
 	position: relative;
 	z-index: 9;
 	background: #b3b3b3;
-	border-radius: 50%;
 	box-shadow: -410px 0 0 408px #b3b3b3;
 	cursor: pointer;
 	height: 4px;
@@ -39,7 +38,6 @@
 }
 .range__slider::-moz-range-thumb {
 	background: #b3b3b3;
-	border-radius: 50%;
 	box-shadow: -410px 0 0 408px #b3b3b3;
 	cursor: pointer;
 	height: 4px;

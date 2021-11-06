@@ -1,18 +1,29 @@
-:root {
-    --musicctr: flex;
-}
 
 .musicControl {
-    display: var(--musicctr);
+    width: 100%;
+    display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin-bottom: 12px;
+    justify-content: space-evenly;
+    margin-top: 5px;
     -webkit-tap-highlight-color: transparent;
-    z-index: 1000000;
-    right: 0;
     bottom: 0;
-    padding-top: 10px;
+    margin-bottom: 50px;
 }
+.musicControl div svg path{
+    fill: #fff;
+}
+
+    .musicControl div {
+        background: #5b88e1;
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+    }
+
+    .musicControl div svg {
+        font-size: 30px;
+    }
+
 .button {
     border: 0;
     background: transparent;
@@ -25,22 +36,14 @@
     -webkit-tap-highlight-color: transparent;
 }
 .button svg{
-    font-size: 16px;
-    fill: var(--btns);
+    font-size: 26px;
+    fill: #fff;
     color: hsla(0,0%,100%,.7);
 }
-.button svg:hover {
-    fill: var(--btns);
+.musicControl svg:hover {
+    fill: rgb(255, 255, 255);
     color: rgb(255, 255, 255);
     width: 20px;
     height: 20px;
     transition: 0.25s;
-}
-
-.musicControl div {
-    background-color: transparent;
-}
-
-.musicControl div svg {
-    fill: var(--text-white);
 }

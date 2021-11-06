@@ -59,7 +59,8 @@
     left: 0;
     right: 0;
     top: 340px;
-    height: 240px;
+    height: 100%;
+    width: 100%;
     z-index: -2;
     background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--main-background)));
     background-image: linear-gradient(rgba(0,0,0,.6),var(--main-background));
@@ -195,7 +196,8 @@
 }
 @media screen and (max-width: 640px) {
     .PlaylistPage{
-        margin-bottom: 180px;
+        margin-bottom: 62px;
+        padding-bottom: 62px;
     }
     .PlaylistIcons{
         padding: 20px 16px;

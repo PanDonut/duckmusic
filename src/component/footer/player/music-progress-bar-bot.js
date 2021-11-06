@@ -5,10 +5,10 @@ import RangeSlider from '../slider';
 
 import styles from "./music-progress-bar-bot.module.css";
 
-function MusicProgressBar({ currentTime, duration, handleTrackClick}){
+function MusicProgressBar({ currentTime, duration}){
     return (
         <div className={styles.musicProgress}>
-            <RangeSlider value={currentTime} minvalue={0} maxvalue={duration} handleChange={handleTrackClick}/>
+            <RangeSlider value={currentTime} minvalue={0} maxvalue={duration}/>
         </div>
     );
 }

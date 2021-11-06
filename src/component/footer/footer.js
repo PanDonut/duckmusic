@@ -5,8 +5,10 @@ import useWindowSize from '../../hooks/useWindowSize';
 import FooterLeft from './footer-left';
 import MusicControlBox from './player/music-control-box';
 import MusicControlBoxPh from './player/music-control-box-ph';
+import MusicControlBoxPhone from './player/music-control-box-phone';
 import MusicControlBoxs from './player/music-control-box-small';
 import MusicProgressBar from './player/music-progress-bar';
+import MusicProgressBarF from './player/music-progress-bar-full';
 import MusicProgressBarBot from './player/music-progress-bar-bot';
 import FooterRight from './footer-right';
 import Audio from './audio';
@@ -46,13 +48,23 @@ function Footer(props) {
         document.documentElement.style.setProperty('--botf', '0px');
         document.documentElement.style.setProperty('--dispbg', '1');
         document.documentElement.style.setProperty('--expanded', 'translateX(0px)');
+        document.documentElement.style.setProperty('--imgfull', 'block');
+        document.documentElement.style.setProperty('--imgn', 'none');
+        document.documentElement.style.setProperty('--musicctr', 'none');
+        document.documentElement.style.setProperty('--phmu', 'flex');
+        document.documentElement.style.setProperty('--dipy', 'flex');
     };
 
     function Hide1() {
-        document.documentElement.style.setProperty('--footersize', '50px');
-        document.documentElement.style.setProperty('--botf', '45px');
+        document.documentElement.style.setProperty('--footersize', '62px');
+        document.documentElement.style.setProperty('--botf', '52px');
         document.documentElement.style.setProperty('--dispbg', '0');
         document.documentElement.style.setProperty('--expanded', 'translateX(1000px)');
+        document.documentElement.style.setProperty('--imgfull', 'none');
+        document.documentElement.style.setProperty('--imgn', 'block');
+        document.documentElement.style.setProperty('--musicctr', 'flex');
+        document.documentElement.style.setProperty('--phmu', 'none');
+        document.documentElement.style.setProperty('--dipy', 'none');
     };
 
     const [touchStart, setTouchStart] = React.useState(0);
@@ -80,6 +92,7 @@ if(isOpen == "false") {
         if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--dispbg', '1');
             document.documentElement.style.setProperty('--botf', '0px');
+            document.documentElement.style.setProperty('--imgn', 'none');
         }
 }
     }
@@ -249,16 +262,18 @@ if(isOpen == "false") {
                         handleTrackClick={handleTrackClick}
                     />
                     </div>
-                    }
-                    {size.width < CONST.MOBILE_SIZE &&
-                    <div className={styles.footerMid}>
-                    <MusicProgressBar
+                }
+                {size.width < CONST.MOBILE_SIZE &&
+                    <div className={styles.footerMe}>
+                    <MusicProgressBarF
                         currentTime={currentTime}
                         duration={duration}
                         handleTrackClick={handleTrackClick}
                     />
+                        <MusicControlBoxPhone />
+                        
                     </div>
-                    }
+                }
                     
                     <Audio
                         ref={audioRef}
@@ -279,7 +294,6 @@ if(isOpen == "false") {
                     <MusicProgressBarBot
                         currentTime={currentTime}
                         duration={duration}
-                        handleTrackClick={handleTrackClick}
                     />
                 </div>
             }

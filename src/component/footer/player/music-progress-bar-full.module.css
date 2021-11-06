@@ -1,9 +1,12 @@
+:root {
+    --dipy: none;
+}
+
 .musicProgress{
-    display: flex;
+    display: var(--dipy);
     justify-content: center;
     width: 100%;
     z-index: 1000000;
-    background-color: var(--card-background);
 }
 .musicProgress span p{
     margin: 0px 8px;
@@ -18,4 +21,6 @@
 }
 .musicProgress input {
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
