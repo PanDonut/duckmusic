@@ -1,6 +1,6 @@
 .MobileNav{
     position: fixed;
-    z-index: 9999999;
+    z-index: 999999999;
     background: var(--mobile-side);
     bottom: 0;
     left: 0;
