@@ -31,7 +31,7 @@
         bottom: var(--botf);
     }
     .nowplayingbar{
-        padding: 8px 16px;
+        padding: 0px 0px;
         grid-template-columns: 1fr;
         row-gap: 16px;
     }

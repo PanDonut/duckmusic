@@ -6,6 +6,7 @@ import FooterLeft from './footer-left';
 import MusicControlBox from './player/music-control-box';
 import MusicControlBoxs from './player/music-control-box-small';
 import MusicProgressBar from './player/music-progress-bar';
+import MusicProgressBarBot from './player/music-progress-bar-bot';
 import FooterRight from './footer-right';
 import Audio from './audio';
 import * as Icons from '../icons';
@@ -236,13 +237,33 @@ if(isOpen == "false") {
             <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg}/>
             <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>
                 <FooterLeft />
-                <div className={styles.footerMid}>
+                
+                    {size.width > CONST.MOBILE_SIZE &&
+                    <div className={styles.footerMid}>
                     <MusicControlBox />
-                    <MusicProgressBar 
-                        currentTime={currentTime} 
-                        duration={duration} 
+                    <MusicProgressBar
+                        currentTime={currentTime}
+                        duration={duration}
                         handleTrackClick={handleTrackClick}
                     />
+                    </div>
+                    }
+                    {size.width < CONST.MOBILE_SIZE &&
+                    <div className={styles.footerMid}>
+                    <MusicProgressBar
+                        currentTime={currentTime}
+                        duration={duration}
+                        handleTrackClick={handleTrackClick}
+                    />
+                    <MusicControlBox />
+                    <MusicProgressBarBot
+                        currentTime={currentTime}
+                        duration={duration}
+                        handleTrackClick={handleTrackClick}
+                    />
+                    </div>
+                    }
+                    
                     <Audio
                         ref={audioRef}
                         handleDuration={setDuration}
@@ -250,7 +271,7 @@ if(isOpen == "false") {
                         trackData={props.trackData}
                         isPlaying={props.isPlaying}
                     />
-                </div>                
+                               
                 {size.width > CONST.MOBILE_SIZE && 
                     <FooterRight 
                         volume={volume} 
