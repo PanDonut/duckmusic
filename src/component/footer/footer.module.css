@@ -2,7 +2,7 @@
     position: fixed;
     left: 0;
     right: 0;
-    bottom: var(--bot);
+    bottom: var(--botf);
     top: var(--to);
     height: var(--footersize);
     width: 100%;
@@ -62,7 +62,7 @@
     object-fit: cover;
     z-index: 1;
     filter: blur(10px) grayscale(25%) brightness(50%);
-    opacity: var(--dispbg);
+    display: var(--dispbg);
     transition: 0.5s ease;
 }
 
