@@ -2,10 +2,11 @@
 	display: flex;
     align-items: center;
 	position: relative;
+	bottom: 0;
 }
 .range__slider {
 	-webkit-appearance: none;
-	background-color: #535353;
+	background-color: transparent;
 	height: 4px;
 	overflow: hidden;
 	width: 100%;
@@ -15,7 +16,7 @@
 	width: 10px;
     height: 10px;
     position: absolute;
-    border-radius: 50px;
+    border-radius: 5px;
     z-index: 1;
     opacity: 0;
     pointer-events: none;

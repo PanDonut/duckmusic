@@ -28,3 +28,13 @@
     height: 16px;
     transition: 0.2s;
 }
+
+@media screen and (max-width: 640px) {
+    .footerRight {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        width: 50px;
+        right: 0;
+    }
+}

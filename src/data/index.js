@@ -75,7 +75,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
 				songArtist: "Vance Joy",
 				link:
-					"https://www.mboxdrive.com/Vance Joy - Riptide (Lyrics).mp3",
+					"https://github.com/PanDonut/music/raw/main/Vance%20Joy%20-%20Riptide%20(Lyrics).mp3",
 			},
 			{
 				index: "8",

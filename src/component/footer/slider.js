@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
 
-import styles from "./range-slider.module.css";
+import styles from "./slider.module.css";
 
 function RangeSlider({value, minvalue, maxvalue, handleChange}){
     const inputRef = useRef(null)

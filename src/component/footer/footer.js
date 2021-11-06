@@ -4,6 +4,7 @@ import { changeTrack, changePlay } from '../../actions';
 import useWindowSize from '../../hooks/useWindowSize';
 import FooterLeft from './footer-left';
 import MusicControlBox from './player/music-control-box';
+import MusicControlBoxPh from './player/music-control-box-ph';
 import MusicControlBoxs from './player/music-control-box-small';
 import MusicProgressBar from './player/music-progress-bar';
 import MusicProgressBarBot from './player/music-progress-bar-bot';
@@ -49,7 +50,7 @@ function Footer(props) {
 
     function Hide1() {
         document.documentElement.style.setProperty('--footersize', '150px');
-        document.documentElement.style.setProperty('--botf', '65px');
+        document.documentElement.style.setProperty('--botf', '45px');
         document.documentElement.style.setProperty('--dispbg', '0');
         document.documentElement.style.setProperty('--expanded', 'translateX(1000px)');
     };
@@ -234,7 +235,8 @@ if(isOpen == "false") {
                     
                 </div>
             </div>
-            <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg}/>
+            <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg} />
+            
             <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>
                 <FooterLeft />
                 
@@ -255,12 +257,6 @@ if(isOpen == "false") {
                         duration={duration}
                         handleTrackClick={handleTrackClick}
                     />
-                    <MusicControlBox />
-                    <MusicProgressBarBot
-                        currentTime={currentTime}
-                        duration={duration}
-                        handleTrackClick={handleTrackClick}
-                    />
                     </div>
                     }
                     
@@ -272,14 +268,21 @@ if(isOpen == "false") {
                         isPlaying={props.isPlaying}
                     />
                                
-                {size.width > CONST.MOBILE_SIZE && 
                     <FooterRight 
                         volume={volume} 
                         setVolume={setVolume}
                 ></FooterRight>
-                    
-                }
+                
             </div>
+            {size.width < CONST.MOBILE_SIZE &&
+                <div className={styles.footerMid}>
+                    <MusicProgressBarBot
+                        currentTime={currentTime}
+                        duration={duration}
+                        handleTrackClick={handleTrackClick}
+                    />
+                </div>
+            }
             
         </footer>
     );

@@ -1,0 +1,42 @@
+.musicControl {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 12px;
+    -webkit-tap-highlight-color: transparent;
+    z-index: 1000000;
+    right: 0;
+    bottom: 0;
+    padding-top: 10px;
+}
+.button {
+    border: 0;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+}
+.button svg{
+    font-size: 16px;
+    fill: var(--btns);
+    color: hsla(0,0%,100%,.7);
+}
+.button svg:hover {
+    fill: var(--btns);
+    color: rgb(255, 255, 255);
+    width: 20px;
+    height: 20px;
+    transition: 0.25s;
+}
+
+.musicControl div {
+    background-color: transparent;
+}
+
+.musicControl div svg {
+    fill: var(--text-white);
+}

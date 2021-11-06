@@ -1,5 +1,9 @@
+:root {
+    --dip: none;
+}
+
 .musicProgress{
-    display: flex;
+    display: var(--dip);
     justify-content: center;
     width: 100%;
     z-index: 1000000;
