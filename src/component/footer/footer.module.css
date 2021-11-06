@@ -44,7 +44,7 @@
         display: var(--phmu);
         position: absolute;
         width: 100%;
-        bottom: 15vh;
+        bottom: 25vh;
         z-index: 100000;
         flex-direction: column;
     }
