@@ -85,14 +85,14 @@
 .imgBoxfull img {
     height: 25%;
     position: fixed;
-    top: 10vh;
+    top: 9vh;
     left: 0;
     transform: translate(calc(50vw - 50%));
     z-index: 1000000;
 }
 
 .songDetailsfull {
-    top: 40vh;
+    top: 38vh;
     left: 0;
     transform: translate(calc(50vw - 50%));
     z-index: 1000000;
