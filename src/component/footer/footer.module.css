@@ -34,7 +34,6 @@
 
     .footer {
         bottom: var(--botf);
-        overflow-y: scroll;
     }
     .nowplayingbar{
         padding: 0px 0px;
