@@ -3,7 +3,6 @@
     left: 0;
     right: 0;
     bottom: var(--botf);
-    top: var(--to);
     height: var(--footersize);
     width: 100%;
     z-index: 9;
