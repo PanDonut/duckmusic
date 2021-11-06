@@ -72,22 +72,22 @@ function Footer(props) {
     const [isOpen, setIsOpen] = React.useState("false");
 
     function handleTouchStart(e) {
-if(isOpen == "true") {
         setTouchStart(e.targetTouches[0].clientY);
+if(isOpen == "true") {
 }
 if(isOpen == "false") {
-        setTouchStart(e.targetTouches[0].clientY);
+        
 }
     }
 
     function handleTouchMove(e) {
-if(isOpen == "true") {
         setTouchEnd(e.targetTouches[0].clientY);
+if(isOpen == "true") {
 }
 if(isOpen == "false") {
-        setTouchEnd(e.targetTouches[0].clientY);
+        
         if (touchStart - touchEnd > 10 && touchStart - touchEnd < 349) {
-            document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 4 + "vh");
+            document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 3.5 + "vh");
         }
         if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--dispbg', '1');
@@ -99,7 +99,7 @@ if(isOpen == "false") {
 
     function handleTouchEnd() {
 if(isOpen == "true") {
-        if (touchStart - touchEnd < -150) {
+        if (touchStart - touchEnd < -160) {
             Hide1();
             setIsOpen("false");
         }
@@ -115,6 +115,9 @@ if(isOpen == "false") {
         }
 }
     }
+
+    console.log("MEEM " + (touchStart - touchEnd));
+
 function handleTouchStart1(e) {
         if(isOpen == "false") {
         setTouchStart(e.targetTouches[0].clientY);

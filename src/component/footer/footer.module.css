@@ -35,6 +35,7 @@
 
     .footer {
         bottom: var(--botf);
+        overflow-y: scroll;
     }
     .nowplayingbar{
         padding: 0px 0px;
@@ -55,7 +56,7 @@
 }
 
 .bgron {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     object-fit: cover;

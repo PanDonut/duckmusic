@@ -104,12 +104,10 @@
     color: #fff;
     font-weight: 500;
     font-size: 20px;
-    z-index: 1000000;
 }
 
 
 .songDetailsfull p small {
     color: #5b88e1;
     font-size: 13px;
-    z-index: 1000000;
 }
