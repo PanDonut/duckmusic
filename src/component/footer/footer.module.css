@@ -32,7 +32,7 @@
     }
     .nowplayingbar{
         padding: 0px 0px;
-        grid-template-columns: calc(90%- 55px) 50px;
+        grid-template-columns: 1fr;
         row-gap: 0px;
     }
 }
