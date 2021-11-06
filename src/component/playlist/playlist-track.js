@@ -27,7 +27,7 @@ function PlaylistTrack(props) {
 		<div 
             className={`${styles.trackDiv} ${thisSong ? "activeTrack" : ""}`}
             style={
-                props.data.listType === "album" 
+                props.data.listType === "album1" 
                     ? {gridTemplateColumns: '16px 1fr 38px'} 
                     : {}
             }
@@ -47,7 +47,7 @@ function PlaylistTrack(props) {
                     : <p className={styles.SongIndex}>{props.data.song.index}</p>
             }
 
-			{props.data.listType === "album" ? "" : <img src={props.data.song.songimg} />}
+			{props.data.listType === "album1" ? "" : <img src={props.data.song.songimg} />}
 
 			<span>
 				<TextBoldL>{props.data.song.songName}</TextBoldL>

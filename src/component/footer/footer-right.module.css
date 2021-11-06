@@ -6,6 +6,7 @@
 .soundBar{
     display: flex;
     align-items: center;
+    z-index: 10000000;
 }
 .soundBar input{
     width: 93px;

@@ -8,7 +8,7 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
         onLoadedMetadata={(e) => handleDuration(e.target.duration)}
         onTimeUpdate={(e) => handleCurrentTime(e.target.currentTime)}
         src={trackData.track}
-        autoPlay={isPlaying}
+        autoPlay
       />
     );
   },

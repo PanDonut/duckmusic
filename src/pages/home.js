@@ -43,10 +43,10 @@ function Hide() {
 };
 
 
-
-
 function Home({ isExpanded = false }) {
 
+    console.log(localStorage.getItem('explicit'));
+    
     var today = new Date()
     var curHr = today.getHours()
     const [timetext, setTimetext] = React.useState("");
@@ -63,6 +63,7 @@ function Home({ isExpanded = false }) {
         }
     }
 
+    
     
 
     const history = useHistory();
@@ -129,7 +130,7 @@ function Home({ isExpanded = false }) {
                                 })}
                         </section>
                     <div className={styles.SectionCards}>
-                        {PLAYLIST.map((item) => {
+                        {PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
                             return (
                                 <PlaylistCardS 
                                     key={item.title}
@@ -159,15 +160,17 @@ function Home({ isExpanded = false }) {
                         <TitleM>Odkrywaj</TitleM>
                     </div>
                     
-                    <div className={styles.SectionCardsMedium}>
-                        {PLAYLIST.slice(0, 6).map((item) => {
-                            return (
-                                <PlaylistCardM 
-                                    key={item.title}
-                                    data={item}
-                                />
-                            );
-                        })}
+                        <div className={styles.SectionCardsMedium}>                            
+                                {
+                                PLAYLIST.slice(0, 6).filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                                        return (
+                                            <PlaylistCardM
+                                                key={item.title}
+                                                data={item}
+                                            />
+                                        );
+                                    })
+                                }
                     </div>
                 </section>
                 </div>

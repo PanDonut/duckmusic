@@ -1,8 +1,11 @@
 
-
 function setTheme(themeName) {
     localStorage.setItem('theme', themeName);
     document.documentElement.className = themeName;
+}
+
+function setEc(valu) {
+    localStorage.setItem('explicit', valu);
 }
 
 function keepTheme() {
@@ -17,7 +20,9 @@ function keepTheme() {
     }
 }
 
+
 module.exports = {
     setTheme,
-    keepTheme
+    keepTheme,
+    setEc
 }

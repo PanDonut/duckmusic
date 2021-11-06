@@ -7,6 +7,7 @@ export const PLAYLIST = [
 		suggestion: "true",
 		promoted: "nieprawda",
 		promodesc: "Posłuchaj teraz!",
+		ex: "no",
 		imgUrl:
 			"https://i.ibb.co/gTcL5Hx/thenight.png",
 		hoverColor: "rgb(161, 0, 0)",
@@ -30,16 +31,16 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
 				songArtist: "Taylor Swift",
 				link:
-					"https://www.mboxdrive.com/Taylor%20Swift%20-%20ME%20(Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1yoMFyGHBL6SaoAKFatS36oqAkXLcazj-&export=download",
 			},
 			{
 				index: "3",
-				songName: "The Man",
+				songName: "Blinding Lights",
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
-				songArtist: "Taylor Swift",
+					"https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
+				songArtist: "The Weeknd",
 				link:
-					"https://www.mboxdrive.com/Taylor%20Swift%20-%20The%20Man%20(Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
 			},
 			{
 				index: "4",
@@ -48,7 +49,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e0252b2a3824413eefe9e33817a",
 				songArtist: "Taylor Swift",
 				link:
-					"https://www.mboxdrive.com/Blank%20Space%20-%20Taylor%20Swift%20(Lyrics)%20.mp3",
+					"https://drive.google.com/u/0/uc?id=1QncqOuyt4xCS3GU9kBwTTeAh0wGb_G3r&export=download",
 			},
 			{
 				index: "5",
@@ -57,7 +58,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
 				songArtist: "Taylor Swift",
 				link:
-					"https://www.mboxdrive.com/Taylor%20Swift%20-%20I%20Forgot%20That%20You%20Existed%20(Lyric%20Video).mp3",
+					"https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download",
 			},
 			{
 				index: "6",
@@ -66,7 +67,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
 				songArtist: "Taylor Swift",
 				link:
-					"https://www.mboxdrive.com/Taylor%20Swift%20-%20Lover%20(Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1r6TdJ-dVtrsFYhZyBiziP-Tv68iS9kF-&export=download",
 			},
 			{
 				index: "7",
@@ -75,7 +76,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
 				songArtist: "Vance Joy",
 				link:
-					"https://github.com/PanDonut/music/raw/main/Vance%20Joy%20-%20Riptide%20(Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1gYF7U60oYiwF4fP-UHbt2Mj2okjQ3aNH&export=download",
 			},
 			{
 				index: "8",
@@ -84,7 +85,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02c4aa14d6f01b64808cf9ae31",
 				songArtist: "Dawid Podsiadło",
 				link:
-					"https://www.mboxdrive.com/Trofea.mp3",
+					"https://drive.google.com/u/0/uc?id=13WosreJVwYmnrKIXWnW0yD3n5y9JxR0-&export=download",
 			},
 			{
 				index: "9",
@@ -93,7 +94,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e024a052b99c042dc15f933145b",
 				songArtist: "Toto",
 				link:
-					"https://www.mboxdrive.com/Toto Africa Lyrics (high quality audio).mp3",
+					"https://drive.google.com/u/0/uc?id=1rGYxCI5Ng_eJUzYeL1lFxDTdkie1Qmog&export=download",
 			},
 			{
 				index: "10",
@@ -102,7 +103,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
 				songArtist: "Bruno Mars",
 				link:
-					"https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+					"https://drive.google.com/u/0/uc?id=19nGAC84T-DUsMDt4eVaVxLUq081FNt0j&export=download",
 			},
 			{
 				index: "11",
@@ -111,7 +112,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02d228a76299b89385a7f642fd",
 				songArtist: "Ed Helms",
 				link:
-					"https://www.mboxdrive.com/The Lorax How Bad Can I Be.mp3",
+					"https://drive.google.com/u/0/uc?id=15qhYm8m66zf2FJaXLBm6rB1Yb_u5AjsN&export=download",
 			},
 			{
 				index: "12",
@@ -120,7 +121,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02e6095c382c2853667c1623eb",
 				songArtist: "Camila Cabello feat. Shawn Mendes",
 				link:
-					"https://www.mboxdrive.com/Shawn Mendes, Camila Cabello - Señorita (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1RDra8uflnC1y8YrnojhITZZG5bIf5yRq&export=download",
 			},
 			{
 				index: "13",
@@ -129,7 +130,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
 				songArtist: "Taylor Swift",
 				link:
-					"https://www.mboxdrive.com/Taylor Swift - I Think He Knows (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download",
 			},
 			{
 				index: "14",
@@ -138,7 +139,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e021376b4b16f4bfcba02dc571b",
 				songArtist: "Shawn Mendes",
 				link:
-					"https://www.mboxdrive.com/Shawn Mendes - Treat You Better (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1wkleUVQ3ak1lxyY3nQ1Es_M37gxZ0o45&export=download",
 			},
 			{
 				index: "15",
@@ -147,7 +148,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e025755e164993798e0c9ef7d7a",
 				songArtist: "Rick Astley",
 				link:
-					"https://www.mboxdrive.com/Rick Astley - When I Fall in Love (Audio).mp3",
+					"https://drive.google.com/u/0/uc?id=1UtmbiiTuviwAS2bKXooc4etLcL4WM7v0&export=download",
 			},
 			{
 				index: "16",
@@ -156,7 +157,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
 				songArtist: "Pitbull feat. Christina Aguilera",
 				link:
-					"https://www.mboxdrive.com/Pitbull - Feel This Moment (Lyrics) ft. Christina Aguilera.mp3",
+					"https://drive.google.com/u/0/uc?id=1DwT2hBc2u9wvJqBh2gWkcLbb6Q8bCnrG&export=download",
 			},
 			{
 				index: "17",
@@ -165,7 +166,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02a9e4d7fae5dfcc8f9cc96bc9",
 				songArtist: "Rachel Platten",
 				link:
-					"https://www.mboxdrive.com/Rachel Platten _ Fight Song Lyrics.mp3",
+					"https://drive.google.com/u/0/uc?id=1Rbpl06PuMzFpw4i1DJmRj8T4ycyBCRcG&export=download",
 			},
 			{
 				index: "18",
@@ -174,7 +175,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e029e2f95ae77cf436017ada9cb",
 				songArtist: "OneRepublic",
 				link:
-					"https://www.mboxdrive.com/OneRepublic - Counting Stars [Lyrics].mp3",
+					"https://drive.google.com/u/0/uc?id=1VZPKdwftKwZFPmCqfgw54APatmD7o1cO&export=download",
 			},
 			{
 				index: "19",
@@ -183,7 +184,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e027d53a512292b565a520aaca1",
 				songArtist: "Alice Merton",
 				link:
-					"https://www.mboxdrive.com/No Roots - Alice Merton (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1XhroZUGSXQmFBar1NtkExc-D3Wabj7nV&export=download",
 			},
 			{
 				index: "20",
@@ -192,7 +193,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02c5148520a59be191eea16989",
 				songArtist: "Panic! at the Disco",
 				link:
-					"https://www.mboxdrive.com/Panic At the Disco - High Hopes (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1564Z9BGhUevu_HxCOcGNXMk0rG-dWTGR&export=download",
 			},
 			{
 				index: "21",
@@ -201,7 +202,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e0204bfd5a5fd5aa6ca648f66aa",
 				songArtist: "Marshmello feat. Bastille",
 				link:
-					"https://www.mboxdrive.com/Marshmello, Bastille - Happier (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1P3YXqD5UeD4ZD1CuRAX5zs12p11gM67r&export=download",
 			},
 			{
 				index: "22",
@@ -210,7 +211,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02e419ccba0baa8bd3f3d7abf2",
 				songArtist: "Mark Ronson feat. Bruno Mars",
 				link:
-					"https://www.mboxdrive.com/Mark Ronson - Uptown Funk (Lyrics) ft. Bruno Mars.mp3",
+					"https://drive.google.com/u/0/uc?id=1lHuakfIM7kBY_K-iKOLtEz-JrtxDCXzz&export=download",
 			},
 			{
 				index: "23",
@@ -219,7 +220,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02c5e1cecaedcd413599e4e866",
 				songArtist: "Maroon 5 feat. Christina Aguilera",
 				link:
-					"https://www.mboxdrive.com/Moves%20Like%20Jagger%20-%20Maroon%205%20featuring%20Christina%20Aguilera.mp3",
+					"https://drive.google.com/u/0/uc?id=1QhEpC9nvhpB0UmyYXGvihvuxAJvyS-Dy&export=download",
 			},
 			{
 				index: "24",
@@ -228,7 +229,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02af72d0856c5527dc97f3ea08",
 				songArtist: "Kungs",
 				link:
-					"https://www.mboxdrive.com/Kungs%20vs%20Cookin%20on%203%20Burners%20%20%20This%20Girl%20Audio.mp3",
+					"https://drive.google.com/u/0/uc?id=1KodU-CcOMcUJXBYOCHjthVmsqwf2PxUg&export=download",
 			},
 			{
 				index: "25",
@@ -237,7 +238,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e029bea3b79b95f86d1b66ac960",
 				songArtist: "Katy Perry",
 				link:
-					"https://www.mboxdrive.com/Katy Perry - Never Really Over (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1R393kyUIDxqz4da3FOCU7lGwvdkMcLu0&export=download",
 			},
 			{
 				index: "26",
@@ -246,7 +247,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02f619042d5f6b2149a4f5e0ca",
 				songArtist: "Katy Perry",
 				link:
-					"https://www.mboxdrive.com/Katy Perry - Firework (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1MilmkFouSYRQHAsH-wFoBEzu6mNj97Zz&export=download",
 			},
 			{
 				index: "27",
@@ -255,7 +256,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e025675e83f707f1d7271e5cf8a",
 				songArtist: "Imagine Dragons",
 				link:
-					"https://www.mboxdrive.com/Imagine Dragons - Thunder (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1cSmPWZTUBFPOXsseisC9uJL9v7sXsiYc&export=download",
 			},
 			{
 				index: "28",
@@ -264,7 +265,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e025675e83f707f1d7271e5cf8a",
 				songArtist: "Imagine Dragons",
 				link:
-					"https://www.mboxdrive.com/Imagine Dragons Believer LYRICS.mp3",
+					"https://drive.google.com/u/0/uc?id=18okV9hsOVLMFy91w2cLGXBgOh2HG1BNc&export=download",
 			},
 			{
 				index: "29",
@@ -273,7 +274,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02ba5db46f4b838ef6027e6f96",
 				songArtist: "Ed Sheeran",
 				link:
-					"https://www.mboxdrive.com/Happier - Ed Sheeran [Lyric].mp3",
+					"https://drive.google.com/u/0/uc?id=1wgkysokUFFGZsUc-Y4aut5o3tizGVFeF&export=download",
 			},
 			{
 				index: "30",
@@ -282,7 +283,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e0205fb4e9947c6edaf3836766e",
 				songArtist: "Fun feat. Janelle Monáe",
 				link:
-					"https://www.mboxdrive.com/Fun. ft Janelle Monae - We Are Young Official Lyrics.mp3",
+					"https://drive.google.com/u/0/uc?id=1D0s59hAb_v2bZ42-RVa-tZssr0CLaKmn&export=download",
 			},
 			{
 				index: "31",
@@ -291,7 +292,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02ef37416970812293c08e8a78",
 				songArtist: "Justin Timberlake",
 				link:
-					"https://www.mboxdrive.com/CANT%20STOP%20THE%20FEELING%20-%20Justin%20Timberlake%20(Lyrics)%20.mp3",
+					"https://drive.google.com/u/0/uc?id=1KswgwlLgyEAUEirg6d_hacHEpyKs1fJm&export=download",
 			},
 			{
 				index: "32",
@@ -300,7 +301,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e02faee7306ec2f36aeccc4bc98",
 				songArtist: "Bastille (Kat Krazy Remix)",
 				link:
-					"https://www.mboxdrive.com/Bastille - Pompeii (Kat Krazy Remix).mp3",
+					"https://drive.google.com/u/0/uc?id=1nToHED58QEFiNd1Hmavif74NFLpAjr5S&export=download",
 			},
 			{
 				index: "33",
@@ -309,7 +310,7 @@ export const PLAYLIST = [
 					"https://i.scdn.co/image/ab67616d00001e020ae4f4d42e4a09f3a29f64ad",
 				songArtist: "Avicii",
 				link:
-					"https://www.mboxdrive.com/Avicii - The Nights (Lyrics).mp3",
+					"https://drive.google.com/u/0/uc?id=1x-Zh7_3GiC4e7WVhtYPRcCE21FJuwEzl&export=download",
 			},
 		],
 	},
@@ -318,6 +319,7 @@ export const PLAYLIST = [
 		type: "parodia",
 		title: "Mr. Heavybeat",
 		link: "heavybeat",
+		ex: "no",
 		imgUrl:
 			"https://i.ibb.co/GsD7sgw/heavybeat.png",
 		hoverColor: "rgb(97, 82, 255)",
@@ -341,6 +343,7 @@ export const PLAYLIST = [
 		title: "Rytm Jesieni",
 		link: "rytm_jesieni",
 		suggestion: "true",
+		ex: "no",
 		imgUrl: "https://i.ibb.co/m6srfZz/playlist-jesien.png",
 		hoverColor: "rgb(255, 183, 0)",
 		artist: "Maroon 5, Adele, Sia, Bruno Mars, Pitbull, Whitney Houston, P!nk, Nate Ruess, Shawn Mendes i inni",
@@ -377,7 +380,7 @@ export const PLAYLIST = [
 				songName: "The Lazy Song",
 				songimg: "https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
 				songArtist: "Bruno Mars",
-				link: "https://www.mboxdrive.com/The Lazy Song - Bruno Mars (Lyrics) .mp3",
+				link: "https://drive.google.com/u/0/uc?id=19nGAC84T-DUsMDt4eVaVxLUq081FNt0j&export=download",
 			},
 			{
 				index: "5",
@@ -535,6 +538,7 @@ export const PLAYLIST = [
 		type: "parodia",
 		title: "Down Under",
 		link: "downunder_robots",
+		ex: "yes",
 		imgUrl:
 			"https://i.ibb.co/4j70KRF/downunder.jpg",
 		hoverColor: "rgb(232, 176, 139)",
@@ -557,6 +561,7 @@ export const PLAYLIST = [
 		type: "parodia",
 		title: "Blinding Squad",
 		link: "squad_remix_theduck",
+		ex: "yes",
 		imgUrl:
 			"https://i.ibb.co/RCvsgpj/squad.png",
 		hoverColor: "rgb(179, 199, 206)",
@@ -580,6 +585,7 @@ export const PLAYLIST = [
 		type: "parodia",
 		title: "Dmuch Guy",
 		link: "dmuch_guy",
+		ex: "no",
 		imgUrl:
 			"https://i.ibb.co/wLTXNyZ/dmuchboys.png",
 		hoverColor: "rgb(170, 0, 255)",

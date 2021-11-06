@@ -45,7 +45,6 @@
     padding: 0 32px;
     padding-top: 24px;
     animation: goIn ease 500ms;
-    opacity: var(--hop);
 }
 .Content section:not(:first-child) {
     margin-top: 32px;
