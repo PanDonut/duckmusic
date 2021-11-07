@@ -260,6 +260,7 @@ function handleTouchStart1(e) {
                 <div onTouchStart={touchStartEvent => handleTouchStart1(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove1(touchMoveEvent)} onTouchEnd={() => handleTouchEnd1()}>
                     <FooterLeft />
                 </div>
+                <div>
                 
                     {size.width > CONST.MOBILE_SIZE &&
                     <div className={styles.footerMid}>
@@ -303,6 +304,7 @@ function handleTouchStart1(e) {
                         currentTime={currentTime}
                         duration={duration}
                     />
+                </div>
                 </div>
             }
             
