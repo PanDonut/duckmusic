@@ -144,10 +144,10 @@ function handleTouchStart1(e) {
 
     function handleTouchEnd1() {
         if (localStorage.getItem('swipenext') === 'yes') {
-            if (touchStartx - touchEndx > 30) {
+            if (touchStartx - touchEndx > 25) {
                 increaseIndex();
             }
-            if (touchStartx - touchEndx < 30) {
+            if (touchStartx - touchEndx < 25) {
                 decreaseIndex();
             }
         }
@@ -298,7 +298,7 @@ function handleTouchStart1(e) {
                 
             </div>
             {size.width < CONST.MOBILE_SIZE &&
-                <div className={styles.footerMid}>
+                <div className={styles.footerMid} onTouchStart={touchStartEvent => handleTouchStart1(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove1(touchMoveEvent)} onTouchEnd={() => handleTouchEnd1()}>
                     <MusicProgressBarBot
                         currentTime={currentTime}
                         duration={duration}
