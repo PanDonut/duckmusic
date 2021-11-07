@@ -162,7 +162,8 @@ function Home({ isExpanded = false }) {
                     
                         <div className={styles.SectionCardsMedium}>                            
                                 {
-                                PLAYLIST.slice(0, 6).filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                                PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                                    console.log(item);
                                         return (
                                             <PlaylistCardM
                                                 key={item.title}

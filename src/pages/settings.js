@@ -6,7 +6,7 @@ import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import React, { useEffect, useState } from 'react';
-import { setTheme, setEc } from '../theme';
+import { setTheme, setEc, setSwi, setSwif } from '../theme';
 import { decode } from 'he';
 
 function Settings() {
@@ -15,6 +15,8 @@ function Settings() {
     const size = useWindowSize();
     const [togClass, setTogClass] = useState('dark');
     const [toggle, setToggle] = useState(localStorage.getItem('explicit'));
+    const [swipe, setSwipe] = useState(localStorage.getItem('swipenext'));
+    const [swipefull, setSwipefull] = useState(localStorage.getItem('swipenextfull'));
     let theme = localStorage.getItem('theme');
     let ec = localStorage.getItem('explicit');
 
@@ -46,6 +48,30 @@ function Settings() {
             setToggle('false')
         }
     }
+
+    const handleOnClick2 = () => {
+        if (localStorage.getItem('swipenext') === 'no') {
+            setSwi('yes');
+            setSwipe('yes')
+        } else {
+            setSwi('no');
+            setSwipe('no')
+        }
+    }
+    const handleOnClick3 = () => {
+        if (localStorage.getItem('swipenextfull') === 'no') {
+            setSwif('yes');
+            setSwipefull('yes')
+        } else {
+            setSwif('no');
+            setSwipefull('no')
+        }
+    }
+
+    console.log(swipe);
+    console.log(swipefull);
+    console.log("LOKALOWE" + localStorage.getItem('swipenext'));
+    console.log("LOKALOWEME" + localStorage.getItem('swipenext'));
 
 
     return (
@@ -91,6 +117,41 @@ function Settings() {
                                 </label>
                             </div>
                         </section>
+                    </div>
+                    <div className="ust">
+                        <h3>{decode("U&#322;atwienia dost&#281;pu")}</h3>
+                        {size.width < CONST.MOBILE_SIZE &&
+                            <div>
+                        <section>
+                            <h4>{decode("Przesu&#324; aby przewin&#261;&#263;")}<span/></h4>
+                            <div className="container--toggle">
+                                {
+                                    swipe === "yes" ?
+                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick2} checked />
+                                        :
+                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick2} />
+                                }
+                                <label htmlFor="toggle" className="toggle--label">
+                                    <span className="toggle--label-background"></span>
+                                </label>
+                            </div>
+                        </section>
+                        <section>
+                            <h4>{decode("Przesu&#324; aby przewin&#261;&#263; (Pe&#322;ny ekran)")}<span /></h4>
+                            <div className="container--toggle">
+                                {
+                                    swipefull === "yes" ?
+                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick3} checked />
+                                        :
+                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick3} />
+                                }
+                                <label htmlFor="toggle" className="toggle--label">
+                                    <span className="toggle--label-background"></span>
+                                </label>
+                            </div>
+                        </section>
+                            </div>
+                        }
                     </div>
                 </div>
                 </div>

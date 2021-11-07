@@ -348,7 +348,7 @@ export const PLAYLIST = [
 		hoverColor: "rgb(255, 183, 0)",
 		artist: "Maroon 5, Adele, Sia, Bruno Mars, Pitbull, Whitney Houston, P!nk, Nate Ruess, Shawn Mendes i inni",
 		playlistBg: "rgb(255, 140, 0)",
-		promoted: "prawda",
+		promoted: "nieprawda",
 		promodesc: "Już niedługo zima! Posłuchaj Rytmu Jesieni!",
 		playlistData: [
 
@@ -600,6 +600,119 @@ export const PLAYLIST = [
 				songArtist: "Dmuch Boys",
 				link:
 					"https://www.mboxdrive.com/duch_guy.mp3",
+			},
+		],
+	},
+	{
+		index: "6",
+		type: "album",
+		title: "Jesienny Odpoczynek",
+		link: "jesienny_odp",
+		ex: "no",
+		imgUrl:
+			"https://i.ibb.co/M96JJgP/playlist-jesien-chill.png",
+		promoted: "prawda",
+		promodesc: "Tak po prostu",
+		hoverColor: "rgb(255, 145, 0)",
+		artist: "Fools Garden, Jonas Brothers, Supergrass, The Weeknd, Avicii, Vance Joy i inni",
+		playlistBg: "rgb(255, 192, 56)",
+		playlistData: [
+			{
+				index: "1",
+				songName: "Lemon Tree",
+				songimg: "https://i.scdn.co/image/ab67616d00001e02c06a4ba9d947dbf4ef143190",
+				songArtist: "Fools Garden",
+				link: "https://drive.google.com/u/0/uc?id=11fIBvLfaA0XrLh-VwQNaSRr_OlxtWopk&export=download",
+			},
+			{
+				index: "2",
+				songName: "Sucker",
+				songimg: "https://i.scdn.co/image/ab67616d00001e02de1a3a5eaa0c75bb18e7b597",
+				songArtist: "Jonas Brothers",
+				link: "https://drive.google.com/u/0/uc?id=1JdaF3cV4YqumUdbiIii1jN3vZUiorA8P&export=download",
+			},
+			{
+				index: "3",
+				songName: "Alright",
+				songimg: "https://i.scdn.co/image/ab67616d00001e027d2fd2378160e40c96bc61ff",
+				songArtist: "Supergrass",
+				link: "https://drive.google.com/u/0/uc?id=1wD6BJEZm12aVZ3FxAOyTKWAgQzb3o-iC&export=download",
+			},
+			{
+				index: "4",
+				songName: "Blinding Lights",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
+				songArtist: "The Weeknd",
+				link:
+					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
+			},
+			{
+				index: "5",
+				songName: "Wake Me Up",
+				songimg: "https://i.scdn.co/image/ab67616d00001e02e14f11f796cef9f9a82691a7",
+				songArtist: "Avicii",
+				link: "https://drive.google.com/u/0/uc?id=1w5jcy4tJp-11CU6VQd-I9DquCrULGc35&export=download",
+			}, {
+				index: "6",
+				songName: "Riptide",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
+				songArtist: "Vance Joy",
+				link:
+					"https://drive.google.com/u/0/uc?id=1gYF7U60oYiwF4fP-UHbt2Mj2okjQ3aNH&export=download",
+			},
+			{
+				index: "7",
+				songName: "Joy",
+				songimg: "https://i.scdn.co/image/ab67616d00001e02a16f3f34c52cbba368ef6210",
+				songArtist: "Bastille",
+				link: "https://drive.google.com/u/0/uc?id=1Fv2f0_JqxoPUx5FVBHCApQ1dJZCUfMxG&export=download",
+			},
+			{
+				index: "8",
+				songName: "Someday",
+				songimg: "https://i.scdn.co/image/ab67616d00001e022e2889865b7b05955c1d3bcf",
+				songArtist: "OneRepublic",
+				link: "https://drive.google.com/u/0/uc?id=1AQEolPKK43XXQUCnQqB_354_5cEW93uH&export=download",
+			},
+			{
+				index: "9",
+				songName: "Happier - Stripped",
+				songimg: "https://i.scdn.co/image/ab67616d00001e024368b0b219c5ab6805f42669",
+				songArtist: "Marshello, Bastille",
+				link: "https://drive.google.com/u/0/uc?id=1YdVDs77xhXyXasR8nsej2WAfu7-atsLg&export=download",
+			},
+			{
+				index: "10",
+				songName: "Counting Stars",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e029e2f95ae77cf436017ada9cb",
+				songArtist: "OneRepublic",
+				link:
+					"https://drive.google.com/u/0/uc?id=1VZPKdwftKwZFPmCqfgw54APatmD7o1cO&export=download",
+			}, {
+				index: "11",
+				songName: "High Hopes",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02c5148520a59be191eea16989",
+				songArtist: "Panic! at the Disco",
+				link:
+					"https://drive.google.com/u/0/uc?id=1564Z9BGhUevu_HxCOcGNXMk0rG-dWTGR&export=download",
+			},
+			{
+				index: "12",
+				songName: "Sugar",
+				songimg: "https://i.scdn.co/image/ab67616d00001e02442b53773d50e1b5369bb16c",
+				songArtist: "Maroon 5",
+				link: "https://drive.google.com/u/0/uc?id=1mjs3uYPs9P1hYL1VwsaL01R-gBofpE5A&export=download",
+			},
+			{
+				index: "13",
+				songName: "Happy",
+				songimg: "https://i.scdn.co/image/ab67616d00001e02e8107e6d9214baa81bb79bba",
+				songArtist: "Pharrell Williams",
+				link: "https://drive.google.com/u/0/uc?id=1O3iDDkx-Dj-XwAcyYH0vJAc38khBofgO&export=download",
 			},
 		],
 	},

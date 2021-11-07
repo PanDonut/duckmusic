@@ -31,6 +31,18 @@ const code = "420";
 
 function Footer(props) {
 
+
+    function decreaseIndex() {
+        if (props.trackData.trackKey[1] == 0) { } else {
+            props.changeTrack([props.trackData.trackKey[0], props.trackData.trackKey[1] - 1])
+        }
+    }
+    function increaseIndex() {
+        if (props.trackData.trackKey[1] == (PLAYLIST[props.trackData.trackKey[0]].playlistData.length) - 1) { } else {
+            props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+        }
+    }
+
     function Expand() {
         document.documentElement.style.setProperty('--expanded', 'translateX(0px)');
         document.documentElement.style.setProperty('--disp2', 'none');
@@ -69,10 +81,13 @@ function Footer(props) {
 
     const [touchStart, setTouchStart] = React.useState(0);
     const [touchEnd, setTouchEnd] = React.useState(0);
+    const [touchStartx, setTouchStartx] = React.useState(0);
+    const [touchEndx, setTouchEndx] = React.useState(0);
     const [isOpen, setIsOpen] = React.useState("false");
 
     function handleTouchStart(e) {
         setTouchStart(e.targetTouches[0].clientY);
+        setTouchStartx(e.targetTouches[0].clientX);
 if(isOpen == "true") {
 }
 if(isOpen == "false") {
@@ -82,6 +97,7 @@ if(isOpen == "false") {
 
     function handleTouchMove(e) {
         setTouchEnd(e.targetTouches[0].clientY);
+        setTouchEndx(e.targetTouches[0].clientX);
 if(isOpen == "true") {
 }
 if(isOpen == "false") {
@@ -98,57 +114,44 @@ if(isOpen == "false") {
     }
 
     function handleTouchEnd() {
-if(isOpen == "true") {
-        if (touchStart - touchEnd < -160) {
-            Hide1();
-            setIsOpen("false");
+        if (isOpen == "true") {
+            if (touchStart - touchEnd < -160) {
+                Hide1();
+                setIsOpen("false");
+            }
         }
-}
-if(isOpen == "false") {
-        if (touchStart - touchEnd > 300) {
-            Expand1();
-            setIsOpen("true");
-        }
+        if (isOpen == "false") {
+            if (touchStart - touchEnd > 300) {
+                Expand1();
+                setIsOpen("true");
+            }
 
-        if (touchStart - touchEnd < 340) {
-            Hide1();
+            if (touchStart - touchEnd < 340) {
+                Hide1();
+            }
         }
-}
     }
 
-    console.log("MEEM " + (touchStart - touchEnd));
+    console.log("MEEM " + (touchStartx - touchEndx));
 
 function handleTouchStart1(e) {
-        if(isOpen == "false") {
-        setTouchStart(e.targetTouches[0].clientY);
-}
+        setTouchStartx(e.targetTouches[0].clientX);
     }
 
     function handleTouchMove1(e) {
-if(isOpen == "false") {
-        setTouchEnd(e.targetTouches[0].clientY);
-        if (touchStart - touchEnd > 100 && touchStart - touchEnd < 349) {
-            document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 4 + "vh");
-        }
-        if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
-            document.documentElement.style.setProperty('--dispbg', '1');
-            document.documentElement.style.setProperty('--botf', '0px');
-        }
-}
+        setTouchEndx(e.targetTouches[0].clientX);
     }
 
     function handleTouchEnd1() {
-if(isOpen == "false") {
-        if (touchStart - touchEnd > 300) {
-            Expand1();
-            setIsOpen("true");
-        }
-
-        if (touchStart - touchEnd < 340) {
-            Hide1();
+        if (localStorage.getItem('swipenext') === 'yes') {
+            if (touchStartx - touchEndx > 30) {
+                increaseIndex();
+            }
+            if (touchStartx - touchEndx < 30) {
+                decreaseIndex();
+            }
         }
 }
-    }
 
     const size = useWindowSize();
 
@@ -185,7 +188,7 @@ if(isOpen == "false") {
     
     useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
-            if(props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)-1){
+            if(props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)){
                 props.changeTrack([props.trackData.trackKey[0], 0])
             }else{
                 props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1])+1])
@@ -254,7 +257,9 @@ if(isOpen == "false") {
             <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg} />
             
             <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>
-                <FooterLeft />
+                <div onTouchStart={touchStartEvent => handleTouchStart1(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove1(touchMoveEvent)} onTouchEnd={() => handleTouchEnd1()}>
+                    <FooterLeft />
+                </div>
                 
                     {size.width > CONST.MOBILE_SIZE &&
                     <div className={styles.footerMid}>

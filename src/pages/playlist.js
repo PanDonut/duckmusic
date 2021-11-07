@@ -112,7 +112,7 @@ function PlaylistPage(props) {
 								<LinkButton/>
 							</button>
 							<button
-								onClick={() => setOpen(true)}
+								onClick={() => { copy(embed11); { notifyembed(); { setOpen(false); }} }}
 							>
 								<EmbedButton/>
 							</button>

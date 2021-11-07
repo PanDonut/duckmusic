@@ -8,6 +8,14 @@ function setEc(valu) {
     localStorage.setItem('explicit', valu);
 }
 
+function setSwi(swii) {
+    localStorage.setItem('swipenext', swii);
+}
+
+function setSwif(swiii) {
+    localStorage.setItem('swipenextfull', swiii);
+}
+
 function keepTheme() {
     if (localStorage.getItem('theme')) {
         if (localStorage.getItem('theme') === 'theme-dark') {
@@ -24,5 +32,7 @@ function keepTheme() {
 module.exports = {
     setTheme,
     keepTheme,
-    setEc
+    setEc,
+    setSwi,
+    setSwif
 }
