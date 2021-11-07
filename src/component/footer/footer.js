@@ -84,6 +84,7 @@ function Footer(props) {
     const [touchStartx, setTouchStartx] = React.useState(0);
     const [touchEndx, setTouchEndx] = React.useState(0);
     const [isOpen, setIsOpen] = React.useState("false");
+    const [isUp, setIsUp] = React.useState("false");
 
     function handleTouchStart(e) {
         setTouchStart(e.targetTouches[0].clientY);
@@ -102,11 +103,13 @@ if(isOpen == "false") {
         
         if (touchStart - touchEnd > 40 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 3.5 + "vh");
+            setIsUp("true");
         }
         if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--dispbg', '1');
             document.documentElement.style.setProperty('--botf', '0px');
             document.documentElement.style.setProperty('--imgn', 'none');
+            setIsUp("true");
         }
 }
     }
@@ -116,16 +119,19 @@ if(isOpen == "false") {
             if (touchStart - touchEnd < -160) {
                 Hide1();
                 setIsOpen("false");
+                setIsUp("false");
             }
         }
         if (isOpen == "false") {
             if (touchStart - touchEnd > 300) {
                 Expand1();
                 setIsOpen("true");
+                setIsUp("true");
             }
 
             if (touchStart - touchEnd < 340) {
                 Hide1();
+                setIsUp("false");
             }
         }
     }
@@ -133,18 +139,23 @@ if(isOpen == "false") {
     console.log("MEEM " + (touchStartx - touchEndx));
 
 function handleTouchStart1(e) {
+    if(isUp == "false") {
     if(isOpen == "false") {
         setTouchStartx(e.targetTouches[0].clientX);
     }
     }
+}
 
     function handleTouchMove1(e) {
+        if(isUp == "false") {
         if(isOpen == "false") {
         setTouchEndx(e.targetTouches[0].clientX);
         }
     }
+    }
 
     function handleTouchEnd1() {
+        if(isUp == "false") {
         if (localStorage.getItem('swipenext') === 'yes') {
             if(isOpen == "false") {
             if (touchStartx - touchEndx > 25) {
@@ -154,6 +165,7 @@ function handleTouchStart1(e) {
                 decreaseIndex();
             }
             }
+        }
         }
 }
 
