@@ -87,7 +87,6 @@ function Footer(props) {
 
     function handleTouchStart(e) {
         setTouchStart(e.targetTouches[0].clientY);
-        setTouchStartx(e.targetTouches[0].clientX);
 if(isOpen == "true") {
 }
 if(isOpen == "false") {
@@ -97,7 +96,6 @@ if(isOpen == "false") {
 
     function handleTouchMove(e) {
         setTouchEnd(e.targetTouches[0].clientY);
-        setTouchEndx(e.targetTouches[0].clientX);
 if(isOpen == "true") {
 }
 if(isOpen == "false") {
@@ -135,20 +133,26 @@ if(isOpen == "false") {
     console.log("MEEM " + (touchStartx - touchEndx));
 
 function handleTouchStart1(e) {
+    if(isOpen == "false") {
         setTouchStartx(e.targetTouches[0].clientX);
+    }
     }
 
     function handleTouchMove1(e) {
+        if(isOpen == "false") {
         setTouchEndx(e.targetTouches[0].clientX);
+        }
     }
 
     function handleTouchEnd1() {
         if (localStorage.getItem('swipenext') === 'yes') {
+            if(isOpen == "false") {
             if (touchStartx - touchEndx > 25) {
                 increaseIndex();
             }
             if (touchStartx - touchEndx < 25) {
                 decreaseIndex();
+            }
             }
         }
 }
