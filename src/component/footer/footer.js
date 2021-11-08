@@ -198,10 +198,10 @@ function handleTouchStart1(e) {
         }
         if (isOpen == "true") {
             if (localStorage.getItem('swipenextfull') === 'yes') {
-                if (touchStartx - touchEndx > 40) {
+                if (touchStartx - touchEndx > 50) {
                     increaseIndex();
                 }
-                if (touchStartx - touchEndx < -40) {
+                if (touchStartx - touchEndx < -50) {
                     decreaseIndex();
                 }
             }
