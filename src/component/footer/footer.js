@@ -140,14 +140,16 @@ function handleTouchStart1(e) {
 
     function handleTouchMove1(e) {
         setTouchEndx(e.targetTouches[0].clientX);
+        document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
     }
 
     function handleTouchEnd1() {
+        document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         if (localStorage.getItem('swipenext') === 'yes') {
             if (touchStartx - touchEndx > 30) {
                 increaseIndex();
             }
-            if (touchStartx - touchEndx < 30) {
+            if (touchStartx - touchEndx < -30) {
                 decreaseIndex();
             }
         }

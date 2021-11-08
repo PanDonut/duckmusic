@@ -42,9 +42,10 @@
     font-size: 11px;
 }
 @media screen and (max-width: 640px) {
-    .imgBox{
+    .imgBox {
         width: 42px;
         height: 42px;
+        z-index: 10000000;
     }
     .songDetails p {
         margin: 0px;
@@ -58,10 +59,13 @@
         margin-left: 26px;
         margin-right: 16px;
         margin-top: 20px;
+        transform: var(--txtpos);
+        transition: transform 0.25s ease;
+        z-index: 1;
     }
     .imgBox img {
         height: 60px;
-        z-index: 100000;
+        z-index: 10000000;
     }
     .footerLeft button:nth-child(3){
         margin-left: auto;
