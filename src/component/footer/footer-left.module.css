@@ -41,18 +41,22 @@
     color: var(--text-gray);
     font-size: 11px;
 }
+
 @media screen and (max-width: 640px) {
     .imgBox {
         width: 42px;
         height: 42px;
         z-index: 10000000;
+        position: relative;
     }
+
     .songDetails p {
         margin: 0px;
         color: var(--text-white);
         font-weight: 500;
         font-size: 15px;
         height: auto;
+        z-index: 1;
     }
 
     .songDetails {

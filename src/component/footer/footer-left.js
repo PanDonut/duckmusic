@@ -35,7 +35,7 @@ function SongDetails({ trackData }){
     return (
         <div>
         <div className={styles.songDetails}>
-                <TextRegularM>{trackData.trackName}</TextRegularM>
+                <p className={styles.tit}>{trackData.trackName}</p>
                 <TextRegularM><small>{trackData.trackArtist}</small></TextRegularM>
             
         </div>
