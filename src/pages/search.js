@@ -20,6 +20,8 @@ import lay from '../style/App.module.css';
 import {decode} from 'he';
 
 
+import FadeIn from 'react-fade-in';
+
 import SearchButton from '../component/buttons/search-button';
 
 
@@ -61,7 +63,7 @@ function Search(){
                     <input className={styles.SeachInpt} id="txts" placeholder={decode("Wyszukaj tytu&#322;. Jest wra&#380;liwy na WIELKO&#346;&#262; LITER")} maxLength="80" value={input} onInput={e => setInput(e.target.value)}></input>
                         </div>
                         
-                <div className={styles.SearchCardGrid}>
+                <FadeIn visible="true" delay="50" className={styles.SearchCardGrid}>
                     {PLAYLIST.filter(item => item.title.includes(input)).map((list) => {
                         var title = list.title;
                         return (
@@ -71,7 +73,7 @@ function Search(){
                             />
                         );
                     })}
-                </div>
+                </FadeIn>
                     
         </div>
         </div>

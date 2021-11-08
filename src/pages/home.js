@@ -6,6 +6,8 @@ import PlaylistCardM from '../component/cards/playlist-card-m';
 import PlaylistCardMNew from '../component/cards/playlist-card-m-new';
 import ExpandButton from '../component/buttons/expand-button';
 
+import FadeIn from 'react-fade-in';
+
 import styles from "./home.module.css";
 
 import React from 'react';
@@ -117,20 +119,20 @@ function Home({ isExpanded = false }) {
                                     return (
                                         <div className={styles.gradC}>
                                             <img src={list.imgUrl} />
-                                            <div className={styles.mrag}>
+                                            <FadeIn visible="true" delay="150" className={styles.mrag}>
                                                 <h2>{list.title}</h2>
                                                 <h4>{list.artist}</h4>
                                                 <h3>{list.promodesc}</h3>
                                                 <Link to={"/playlist/" + list.link}>
                                                 <button>{decode("S&#322;uchaj")}</button>
                                                 </Link>
-                                            </div>
+                                            </FadeIn>
                                             <button className={styles.sponsored}>Sponsorowane</button>
                                         </div>
                                     );
                                 })}
                         </section>
-                    <div className={styles.SectionCards}>
+                        <FadeIn visible="true" delay="250" className={styles.SectionCards}>
                         {PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
                             return (
                                 <PlaylistCardS 
@@ -139,7 +141,7 @@ function Home({ isExpanded = false }) {
                                 />
                             );
                         })}
-                    </div>
+                    </FadeIn>
                         <div className={styles.BtnDiv}>
                                 <button
                                     className={styles.Btn}
@@ -160,7 +162,7 @@ function Home({ isExpanded = false }) {
                     <div className={styles.SectionTitle1}>
                         <TitleM>Odkrywaj</TitleM>
                     </div>
-                            <div className={styles.SectionCardsMedium}>
+                        <FadeIn visible="true" delay="500" className={styles.SectionCardsMedium}>
                                 {
                                     PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
                                         console.log(item);
@@ -174,8 +176,8 @@ function Home({ isExpanded = false }) {
                                         }
                                     })
                                 }
-                        </div>
-                        <div className={styles.SectionCardsMedium}>
+                                </FadeIn>
+                        <FadeIn visible="true" delay="250" className={styles.SectionCardsMedium}>
                             {
                                 PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
                                     console.log(item);
@@ -189,7 +191,7 @@ function Home({ isExpanded = false }) {
                                     }
                                 })
                             }
-                        </div>
+                        </FadeIn>
                 </section>
                 </div>
             </div>

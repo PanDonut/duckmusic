@@ -9,6 +9,8 @@ import React, { useEffect, useState } from 'react';
 import { setTheme, setEc, setSwi, setSwif, setOl } from '../theme';
 import { decode } from 'he';
 
+import FadeIn from 'react-fade-in';
+
 function Settings() {
 
 
@@ -92,9 +94,9 @@ function Settings() {
             }
             <div>
             <Topnav />
-            <div className="marg">
+            <FadeIn visible="true" delay="50" className="marg">
                     <h2>Ustawienia</h2>
-                    <div className="ust">
+                    <FadeIn visible="true" delay="100" className="ust">
                         <h3>{decode("Wygl&#261;d")}</h3>
                 <section>                 
                             <h4>Jasny motyw</h4>
@@ -128,8 +130,8 @@ function Settings() {
                                 </section>
                             </div>
                         }
-                    </div>
-                    <div className="ust">
+                    </FadeIn>
+                    <FadeIn visible="true" delay="100" className="ust">
                         <h3>{decode("Kontrola tre&#347;ci")}</h3>
                         <section>
                             <h4>{decode("Wy&#347;wietlaj nieodpowiednie playlisty")}</h4>
@@ -145,8 +147,8 @@ function Settings() {
                                 </label>
                             </div>
                         </section>
-                    </div>
-                    <div className="ust">
+                    </FadeIn>
+                    <FadeIn visible="true" delay="100" className="ust">
                         <h3>{decode("U&#322;atwienia dost&#281;pu")}</h3>
                         {size.width < CONST.MOBILE_SIZE &&
                             <div>
@@ -180,8 +182,8 @@ function Settings() {
                         </section>
                             </div>
                         }
-                    </div>
-                </div>
+                    </FadeIn>
+                </FadeIn>
                 </div>
         </div>
         )

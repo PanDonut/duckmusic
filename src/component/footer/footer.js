@@ -27,6 +27,8 @@ import TextTransition, { presets } from "react-text-transition";
 
 import convertTime from '../../functions/convertTime';
 
+import FadeIn from 'react-fade-in';
+
 const code = "420";
 
 function Footer(props) {
@@ -329,7 +331,7 @@ function handleTouchStart1(e) {
                     </div>
                 }
                 {size.width < CONST.MOBILE_SIZE &&
-                    <div className={styles.footerMe}>
+                    <FadeIn visible="true" delay="500" className={styles.footerMe}>
                     <MusicProgressBarF
                         currentTime={currentTime}
                         duration={duration}
@@ -337,7 +339,7 @@ function handleTouchStart1(e) {
                     />
                         <MusicControlBoxPhone />
                         
-                    </div>
+                    </FadeIn>
                 }
                     
                     <Audio

@@ -36,6 +36,8 @@ import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 
+import FadeIn from 'react-fade-in';
+
 function PlaylistPage(props) {
 	const size = useWindowSize();
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
@@ -134,7 +136,7 @@ function PlaylistPage(props) {
 								<TextRegularM>UTWORY</TextRegularM>
 							</div>
 
-							<div className={styles.PlaylistSongs}>
+							<FadeIn visible="true" delay="50" className={styles.PlaylistSongs}>
 								{item.playlistData.map((song) => {
 									return (
 										<button
@@ -151,7 +153,7 @@ function PlaylistPage(props) {
 										</button>
 									);
 								})}
-							</div>
+							</FadeIn>
                         </div>
                     );
                 }

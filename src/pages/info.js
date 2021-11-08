@@ -7,6 +7,7 @@ import ExpandButton from '../component/buttons/expand-button';
 
 import "./info.module.css";
 
+import FadeIn from 'react-fade-in';
 
 import styl from "./info.module.css";
 
@@ -119,14 +120,14 @@ function Home({ isExpanded = false }) {
                     <div className={styl.left}>
                     <h4>{gitInfo.tags}</h4>
                 </div>
-                <div className={styl.right}>
+                <FadeIn visible="true" delay="350" className={styl.right}>
                     <img alt="MEEM" src="https://github.com/PanDonut/pandonut.github.io/raw/main/logomusic.png"></img>
                     <h4>{gitInfo.branch + "-" + gitInfo.commit.hash + "-" + gitInfo.commit.message}</h4>
                     <h2>Hash:</h2>
                     <h4>{gitInfo.commit.shortHash}</h4>
                     <h2>Data aktualizacji:</h2>
                     <h4>{gitInfo.commit.date}</h4>
-                    </div>
+                    </FadeIn>
                     </div>
             </div>
     );
