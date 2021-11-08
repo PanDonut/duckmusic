@@ -55,23 +55,39 @@ function Footer(props) {
         document.documentElement.style.setProperty('--disp3', 'none');
     };
 
+    function Expand2() {
+        document.documentElement.style.setProperty('--expanded', 'translateY(0px)');
+        document.documentElement.style.setProperty('--dispbt1', 'none');
+        document.documentElement.style.setProperty('--dispbt2', 'block');
+    };
+
+    function Hide2() {
+        document.documentElement.style.setProperty('--expanded', 'translateY(340px)');
+        document.documentElement.style.setProperty('--dispbt1', 'block');
+        document.documentElement.style.setProperty('--dispbt2', 'none');
+    };
+
     function Expand1() {
         document.documentElement.style.setProperty('--footersize', '100%');
         document.documentElement.style.setProperty('--botf', '0px');
         document.documentElement.style.setProperty('--dispbg', 'block');
-        document.documentElement.style.setProperty('--expanded', 'translateX(0px)');
+        document.documentElement.style.setProperty('--dispbt1', 'block');
+        document.documentElement.style.setProperty('--dispbt2', 'none');
         document.documentElement.style.setProperty('--imgfull', 'block');
         document.documentElement.style.setProperty('--imgn', 'none');
         document.documentElement.style.setProperty('--musicctr', 'none');
         document.documentElement.style.setProperty('--phmu', 'flex');
         document.documentElement.style.setProperty('--dipy', 'flex');
+        document.documentElement.style.setProperty('--expanded', 'translateY(340px)');
+        document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
     };
 
     function Hide1() {
         document.documentElement.style.setProperty('--footersize', '62px');
         document.documentElement.style.setProperty('--botf', '52px');
         document.documentElement.style.setProperty('--dispbg', 'none');
-        document.documentElement.style.setProperty('--expanded', 'translateX(1000px)');
+        document.documentElement.style.setProperty('--dispbt1', 'none');
+        document.documentElement.style.setProperty('--dispbt2', 'none');
         document.documentElement.style.setProperty('--imgfull', 'none');
         document.documentElement.style.setProperty('--imgn', 'block');
         document.documentElement.style.setProperty('--musicctr', 'flex');
@@ -140,20 +156,42 @@ function handleTouchStart1(e) {
 
     function handleTouchMove1(e) {
         setTouchEndx(e.targetTouches[0].clientX);
-        document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
+        if (localStorage.getItem('swipenext') === 'yes') {
+            if (isOpen == "false") {
+                document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
+            }
+        }
+        if (localStorage.getItem('swipenextfull') === 'yes') {
+            if (isOpen == "true") {
+                document.documentElement.style.setProperty('--imgpos', "translateX(" + (touchStartx - touchEndx) + "px)");
+            }
+        }
     }
 
     function handleTouchEnd1() {
         document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
-        if (localStorage.getItem('swipenext') === 'yes') {
-            if (touchStartx - touchEndx > 30) {
-                increaseIndex();
-            }
-            if (touchStartx - touchEndx < -30) {
-                decreaseIndex();
+        document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
+        if (isOpen == "false") {
+            if (localStorage.getItem('swipenext') === 'yes') {
+                if (touchStartx - touchEndx > 30) {
+                    increaseIndex();
+                }
+                if (touchStartx - touchEndx < -30) {
+                    decreaseIndex();
+                }
             }
         }
-}
+        if (isOpen == "true") {
+            if (localStorage.getItem('swipenextfull') === 'yes') {
+                if (touchStartx - touchEndx > 40) {
+                    increaseIndex();
+                }
+                if (touchStartx - touchEndx < -40) {
+                    decreaseIndex();
+                }
+            }
+        }
+    }
 
     const size = useWindowSize();
 
@@ -231,7 +269,7 @@ function handleTouchStart1(e) {
                 </button>
                 <button id="bt" className="hi" onClick={() => { Hide() }}>
                     <Icons.Nextpage />
-                </button >
+                </button >                
                 <div className="lyrics-card">
                     <div id="flexowy">
                     <h6 id="text-card">{props.trackData.trackName}</h6>
@@ -246,8 +284,10 @@ function handleTouchStart1(e) {
                             <div>
                                 <div id="scroll-lyrics">
                                         <h4 id="text-card">{list.lyrics[Math.round(currentTime)].text}</h4><button id="buttonMusiq">Musiq</button>
-                                </div>
-                                <MusicControlBoxs id="center-bar" />
+                                    </div>
+                                    {size.width > CONST.MOBILE_SIZE &&
+                                        <MusicControlBoxs id="center-bar" />
+                                    }
                                 </div>
                                 </div>
                         );
@@ -255,10 +295,12 @@ function handleTouchStart1(e) {
 
                     
                 </div>
-            </div>
+            </div>            
             <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg} />
             
+            
             <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>
+
                 <div onTouchStart={touchStartEvent => handleTouchStart1(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove1(touchMoveEvent)} onTouchEnd={() => handleTouchEnd1()}>
                     <FooterLeft />
                 </div>
@@ -307,6 +349,12 @@ function handleTouchStart1(e) {
                     />
                 </div>
             }
+            <button id="bt1" className="exp" onClick={() => { Expand2() }}>
+                <Icons.Prevpage />
+            </button>
+            <button id="bt1" className="hid" onClick={() => { Hide2() }}>
+                <Icons.Nextpage />
+            </button >
             
         </footer>
     );

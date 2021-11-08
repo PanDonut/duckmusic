@@ -60,7 +60,7 @@
         margin-right: 16px;
         margin-top: 20px;
         transform: var(--txtpos);
-        transition: transform 0.25s ease;
+        transition: transform 0.1s ease;
         z-index: 1;
     }
     .imgBox img {
@@ -91,8 +91,9 @@
     position: fixed;
     top: 9vh;
     left: 0;
-    transform: translate(calc(50vw - 50%));
+    transform: var(--imgpos);
     z-index: 1000000;
+    transition: transform 0.1s ease;
 }
 
 .songDetailsfull {
