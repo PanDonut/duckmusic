@@ -122,3 +122,43 @@
     color: #5b88e1;
     font-size: 13px;
 }
+
+.ne {
+    z-index: 999999999;
+    width: 50vh;
+    height: 50vh;
+    background-color: #0006;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    opacity: var(--ne);
+    transition: 0.5s ease-in-out;
+}
+
+    .ne svg {
+        right: 20%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(180deg);
+        z-index: 9999999999;
+    }
+
+.re {
+    z-index: 999999999;
+    width: 50vh;
+    height: 50vh;
+    background-color: #0006;
+    pointer-events: none;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    opacity: var(--re);
+    transition: 0.5s ease-in-out;
+}
+
+    .re svg {
+        left: 20%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%) rotate(0deg);
+        z-index: 9999999999;
+    }

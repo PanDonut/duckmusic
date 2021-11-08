@@ -73,7 +73,7 @@ function Footer(props) {
         document.documentElement.style.setProperty('--dispbg', 'block');
         document.documentElement.style.setProperty('--dispbt1', 'block');
         document.documentElement.style.setProperty('--dispbt2', 'none');
-        document.documentElement.style.setProperty('--imgfull', 'block');
+        document.documentElement.style.setProperty('--imgfull', 'inline-flex');
         document.documentElement.style.setProperty('--imgn', 'none');
         document.documentElement.style.setProperty('--musicctr', 'none');
         document.documentElement.style.setProperty('--phmu', 'flex');
@@ -158,12 +158,23 @@ function handleTouchStart1(e) {
         setTouchEndx(e.targetTouches[0].clientX);
         if (localStorage.getItem('swipenext') === 'yes') {
             if (isOpen == "false") {
+                document.documentElement.style.setProperty('--ne', '0');
+                document.documentElement.style.setProperty('--re', '0');
                 document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
             }
         }
         if (localStorage.getItem('swipenextfull') === 'yes') {
             if (isOpen == "true") {
                 document.documentElement.style.setProperty('--imgpos', "translateX(" + (touchStartx - touchEndx) + "px)");
+
+                if (touchStartx - touchEndx > 20) {
+                    document.documentElement.style.setProperty('--ne', '0');
+                    document.documentElement.style.setProperty('--re', '1');
+                }
+                if (touchStartx - touchEndx < -20) {
+                    document.documentElement.style.setProperty('--ne', '1');
+                    document.documentElement.style.setProperty('--re', '0');
+                }
             }
         }
     }
@@ -171,6 +182,8 @@ function handleTouchStart1(e) {
     function handleTouchEnd1() {
         document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
+        document.documentElement.style.setProperty('--ne', '0');
+        document.documentElement.style.setProperty('--re', '0');
         if (isOpen == "false") {
             if (localStorage.getItem('swipenext') === 'yes') {
                 if (touchStartx - touchEndx > 30) {
