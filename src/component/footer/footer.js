@@ -188,10 +188,10 @@ function handleTouchStart1(e) {
         document.documentElement.style.setProperty('--re', '0');
         if (isOpen == "false") {
             if (localStorage.getItem('swipenext') === 'yes') {
-                if (touchStartx - touchEndx > 30) {
+                if (touchStartx - touchEndx > 40) {
                     increaseIndex();
                 }
-                if (touchStartx - touchEndx < -30) {
+                if (touchStartx - touchEndx < -40) {
                     decreaseIndex();
                 }
             }
