@@ -16,6 +16,12 @@ function setSwif(swiii) {
     localStorage.setItem('swipenextfull', swiii);
 }
 
+function setOl(walu) {
+    localStorage.setItem('old', walu);
+}
+
+
+
 function keepTheme() {
     if (localStorage.getItem('theme')) {
         if (localStorage.getItem('theme') === 'theme-dark') {
@@ -34,5 +40,6 @@ module.exports = {
     keepTheme,
     setEc,
     setSwi,
-    setSwif
+    setSwif,
+    setOl
 }

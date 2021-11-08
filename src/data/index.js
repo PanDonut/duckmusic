@@ -1,7 +1,7 @@
 export const PLAYLIST = [
 	{
 		index: "0",
-		type: "album",
+		type: "playlista",
 		title: "Duck Mix",
 		link: "duckmix1",
 		suggestion: "true",
@@ -339,7 +339,7 @@ export const PLAYLIST = [
 	},
 	{
 		index: "2",
-		type: "album",
+		type: "playlista",
 		title: "Rytm Jesieni",
 		link: "rytm_jesieni",
 		suggestion: "true",
@@ -605,7 +605,7 @@ export const PLAYLIST = [
 	},
 	{
 		index: "6",
-		type: "album",
+		type: "playlista",
 		title: "Jesienny Odpoczynek",
 		link: "jesienny_odp",
 		ex: "no",

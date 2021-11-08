@@ -3,6 +3,7 @@ import TitleL from '../component/text/title-l';
 import TitleM from '../component/text/title-m'
 import PlaylistCardS from '../component/cards/playlist-card-s';
 import PlaylistCardM from '../component/cards/playlist-card-m';
+import PlaylistCardMNew from '../component/cards/playlist-card-m-new';
 import ExpandButton from '../component/buttons/expand-button';
 
 import styles from "./home.module.css";
@@ -159,20 +160,36 @@ function Home({ isExpanded = false }) {
                     <div className={styles.SectionTitle1}>
                         <TitleM>Odkrywaj</TitleM>
                     </div>
-                    
-                        <div className={styles.SectionCardsMedium}>                            
+                            <div className={styles.SectionCardsMedium}>
                                 {
+                                    PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                                        console.log(item);
+                                        if (localStorage.getItem('old') == 'yes' || size.width > CONST.MOBILE_SIZE) {
+                                            return (
+                                                <PlaylistCardM
+                                                    key={item.title}
+                                                    data={item}
+                                                />
+                                            );
+                                        }
+                                    })
+                                }
+                        </div>
+                        <div className={styles.SectionCardsMedium}>
+                            {
                                 PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
                                     console.log(item);
+                                    if (localStorage.getItem('old') == 'no' && size.width < CONST.MOBILE_SIZE || localStorage.getItem('old') == null && size.width < CONST.MOBILE_SIZE) {
                                         return (
-                                            <PlaylistCardM
+                                            <PlaylistCardMNew
                                                 key={item.title}
                                                 data={item}
                                             />
                                         );
-                                    })
-                                }
-                    </div>
+                                    }
+                                })
+                            }
+                        </div>
                 </section>
                 </div>
             </div>

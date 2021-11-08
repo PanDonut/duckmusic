@@ -6,7 +6,7 @@ import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import React, { useEffect, useState } from 'react';
-import { setTheme, setEc, setSwi, setSwif } from '../theme';
+import { setTheme, setEc, setSwi, setSwif, setOl } from '../theme';
 import { decode } from 'he';
 
 function Settings() {
@@ -16,6 +16,7 @@ function Settings() {
     const [togClass, setTogClass] = useState('dark');
     const [toggle, setToggle] = useState(localStorage.getItem('explicit'));
     const [swipe, setSwipe] = useState(localStorage.getItem('swipenext'));
+    const [old, setOld] = useState(localStorage.getItem('old'));
     const [swipefull, setSwipefull] = useState(localStorage.getItem('swipenextfull'));
     let theme = localStorage.getItem('theme');
     let ec = localStorage.getItem('explicit');
@@ -67,6 +68,15 @@ function Settings() {
             setSwipefull('no')
         }
     }
+    const handleOnClick4 = () => {
+        if (localStorage.getItem('old') === 'no') {
+            setOl('yes');
+            setOld('yes')
+        } else {
+            setOl('no');
+            setOld('no')
+        }
+    }
 
     console.log(swipe);
     console.log(swipefull);
@@ -100,6 +110,24 @@ function Settings() {
                     </label>
                 </div>
                         </section>
+                        {size.width < CONST.MOBILE_SIZE &&
+                            <div>
+                                <section>
+                                    <h4>{decode("Stary design")}</h4>
+                                    <div className="container--toggle">
+                                        {
+                                            old === "yes" ?
+                                                <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick4} checked />
+                                                :
+                                                <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick4} />
+                                        }
+                                        <label htmlFor="toggle" className="toggle--label">
+                                            <span className="toggle--label-background"></span>
+                                        </label>
+                                    </div>
+                                </section>
+                            </div>
+                        }
                     </div>
                     <div className="ust">
                         <h3>{decode("Kontrola tre&#347;ci")}</h3>
