@@ -33,7 +33,11 @@ const code = "420";
 
 function Footer(props) {
 
-    console.log("re-render");
+    window.setInterval(function () {
+        console.log("re-render");
+    }, 10);
+
+    
 
     function decreaseIndex(){
         if (localStorage.getItem('shuffle') == 'false') {
