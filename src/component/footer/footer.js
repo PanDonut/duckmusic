@@ -187,7 +187,9 @@ function handleTouchStart1(e) {
             if (isOpen == "false") {
                 document.documentElement.style.setProperty('--ne', '0');
                 document.documentElement.style.setProperty('--re', '0');
+                if(touchStartx - touchEndx > 20 || touchStartx - touchEndx < -20) {
                 document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
+}
             }
         }
         if (localStorage.getItem('swipenextfull') === 'yes') {
@@ -213,10 +215,10 @@ function handleTouchStart1(e) {
         document.documentElement.style.setProperty('--re', '0');
         if (isOpen == "false") {
             if (localStorage.getItem('swipenext') === 'yes') {
-                if (touchStartx - touchEndx > 40) {
+                if (touchStartx - touchEndx > 50) {
                     increaseIndex();
                 }
-                if (touchStartx - touchEndx < -40) {
+                if (touchStartx - touchEndx < -50) {
                     decreaseIndex();
                 }
             }
