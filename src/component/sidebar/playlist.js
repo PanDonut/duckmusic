@@ -8,7 +8,7 @@ import PlaylistButton from './playlist-button';
 import { PLAYLISTBTN } from '../../constants';
 import { PLAYLIST } from '../../data';
 
-var indexnmbr = 5;
+var indexnmbr = PLAYLIST.length;
 var rand = Math.floor((Math.random() * indexnmbr) + 1);
 var rand1 = Math.floor((Math.random() * indexnmbr) + 1);
 var rand2 = Math.floor((Math.random() * indexnmbr) + 1);

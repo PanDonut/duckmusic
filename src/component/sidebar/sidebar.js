@@ -12,9 +12,13 @@ import { useEffect, useState } from 'react';
 
 
 function Sidebar() {
+    const history = useHistory();
+    const location = useLocation();
   const[width, SetWidth] = useState(236);
   const [isMouseDown, setisMouseDown] = useState(false);
   const { x } = useMousePosition();
+
+
 
     useEffect(() => {
       if (!isMouseDown) return false;

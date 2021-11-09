@@ -1,15 +1,23 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useEffect, useState  } from 'react';
 import PropTypes from 'prop-types';
+import './style.css'
+const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, isLooping }, ref) => {
 
-const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying }, ref) => {
+    const [loopy, setLoopy] = React.useState(localStorage.getItem('loop'));
+
+
     return (
-      <audio
-            ref={ref}
-            onLoadedMetadata={(e) => handleDuration(e.target.duration)}
-            onTimeUpdate={(e) => handleCurrentTime(e.target.currentTime)}
-            src={trackData.track}
-            autoPlay={isPlaying}
-      />
+        <div>
+            <audio
+                id="myaudio"
+                ref={ref}
+                onLoadedMetadata={(e) => handleDuration(e.target.duration)}
+                onTimeUpdate={(e) => handleCurrentTime(e.target.currentTime)}
+                src={trackData.track}
+                autoPlay={isPlaying}
+                preload='auto'
+                />
+            </div>
     );
   },
 );

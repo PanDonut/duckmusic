@@ -47,3 +47,27 @@
     height: 20px;
     transition: 0.25s;
 }
+
+.buttonactive {
+    border: 0;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;  
+}
+
+    .buttonactive svg {
+        font-size: 26px;
+        fill: #5b88e1;
+        color: hsla(0,0%,100%,.7);
+    }
+
+        .buttonactive svg:hover {
+            fill: #5b88e1;
+            color: rgb(255, 255, 255);
+            transition: 0.25s;
+        }

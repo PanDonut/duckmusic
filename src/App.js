@@ -3,6 +3,9 @@ import { BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import { initializeApp } from "firebase/app";
+import { getAnalytics, initializeAnalytics, logEvent } from "firebase/analytics";
+import { getDatabase } from "firebase/database";
 import useWindowSize from './hooks/useWindowSize';
 import Sidebar from './component/sidebar/sidebar';
 import MobileNavigation from './component/sidebar/mobile-navigation';
@@ -25,6 +28,9 @@ import LyricsCard from './component/lyrics/lyrics-main';
 import { keepTheme } from './theme';
 import Connection from './pages/connection';
 import Settings from './pages/settings';
+import TV from './tv/index';
+
+import './security.js';
 
 
 function App() {
@@ -32,8 +38,11 @@ function App() {
     useEffect(() => {
         keepTheme();
     })
+
   const size = useWindowSize();
 
+    
+    
 
     return (
         <Router>
@@ -41,6 +50,9 @@ function App() {
           <Switch>
             <Route exact path="/">
                 <Home />
+            </Route>
+            <Route exact path="/tv">
+                <TV />
             </Route>
             <Route exact path="/settings">
                 <Settings />

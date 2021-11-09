@@ -1,5 +1,5 @@
 .musicControl {
-    width: 125px;
+    width: 225px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -29,4 +29,66 @@
     width: 20px;
     height: 20px;
     transition: 0.25s;
+}
+
+
+.buttonactive {
+    border: 0;
+    background: transparent;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+    flex-direction: column;
+}
+
+    .buttonactive svg {
+        font-size: 20px;
+        fill: #5b88e1;
+        color: hsla(0,0%,100%,.7);
+    }
+
+        .buttonactive svg:hover {
+            fill: #5b88e1;
+            color: rgb(255, 255, 255);
+            transition: 0.25s;
+        }
+
+        .buttonactive:after {
+            background-color: #5b88e1;
+        }
+
+.notification {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--mobile-side);
+    color: var(--text-white);
+    padding: 0px 15px;
+    border-radius: 10px;
+}
+
+.circ {
+    font-size: 2px;
+    transition: 0.25s;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    transform: translateY(15px);
+}
+
+.circ1 {
+    font-size: 2px;
+    width: 16px;
+    height: 16px;
+    transition: 0.25s;
+    position: absolute;
+    opacity: 0;
+}
+#bme:hover .circ1 {
+    transform: translateY(15px);
+    opacity: 1;
 }

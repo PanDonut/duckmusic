@@ -150,7 +150,6 @@ if(isOpen == "false") {
         }
     }
 
-    console.log("MEEM " + (touchStartx - touchEndx));
 
 function handleTouchStart1(e) {
         setTouchStartx(e.targetTouches[0].clientX);
@@ -214,7 +213,7 @@ function handleTouchStart1(e) {
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(1);
-    const audioRef = useRef(null);
+    const audioRef = useRef();
 
     const handleTrackClick = (position) => {
         audioRef.current.currentTime = position;
@@ -236,28 +235,51 @@ function handleTouchStart1(e) {
         }
     });*/
 
+    if (localStorage.getItem('loop') == 'true') {
+
+    } else if (localStorage.getItem('loop') == 'false') {
+
+    } else {
+        localStorage.setItem('loop', 'false');
+    }
+
     useEffect(() => {
         audioRef.current.volume = volume;
     }, [audioRef, volume]);
 
-    
+    console.log(localStorage.getItem('loop') + " loop");
+
+    console.log(localStorage.getItem('shuffle') + " shuffle");
+
+
     useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
-            if(props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)){
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            }else{
-                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1])+1])
+            console.log("KONIEC!");
+            if (localStorage.getItem('loop') == 'false') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
+            } else if (localStorage.getItem('loop') == 'true') {
+                setCurrentTime(0);
+                audioRef.current.play();
             }
         })
     });
 
-    
 
     const [remo, setRemo] = useState("false");
-    console.log(remo);
-    console.log('ts ' + touchStart);
-    console.log('te ' + touchEnd);
-    console.log(touchStart - touchEnd / 2);
 
         const db = getDatabase();
     if (remo == "true") {
@@ -342,18 +364,19 @@ function handleTouchStart1(e) {
                     </FadeIn>
                 }
                     
-                    <Audio
-                        ref={audioRef}
-                        handleDuration={setDuration}
-                        handleCurrentTime={setCurrentTime}
-                        trackData={props.trackData}
-                        isPlaying={props.isPlaying}
-                    />
+                   
                                
                     <FooterRight 
                         volume={volume} 
                         setVolume={setVolume}
                 ></FooterRight>
+                    <Audio
+                    ref={audioRef}
+                    handleDuration={setDuration}
+                    handleCurrentTime={setCurrentTime}
+                    trackData={props.trackData}
+                    isPlaying={props.isPlaying}
+                    />
                 
             </div>
             {size.width < CONST.MOBILE_SIZE &&

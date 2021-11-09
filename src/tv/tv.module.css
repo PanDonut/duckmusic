@@ -1,0 +1,293 @@
+:root {
+    --expand: 180px;
+    --disp: block;
+    --disp1: none;
+    --rot: rotate(0deg);
+}
+
+@keyframes goIn {
+    0% {
+        opacity: 0;
+        transform: translateX(100px)
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.Home {
+    overflow-y: scroll;
+    background: transparent;
+    position: relative;
+    margin-bottom: 95px;
+    padding-bottom: 16px;
+}
+
+
+.HoverBg {
+    height: 332px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--bgcol)));
+    background-image: linear-gradient(rgba(0,0,0,.6),var(--bgcol));
+    -webkit-transition: background 1s ease;
+    transition: background 1s ease;
+    background-color: var(--hover-home-bg);
+}
+
+.Bg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 60px;
+    bottom: 0px;
+    background: var(--bgcol);
+    z-index: -2;
+}
+
+.Content {
+    padding: 0 32px;
+    padding-top: 24px;
+    animation: goIn ease 500ms;
+}
+
+    .Content section:not(:first-child) {
+        margin-top: 32px;
+    }
+
+.SectionTitle {
+    margin-bottom: 22px;
+}
+
+    .SectionTitle h1,
+    .SectionTitle h2 {
+        margin: 0;
+        color: #fff;
+    }
+
+.SectionTitle1 {
+    margin-bottom: 22px;
+}
+
+    .SectionTitle1 h1,
+    .SectionTitle1 h2 {
+        margin: 0;
+        color: #fff;
+    }
+
+.SectionCards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(var(--small-cards-column-width),1fr));
+    row-gap: 16px;
+    column-gap: 24px;
+    max-height: var(--expand);
+    overflow-y: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.SectionCardsMedium {
+    display: grid;
+    grid-column-gap: 24px;
+    row-gap: 15px;
+    column-gap: 24px;
+    grid-template-columns: repeat(auto-fill,minmax(var(--cards-column-width),1fr));
+    grid-auto-rows: min-content;
+    grid-template-rows: 1fr;
+    height: 100%;
+}
+
+
+.Btn {
+    background-color: transparent;
+    border: none;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: var(--disp);
+    transition: all 0.25s;
+}
+
+.Btn1 {
+    background-color: transparent;
+    border: none;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    display: var(--disp1);
+    transform: var(--rot);
+    transition: all 1s;
+}
+
+.BtnDiv {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+body {
+    background-color: #0d0c11;
+}
+
+
+.gradC {
+    background: rgb(0,0,0);
+    background: linear-gradient(22deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.5) 45%, rgba(0,0,0,0) 100%);
+    width: 100%;
+    height: 250px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: inline-flex;
+    justify-content: space-around;
+}
+
+    .gradC img {
+        bottom: 0;
+        width: 175px;
+        height: 175px;
+        margin-top: 3%;
+        margin-left: 15px;
+    }
+
+.mrag {
+    margin-left: 40px;
+    color: white;
+}
+
+    .mrag h4 {
+        color: var(--text-gray);
+        font-weight: 200;
+        font-size: 15px;
+        width: calc(45vw - 170px);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .mrag h3 {
+        font-size: 17px;
+        font-weight: 400;
+    }
+
+    .mrag button {
+        background-color: #5b88e1;
+        border: none;
+        bottom: 0;
+        padding: 10px 15px;
+        border-radius: 5px;
+    }
+
+.sponsored {
+    right: 0;
+    margin-top: 10px;
+    height: 50px;
+    background-color: #0005;
+    border: none;
+    color: var(--text-gray);
+    border-radius: 5px;
+}
+
+@media screen and (max-width: 640px) {
+    .gradC img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .gradC {
+        height: 150px;
+    }
+
+    .mrag {
+        margin-left: 0px;
+    }
+
+    .SectionCardsMedium {
+        grid-gap: 16px;
+        overflow-y: auto;
+        grid-auto-rows: auto;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .SectionCards {
+        display: none;
+    }
+
+    .Content {
+        padding: 16px;
+        padding-bottom: 100px;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .SectionCardsMediumNew {
+        white-space: nowrap;
+        position: relative;
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+
+        .SectionCardsMediumNew div {
+            display: inline-block;
+            float: none;
+            zoom: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .SectionCardsMediumNew div div {
+                position: relative;
+                padding: 16px;
+                background: var(--card-bg1);
+                border-radius: 4px;
+                -webkit-transition: background-color .3s ease;
+                transition: background-color .3s ease;
+                min-height: 100px;
+            }
+
+    .SectionTitle1 {
+        display: none;
+    }
+
+        .SectionTitle1 h1,
+        .SectionTitle1 h2 {
+            display: none;
+        }
+
+    .Btn {
+        background-color: transparent;
+        border: none;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: none;
+    }
+
+    .mrag h3 {
+        display: none;
+    }
+
+    .mrag h4 {
+        display: none;
+    }
+
+    .Btn1 {
+        background-color: transparent;
+        border: none;
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: none;
+        transform: rotate(180deg);
+    }
+}

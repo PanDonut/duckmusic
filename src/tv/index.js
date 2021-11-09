@@ -1,4 +1,4 @@
-import Topnav from '../component/topnav/topnav';
+﻿import Topnav from '../component/topnav/topnav';
 import TitleL from '../component/text/title-l';
 import TitleM from '../component/text/title-m'
 import PlaylistCardS from '../component/cards/playlist-card-s';
@@ -8,11 +8,11 @@ import ExpandButton from '../component/buttons/expand-button';
 
 import FadeIn from 'react-fade-in';
 
-import styles from "./home.module.css";
+import styles from "./tv.module.css";
 
 import React from 'react';
 
-import Sidebar from '../component/sidebar/sidebar';
+import Sidebar from '../component/sidebar/sidebar-tv';
 import {
     BrowserRouter as Router,
     Switch,
@@ -51,12 +51,9 @@ function Home({ isExpanded = false }) {
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const size = useWindowSize();
     const history = useHistory();
-    if (size > CONST.HD && /android/i.test(userAgent) ) {
-        history.push('/tv');
-    }
 
     console.log(localStorage.getItem('explicit'));
-    
+
     var today = new Date()
     var curHr = today.getHours()
     const [timetext, setTimetext] = React.useState("");
@@ -73,11 +70,11 @@ function Home({ isExpanded = false }) {
         }
     }
 
-    
-    
 
-    
-    
+
+
+
+
 
     function Expand() {
         document.documentElement.style.setProperty('--expand', '380px');
@@ -98,7 +95,7 @@ function Home({ isExpanded = false }) {
                 ? <Sidebar />
                 : <MobileNavigation />
             }
-        <div className={styles.Home}>
+            <div className={styles.Home}>
                 <ToastContainer
                     transition={Slide}
                     position="top-center"
@@ -111,79 +108,79 @@ function Home({ isExpanded = false }) {
                     pauseOnHover
                     limit={1}
                 />
-            <div className={styles.HoverBg}></div>
-            <div className={styles.Bg}></div>
+                <div className={styles.HoverBg}></div>
+                <div className={styles.Bg}></div>
 
-            <Topnav />
-            <div className={styles.Content}>
-                <section>
-                    <div className={styles.SectionTitle}>
+                <Topnav />
+                <div className={styles.Content}>
+                    <section>
+                        <div className={styles.SectionTitle}>
                             <TitleL>{timetext}</TitleL>
-                    </div>
+                        </div>
 
                         <section>
-                                {PLAYLIST.filter(item => item.promoted == 'prawda').map((list) => {
-                                    return (
-                                        <div className={styles.gradC}>
-                                            <img src={list.imgUrl} />
-                                            <FadeIn visible="true" delay="150" className={styles.mrag}>
-                                                <h2>{list.title}</h2>
-                                                <h4>{list.artist}</h4>
-                                                <h3>{list.promodesc}</h3>
-                                                <Link to={"/playlist/" + list.link}>
+                            {PLAYLIST.filter(item => item.promoted == 'prawda').map((list) => {
+                                return (
+                                    <div className={styles.gradC}>
+                                        <img src={list.imgUrl} />
+                                        <FadeIn visible="true" delay="150" className={styles.mrag}>
+                                            <h2>{list.title}</h2>
+                                            <h4>{list.artist}</h4>
+                                            <h3>{list.promodesc}</h3>
+                                            <Link to={"/playlist/" + list.link}>
                                                 <button>{decode("S&#322;uchaj")}</button>
-                                                </Link>
-                                            </FadeIn>
-                                            <button className={styles.sponsored}>Sponsorowane</button>
-                                        </div>
-                                    );
-                                })}
+                                            </Link>
+                                        </FadeIn>
+                                        <button className={styles.sponsored}>Sponsorowane</button>
+                                    </div>
+                                );
+                            })}
                         </section>
                         <FadeIn visible="true" delay="250" className={styles.SectionCards}>
-                        {PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
-                            return (
-                                <PlaylistCardS 
-                                    key={item.title}
-                                    data={item}
-                                />
-                            );
-                        })}
-                    </FadeIn>
+                            {PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                                return (
+                                    <PlaylistCardS
+                                        key={item.title}
+                                        data={item}
+                                    />
+                                );
+                            })}
+                        </FadeIn>
                         <div className={styles.BtnDiv}>
-                                <button
-                                    className={styles.Btn}
-                                    onClick={Expand}
-                                >
-                                    <ExpandButton />
-                                </button>
-                                <button
-                                    className={styles.Btn1}
-                                    onClick={Hide}
-                                >
-                                    <ExpandButton />
-                                </button>
+                            <button
+                                className={styles.Btn}
+                                onClick={Expand}
+                            >
+                                <ExpandButton />
+                            </button>
+                            <button
+                                className={styles.Btn1}
+                                onClick={Hide}
+                            >
+                                <ExpandButton />
+                            </button>
                         </div>
-                </section>
+                    </section>
 
-                <section>
-                    <div className={styles.SectionTitle1}>
-                        <TitleM>Odkrywaj</TitleM>
-                    </div>
+                    <section>
+                        <div className={styles.SectionTitle1}>
+                            <TitleM>Odkrywaj</TitleM>
+                        </div>
                         <FadeIn visible="true" delay="500" className={styles.SectionCardsMedium}>
-                                {
-                                    PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
-                                        console.log(item);
-                                        if (localStorage.getItem('old') == 'yes' || size.width > CONST.MOBILE_SIZE) {
-                                            return (
-                                                <PlaylistCardM
-                                                    key={item.title}
-                                                    data={item}
-                                                />
-                                            );
-                                        }
-                                    })
-                                }
-                                </FadeIn>
+                            {
+                                PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                                    console.log(item);
+                                    if (localStorage.getItem('old') == 'yes' || size.width > CONST.MOBILE_SIZE) {
+                                        return (
+                                            <PlaylistCardM
+                                                key={item.title}
+                                                data={item}
+                                            />
+                                        );
+                                    }
+                                })
+                            }
+                        </FadeIn>
                         <FadeIn visible="true" delay="250" className={styles.SectionCardsMedium}>
                             {
                                 PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
@@ -199,10 +196,10 @@ function Home({ isExpanded = false }) {
                                 })
                             }
                         </FadeIn>
-                </section>
+                    </section>
                 </div>
             </div>
-            
+
         </div>
     );
 }
