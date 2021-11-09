@@ -35,6 +35,7 @@ function Footer(props) {
 
     window.setInterval(function () {
         console.log("re-render");
+        forceUpdate();
     }, 10);
 
     
@@ -282,6 +283,7 @@ function handleTouchStart1(e) {
     console.log(localStorage.getItem('shuffle') + " shuffle");
 
 
+        useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
             console.log("KONIEC!");
             setCurrentTime(0);
@@ -306,6 +308,7 @@ function handleTouchStart1(e) {
                 audioRef.current.play();
             }
         })
+    });
 
 
     const [remo, setRemo] = useState("false");
