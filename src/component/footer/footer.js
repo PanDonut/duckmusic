@@ -264,6 +264,32 @@ function handleTouchStart1(e) {
         }
     });*/
 
+    
+    if(currentTime > duration - 1) {
+        console.log("KONIEC!");
+            setCurrentTime(0);
+            if (localStorage.getItem('loop') == 'false') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
+            } else if (localStorage.getItem('loop') == 'true') {
+                setCurrentTime(0);
+                audioRef.current.play();
+            }
+    }
+    
     if (localStorage.getItem('loop') == 'true') {
 
     } else if (localStorage.getItem('loop') == 'false') {
