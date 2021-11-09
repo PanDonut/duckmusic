@@ -212,6 +212,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                 }
         }
     }
+                                                  }
 
     function handleTouchEnd1() {
         document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
