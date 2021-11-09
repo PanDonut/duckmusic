@@ -195,6 +195,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                  } 
             }
         }
+                }
         if (localStorage.getItem('swipenextfull') === 'yes') {
             if (isOpen == "true") {
                 document.documentElement.style.setProperty('--imgpos', "translateX(" + (touchStartx - touchEndx) + "px)");
