@@ -218,6 +218,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         document.documentElement.style.setProperty('--ne', '0');
         document.documentElement.style.setProperty('--re', '0');
         if (isOpen == "false") {
+                if(touchStartx - touchEndx > 20 || touchStartx - touchEndx < -20) {
             if (localStorage.getItem('swipenext') === 'yes') {
                 if (touchStartx - touchEndx > 50) {
                     increaseIndex();
@@ -225,6 +226,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                 if (touchStartx - touchEndx < -50) {
                     decreaseIndex();
                 }
+            }
             }
         }
         if (isOpen == "true") {
