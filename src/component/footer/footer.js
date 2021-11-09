@@ -264,35 +264,6 @@ function handleTouchStart1(e) {
         }
     });*/
     
-    function SKIP() {
-        console.log("KONIEC!");
-            setCurrentTime(0);
-            if (localStorage.getItem('loop') == 'false') {
-                if (localStorage.getItem('shuffle') == 'false') {
-                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.changeTrack([props.trackData.trackKey[0], 0])
-                    } else {
-                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
-                    }
-                } else if (localStorage.getItem('shuffle') == 'true') {
-                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.changeTrack([props.trackData.trackKey[0], 0])
-                    } else {
-                        props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
-                    }
-                } else {
-                    localStorage.setItem('shuffle', 'false')
-                }
-            } else if (localStorage.getItem('loop') == 'true') {
-                setCurrentTime(0);
-                audioRef.current.play();
-            }
-    }
-
-    
-    if(currentTime > duration - 2) {
-        SKIP();
-    }
     
     if (localStorage.getItem('loop') == 'true') {
 
@@ -311,7 +282,6 @@ function handleTouchStart1(e) {
     console.log(localStorage.getItem('shuffle') + " shuffle");
 
 
-    useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
             console.log("KONIEC!");
             setCurrentTime(0);
@@ -336,7 +306,6 @@ function handleTouchStart1(e) {
                 audioRef.current.play();
             }
         })
-    });
 
 
     const [remo, setRemo] = useState("false");
