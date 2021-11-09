@@ -32,7 +32,7 @@ function PlaylistCardM(props) {
 						</svg>
  {props.data.artist}</TextRegularM>
 					</FadeIn>
-				</div>
+				</FadeIn>
 			</Link>
 			<div 
 				onClick={() => props.changeTrack([parseInt(props.data.index), 0])} 
