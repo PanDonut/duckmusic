@@ -35,6 +35,8 @@ import './security.js';
 
 function App() {
 
+    console.log("re-render");
+
     useEffect(() => {
         keepTheme();
     })

@@ -39,6 +39,9 @@ import MobileNavigation from '../component/sidebar/mobile-navigation';
 import FadeIn from 'react-fade-in';
 
 function PlaylistPage(props) {
+
+	console.log("re-render");
+
 	const size = useWindowSize();
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
 	const [isthisplay, setIsthisPlay] = useState(false);

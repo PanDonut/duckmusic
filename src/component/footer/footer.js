@@ -33,6 +33,7 @@ const code = "420";
 
 function Footer(props) {
 
+    console.log("re-render");
 
     function decreaseIndex(){
         if (localStorage.getItem('shuffle') == 'false') {

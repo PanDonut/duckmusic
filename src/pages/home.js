@@ -48,6 +48,8 @@ function Hide() {
 
 function Home({ isExpanded = false }) {
 
+    console.log("re-render");
+
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const size = useWindowSize();
     const history = useHistory();

@@ -7,7 +7,9 @@ import PlayButton from '../../buttons/play-button';
 import { PLAYLIST } from "../../../data/index";
 import styles from "./music-control-box-small.module.css";
 
-function MusicControlBox(props){
+function MusicControlBox(props) {
+
+    console.log("re-render");
 
     function decreaseIndex(){
         if (localStorage.getItem('shuffle') == 'false') {

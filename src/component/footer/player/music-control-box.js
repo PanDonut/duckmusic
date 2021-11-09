@@ -15,7 +15,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { decode } from 'he';
 
-function MusicControlBox(props){
+function MusicControlBox(props) {
+    console.log("re-render");
 
     const [looping, setLooping] = React.useState(localStorage.getItem('loop'));
 

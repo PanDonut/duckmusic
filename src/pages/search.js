@@ -25,7 +25,9 @@ import FadeIn from 'react-fade-in';
 import SearchButton from '../component/buttons/search-button';
 
 
-function Search(){
+function Search() {
+
+    console.log("re-render");
 
 
 

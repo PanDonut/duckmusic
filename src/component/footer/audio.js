@@ -5,6 +5,7 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
 
     const [loopy, setLoopy] = React.useState(localStorage.getItem('loop'));
 
+    console.log("re-render");
 
     return (
         <div>

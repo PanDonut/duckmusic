@@ -50,6 +50,9 @@ function Hide() {
 
 
 function Home({ isExpanded = false }) {
+
+    console.log("re-render");
+
     const gitInfo = GitInfo();
     const history = useHistory();
     const size = useWindowSize();

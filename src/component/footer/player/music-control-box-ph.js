@@ -9,6 +9,8 @@ import styles from "./music-control-box-ph.module.css";
 
 function MusicControlBox(props){
 
+    console.log("re-render");
+
     function decreaseIndex(){
         if (localStorage.getItem('shuffle') == 'false') {
             if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {

@@ -9,6 +9,8 @@ import styles from "./music-control-box-phone.module.css";
 
 function MusicControlBox(props) {
 
+    console.log("re-render");
+
     const [looping, setLooping] = React.useState(localStorage.getItem('loop'));
 
     const [shuffling, setShuffling] = React.useState(localStorage.getItem('shuffle'));

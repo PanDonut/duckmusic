@@ -18,7 +18,7 @@ function Sidebar() {
   const [isMouseDown, setisMouseDown] = useState(false);
   const { x } = useMousePosition();
 
-
+    console.log("re-render");
 
     useEffect(() => {
       if (!isMouseDown) return false;
