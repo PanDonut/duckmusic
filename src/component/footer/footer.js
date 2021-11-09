@@ -187,15 +187,17 @@ function handleTouchStart1(e) {
             if (isOpen == "false") {
                 document.documentElement.style.setProperty('--ne', '0');
                 document.documentElement.style.setProperty('--re', '0');
-if (touchStart - touchEnd < 25){
+if (touchStart - touchEnd < 25) 
+            {
                 if(touchStartx - touchEndx > 20 || touchStartx - touchEndx < -20) {
-                document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
-} else {
+                document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");} else {
+
 document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
-                 } 
+                                                                                 }
+                                                                                 }
             }
         }
-                }
+            
         if (localStorage.getItem('swipenextfull') === 'yes') {
             if (isOpen == "true") {
                 document.documentElement.style.setProperty('--imgpos', "translateX(" + (touchStartx - touchEndx) + "px)");
@@ -208,7 +210,6 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                     document.documentElement.style.setProperty('--ne', '1');
                     document.documentElement.style.setProperty('--re', '0');
                 }
-            }
         }
     }
 
