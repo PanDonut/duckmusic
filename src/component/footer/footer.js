@@ -284,6 +284,7 @@ function handleTouchStart1(e) {
     useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
             console.log("KONIEC!");
+            setCurrentTime(0);
             if (localStorage.getItem('loop') == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
                     if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
