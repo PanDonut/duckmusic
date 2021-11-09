@@ -218,17 +218,19 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         document.documentElement.style.setProperty('--ne', '0');
         document.documentElement.style.setProperty('--re', '0');
         if (isOpen == "false") {
-            if (localStorage.getItem('swipenext') === 'yes') {
+            if (localStorage.getItem('swipenext') == 'yes') {
+if (touchStart - touchEnd < 25){
                 if (touchStartx - touchEndx > 50) {
                     increaseIndex();
                 }
                 if (touchStartx - touchEndx < -50) {
                     decreaseIndex();
                 }
+{
             }
         }
         if (isOpen == "true") {
-            if (localStorage.getItem('swipenextfull') === 'yes') {
+            if (localStorage.getItem('swipenextfull') == 'yes') {
                 if (touchStartx - touchEndx > 50) {
                     increaseIndex();
                 }
