@@ -32,10 +32,7 @@ import FadeIn from 'react-fade-in';
 const code = "420";
 
 function Footer(props) {
-
-    window.setInterval(function () {
         console.log("re-render");
-    }, 50);
 
     
 
