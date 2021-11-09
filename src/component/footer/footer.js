@@ -192,8 +192,7 @@ if (touchStart - touchEnd < 25){
                 document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
 } else {
 document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
-}
-}
+                 } 
             }
         }
         if (localStorage.getItem('swipenextfull') === 'yes') {
