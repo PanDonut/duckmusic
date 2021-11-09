@@ -187,7 +187,7 @@ function handleTouchStart1(e) {
             if (isOpen == "false") {
                 document.documentElement.style.setProperty('--ne', '0');
                 document.documentElement.style.setProperty('--re', '0');
-if (touchStart - touchEnd < 35){
+if (touchStart - touchEnd < 25){
                 if(touchStartx - touchEndx > 20 || touchStartx - touchEndx < -20) {
                 document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
 } else {
