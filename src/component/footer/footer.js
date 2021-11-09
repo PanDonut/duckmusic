@@ -263,9 +263,8 @@ function handleTouchStart1(e) {
           localStorage.setItem('playedSong', 'stop');
         }
     });*/
-
     
-    if(currentTime > duration - 1) {
+    function SKIP() {
         console.log("KONIEC!");
             setCurrentTime(0);
             if (localStorage.getItem('loop') == 'false') {
@@ -288,6 +287,11 @@ function handleTouchStart1(e) {
                 setCurrentTime(0);
                 audioRef.current.play();
             }
+    }
+
+    
+    if(currentTime > duration - 2) {
+        SKIP();
     }
     
     if (localStorage.getItem('loop') == 'true') {
