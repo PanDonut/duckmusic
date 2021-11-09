@@ -35,8 +35,7 @@ function Footer(props) {
 
     window.setInterval(function () {
         console.log("re-render");
-        forceUpdate();
-    }, 10);
+    }, 50);
 
     
 
