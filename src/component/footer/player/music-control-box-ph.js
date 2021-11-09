@@ -10,13 +10,37 @@ import styles from "./music-control-box-ph.module.css";
 function MusicControlBox(props){
 
     function decreaseIndex(){
-        if(props.trackData.trackKey[1] == 0){ }else{
-            props.changeTrack([props.trackData.trackKey[0], props.trackData.trackKey[1]-1])
+        if (localStorage.getItem('shuffle') == 'false') {
+            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                props.changeTrack([props.trackData.trackKey[0], 0])
+            } else {
+                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+            }
+        } else if (localStorage.getItem('shuffle') == 'true') {
+            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                props.changeTrack([props.trackData.trackKey[0], 0])
+            } else {
+                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+            }
+        } else {
+            localStorage.setItem('shuffle', 'false')
         }
     }
     function increaseIndex(){
-        if(props.trackData.trackKey[1] == (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)-1){ }else{
-            props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1])+1])
+        if (localStorage.getItem('shuffle') == 'false') {
+            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                props.changeTrack([props.trackData.trackKey[0], 0])
+            } else {
+                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+            }
+        } else if (localStorage.getItem('shuffle') == 'true') {
+            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                props.changeTrack([props.trackData.trackKey[0], 0])
+            } else {
+                props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
+            }
+        } else {
+            localStorage.setItem('shuffle', 'false')
         }
     }
 
