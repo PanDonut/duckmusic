@@ -41,7 +41,13 @@ function App() {
 
   const size = useWindowSize();
 
-    
+    if (localStorage.getItem('shuffle') == 'true') {
+
+    } else if (localStorage.getItem('shuffle') == 'false') {
+
+    } else {
+        localStorage.setItem('shuffle', 'false')
+    }
     
 
     return (
