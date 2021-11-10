@@ -40,6 +40,7 @@ function MusicControlBox(props) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
+        audioRef.current.play();
     }
     function increaseIndex(){
         if (localStorage.getItem('shuffle') == 'false') {
@@ -57,6 +58,7 @@ function MusicControlBox(props) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
+        audioRef.current.play();
     }
 
     const looptoast = () => toast.success(decode("Odtwarzanie w p&#281;tli"), {
