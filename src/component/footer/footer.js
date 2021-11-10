@@ -52,6 +52,7 @@ function Footer(props) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
+            audioRef.current.play();
     }
     function increaseIndex(){
         if (localStorage.getItem('shuffle') == 'false') {
@@ -69,6 +70,7 @@ function Footer(props) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
+            audioRef.current.play();
     }
 
     function Expand() {
