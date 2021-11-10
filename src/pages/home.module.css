@@ -21,13 +21,12 @@
 
 
 .HoverBg {
-    height: 332px;
+    height: 100vh;
     position: absolute;
     left: 0;
     right: 0;
     z-index: -1;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--bgcol)));
-    background-image: linear-gradient(rgba(0,0,0,.6),var(--bgcol));
+    background-image: linear-gradient(146deg,rgba(0,0,0,.6) 10%,var(--bgcol) 50%);
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
     background-color: var(--hover-home-bg);
