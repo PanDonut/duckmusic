@@ -26,8 +26,8 @@
     left: 0;
     right: 0;
     z-index: -1;
-    background-image: -webkit-gradient(130deg, linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--bgcol)));
-    background-image: linear-gradient(130deg, rgba(0,0,0,.6),var(--bgcol));
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--bgcol)));
+    background-image: linear-gradient(rgba(0,0,0,.6),var(--bgcol));
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
     background-color: var(--hover-home-bg);
@@ -179,6 +179,14 @@ body {
 }
 
 @media screen and (max-width: 640px) {
+    .HoverBg {
+    height: 432px;
+    background-image: -webkit-gradient(130deg, linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--bgcol)));
+    background-image: linear-gradient(130deg, rgba(0,0,0,.6),var(--bgcol));
+    -webkit-transition: background 1s ease;
+    transition: background 1s ease;
+    background-color: var(--hover-home-bg);
+}
     .gradC img {
         width: 50px;
         height: 50px;
