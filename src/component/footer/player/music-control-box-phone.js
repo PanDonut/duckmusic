@@ -31,6 +31,7 @@ function MusicControlBox(props) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
+        audioRef.current.play();
     }
     function increaseIndex(){
         if (localStorage.getItem('shuffle') == 'false') {
@@ -48,6 +49,7 @@ function MusicControlBox(props) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
+        audioRef.current.play();
     }
 
     return (
