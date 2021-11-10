@@ -362,7 +362,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                                         <h4 id="text-card">{list.lyrics[Math.round(currentTime)].text}</h4><button id="buttonMusiq">Musiq</button>
                                     </div>
                                     {size.width > CONST.MOBILE_SIZE &&
-                                        <MusicControlBoxs id="center-bar" />
+                                        <MusicControlBoxs audioRef={audioRef} id="center-bar" />
                                     }
                                 </div>
                                 </div>
@@ -383,7 +383,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                 
                     {size.width > CONST.MOBILE_SIZE &&
                     <div className={styles.footerMid}>
-                    <MusicControlBox />
+                    <MusicControlBox audioRef={audioRef}/>
                     <MusicProgressBar
                         currentTime={currentTime}
                         duration={duration}
