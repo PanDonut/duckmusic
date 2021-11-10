@@ -311,6 +311,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                 setCurrentTime(0);
                 audioRef.current.play();
             }
+           audioRef.current.play();
         })
     });
 
