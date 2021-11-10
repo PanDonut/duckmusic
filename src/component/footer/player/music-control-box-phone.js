@@ -7,7 +7,7 @@ import React, { useEffect, useState } from 'react';
 import { PLAYLIST } from "../../../data/index";
 import styles from "./music-control-box-phone.module.css";
 
-function MusicControlBox(props) {
+function MusicControlBox(props, {audioRef}) {
 
     console.log("re-render");
 
