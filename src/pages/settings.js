@@ -93,8 +93,8 @@ function Settings() {
                 ? <Sidebar />
                 : <MobileNavigation />
             }
-            <div>
-            <Topnav />
+            <div className="body">
+                <Topnav back={true}/>
             <FadeIn visible="true" delay="50" className="marg">
                     <h2>Ustawienia</h2>
                     <FadeIn visible="true" delay="100" className="ust">

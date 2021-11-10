@@ -58,7 +58,7 @@ function Search() {
                 : <MobileNavigation />
             }
             <div className={styles.SearchPage}>
-                <Topnav />
+                <Topnav normal={true}/>
                 
 
                     <div className={styles.SeachBox}>

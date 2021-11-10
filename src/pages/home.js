@@ -116,7 +116,7 @@ function Home({ isExpanded = false }) {
             <div className={styles.HoverBg}></div>
             <div className={styles.Bg}></div>
 
-            <Topnav />
+                <Topnav normal={true}/>
             <div className={styles.Content}>
                 <section>
                     <div className={styles.SectionTitle}>
@@ -142,7 +142,7 @@ function Home({ isExpanded = false }) {
                                 })}
                         </section>
                         <FadeIn visible="true" delay="250" className={styles.SectionCards}>
-                        {PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                        {PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((item) => {
                             return (
                                 <PlaylistCardS 
                                     key={item.title}
@@ -173,7 +173,7 @@ function Home({ isExpanded = false }) {
                     </div>
                         <FadeIn visible="true" delay="500" className={styles.SectionCardsMedium}>
                                 {
-                                    PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                                    PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((item) => {
                                         console.log(item);
                                         if (localStorage.getItem('old') == 'yes' || size.width > CONST.MOBILE_SIZE) {
                                             return (
@@ -188,7 +188,7 @@ function Home({ isExpanded = false }) {
                                 </FadeIn>
                         <FadeIn visible="true" delay="250" className={styles.SectionCardsMedium}>
                             {
-                                PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).map((item) => {
+                                PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((item) => {
                                     console.log(item);
                                     if (localStorage.getItem('old') == 'no' && size.width < CONST.MOBILE_SIZE || localStorage.getItem('old') == null && size.width < CONST.MOBILE_SIZE) {
                                         return (

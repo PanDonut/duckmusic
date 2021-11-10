@@ -5,7 +5,7 @@ import styles from "./playlist-details.module.css";
 
 function PlaylistDetails({ data }) {
 	return (
-        <div className={styles.playlistDetails}>
+        <div className={styles.playlistDetails} onClick={() => { document.documentElement.style.setProperty('--dispopen', 'none') }}>
             <div className={styles.imgBox}>
                 <img src={data.imgUrl} />
             </div>

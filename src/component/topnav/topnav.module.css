@@ -7,12 +7,8 @@
     z-index: 99;
     background-color: transparent;
 }
-.Topnav div{
-    padding: 0px 32px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.Topnav div {
+    padding: 10px 32px;
 }
 .Topnav div div{
     position: relative;
@@ -34,36 +30,63 @@
     color: #fff;
 }
 @media screen and (max-width: 640px) {
+    :root {
+        --playbg: linear-gradient(180deg, rgba(0,0,0,0.47692580450148814) 0%, rgba(0,0,0,0.4) 37%, rgba(0,0,0,0.15) 78%, rgba(0,0,0,0.1) 89%, rgba(0,0,0,0) 100%);
+    }
+    .Topnav div {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
     .Topnav{
-        background-color: var(--fillsvg);
+        background-color: transparent;
         height: 50px;
     }
-    .Topnav div{
+            .Topnav div div {
+                position: absolute;
+                left: 0;
+                top: 46px;
+                right: 0;
+                padding: 8px 16px;
+                background: #121212;
+                border-top: 1px solid #333333;
+                border-bottom: 1px solid #333333;
+                transition: 1s ease;
+            }
+            .Topnav div nav {
+                position: absolute;
+                left: 0;
+                top: 46px;
+                right: 0;
+                padding: 8px 16px;
+                background: #121212;
+                border-top: 1px solid #333333;
+                border-bottom: 1px solid #333333;
+                display: grid;
+                grid-template-columns: 128px 106px 98px 94px;
+                transition: 1s ease;
+                overflow-x: scroll;
+            }
+
+    .playl {
+        background: var(--playbg);
+        transition: 1s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100vw;
         height: 50px;
-        padding: 0px 16px;
     }
-    .Topnav div div{
-        position: absolute;
-        left: 0;
-        top: 46px;
-        right: 0;
-        padding: 8px 16px;
-        background: #121212;
-        border-top: 1px solid #333333;
-        border-bottom: 1px solid #333333;
+
+    .playl button svg path {
+        fill: #fff;
     }
-    .Topnav div nav{
-        position: absolute;
-        left: 0;
-        top: 46px;
-        right: 0;
-        padding: 8px 16px;
-        background: #121212;
-        border-top: 1px solid #333333;
-        border-bottom: 1px solid #333333;
-        display: grid;
-        grid-template-columns: 128px 106px 98px 94px;
-        overflow-x: scroll;
+
+    .btn12 {
+        display: flex;
+        justify-content: flex-end
     }
 }
 

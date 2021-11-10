@@ -46,9 +46,13 @@
 }
 
 .marg {
-    margin-left: 50px;   
+    margin-left: 50px;
     overflow-y: scroll;
-    padding-bottom: 100px;
+    padding-bottom: 100px;   
+}
+
+.body {
+    background-color: #0d0c11;
 }
 
 .marg section {
@@ -90,4 +94,22 @@
 
 .marg h4 span:before {
     content: "BETA";
+}
+
+@media screen and (max-width: 640px) {
+    .body {
+        background: linear-gradient(180deg, var(--main-background) 0%, rgba(91,136,225,1) 100%);
+    }
+
+    .marg {
+        margin-left: 5px;
+    }
+
+    .ust {
+        width: 95%;
+    }
+
+    .marg section {
+        width: 90%;
+    }
 }

@@ -1,3 +1,4 @@
+
 .PlaylistPage {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -195,12 +196,37 @@
     color: rgb(179, 179, 179);
 }
 @media screen and (max-width: 640px) {
+
+    .btn {
+        display: flex;
+        border: none;
+        background: none;
+        width: 100vw;
+        align-items: center;
+        margin-left: 5%;
+    }
+
+    .ovlist {
+        padding-top: 15%;
+    }
+
+    .btn h2 {
+        color: #fff;
+        margin-left: 10px;
+    }
+
+        .btn svg {
+            width: 30px;
+            height: 30px;
+        }
+
+            .btn svg path {
+                fill: #b3b3b3;
+            }
+
     .PlaylistPage{
         margin-bottom: 62px;
         padding-bottom: 62px;
-    }
-    .PlaylistIcons{
-        padding: 20px 16px;
     }
     .PlaylistIcons div{
         width: 38px;
@@ -234,5 +260,40 @@
         position: relative;
         transition: all 0.25s;
         margin-left: 0px;
+    }
+    .GridIcons {
+        width: 100vw;
+        text-align: center;
+    }
+    .GridIcons button {
+        margin-top: 10px;
+        background-color: #5b88e1;
+        border: none;
+        border-radius: 25px;
+        padding: 15px 35px;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .overlay {
+        position: fixed;
+        background: rgb(13,12,17);
+        background: linear-gradient(0deg, rgba(13,12,17,1) 0%, rgba(7,6,9,1) 29%, rgba(6,5,7,0.9335084375547094) 51%, rgba(4,3,5,0.8886905103838411) 74%, rgba(0,0,0,0.7710434515603116) 100%);
+        z-index: 999;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        display: var(--dispopen);
+        animation: openthis 0.25s ease;
+        transform: translateY(-50px);
+    }
+
+    @keyframes openthis {
+        0% {
+            transform: translateY(100vh);
+        }
+        100% {
+            transform: translateY(-50px);
+        }
     }
 }

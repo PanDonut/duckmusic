@@ -1,20 +1,36 @@
 import PrevPageBtn from '../buttons/prev-page-button';
 import NextPageBtn from '../buttons/next-page-button';
 import SearchBox from './search-box';
+import { useParams } from 'react-router';
 import LibraryTabBtn from './library-tab-btn';
 import { NavLink, useLocation, Link } from "react-router-dom";
 import styles from './topnav.module.css';
 import CONST from '../../constants/index';
 import useWindowSize from '../../hooks/useWindowSize';
+import { useHistory } from "react-router-dom";
+import { PLAYLIST } from '../../data/index';
 
-function Topnav({ search = false, tabButtons = false }) {
-    const size = useWindowSize();
+
+function Topnav({ search = false, tabButtons = false, normal = false, playlist = false, back = false }, props) {
+	const size = useWindowSize();
+	let history = useHistory();
+	const { path } = useParams();
+
+	function open() {
+		console.log("TWOJA MAMA");
+		document.documentElement.style.setProperty('--dispopen', 'block');
+    }
+
     return (
-      <nav className={styles.Topnav}>
-          <div>
-                <span>
+		<nav className={styles.Topnav}>
+			{normal ?
+				<div className={styles.btn12}>
+							{size.width > CONST.MOBILE_SIZE &&
+								<span>
                     <PrevPageBtn />
-                    <NextPageBtn />
+								<NextPageBtn />
+								</span>
+							}
                     {size.width < CONST.MOBILE_SIZE &&
                         <Link to="/settings" >
                             <button className={styles.btn}>
@@ -46,13 +62,57 @@ function Topnav({ search = false, tabButtons = false }) {
                             </button>
                         </Link>
 
-                    }                       
+                            } </div> : ''}
+					{size.width < CONST.MOBILE_SIZE &&
+				playlist ?
+				<div className={styles.playl}>
+							<button className={styles.btn} onClick={() => {
+								history.goBack();
+							}}>
+								<svg width="50px" height="40px" viewBox="0 0 52 52" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><path d="M50,24H6.83L27.41,3.41a2,2,0,0,0,0-2.82,2,2,0,0,0-2.82,0l-24,24a1.79,1.79,0,0,0-.25.31A1.19,1.19,0,0,0,.25,25c0,.07-.07.13-.1.2l-.06.2a.84.84,0,0,0,0,.17,2,2,0,0,0,0,.78.84.84,0,0,0,0,.17l.06.2c0,.07.07.13.1.2a1.19,1.19,0,0,0,.09.15,1.79,1.79,0,0,0,.25.31l24,24a2,2,0,1,0,2.82-2.82L6.83,28H50a2,2,0,0,0,0-4Z" /></svg>
+						</button>
+						{PLAYLIST.map((item) => {
+							if (item.link == path) {
+								return (
+									<h3>{item.title}</h3>
+								);
+							}
+						})}
+					<button className={styles.btn} onClick={() => { open() }}>
+
+							<svg width="16px" height="16px" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" fill="#fff" class="bi bi-three-dots-vertical">
+								<path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z" />
+							</svg>
+
+						</button>
+					</div>
+			: '' 
+
+			}
+			{size.width < CONST.MOBILE_SIZE &&
+				back ?
+				<div>
+					<button className={styles.btn} onClick={() => {
+						history.goBack();
+					}}>
+						<svg width="50px" height="40px" viewBox="0 0 52 52" data-name="Layer 1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"><path d="M50,24H6.83L27.41,3.41a2,2,0,0,0,0-2.82,2,2,0,0,0-2.82,0l-24,24a1.79,1.79,0,0,0-.25.31A1.19,1.19,0,0,0,.25,25c0,.07-.07.13-.1.2l-.06.2a.84.84,0,0,0,0,.17,2,2,0,0,0,0,.78.84.84,0,0,0,0,.17l.06.2c0,.07.07.13.1.2a1.19,1.19,0,0,0,.09.15,1.79,1.79,0,0,0,.25.31l24,24a2,2,0,1,0,2.82-2.82L6.83,28H50a2,2,0,0,0,0-4Z" /></svg>
+					</button>
+				</div>
+				: ''
+
+			}
                     {search ? <SearchBox /> : ''}
                     {tabButtons ? <LibraryTabBtn /> : ''}                   
-                </span>
-          </div>
       </nav>
     );
 }
+
+
+const mapStateToProps = (state) => {
+	return {
+		trackData: state.trackData,
+		isPlaying: state.isPlaying
+	};
+};
   
 export default Topnav;
