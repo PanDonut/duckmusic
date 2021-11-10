@@ -27,6 +27,7 @@
     right: 0;
     z-index: -1;
     background-image: linear-gradient(146deg,rgba(0,0,0,.6) 10%,var(--bgcol) 50%);
+    background-image: -webkit-gradient(146deg,linear,rgba(0,0,0,.6) 10%,var(--bgcol) 50%);
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
     background-color: var(--hover-home-bg);
