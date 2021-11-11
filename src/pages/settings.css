@@ -98,7 +98,7 @@
 
 @media screen and (max-width: 640px) {
     .body {
-        background: linear-gradient(230deg, var(--main-background) 0%, rgba(91,136,225,1) 100%);
+        background: linear-gradient(140deg, var(--main-background) 0%, var(--main-background) 30%, rgba(91,136,225,1) 100%);
     }
 
     .marg {
