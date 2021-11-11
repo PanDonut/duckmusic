@@ -1,0 +1,424 @@
+
+.PlaylistPage {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: transparent;
+    position: relative;
+    margin-bottom: 95px;
+    padding-bottom: 16px;
+    color: var(--text-tit);
+    -webkit-tap-highlight-color: transparent;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+.pop {
+    background-color: #0d0c11;
+    display: flex;
+    height: 200px;
+    justify-content: space-between;
+    align-items: center;
+    overflow: scroll;
+    width: 100%;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 32px;
+    justify-content: space-around;
+}
+
+.pop button {
+    color: #000;
+    border: 0;
+    background-color: #fff;
+    padding: 10px;
+    transition: 0.25s ease-in-out;
+}
+    .pop button:hover {
+        color: #000;
+        border: 0;
+        background-color: #fff;
+        transform: scale(1.1);
+        transition: 0.25s ease-in-out;
+    }
+.gradientBg {
+    height: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: var(--main-background);
+    background: linear-gradient(328deg, var(--main-background) 0%, rgba(47,47,47,1) 100%);
+    -webkit-transition: background 1s ease;
+    transition: background 1s ease;
+    background-color: var(--hover-home-bg);
+}
+.gradientBgSoft{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 340px;
+    height: 100%;
+    width: 100%;
+    z-index: -2;
+    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--main-background)));
+    background-image: linear-gradient(rgba(0,0,0,.6),var(--main-background));
+
+    background-color: var(--hover-home-bg);
+}
+.GridIcons {
+    display: inline-block;
+}
+.Bg{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0px;
+    z-index: -3;
+    background-color: var(--main-background);
+}
+
+.PlaylistIcons{
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 32px;
+    position: relative;
+}
+.PlaylistIcons button{
+    border: 0;
+    background-color: transparent;
+}
+.PlaylistIcons div{
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    background-color: #5b88e1;
+}
+.PlaylistIcons div button{
+    width: 56px;
+    height: 56px;
+}
+.PlaylistIcons div button svg{
+    font-size: 28px;
+    fill: #fff !important;
+}
+.PlaylistIcons button svg{
+    font-size: 28px;
+}
+.PlaylistIcons1{
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    position: relative;
+    transition: all 0.25s;
+    margin-left: 15px;
+}
+.PlaylistIcons1 button{
+    border: 0;
+    background-color: transparent;
+    transition: all 0.25s;
+}
+
+.playlistDetails {
+    padding: 24px 32px 24px;
+    display: grid;
+    grid-template-columns: 232px 1fr;
+    column-gap: 24px;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+.imgBox {
+    width: 232px;
+    height: 232px;    
+    z-index: 100;
+    text-align: center;
+}
+
+    .imgBox img {
+        width: 100%;
+        height: 100%;
+        -webkit-box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+        box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+        user-drag: none;
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+    }
+
+.imgBox1 {
+    filter: blur(150px);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.imgBox2 {
+    position: absolute;
+    width: 232px;
+    height: 232px;
+    z-index: 50;
+}
+
+.textBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+    .textBox h3 {
+        margin: 0;
+        margin-top: 4px;
+        letter-spacing: -0.4px;
+    }
+
+    .textBox h1 {
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: 0;
+        padding: 0.08em 0px;
+        font-size: 96px;
+        line-height: 96px;
+        font-weight: 700;
+        letter-spacing: -.04em;
+        text-transform: none;
+    }
+
+.Artist {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+}
+
+    .Artist figure {
+        width: 24px;
+        height: 24px;
+        margin: 0;
+        display: inline-block;
+    }
+
+        .Artist figure img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            -o-object-fit: cover;
+            object-fit: cover;
+        }
+
+    .Artist p {
+        margin: 0;
+        margin-left: 6px;
+    }
+
+@media screen and (max-width: 640px) {
+    .playlistDetails {
+        grid-template-columns: 1fr;
+        row-gap: 8px;
+        place-items: center;
+        text-align: center;
+    }
+
+    .imgBox {
+        width: 125px;
+        height: 125px;
+    }
+
+    .textBox h1 {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    .Artist {
+        justify-content: center;
+    }
+}
+
+.PlaylistIcons1 div{
+    width: 28px;
+    height: 56px;
+    border-radius: 28px;
+    background-color: transparent;
+    transition: all 0.25s;
+}
+.PlaylistIcons1 div button{
+    width: 28px;
+    height: 56px;
+    transition: all 0.25s;
+}
+.PlaylistIcons1 div button svg{
+    font-size: 28px;
+    fill: #fff !important;
+    transition: all 0.25s;
+}
+.PlaylistIcons1 button svg{
+    font-size: 28px;
+    transition: all 0.25s;
+}
+.moreIcon{
+    margin-left: 24px;
+    font-size: 28px;
+    color: hsla(0,0%,100%,.6);
+}
+
+.PlaylistSongs{
+    padding: 0 32px;
+}
+.ListHead{
+    margin: 0 20px 16px 40px;
+    padding: 8px 16px;
+    color: #b3b3b3;
+    border-bottom: 1px solid hsla(0,0%,100%,.1);
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 16px 1fr 16px;
+}
+.ListHead p:nth-child(1){
+    font-size: 18px;
+}
+.ListHead p{
+    margin: 0px;
+    letter-spacing: .03em;
+}
+.ListHead svg{
+    fill: #b3b3b3;
+    font-size: 16px;
+}
+.SongBtn{
+    display: block;
+    width: 100%;
+    background: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+.SongBtn p{
+    margin: 0;
+    font-weight: 400;
+}
+.SongBtn img{
+    width: 36px;
+    height: 36px;
+}
+.SongBtn span p:last-child,
+.SongBtn p:last-child{
+    color: rgb(179, 179, 179);
+}
+@media screen and (max-width: 640px) {
+
+    .btn {
+        display: flex;
+        border: none;
+        background: none;
+        width: 100vw;
+        align-items: center;
+        margin-left: 5%;
+    }
+
+    .ovlist {
+        padding-top: 15%;
+    }
+
+    .btn h2 {
+        color: #fff;
+        margin-left: 10px;
+    }
+
+        .btn svg {
+            width: 30px;
+            height: 30px;
+        }
+
+            .btn svg path {
+                fill: #b3b3b3;
+            }
+
+    .PlaylistPage{
+        margin-bottom: 62px;
+        padding-bottom: 62px;
+    }
+    .PlaylistIcons div{
+        width: 38px;
+        height: 38px;
+        margin-right: 0px;
+    }
+    .PlaylistIcons div button{
+        width: 38px;
+        height: 38px;
+    }
+    .PlaylistIcons div button svg{
+        font-size: 21px;
+    }
+    .ListHead{
+        padding: 8px;
+        margin: 0 16px 8px 16px;
+        grid-template-columns: 16px 1fr 26px;
+    }
+    .PlaylistSongs{
+        padding: 0px 16px;
+    }
+    .SongBtn {
+        padding: 0;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .PlaylistIcons1 {
+        display: inline-flex;
+        align-items: center;
+        padding-top: 24px;
+        padding-bottom: 24px;
+        position: relative;
+        transition: all 0.25s;
+        margin-left: 0px;
+    }
+    .GridIcons {
+        width: 100vw;
+        text-align: center;
+    }
+    .GridIcons button {
+        margin-top: 10px;
+        background-color: #5b88e1;
+        border: none;
+        border-radius: 25px;
+        padding: 15px 35px;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .overlay {
+        position: fixed;
+        background: rgb(13,12,17);
+        background: linear-gradient(0deg, rgba(13,12,17,1) 0%, rgba(7,6,9,1) 29%, rgba(6,5,7,0.9335084375547094) 51%, rgba(4,3,5,0.8886905103838411) 74%, rgba(0,0,0,0.7710434515603116) 100%);
+        z-index: 999;
+        width: 100vw;
+        height: 100vh;
+        text-align: center;
+        display: var(--dispopen);
+        animation: openthis 0.25s ease;
+        transform: translateY(-50px);
+    }
+
+    @keyframes openthis {
+        0% {
+            transform: translateY(100vh);
+        }
+        100% {
+            transform: translateY(-50px);
+        }
+    }
+}

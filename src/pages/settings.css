@@ -4,6 +4,10 @@
     opacity: 1;
 }
 
+.body {
+    background-color: var(--main-background);
+}
+
 #toggle input{
     display: none;
 }
@@ -49,10 +53,6 @@
     margin-left: 50px;
     overflow-y: scroll;
     padding-bottom: 100px;   
-}
-
-.body {
-    background-color: #0d0c11;
 }
 
 .marg section {

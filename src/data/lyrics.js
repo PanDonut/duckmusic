@@ -1,6 +1,6 @@
 export const LYRICS = [
 	{
-		songID: "1", //call me maybe
+		songID: "0", //call me maybe
 		lyrics: "I threw a wish in the well, don't ask me, I'll never tell \n\nI looked to you as it fell and now you're in my way \n\nI trade my soul for a wish, pennies and dimes for a kiss \n\nI wasn't looking for this, but now you're in my way \n\n\nYour stare was holdin', ripped jeans, skin was showin' \n\nHot night, wind was blowin' \n\nWhere you think you're going, baby? \n\n\nHey, I just met you and this is crazy \n\nBut here's my number, so call me, maybe \n\nIt's hard to look right at you, baby \n\nBut here's my number, so call me, maybe \n\n\nHey, I just met you and this is crazy \n\nBut here's my number, so call me, maybe \n\nIt's hard to look right at you, baby \n\nBut here's my number, so call me, maybe \n\n\nYou took your time with the call, I took no time with the fall \n\nYou gave me nothing at all, but still, you're in my way \n\nI beg, and borrow and steal, at first sight and it's real \n\nI didn't know I would feel it, but it's in my way \n\n\nYour stare was holdin', ripped jeans, skin was showin' \n\nHot night, wind was blowin' \n\nWhere you think you're going, baby? \n\n\nHey, I just met you and this is crazy \n\nBut here's my number, so call me, maybe \n\nIt's hard to look right at you, baby \n\nBut here's my number, so call me, maybe \n\n\nHey, I just met you and this is crazy \n\nBut here's my number, so call me, maybe \n\nIt's hard to look right at you, baby \n\nBut here's my number, so call me, maybe \n\n\nBefore you came into my life, I missed you so bad \n\nI missed you so bad, I missed you so, so bad \n\nBefore you came into my life, I missed you so bad \n\nAnd you should know that, I missed you so, so bad (bad, bad, bad) \n\n\nIt's hard to look right at you, baby \n\nBut here's my number, so call me, maybe \n\n\nHey, I just met you and this is crazy \n\nBut here's my number, so call me, maybe \n\nIt's hard to look right at you, baby \n\nBut here's my number, so call me, maybe \n\nAnd all the other boys try to chase me \n\nBut here's my number, so call me, maybe \n\n\nBefore you came into my life, I missed you so bad \n\nI missed you so bad, I missed you so, so bad \n\nBefore you came into my life, I missed you so bad \n\nAnd you should know that \n\nSo call me maybe"
 	},
 	{
@@ -11,7 +11,7 @@ export const LYRICS = [
 
 export const LYRICSNEW = [
 	{
-		songID: "1",
+		songID: "0",
 		lyrics: [
 			{
 				text: " ",

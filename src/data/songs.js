@@ -1,41 +1,24 @@
-import { SONGS } from './songs.js';
-
-export const PLAYLIST = [
-	{
-		index: "0",
-		type: "playlista",
-		title: "Duck Mix",
-		link: "duckmix1",
-		suggestion: "true",
-		promoted: "nieprawda",
-		promodesc: "Posłuchaj teraz!",
-		ex: "no",
-		imgUrl:
-			"https://i.ibb.co/gTcL5Hx/thenight.png",
-		hoverColor: "rgb(161, 0, 0)",
-		artist: "Carly Rae Jepsen, Taylor Swift, Vance Joy, Dawid Podsiadło, Toto, Bruno Mars, Ed Helms, Camila Cabello, Shawn Mendes, Rick Astley, Pitbull, Rachel Platten, OneRepublic, Fools Garden i inni",
-		playlistBg: "rgb(161, 0, 0)",
-		playlistData: [
+﻿export const SONGS = [
 			{
+				index: "a",
+				songName: "Call Me Maybe",
+				songimg:
+					"https://i.scdn.co/image/ab67616d00001e02d3ee4bf67c2ac2154006ad72",
+				songArtist: "Carly Rae Jepsen",
+				link:
+					"https://data.pandasuite.com/audios/60f19d8267425919ea00108e.mp3",
 				songID: "0",
-				index: "1",				
-				songName: SONGS[0].songName,
-				songimg:
-					SONGS[0].songimg,
-				songArtist: SONGS[0].songArtist,
-				link:
-					SONGS[0].link,
-				
 			},
-			{
-				index: "2",
-				songName: SONGS[1].songName,
+	        {
+				index: "a",
+				songName: "ME!",
 				songimg:
-					SONGS[1].songimg,
-				songArtist: SONGS[1].songArtist,
+					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				songArtist: "Taylor Swift",
 				link:
-					SONGS[1].link,
+					"https://drive.google.com/u/0/uc?id=1yoMFyGHBL6SaoAKFatS36oqAkXLcazj-&export=download",
 			},
+			
 			{
 				index: "3",
 				songName: "Blinding Lights",
@@ -315,20 +298,6 @@ export const PLAYLIST = [
 				link:
 					"https://drive.google.com/u/0/uc?id=1x-Zh7_3GiC4e7WVhtYPRcCE21FJuwEzl&export=download",
 			},
-		],
-	},
-	{
-		index: "1",
-		type: "parodia",
-		title: "Mr. Heavybeat",
-		link: "heavybeat",
-		ex: "no",
-		imgUrl:
-			"https://i.ibb.co/GsD7sgw/heavybeat.png",
-		hoverColor: "rgb(97, 82, 255)",
-		artist: "TheDuck Studios feat. Alexandra Stan",
-		playlistBg: "rgb(132, 82, 163)",
-		playlistData: [
 			{
 				index: "1",
 				songName: "Mr. Heavybeat",
@@ -338,22 +307,6 @@ export const PLAYLIST = [
 				link:
 					"https://www.mboxdrive.com/heavy_mr_saxobeat.mp3",
 			},
-		],
-	},
-	{
-		index: "2",
-		type: "playlista",
-		title: "Rytm Jesieni",
-		link: "rytm_jesieni",
-		suggestion: "true",
-		ex: "no",
-		imgUrl: "https://i.ibb.co/m6srfZz/playlist-jesien.png",
-		hoverColor: "rgb(255, 183, 0)",
-		artist: "Maroon 5, Adele, Sia, Bruno Mars, Pitbull, Whitney Houston, P!nk, Nate Ruess, Shawn Mendes i inni",
-		playlistBg: "rgb(255, 140, 0)",
-		promoted: "nieprawda",
-		promodesc: "Już niedługo zima! Posłuchaj Rytmu Jesieni!",
-		playlistData: [
 
 			{
 				index: "1",
@@ -376,14 +329,6 @@ export const PLAYLIST = [
 				songimg: "https://i.scdn.co/image/ab67616d00001e02754b2fddebe7039fdb912837",
 				songArtist: "Sia",
 				link: "https://www.mboxdrive.com/Sia%20-%20Move%20Your%20Body%20(Alan%20Walker%20Remix)%20[Audio].mp3",
-			},
-
-			{
-				index: "4",
-				songName: "The Lazy Song",
-				songimg: "https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
-				songArtist: "Bruno Mars",
-				link: "https://drive.google.com/u/0/uc?id=19nGAC84T-DUsMDt4eVaVxLUq081FNt0j&export=download",
 			},
 			{
 				index: "5",
@@ -534,20 +479,6 @@ export const PLAYLIST = [
 				songArtist: "ElyOtto",
 				link: "https://www.dl.dropboxusercontent.com/s/36sdxnx8dgofkf6/ElyOtto%20-%20SugarCrash%20%28Lyrics%29%20ft.%20Kim%20Petras%20%20Curtis%20Waters.mp3",
 			},
-		],
-	},
-	{
-		index: "3",
-		type: "parodia",
-		title: "Down Under",
-		link: "downunder_robots",
-		ex: "yes",
-		imgUrl:
-			"https://i.ibb.co/4j70KRF/downunder.jpg",
-		hoverColor: "rgb(232, 176, 139)",
-		artist: "SharaX",
-		playlistBg: "rgb(75, 44, 39)",
-		playlistData: [
 			{
 				index: "1",
 				songName: "🅴 Down Under",
@@ -557,20 +488,6 @@ export const PLAYLIST = [
 				link:
 					"https://www.mboxdrive.com/[TF2%20Remix]%20SharaX%20-%20Down%20Under%20(More%20Gun).mp3",
 			},
-		],
-	},
-	{
-		index: "4",
-		type: "parodia",
-		title: "Blinding Squad",
-		link: "squad_remix_theduck",
-		ex: "yes",
-		imgUrl:
-			"https://i.ibb.co/RCvsgpj/squad.png",
-		hoverColor: "rgb(179, 199, 206)",
-		artist: "TheDuck Studios",
-		playlistBg: "rgb(223, 204, 200)",
-		playlistData: [
 			{
 				index: "1",
 				songName: "🅴 Blinding Squad",
@@ -581,20 +498,6 @@ export const PLAYLIST = [
 					"https://www.mboxdrive.com/squad_remix_theduck.mp3",
 				songID: "2",
 			},
-		],
-	},
-	{
-		index: "5",
-		type: "parodia",
-		title: "Dmuch Guy",
-		link: "dmuch_guy",
-		ex: "no",
-		imgUrl:
-			"https://i.ibb.co/wLTXNyZ/dmuchboys.png",
-		hoverColor: "rgb(170, 0, 255)",
-		artist: "Dmuch Boys",
-		playlistBg: "rgb(191, 214, 13)",
-		playlistData: [
 			{
 				index: "1",
 				songName: "Dmuch Guy",
@@ -604,22 +507,6 @@ export const PLAYLIST = [
 				link:
 					"https://www.mboxdrive.com/duch_guy.mp3",
 			},
-		],
-	},
-	{
-		index: "6",
-		type: "playlista",
-		title: "Jesienny Odpoczynek",
-		link: "jesienny_odp",
-		ex: "no",
-		imgUrl:
-			"https://i.ibb.co/M96JJgP/playlist-jesien-chill.png",
-		promoted: "prawda",
-		promodesc: "Tak po prostu",
-		hoverColor: "rgb(255, 145, 0)",
-		artist: "Fools Garden, Jonas Brothers, Supergrass, The Weeknd, Avicii, Vance Joy i inni",
-		playlistBg: "rgb(255, 192, 56)",
-		playlistData: [
 			{
 				index: "1",
 				songName: "Lemon Tree",
@@ -640,15 +527,6 @@ export const PLAYLIST = [
 				songimg: "https://i.scdn.co/image/ab67616d00001e027d2fd2378160e40c96bc61ff",
 				songArtist: "Supergrass",
 				link: "https://drive.google.com/u/0/uc?id=1wD6BJEZm12aVZ3FxAOyTKWAgQzb3o-iC&export=download",
-			},
-			{
-				index: "4",
-				songName: "Blinding Lights",
-				songimg:
-					"https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
-				songArtist: "The Weeknd",
-				link:
-					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
 			},
 			{
 				index: "5",
@@ -717,13 +595,5 @@ export const PLAYLIST = [
 				songArtist: "Pharrell Williams",
 				link: "https://drive.google.com/u/0/uc?id=1O3iDDkx-Dj-XwAcyYH0vJAc38khBofgO&export=download",
 			},
-		],
-	},
 
-];
-
-export const MUSICLINKS = [
-];
-
-export const SEARCHCARDS = [
 ];
