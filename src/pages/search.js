@@ -66,7 +66,7 @@ function Search() {
                         </div>
                         
                 <FadeIn visible="true" delay="50" className={styles.SearchCardGrid}>
-                    {PLAYLIST.filter(item => item.title.includes(input) && item.ex == "no" || item.title.includes(input) && item.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((list) => {
+                    {PLAYLIST.filter(item => item.title.toLowerCase().includes(input.toLowerCase()) && item.ex == "no" || item.title.toLowerCase().includes(input.toLowerCase()) && item.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((list) => {
                         var title = list.title;
                         return (
                             <PlaylistCardS
