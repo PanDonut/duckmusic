@@ -43,7 +43,7 @@ function PlaylistTrack(props) {
             </button>
 
             {thisSong 
-                    ? <img className={styles.gif} src={Playgif} /> 
+                    ? <svg id={styles.eI4wjv0hVNk} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" shape-rendering="geometricPrecision" text-rendering="geometricPrecision"><g id={styles.eI4wjv0hVNk2_ts} transform="translate(4.99902,14) scale(1,1)"><path id={styles.eI4wjv0hVNk2} d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0" transform="translate(-4.99902,-7)" fill="rgb(29,185,84)" stroke="none" stroke-width="1" /></g><g id={styles.eI4wjv0hVNk3_ts} transform="translate(9.116667,14) scale(1,0.16)"><path id={styles.eI4wjv0hVNk3} d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0" transform="translate(-4.99902,-7)" fill="rgb(29,185,84)" stroke="none" stroke-width="1" /></g><g id={styles.eI4wjv0hVNk4_ts} transform="translate(12,14) scale(1,2)"><path id={styles.eI4wjv0hVNk4} d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0" transform="translate(-4.9990yyy,-7)" fill="rgb(29,185,84)" stroke="none" stroke-width="1" /></g><g id={styles.eI4wjv0hVNk5_ts} transform="translate(1,14) scale(1,0.56)"><path id={styles.eI4wjv0hVNk5} d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0" transform="translate(-4,-7)" fill="rgb(29,185,84)" stroke="none" stroke-width="1" /></g></svg>
                     : <p className={styles.SongIndex}>{props.data.song.index}</p>
             }
 

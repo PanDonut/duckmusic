@@ -49,3 +49,127 @@
         width: calc(100% - 8px);
     }
 }
+
+#eI4wjv0hVNk2_ts {
+    animation: eI4wjv0hVNk2_ts__ts 1250ms ease infinite alternate-reverse forwards
+}
+
+@keyframes eI4wjv0hVNk2_ts__ts {
+    0% {
+        transform: translate(4.99902px, 14px) scale(1, 1);
+        animation-timing-function: cubic-bezier(0.25,1,0.25,1)
+    }
+
+    20% {
+        transform: translate(4.99902px,14px) scale(1,0.24028)
+    }
+
+    40% {
+        transform: translate(4.99902px,14px) scale(1,1.745762)
+    }
+
+    60% {
+        transform: translate(4.99902px,14px) scale(1,1.062813)
+    }
+
+    80% {
+        transform: translate(4.99902px,14px) scale(1,1.905282)
+    }
+
+    100% {
+        transform: translate(4.99902px,14px) scale(1,1)
+    }
+}
+
+#eI4wjv0hVNk3_ts {
+    animation: eI4wjv0hVNk3_ts__ts 1250ms ease infinite alternate-reverse forwards
+}
+
+@keyframes eI4wjv0hVNk3_ts__ts {
+    0% {
+        transform: translate(9.116667px, 14px) scale(1, 0.15753);
+        animation-timing-function: cubic-bezier(0.25,1,0.25,1)
+    }
+
+    20% {
+        transform: translate(9.116667px,14px) scale(1,0.893324)
+    }
+
+    40% {
+        transform: translate(9.116667px,14px) scale(1,0.659024)
+    }
+
+    60% {
+        transform: translate(9.116667px,14px) scale(1,1.825524)
+    }
+
+    80% {
+        transform: translate(9.116667px,14px) scale(1,1)
+    }
+
+    100% {
+        transform: translate(9.116667px,14px) scale(1,0.16)
+    }
+}
+
+#eI4wjv0hVNk4_ts {
+    animation: eI4wjv0hVNk4_ts__ts 1250ms ease infinite alternate-reverse forwards
+}
+
+@keyframes eI4wjv0hVNk4_ts__ts {
+    0% {
+        transform: translate(12px, 14px) scale(1, 2);
+        animation-timing-function: cubic-bezier(0.25,1,0.25,1)
+    }
+
+    20% {
+        transform: translate(12px,14px) scale(1,0.339983)
+    }
+
+    40% {
+        transform: translate(12px,14px) scale(1,0.893324)
+    }
+
+    60% {
+        transform: translate(12px,14px) scale(1,0.255236)
+    }
+
+    80% {
+        transform: translate(12px,14px) scale(1,2)
+    }
+
+    100% {
+        transform: translate(12px,14px) scale(1,2)
+    }
+}
+
+#eI4wjv0hVNk5_ts {
+    animation: eI4wjv0hVNk5_ts__ts 1250ms ease infinite alternate-reverse forwards
+}
+
+@keyframes eI4wjv0hVNk5_ts__ts {
+    0% {
+        transform: translate(1px, 14px) scale(1, 0.561318);
+        animation-timing-function: cubic-bezier(0.25,1,0.25,1)
+    }
+
+    20% {
+        transform: translate(1px,14px) scale(1,1.471585)
+    }
+
+    40% {
+        transform: translate(1px,14px) scale(1,0.255236)
+    }
+
+    60% {
+        transform: translate(1px,14px) scale(1,0.539381)
+    }
+
+    80% {
+        transform: translate(1px,14px) scale(1,1.72583)
+    }
+
+    100% {
+        transform: translate(1px,14px) scale(1,0.56)
+    }
+}
