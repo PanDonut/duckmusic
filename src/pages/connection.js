@@ -1,23 +1,22 @@
 import './connection.css';
 import React, { useState, useEffect, useRef, setState } from 'react';
 import { connect } from 'react-redux';
-import { getDatabase, ref, onValue } from "firebase/database";
+import { getDatabase, ref, onValue, set } from "firebase/database";
 
-
-const db = getDatabase();
-const ctrack = ref(db, 'remote-play/' + '420' + '/trackk/0');
-onValue(ctrack, (snapshot) => {
-    const data = snapshot.val();
-});
 
 function Connection(props) {
 
     const [input, setInput] = useState('');
-    const [tracc, setTracc] = useState([0, 1])
 
-    console.log(tracc);
+        const db = getDatabase();
+        set(ref(db, 'remote-play/' + '420' + ''), {
+            trackk: props.trackData.trackKey,
+            play: props.isPlaying,
+        });
 
-    console.log(props.trackData.trackKey);
+
+
+
 
     return (
         <div>

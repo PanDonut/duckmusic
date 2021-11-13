@@ -16,9 +16,7 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
                 preload='auto'
                 src={trackData.track}
                 autoplay={isPlaying}
-                poster={trackData.trackImg}
-            >
-                    </audio>
+            />
             </div>
 
     );
