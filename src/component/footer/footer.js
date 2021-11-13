@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { connect } from 'react-redux';
 import { changeTrack, changePlay } from '../../actions';
 import useWindowSize from '../../hooks/useWindowSize';
@@ -22,7 +22,6 @@ import { PLAYLIST } from "../../data/index";
 import CONST from '../../constants/index';
 import styles from "./footer.module.css";
 import '../lyrics/lyrics.modular.css';
-
 import TextTransition, { presets } from "react-text-transition";
 
 import convertTime from '../../functions/convertTime';
@@ -32,9 +31,9 @@ import FadeIn from 'react-fade-in';
 const code = "420";
 
 function Footer(props) {
-        console.log("re-render");
+    console.log("re-render");
 
-    
+
 
     function decreaseIndex(){
         if (localStorage.getItem('shuffle') == 'false') {
@@ -336,9 +335,9 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
     } else {
         document.documentElement.style.setProperty('--col', '#fff');
     }
+
     return (
         <footer className={styles.footer}>
-            
             <div className="lyrics-card-m">
                 <button id="bt" className="ex" onClick={() => { Expand() }}>
                     <Icons.Prevpage />

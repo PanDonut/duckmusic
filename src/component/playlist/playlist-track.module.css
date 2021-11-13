@@ -7,7 +7,7 @@
     color: white;
     position: relative;
     display: grid;
-    grid-template-columns: 16px 36px 1fr 38px;
+    grid-template-columns: 26px 36px 1fr 38px;
     align-items: center;
     text-align: left;
     padding: 0px 16px;
@@ -35,10 +35,10 @@
 .trackDiv:hover{
     background-color: hsla(0,0%,100%,.1);
 }
-.trackDiv:hover .SongIndex,
-.trackDiv:hover .gif{
-    opacity: 0;
-}
+    .trackDiv:hover .SongIndex,
+    .trackDiv:hover #eI4wjv0hVNk {
+        opacity: 0;
+    }
 .trackDiv:hover .playBtn{
     opacity: 1;
 }
@@ -126,23 +126,23 @@
     }
 
     20% {
-        transform: translate(12px,14px) scale(1,0.339983)
+        transform: translate(12px,14px) scale(1,-0.339983)
     }
 
     40% {
-        transform: translate(12px,14px) scale(1,0.893324)
+        transform: translate(12px,14px) scale(1,-0.893324)
     }
 
     60% {
-        transform: translate(12px,14px) scale(1,0.255236)
+        transform: translate(12px,14px) scale(1,-0.255236)
     }
 
     80% {
-        transform: translate(12px,14px) scale(1,2)
+        transform: translate(12px,14px) scale(1,-2)
     }
 
     100% {
-        transform: translate(12px,14px) scale(1,2)
+        transform: translate(12px,14px) scale(1,-1.5)
     }
 }
 

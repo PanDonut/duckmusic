@@ -1,12 +1,11 @@
 import React, { forwardRef, useEffect, useState  } from 'react';
 import PropTypes from 'prop-types';
+import usePictureInPicture from 'react-use-pip'
 import './style.css'
 const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, isLooping }, ref) => {
 
     const [loopy, setLoopy] = React.useState(localStorage.getItem('loop'));
-
     console.log("re-render");
-
     return (
         <div>
             <audio
@@ -14,11 +13,14 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
                 ref={ref}
                 onLoadedMetadata={(e) => handleDuration(e.target.duration)}
                 onTimeUpdate={(e) => handleCurrentTime(e.target.currentTime)}
-                src={trackData.track}
                 preload='auto'
-                autoplay='true'
-                />
+                src={trackData.track}
+                autoplay={isPlaying}
+                poster={trackData.trackImg}
+            >
+                    </audio>
             </div>
+
     );
   },
 );
