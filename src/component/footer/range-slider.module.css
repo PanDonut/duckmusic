@@ -2,6 +2,7 @@
 	display: flex;
     align-items: center;
 	position: relative;
+	transition: 0.25s ease;
 }
 .range__slider {
 	-webkit-appearance: none;
@@ -10,19 +11,21 @@
 	overflow: hidden;
 	width: auto;
 	border-radius: 2px;
+	transition: 0.25s ease;
 }
-.spanThumb{
+.spanThumb {
 	width: 10px;
-    height: 10px;
-    position: absolute;
-    border-radius: 50px;
-    z-index: 1;
-    opacity: 0;
-    pointer-events: none;
+	height: 10px;
+	position: absolute;
+	border-radius: 50px;
+	z-index: 1;
+	opacity: 0;
+	pointer-events: none;
 }
 .range__slider::-webkit-slider-runnable-track {
 	-webkit-appearance: none;
 	height: 4px;
+	transition: 0.25s ease;
 }
 .range__slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
@@ -34,6 +37,7 @@
 	cursor: pointer;
 	height: 4px;
 	width: 4px;
+	transition: 0.25s ease;
 	border: 0;
 }
 .range__slider::-moz-range-thumb {
@@ -43,30 +47,38 @@
 	cursor: pointer;
 	height: 4px;
 	width: 4px;
+	transition: 0.25s ease;
 	border: 0;
 }
 .range__slider::-moz-range-track {
 	background-color: #535353;
+	transition: 0.25s ease;
 }
 .range__slider::-moz-range-progress {
 	background-color: #b3b3b3;
+	transition: 0.25s ease;
 	height: 4px;
 }
 .range__slider::-ms-fill-upper {
 	background-color: #535353;
+	transition: 0.25s ease;
 }
 .range__slider::-ms-fill-lower {
 	background-color: #b3b3b3;
+	transition: 0.25s ease;
 }
 .progressBar:hover .range__slider::-webkit-slider-thumb {
 	background: #5b88e1;
 	box-shadow: -410px 0 0 408px #5b88e1;
+	transition: 0.25s ease;
 }
 .progressBar:hover .range__slider::-moz-range-thumb {
 	background: #1db954;
+	transition: 0.25s ease;
 	box-shadow: -410px 0 0 408px #5b88e1;
 }
 .progressBar:hover span {
 	background: #5b88e1 !important;
+	transition: 0.25s ease;
 	opacity: 1 !important;
 }
