@@ -10,10 +10,10 @@
 }
 .iconButton svg{
     font-size: 16px;
-    fill: hsla(0,0%,100%,.7);
+     fill: var(--svg-fo);
     color: hsla(0,0%,100%,.7);
 }
 .iconButton:hover svg{
-    fill: rgb(255, 255, 255);
+    fill: var(--svg-ho);
     color: rgb(255, 255, 255);
 }

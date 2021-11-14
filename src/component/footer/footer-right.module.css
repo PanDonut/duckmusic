@@ -13,22 +13,40 @@
 }
 
 .pip {
-    width: 32px;
-    height: 32px;
-    border-radius: 32px;
-    color: #000;
-    border: none;
-    background-color: transparent;
-    padding: 0;
-    transition: .2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.pip svg {
-    fill: #fff !important;
-    width: 16px;
-    height: 16px;
-    transition: 0.2s;
+.pip:hover { 
+    cursor: pointer;
 }
+
+    .pip:hover svg {
+        fill: var(--svg-ho);
+    }
+    .pip svg {
+        fill: var(--svg-fo);
+        width: 20px;
+        height: 18px;
+    }
+
+.pipac {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .pipac:hover {
+        cursor: pointer;
+    }
+
+    .pipac svg {
+        fill: var(--akcent);
+        width: 20px;
+        height: 18px;
+    }
+
 
 @media screen and (max-width: 640px) {
     .footerRight {

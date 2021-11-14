@@ -3,14 +3,14 @@ import { PLAYPAUSE, CHANGETRACK } from "../actions/index";
 
 const INITIAL_STATE = {
     trackData: {
-    songid: '0',
-    trackKey: [0, 0],
-    track: ``,
-    trackName: ` `,
-    trackImg: `https://i.ibb.co/jzp9qcm/trans.png`,
-    trackArtist: ` `    
-  },
-  isPlaying: false
+        songid: '0',
+        trackKey: [0, 0],
+        track: ``,
+        trackName: ` `,
+        trackImg: `https://i.ibb.co/jzp9qcm/trans.png`,
+        trackArtist: ` `
+    },
+    isPlaying: false
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {

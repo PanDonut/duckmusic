@@ -1,6 +1,8 @@
 #elrPsm6iZg92_to {
-    animation: elrPsm6iZg92_to__to 4500ms linear infinite alternate-reverse forwards
+    animation: elrPsm6iZg92_to__to 4500ms linear infinite alternate-reverse forwards;
+    fill: var(--outline);
 }
+
 
 @keyframes elrPsm6iZg92_to__to {
     0% {
@@ -17,13 +19,13 @@
     22.222222% {
         transform: translate(10.432001px,17.856002px);
         opacity: 1;
-        fill: #fff;
+        fill: var(--outline);
     }
 
     100% {
         transform: translate(10.432001px,17.856002px);
         opacity: 1;
-        fill: #fff;
+        fill: var(--outline);
     }
 }
 
@@ -46,13 +48,13 @@
     33.333333% {
         transform: translate(10.496314px,12.238651px);
         opacity: 1;
-        fill: #fff;
+        fill: var(--outline);
     }
 
     100% {
         transform: translate(10.496314px,12.238651px);
         opacity: 1;
-        fill: #fff;
+        fill: var(--outline);
     }
 }
 
@@ -75,12 +77,63 @@
     44.444444% {
         transform: translate(10.382935px,6.078639px);
         opacity: 1;
-        fill: #fff;
+        fill: var(--outline);
     }
 
     100% {
         transform: translate(10.382935px,6.078639px);
         opacity: 1;
-        fill: #fff;
+        fill: var(--outline);
     }
+}
+
+.new {
+    position: fixed;
+    bottom: 112px;
+    right: 100px;
+    background-color: var(--sidenav-black);
+    border-radius: 10px;
+    width: 300px;
+    height: 350px;
+}
+
+.new svg {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.new h3 {
+    position: absolute;
+    background-color: rgb(128, 128, 128, .15);
+    color: var(--outline);
+    left: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+} 
+
+@media screen and (max-width: 640px){
+    .new {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background-color: var(--sidenav-black);
+        border-radius: 10px;
+        width: 100vw;
+        height: 175px;
+        z-index: 99999999999;
+    }
+
+        .new h3 {
+            position: absolute;
+            width: 95%;
+            text-align: center;
+            background-color: rgb(128, 128, 128, .15);
+            color: var(--outline);
+            letter-spacing: 2px;
+            left: 0;
+        }
+
 }

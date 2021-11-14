@@ -15,16 +15,16 @@ import 'react-toastify/dist/ReactToastify.css';
 
 import { decode } from 'he';
 
-function MusicControlBox(props, {audioRef}) {
+function MusicControlBox(props, {audior}) {
     console.log("re-render");
 
     const [looping, setLooping] = React.useState(localStorage.getItem('loop'));
 
     const [shuffling, setShuffling] = React.useState(localStorage.getItem('shuffle'));
 
+   
 
-
-    function decreaseIndex(){
+    function decreaseIndex() {
         if (localStorage.getItem('shuffle') == 'false') {
             if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
                 props.changeTrack([props.trackData.trackKey[0], 0])
@@ -40,9 +40,8 @@ function MusicControlBox(props, {audioRef}) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
-        audioRef.current.play();
     }
-    function increaseIndex(){
+    function increaseIndex() {
         if (localStorage.getItem('shuffle') == 'false') {
             if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
                 props.changeTrack([props.trackData.trackKey[0], 0])
@@ -58,7 +57,6 @@ function MusicControlBox(props, {audioRef}) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
-        audioRef.current.play();
     }
 
     const looptoast = () => toast.success(decode("Odtwarzanie w p&#281;tli"), {

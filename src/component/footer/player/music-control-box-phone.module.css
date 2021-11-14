@@ -9,6 +9,9 @@
     bottom: 0;
     margin-bottom: 50px;
 }
+
+
+
 .musicControl div svg path{
     fill: #fff;
 }
@@ -71,3 +74,38 @@
             color: rgb(255, 255, 255);
             transition: 0.25s;
         }
+
+
+@media screen and (max-width: 640px) {
+    .pip {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999999999999;
+        background: transparent;
+        border: none;
+    }
+
+
+        .pip svg {
+            fill: #fff;
+            width: 30px;
+            height: 30px;
+        }
+
+    .pipac {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999999999999;
+        background: transparent;
+        border: none;
+    }
+
+
+        .pipac svg {
+            fill: var(--akcent);
+            width: 30px;
+            height: 30px;
+        }
+}

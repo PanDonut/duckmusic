@@ -15,7 +15,7 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
                 onTimeUpdate={(e) => handleCurrentTime(e.target.currentTime)}
                 preload='auto'
                 src={trackData.track}
-                autoplay={isPlaying}
+                autoplay='true'
             />
             </div>
 

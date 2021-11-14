@@ -37,6 +37,31 @@ import './security.js';
 
 function App() {
 
+    if (localStorage.getItem('cindex') == null) {
+        localStorage.setItem('cindex', [0, 0]);
+    }
+
+    if (localStorage.getItem('cid') == null) {
+        localStorage.setItem('cid', 0);
+    }
+
+    if (localStorage.getItem('curl') == null) {
+        localStorage.setItem('curl', ' ');
+    }
+
+    if (localStorage.getItem('cname') == null) {
+        localStorage.setItem('cname', ' ');
+    }
+
+    if (localStorage.getItem('cartist') == null) {
+        localStorage.setItem('cartist', ' ');
+    }
+    
+
+    if (localStorage.getItem('cimg') == null) {
+        localStorage.setItem('cimg', `https://i.ibb.co/jzp9qcm/trans.png`);
+    }
+
     
 
     console.log("re-render");

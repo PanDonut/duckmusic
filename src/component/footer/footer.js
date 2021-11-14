@@ -28,6 +28,7 @@ import convertTime from '../../functions/convertTime';
 
 import FadeIn from 'react-fade-in';
 
+
 const code = "420";
 
 function Footer(props) {
@@ -35,7 +36,7 @@ function Footer(props) {
 
 
 
-    function decreaseIndex(){
+     function decreaseIndex() {
         if (localStorage.getItem('shuffle') == 'false') {
             if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
                 props.changeTrack([props.trackData.trackKey[0], 0])
@@ -51,9 +52,8 @@ function Footer(props) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
-            audioRef.current.play();
     }
-    function increaseIndex(){
+    function increaseIndex() {
         if (localStorage.getItem('shuffle') == 'false') {
             if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
                 props.changeTrack([props.trackData.trackKey[0], 0])
@@ -69,7 +69,6 @@ function Footer(props) {
         } else {
             localStorage.setItem('shuffle', 'false')
         }
-            audioRef.current.play();
     }
 
     function Expand() {
@@ -244,7 +243,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
 
     const size = useWindowSize();
 
-
+    
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(1);
@@ -256,20 +255,23 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
 
     useEffect(() => {
         if (props.isPlaying) {
-          audioRef.current.play();
+            audioRef.current.play();
+            localStorage.setItem('cindex', JSON.stringify(props.trackData.trackKey));
+            localStorage.setItem('cid', props.trackData.id);
+            localStorage.setItem('cimg', props.trackData.trackImg);
+            localStorage.setItem('cname', props.trackData.trackName);
+            localStorage.setItem('cartist', props.trackData.trackArtist);
+            localStorage.setItem('curl', props.trackData.track);
         } else {
           audioRef.current.pause();
         }
     }, [audioRef, props.isPlaying]);
 
-    /*useEffect(() => {
-        if (props.isPlaying) {
-          localStorage.setItem('playedSong', audioRef.current.currentSrc);
-        } else {
-          localStorage.setItem('playedSong', 'stop');
-        }
-    });*/
-    
+
+    if (localStorage.getItem('firecon') == null) {
+        localStorage.setItem('firecon', false);
+    }
+
     
     if (localStorage.getItem('loop') == 'true') {
 
@@ -291,7 +293,6 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
             console.log("KONIEC!");
-            setCurrentTime(0);
             if (localStorage.getItem('loop') == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
                     if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
@@ -310,9 +311,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                 }
             } else if (localStorage.getItem('loop') == 'true') {
                 setCurrentTime(0);
-                audioRef.current.play();
             }
-           audioRef.current.play();
         })
     });
 
@@ -336,8 +335,13 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         document.documentElement.style.setProperty('--col', '#fff');
     }
 
+    console.log('Firecon ' + localStorage.getItem('firecon'));
+
+    localStorage.setItem('time', currentTime);
+
     return (
         <footer className={styles.footer}>
+
             <div className="lyrics-card-m">
                 <button id="bt" className="ex" onClick={() => { Expand() }}>
                     <Icons.Prevpage />
@@ -382,7 +386,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                 
                     {size.width > CONST.MOBILE_SIZE &&
                     <div className={styles.footerMid}>
-                    <MusicControlBox audioRef={audioRef}/>
+                    <MusicControlBox/>
                     <MusicProgressBar
                         currentTime={currentTime}
                         duration={duration}
@@ -398,13 +402,14 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                         handleTrackClick={handleTrackClick}
                     />
                         <MusicControlBoxPhone />
-                        
+                                
                     </FadeIn>
                 }
                     
                    
-                               
-                    <FooterRight 
+
+                <FooterRight
+                    ctime={currentTime}
                         volume={volume} 
                         setVolume={setVolume}
                 ></FooterRight>
