@@ -290,7 +290,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
     console.log(localStorage.getItem('shuffle') + " shuffle");
 
 
-        useEffect(() => {
+        function ond(){
         audioRef.current.addEventListener('ended', () => {
             if (localStorage.getItem('loop') == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
@@ -312,7 +312,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                 setCurrentTime(0);
             }
         })
-    });
+    };
 
 
     const [remo, setRemo] = useState("false");
@@ -418,6 +418,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                     handleCurrentTime={setCurrentTime}
                     trackData={props.trackData}
                     isPlaying={props.isPlaying}
+                    onen={ond}
                     />
                 
             </div>
