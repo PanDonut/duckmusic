@@ -412,13 +412,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                         volume={volume} 
                         setVolume={setVolume}
                 ></FooterRight>
-                    <audio
-                    ref={audioRef}
-                    handleDuration={setDuration}
-                    handleCurrentTime={setCurrentTime}
-                    trackData={props.trackData}
-                    autoplay={props.isPlaying}
-                    />
+                    <audio id="myaudio" ref={audioRef} onLoadedMetadata={(e) => setDuration(e.target.duration)} onTimeUpdate={(e) => setCurrentTime(e.target.currentTime)} preload='auto' src={props.trackData.track} autoplay={props.isPlaying} />
                 
             </div>
             {size.width < CONST.MOBILE_SIZE &&
