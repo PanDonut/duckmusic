@@ -290,7 +290,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
     console.log(localStorage.getItem('shuffle') + " shuffle");
 
 
-        function ond(){
+        useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
             if (localStorage.getItem('loop') == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
@@ -312,7 +312,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                 setCurrentTime(0);
             }
         })
-    };
+    });
 
 
     const [remo, setRemo] = useState("false");
@@ -412,13 +412,12 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                         volume={volume} 
                         setVolume={setVolume}
                 ></FooterRight>
-                    <Audio
+                    <audio
                     ref={audioRef}
                     handleDuration={setDuration}
                     handleCurrentTime={setCurrentTime}
                     trackData={props.trackData}
-                    isPlaying={props.isPlaying}
-                    onen={ond}
+                    autoplay={props.isPlaying}
                     />
                 
             </div>
