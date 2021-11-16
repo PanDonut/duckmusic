@@ -128,6 +128,7 @@ function Footer(props) {
     const [touchStartx, setTouchStartx] = React.useState(0);
     const [touchEndx, setTouchEndx] = React.useState(0);
     const [isOpen, setIsOpen] = React.useState("false");
+    const audioRef = useRef(null);
 
     function handleTouchStart(e) {
         setTouchStart(e.targetTouches[0].clientY);
