@@ -247,7 +247,6 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
     const [volume, setVolume] = useState(1);
-    const audioRef = useRef();
 
     const handleTrackClick = (position) => {
         audioRef.current.currentTime = position;
@@ -256,12 +255,6 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
     useEffect(() => {
         if (props.isPlaying) {
             audioRef.current.play();
-            localStorage.setItem('cindex', JSON.stringify(props.trackData.trackKey));
-            localStorage.setItem('cid', props.trackData.id);
-            localStorage.setItem('cimg', props.trackData.trackImg);
-            localStorage.setItem('cname', props.trackData.trackName);
-            localStorage.setItem('cartist', props.trackData.trackArtist);
-            localStorage.setItem('curl', props.trackData.track);
         } else {
           audioRef.current.pause();
         }
@@ -297,7 +290,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                     if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
                         props.changeTrack([props.trackData.trackKey[0], 0])
                     } else {
-                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[0]) + 1])
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
                     }
                 } else if (localStorage.getItem('shuffle') == 'true') {
                     if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
