@@ -2,7 +2,7 @@ import React, { forwardRef, useEffect, useState  } from 'react';
 import PropTypes from 'prop-types';
 import usePictureInPicture from 'react-use-pip'
 import './style.css'
-const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, isLooping }, ref) => {
+const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, isLooping, onen }, ref) => {
 
     const [loopy, setLoopy] = React.useState(localStorage.getItem('loop'));
     console.log("re-render");
@@ -16,6 +16,7 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
                 preload='auto'
                 src={trackData.track}
                 autoplay='true'
+                onEnded={onen}
             />
             </div>
 
