@@ -286,6 +286,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
 
         useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
+        setCurrentTime(0);
             if (localStorage.getItem('loop') == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
                     if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
