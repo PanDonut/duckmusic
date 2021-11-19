@@ -44,7 +44,6 @@ function PlaylistPage(props) {
 	
 
 	const handleScroll = (e) => {
-		console.log(Math.round(e.target.scrollTop));
 		if (Math.round(e.target.scrollTop) > 227) {
 			document.documentElement.style.setProperty('--playbg', 'linear-gradient(180deg, rgba(11,11,11,1) 0%, rgba(11,11,11,1) 37%, rgba(11,11,11,0.8018557764902836) 78%, rgba(11,11,11,0.5553571770505077) 89%, rgba(11,11,11,0) 100%)');
 		} else {
@@ -53,7 +52,6 @@ function PlaylistPage(props) {
 	}
 
 
-	console.log("re-render");
 
 	const size = useWindowSize();
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
