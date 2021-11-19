@@ -29,10 +29,7 @@ import convertTime from '../../functions/convertTime';
 import FadeIn from 'react-fade-in';
 
 
-const code = "420";
-
 function Footer(props) {
-    console.log("re-render");
 
 
 
@@ -279,12 +276,8 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         audioRef.current.volume = volume;
     }, [audioRef, volume]);
 
-    console.log(localStorage.getItem('loop') + " loop");
-
-    console.log(localStorage.getItem('shuffle') + " shuffle");
 
 
-        useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
         setCurrentTime(0);
             if (localStorage.getItem('loop') == 'false') {
@@ -306,8 +299,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
             } else if (localStorage.getItem('loop') == 'true') {
                 setCurrentTime(0);
             }
-        })
-    });
+        });
 
 
     const [remo, setRemo] = useState("false");
