@@ -1,25 +1,15 @@
-import React, { forwardRef, useEffect, useState  } from 'react';
+import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import usePictureInPicture from 'react-use-pip'
-import './style.css'
-const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, isLooping, onen }, ref) => {
 
-    const [loopy, setLoopy] = React.useState(localStorage.getItem('loop'));
-    console.log("re-render");
+const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying }, ref) => {
     return (
-        <div>
-            <audio
-                id="myaudio"
-                ref={ref}
-                onLoadedMetadata={(e) => handleDuration(e.target.duration)}
-                onTimeUpdate={(e) => handleCurrentTime(e.target.currentTime)}
-                preload='auto'
-                src={trackData.track}
-                autoplay='true'
-                onEnded={onen}
-            />
-            </div>
-
+      <audio
+        ref={ref}
+        onLoadedMetadata={(e) => handleDuration(e.target.duration)}
+        onTimeUpdate={(e) => handleCurrentTime(e.target.currentTime)}
+        src={trackData.track}
+        autoPlay={isPlaying}
+      />
     );
   },
 );
