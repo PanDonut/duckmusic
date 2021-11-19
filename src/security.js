@@ -14,11 +14,13 @@ const infobtnCSS = 'color:white; font-family: "Arial Black", Gadget, sans-serif;
 console.log('%cUwaga!', warningTitleCSS);
 console.log("%cJeżeli ktoś powiedział Ci żeby coś tu wkleić to na 99.9% próbuje Cię oszukać. Wklejając tu coś ktoś może uzyskać dostęp do twojego konta lub urządzenia.", warningDescCSS);
 console.log("%cJeżeli doskonale wiesz co robisz dołącz do TheDuck Studios 😃", infoDescCSS);
-console.log("%cOdwiedź naszą stronę", infobtnCSS);
+console.log("%cKonsola to ciemne i zimne miejsce...", warningDescCSS);
+    console.log("Dowiedz się więcej", infobtnCSS);
 
 window.setInterval(function () {
     console.log('%cUwaga!', warningTitleCSS);
     console.log("%cJeżeli ktoś powiedział Ci żeby coś tu wkleić to na 99.9% próbuje Cię oszukać. Wklejając tu coś ktoś może uzyskać dostęp do twojego konta lub urządzenia.", warningDescCSS);
     console.log("%cJeżeli doskonale wiesz co robisz dołącz do TheDuck Studios 😃", infoDescCSS);
-    console.log("%cOdwiedź naszą stronę", infobtnCSS);
+    console.log("%cKonsola to ciemne i zimne miejsce...", warningDescCSS);
+    console.log("Dowiedz się więcej", infobtnCSS);
 }, 10000); // 10000 milisekund (10 sekund)
