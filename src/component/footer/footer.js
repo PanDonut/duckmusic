@@ -277,7 +277,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
     }, [audioRef, volume]);
 
 
-
+        useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
         setCurrentTime(0);
             if (localStorage.getItem('loop') == 'false') {
@@ -299,6 +299,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
             } else if (localStorage.getItem('loop') == 'true') {
                 setCurrentTime(0);
             }
+        })
         });
 
 
