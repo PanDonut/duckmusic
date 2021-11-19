@@ -321,9 +321,6 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         document.documentElement.style.setProperty('--col', '#fff');
     }
 
-    console.log('Firecon ' + localStorage.getItem('firecon'));
-
-    localStorage.setItem('time', currentTime);
 
     return (
         <footer className={styles.footer}>
