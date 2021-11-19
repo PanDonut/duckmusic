@@ -9,6 +9,8 @@ const warningDescCSS = 'font-size: 20px;';
 
 const infoDescCSS = 'color:gray; font-family: "Arial Black", Gadget, sans-serif; font-size: 16px; font-weight: 100; font-style: normal;';
 
+const infobtnCSS = 'color:white; font-family: "Arial Black", Gadget, sans-serif; font-size: 16px; font-weight: 100; font-style: normal; background-color: #000000;';
+
 console.log('%cUwaga!', warningTitleCSS);
 console.log("%cJeżeli ktoś powiedział Ci żeby coś tu wkleić to na 99.9% próbuje Cię oszukać. Wklejając tu coś ktoś może uzyskać dostęp do twojego konta lub urządzenia.", warningDescCSS);
 console.log("%cJeżeli doskonale wiesz co robisz dołącz do TheDuck Studios 😃", infoDescCSS);
@@ -17,4 +19,5 @@ window.setInterval(function () {
     console.log('%cUwaga!', warningTitleCSS);
     console.log("%cJeżeli ktoś powiedział Ci żeby coś tu wkleić to na 99.9% próbuje Cię oszukać. Wklejając tu coś ktoś może uzyskać dostęp do twojego konta lub urządzenia.", warningDescCSS);
     console.log("%cJeżeli doskonale wiesz co robisz dołącz do TheDuck Studios 😃", infoDescCSS);
+    console.log("%cOdwiedź naszą stronę", infobtnCSS);
 }, 10000); // 10000 milisekund (10 sekund)
