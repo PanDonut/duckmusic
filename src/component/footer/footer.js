@@ -302,25 +302,6 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         });
 
 
-    const [remo, setRemo] = useState("false");
-
-        const db = getDatabase();
-    if (remo == "true") {
-        document.documentElement.style.setProperty('--col', '#4287f5');
-        set(ref(db, "remote-play/" + code), {
-            time: currentTime,
-            trackk: props.trackData.trackKey
-        })
-            .then(() => {
-                console.log("Gotowe");
-            })
-            .catch((error) => {
-                console.log("Problem");
-            });
-    } else {
-        document.documentElement.style.setProperty('--col', '#fff');
-    }
-
 
     return (
         <footer className={styles.footer}>
