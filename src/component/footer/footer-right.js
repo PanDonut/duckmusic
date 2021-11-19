@@ -30,8 +30,6 @@ function SoundLevel({ volume, setVolume, currentTi }){
     const[lastVolume, setLastVolume] = useState(1);
 
 
-    console.log(currentTi);
-
     const soundBtn = () => {
         if(volume == 0){
             setVolume(lastVolume);
@@ -43,8 +41,6 @@ function SoundLevel({ volume, setVolume, currentTi }){
 
     const [conn, setConn] = useState(false);
 
-    console.log(conn);
-    console.log(localStorage.getItem('firecon'));
     return (
         <div className={styles.soundBar}>
             {conn ?
