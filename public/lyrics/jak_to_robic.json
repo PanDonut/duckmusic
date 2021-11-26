@@ -1,0 +1,42 @@
+Tak:   
+{
+    "start": <Czas rozpoczęcia tego tekstu>,
+    "end": <Czas zakończenia tego tekstu>,
+    "lyrics": "<Tekst>"
+  },
+
+Pamiętaj o przecinkach:
+[
+  {
+    "start": 0,
+    "end": 255,
+    "lyrics": "Bla bla bla"
+  }, <--- PRZECINEK
+{
+    "start": 255,
+    "end": 256,
+    "lyrics": "MEEM"
+  }, <--- PRZECINEK
+  {
+    "start": 256,
+    "end": 1000,
+    "lyrics": "Dabdi duu"
+  } <--- KONIEC PLIKU - BRAK PRZECINKA
+]
+
+Przykład:
+[
+  {
+    "start": 0,
+    "end": 6,
+    "lyrics": "Śpieeewam to od początku piosenki aż szeeeeść sekund"
+  },
+  {
+    "start": 6,
+    "end": 8.24,
+    "lyrics": "A teraz śpiewam to od poprzedniego 2.24 sekundy!"
+  }
+]
+
+Koniec samouczka!
+A teraz wybierz sobie jakiś utwór z Duck Music i zacznij_edytowac

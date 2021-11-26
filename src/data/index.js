@@ -25,6 +25,7 @@ export const PLAYLIST = [
 				songArtist: SONGS[0].songArtist,
 				link:
 					SONGS[0].link,
+				lyrics: []
 				
 			},
 			{
@@ -38,30 +39,31 @@ export const PLAYLIST = [
 			},
 			{
 				index: "3",
-				songName: "Blinding Lights",
+				songName: SONGS[2].songName,
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
-				songArtist: "The Weeknd",
+					SONGS[2].songimg,
+				songArtist: SONGS[2].songArtist,
 				link:
-					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
+					SONGS[2].link,
+				lyrics: SONGS[2].lyrics
 			},
 			{
 				index: "4",
-				songName: "Blank Space",
+				songName: SONGS[3].songName,
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e0252b2a3824413eefe9e33817a",
-				songArtist: "Taylor Swift",
+					SONGS[3].songimg,
+				songArtist: SONGS[3].songArtist,
 				link:
-					"https://drive.google.com/u/0/uc?id=1QncqOuyt4xCS3GU9kBwTTeAh0wGb_G3r&export=download",
+					SONGS[3].link,
 			},
 			{
 				index: "5",
-				songName: "I Forgot That You Existed",
+				songName: SONGS[4].songName,
 				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
-				songArtist: "Taylor Swift",
+					SONGS[4].songimg,
+				songArtist: SONGS[4].songArtist,
 				link:
-					"https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download",
+					SONGS[4].link,
 			},
 			{
 				index: "6",
@@ -649,6 +651,7 @@ export const PLAYLIST = [
 				songArtist: "The Weeknd",
 				link:
 					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
+				lyrics: SONGS[2].lyrics
 			},
 			{
 				index: "5",

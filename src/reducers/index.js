@@ -6,10 +6,15 @@ const INITIAL_STATE = {
         songid: '0',
         trackKey: [0, 0],
         track: ``,
-        trackName: ` `,
+        trackName: `Brak utworu`,
         trackImg: `https://i.ibb.co/jzp9qcm/trans.png`,
-        trackArtist: ` `
+        trackArtist: ` `,
+        lyrics: []
     },
+    lyrics: [],
+    currentLine: 0,
+    loading: true,
+    error: false,
     isPlaying: false
 };
 
@@ -40,6 +45,9 @@ export const reducer = (state = INITIAL_STATE, action) => {
           }`,
           id: `${
             PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songID
+          }`,
+          lyrics: `${
+            PLAYLIST[action.payload[0]].playlistData[action.payload[1]].lyrics
           }`
         }
       };

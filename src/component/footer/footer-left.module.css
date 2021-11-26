@@ -1,6 +1,7 @@
 :root {
     --imgn: block;
     --imgfull: none;
+    --txtdisplay: none;
 }
 
 .footerLeft {
@@ -107,6 +108,7 @@
     z-index: 1000000;
     position: absolute;
     text-align: center;
+    display: var(--txtdisplay);
 }
 
 .songDetailsfull p {

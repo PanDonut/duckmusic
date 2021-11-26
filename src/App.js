@@ -3,6 +3,7 @@ import { BrowserRouter as Router,
   Switch,
   Route
 } from "react-router-dom";
+import Lyrics from './component/Lyrics';
 import { initializeApp } from "firebase/app";
 import { getAnalytics, initializeAnalytics, logEvent } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
@@ -87,8 +88,8 @@ function App() {
             <Route exact path="/">
                 <Home />
             </Route>
-            <Route exact path="/tv">
-                <TV />
+            <Route exact path="/lyrics">
+                <Lyrics />
             </Route>
             <Route exact path="/songs">
                 <Songs />

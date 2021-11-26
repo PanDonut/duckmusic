@@ -27,6 +27,7 @@
 				songArtist: "The Weeknd",
 				link:
 					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
+				lyrics: []
 			},
 			{
 				index: "4",

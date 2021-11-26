@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { changeTrack, changePlay } from '../../actions';
 import useWindowSize from '../../hooks/useWindowSize';
 import FooterLeft from './footer-left';
+import createState from '../../hooks/createState';
 import MusicControlBox from './player/music-control-box';
 import MusicControlBoxPh from './player/music-control-box-ph';
 import MusicControlBoxPhone from './player/music-control-box-phone';
@@ -17,20 +18,19 @@ import { LYRICSNEW } from "../../data/lyrics";
 import database from 'firebase/database';
 import firebase from '../../firebase.js'
 import { getDatabase, ref, set } from "firebase/database";
+import Lyrics from '../Lyrics';
 
 import { PLAYLIST } from "../../data/index";
 import CONST from '../../constants/index';
 import styles from "./footer.module.css";
 import '../lyrics/lyrics.modular.css';
 import TextTransition, { presets } from "react-text-transition";
-
 import convertTime from '../../functions/convertTime';
 
 import FadeIn from 'react-fade-in';
 
 
 function Footer(props) {
-
 
 
      function decreaseIndex() {
@@ -69,14 +69,14 @@ function Footer(props) {
     }
 
     function Expand() {
-        document.documentElement.style.setProperty('--expanded', 'translateX(0px)');
+        document.documentElement.style.setProperty('--expanded', 'translateY(0px)');
         document.documentElement.style.setProperty('--disp2', 'none');
-        document.documentElement.style.setProperty('--disp3', 'block');
+        document.documentElement.style.setProperty('--disp3', 'flex');
     };
 
     function Hide() {
-        document.documentElement.style.setProperty('--expanded', 'translateX(340px)');
-        document.documentElement.style.setProperty('--disp2', 'block');
+        document.documentElement.style.setProperty('--expanded', 'translateY(200vh)');
+        document.documentElement.style.setProperty('--disp2', 'flex');
         document.documentElement.style.setProperty('--disp3', 'none');
     };
 
@@ -105,6 +105,7 @@ function Footer(props) {
         document.documentElement.style.setProperty('--dipy', 'flex');
         document.documentElement.style.setProperty('--expanded', 'translateY(340px)');
         document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
+        document.documentElement.style.setProperty('--txtdisplay', "block");
     };
 
     function Hide1() {
@@ -118,6 +119,7 @@ function Footer(props) {
         document.documentElement.style.setProperty('--musicctr', 'flex');
         document.documentElement.style.setProperty('--phmu', 'none');
         document.documentElement.style.setProperty('--dipy', 'none');
+        document.documentElement.style.setProperty('--txtdisplay', "none");
     };
 
     const [touchStart, setTouchStart] = React.useState(0);
@@ -302,44 +304,16 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         })
         });
 
+    const [state, setState] = createState({
+        currentTime: currentTime
+    })
 
+    console.log("OBECNY CZAS:" + currentTime);
 
     return (
         <footer className={styles.footer}>
-
-            <div className="lyrics-card-m">
-                <button id="bt" className="ex" onClick={() => { Expand() }}>
-                    <Icons.Prevpage />
-                </button>
-                <button id="bt" className="hi" onClick={() => { Hide() }}>
-                    <Icons.Nextpage />
-                </button >                
-                <div className="lyrics-card">
-                    <div id="flexowy">
-                    <h6 id="text-card">{props.trackData.trackName}</h6>
-                        <h6 id="czas">{"-" + convertTime(duration - currentTime)}</h6>
-                    </div>
-
-                    {LYRICSNEW.filter((item1) => item1.songID == props.trackData.id).map((list) => {
-                        document.documentElement.style.setProperty('--opbtn1', list.lyrics[Math.round(currentTime)].op);
-                        return (
-                            <div>
-                                
-                            <div>
-                                <div id="scroll-lyrics">
-                                        <h4 id="text-card">{list.lyrics[Math.round(currentTime)].text}</h4><button id="buttonMusiq">Musiq</button>
-                                    </div>
-                                    {size.width > CONST.MOBILE_SIZE &&
-                                        <MusicControlBoxs audioRef={audioRef} id="center-bar" />
-                                    }
-                                </div>
-                                </div>
-                        );
-                    })}
-
-                    
-                </div>
-            </div>            
+                            
+                <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />         
             <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg} />
             
             
@@ -375,8 +349,10 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
 
                 <FooterRight
                     ctime={currentTime}
-                        volume={volume} 
-                        setVolume={setVolume}
+                    volume={volume}
+                    setVolume={setVolume}
+                    opn={Expand}
+                    clo={Hide}
                 ></FooterRight>
                     <Audio
                         ref={audioRef}
