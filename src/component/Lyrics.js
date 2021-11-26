@@ -19,7 +19,7 @@ function Lyrics({song, currentTime, songId, sly}) {
                 "lyrics": "Brak utworu. Odtwórz coś żeby widzieć słowa"
             }, {
                 "start": 23,
-                "end": 100,
+                "end": 1000000000,
                 "lyrics": "Brak utworu. Odtwórz coś żeby widzieć słowa"
             }],
             currentLine: 0,
