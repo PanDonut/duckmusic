@@ -323,6 +323,27 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                     <FooterLeft />
                 </div>
                 
+                    {size.width > CONST.MOBILE_SIZE &&
+                    <div className={styles.footerMid}>
+                    <MusicControlBox/>
+                    <MusicProgressBar
+                        currentTime={currentTime}
+                        duration={duration}
+                        handleTrackClick={handleTrackClick}
+                    />
+                    </div>
+                }
+                {size.width < CONST.MOBILE_SIZE &&
+                    <FadeIn visible="true" delay="500" className={styles.footerMe}>
+                    <MusicProgressBarF
+                        currentTime={currentTime}
+                        duration={duration}
+                        handleTrackClick={handleTrackClick}
+                    />
+                        <MusicControlBoxPhone />
+                                
+                    </FadeIn>
+                }
                     
                    
 
@@ -342,12 +363,14 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                     />
                 
             </div>
+            {size.width < CONST.MOBILE_SIZE &&
                 <div className={styles.footerMid}>
                     <MusicProgressBarBot
                         currentTime={currentTime}
                         duration={duration}
                     />
                 </div>
+            }
             <button id="bt1" className="exp" onClick={() => { Expand2() }}>
                 <Icons.Prevpage />
             </button>
