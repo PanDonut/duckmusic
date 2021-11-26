@@ -103,7 +103,7 @@ function Footer(props) {
         document.documentElement.style.setProperty('--musicctr', 'none');
         document.documentElement.style.setProperty('--phmu', 'flex');
         document.documentElement.style.setProperty('--dipy', 'flex');
-        document.documentElement.style.setProperty('--expanded', 'translateY(340px)');
+        document.documentElement.style.setProperty('--expanded', 'translateY(200vh)');
         document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
         document.documentElement.style.setProperty('--txtdisplay', "block");
     };
