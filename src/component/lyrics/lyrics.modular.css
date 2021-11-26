@@ -154,7 +154,7 @@ h6 {
 
 @media screen and (max-width: 640px) {
     :root {
-        --expanded: translateY(340px);
+        --expanded: translateY(200vh);
     }
     .lyrics-card {
         background: rgb(9,9,9);
@@ -179,10 +179,6 @@ h6 {
         transition: 0.75s ease-in-out;
         position: absolute;
     }
-
-.mm-lyrics {
-display: none;
-}
 
         
 }
