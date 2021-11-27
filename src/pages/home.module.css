@@ -75,14 +75,13 @@
     overflow-y: scroll;
     background: transparent;
     position: relative;
-    margin-bottom: 95px;
-    padding-bottom: 16px;       
+    padding-bottom: 150px;       
 }
 
 
 .HoverBg {
-    height: 325px;
-    position: absolute;
+    height: 100vh;
+    position: fixed;
     left: 0;
     right: 0;
     z-index: -1;
@@ -90,6 +89,7 @@
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
     background-color: var(--hover-home-bg);
+    width: 200vw;
 }
 .Bg {
     position: absolute;

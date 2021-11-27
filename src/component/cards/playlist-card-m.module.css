@@ -2,11 +2,12 @@
     position: relative;
     overflow: hidden;
 }
-.PlaylistCardS{
+.PlaylistCardS {
     position: relative;
     padding: 16px;
     background: var(--card-bg1);
     border-radius: 4px;
+    backdrop-filter: var(--blur);
     -webkit-transition: background-color .3s ease;
     transition: background-color .3s ease;
     min-height: 100px;

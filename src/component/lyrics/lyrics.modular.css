@@ -192,6 +192,7 @@ h6 {
     left: 50%;
     transform: translateX(-50%) translateY(200vh);
     width: 100%;
+    backdrop-filter: var(--blur);
 }
 
     .mm-lyrics div {

@@ -12,7 +12,7 @@
     z-index: 9;
     transition: height 0.25s ease;
 }
-.nowplayingbar{
+.nowplayingbar {
     display: grid;
     grid-template-columns: 30% 40% 30%;
     background-color: var(--card-background);
@@ -21,6 +21,7 @@
     height: var(--footersize);
     transition: 0.25s background-color ease;
     z-index: 1000;
+    backdrop-filter: var(--blur);
 }
 
 

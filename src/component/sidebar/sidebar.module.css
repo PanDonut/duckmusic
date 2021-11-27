@@ -1,7 +1,8 @@
-.SideNavbar{
+.SideNavbar {
     /*width: var(--sidenav-width);*/
     background-color: var(--sidenav-black);
     position: relative;
+    backdrop-filter: var(--blur);
 }
 .Fixed{
     position: sticky;

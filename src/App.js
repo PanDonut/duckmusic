@@ -1,7 +1,8 @@
-import React, { useState, useEffect  } from 'react';
+import React, { useState, useEffect, useRef, useCallback  } from 'react';
 import { BrowserRouter as Router,
   Switch,
-  Route
+    Route,
+  Link
 } from "react-router-dom";
 import Lyrics from './component/Lyrics';
 import { initializeApp } from "firebase/app";
@@ -20,7 +21,7 @@ import PlaylistPage from './pages/playlist';
 import Embed from './pages/embed';
 import Info from './pages/info';
 import EmbedSmall from './pages/embed-s';
-
+import * as Icons from './component/icons/index';
 import CONST from './constants/index';
 import { PLAYLIST } from './data/index';
 import styles from './style/App.module.css';
@@ -34,9 +35,11 @@ import ID from './pages/songid';
 import TV from './tv/index';
 
 import './security.js';
-
+import './menu.css'
 
 function App() {
+
+    const footerRef = useRef(null);
 
     if (localStorage.getItem('cindex') == null) {
         localStorage.setItem('cindex', [0, 0]);
@@ -63,8 +66,29 @@ function App() {
         localStorage.setItem('cimg', `https://i.ibb.co/jzp9qcm/trans.png`);
     }
 
-    
 
+    const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
+    const [show, setShow] = useState(false); // hide menu
+
+    const handleContextMenu = useCallback(
+        (event) => {
+            event.preventDefault();
+            setAnchorPoint({ x: event.pageX, y: event.pageY });
+            setShow(true);
+        },
+        [setAnchorPoint]
+    );
+
+    const handleClick = useCallback(() => (show ? setShow(false) : null), [show]);
+
+    useEffect(() => {
+        document.addEventListener("click", handleClick);
+        document.addEventListener("contextmenu", handleContextMenu);
+        return () => {
+            document.removeEventListener("click", handleClick);
+            document.removeEventListener("contextmenu", handleContextMenu);
+        };
+    });
 
     useEffect(() => {
         keepTheme();
@@ -125,7 +149,29 @@ function App() {
                <NotFound />
             </Route>
                 </Switch>
-                <Footer className={styles.foot}/>
+                {show ? (
+                    <div
+                        className="menu"
+                        style={{
+                            top: anchorPoint.y,
+                            left: anchorPoint.x
+                        }}
+                    >
+                        <div className="blur" />
+                        <Link to="/settings">
+                            <button className="menuitem"><Icons.Settings />Ustawienia</button>
+                        </Link>
+                        <Link to="/search">
+                            <button className="menuitem"><Icons.Search />Szukaj</button>
+                        </Link>
+                        <Link to="/info">
+                            <button className="menuitem"><Icons.Info />Informacje</button>
+                        </Link>
+                        <br/>
+                        
+                    </div>
+                ) : ''}
+                <Footer fre={footerRef} className={styles.foot}/>
             </div>
             </Router>
   );

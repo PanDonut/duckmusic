@@ -1,4 +1,4 @@
-import './settings.css';
+﻿import './settings.css';
 import Topnav from '../component/topnav/topnav';
 import lay from '../style/App.module.css';
 import Sidebar from '../component/sidebar/sidebar';
@@ -17,6 +17,7 @@ function Settings() {
 
     const size = useWindowSize();
     const [togClass, setTogClass] = useState('dark');
+    const [blur1, setBlur] = useState('dark');
     const [toggle, setToggle] = useState(localStorage.getItem('explicit'));
     const [swipe, setSwipe] = useState(localStorage.getItem('swipenext'));
     const [old, setOld] = useState(localStorage.getItem('old'));
@@ -26,9 +27,14 @@ function Settings() {
 
     useEffect(() => {
         if (localStorage.getItem('theme') === 'theme-dark') {
-            setTogClass('dark')
+            setTogClass('dark');
+            setBlur('false');
         } else if (localStorage.getItem('theme') === 'theme-light') {
-            setTogClass('light')
+            setTogClass('light');
+            setBlur('false');
+        } else if (localStorage.getItem('theme') === 'theme-blur') {
+            setTogClass('dark');
+            setBlur('true');
         }
     }, [theme])
 
@@ -37,9 +43,25 @@ function Settings() {
         if (localStorage.getItem('theme') === 'theme-dark') {
             setTheme('theme-light');
             setTogClass('light');
+            setBlur('false');
+        } else {
+            setTheme('theme-light');
+            setTogClass('light');
+            setBlur('false');
+        }
+    }
+
+    const handleOnClick5 = () => {
+        setTogClass('dark');
+        if (localStorage.getItem('theme') === 'theme-dark') {
+            setTheme('theme-blur');
+            setBlur('true');            
+        } else if (localStorage.getItem('theme') === 'theme-light') {
+            setTheme('theme-blur');
+            setBlur('true');
         } else {
             setTheme('theme-dark');
-            setTogClass('dark');
+            setBlur('false');
         }
     }
 
@@ -112,6 +134,20 @@ function Settings() {
                         <span className="toggle--label-background"></span>
                     </label>
                 </div>
+                        </section>
+                        <section>
+                            <h4>Efekty przezroczystości</h4>
+                            <div className="container--toggle">
+                                {
+                                    blur1 === "true" ?
+                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick5} checked />
+                                        :
+                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick5} />
+                                }
+                                <label htmlFor="toggle" className="toggle--label">
+                                    <span className="toggle--label-background"></span>
+                                </label>
+                            </div>
                         </section>
                         {size.width < CONST.MOBILE_SIZE &&
                             <div>

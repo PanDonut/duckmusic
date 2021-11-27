@@ -36,6 +36,10 @@ body {
     --text-tit: #fff;
     --svg-fo: hsla(0,0%,100%,.7);
     --svg-ho: hsla(0,0%,100%,1);
+    --menu: #121319;
+    --menuop: 1;
+    --menu-col: #fff;
+    --blur: blur(0px);
 }
 
 .theme-light {
@@ -64,7 +68,44 @@ body {
     --text-tit: #fff;
     --svg-fo: hsla(0,0%,0%,.7);
     --svg-ho: hsla(0,0%,0%,1);
+    --menu: #e4e4e4;
+    --menu-col: #000;
+    --menuop: 1;
+    --blur: blur(0px);
 }
+
+.theme-blur {
+    --sidenav-black: #0005;
+    --sidenav-active: rgb(13, 12, 17, 0.45);
+    --text-gray: #b3b3b3;
+    --text-white: #fff;
+    --main-background: #0d0c11;
+    --card-background: rgb(16, 14, 20, 0.75);
+    --sidenav-width: 238px;
+    --sidenav-margin-left: 24px;
+    --sidenav-margin-right: 24px;
+    --small-cards-column-width: 270px;
+    --cards-column-width: 180px;
+    --hover-home-bg: #0d0c11;
+    --bgcol: #0d0c11;
+    --scroll: hsla(0, 0%, 90%, .07);
+    --mobile-side: #181818;
+    --logo: #fff;
+    --fillsvg: #000;
+    --outline: #fff;
+    --btns: hsla(0,0%,100%,.7);
+    --sepe: #fff2;
+    --card-bg1: #0001;
+    --card-small: hsla(0,0%,100%,.1);
+    --text-tit: #fff;
+    --svg-fo: hsla(0,0%,100%,.7);
+    --svg-ho: hsla(0,0%,100%,1);
+    --menu: rgb(18, 19, 25, 0.5);
+    --menu-col: #fff;
+    --menuop: 0.75;
+    --blur: blur(50px);
+}
+
 a{
   text-decoration: none;
   cursor: pointer;

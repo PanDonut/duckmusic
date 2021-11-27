@@ -28,6 +28,8 @@ function keepTheme() {
             setTheme('theme-dark');
         } else if (localStorage.getItem('theme') === 'theme-light') {
             setTheme('theme-light')
+        } else if (localStorage.getItem('theme') === 'theme-blur') {
+            setTheme('theme-blur')
         }
     } else {
         setTheme('theme-dark')

@@ -4,8 +4,7 @@
     overflow-x: hidden;
     background: transparent;
     position: relative;
-    margin-bottom: 95px;
-    padding-bottom: 16px;
+    padding-bottom: 150px;
     color: var(--text-tit);
     -webkit-tap-highlight-color: transparent;
     user-drag: none;
@@ -52,11 +51,12 @@
     background: linear-gradient(transparent,rgba(0,0,0,.5));
     -webkit-transition: background 1s ease;
     transition: background 1s ease;
-
+    width: 200vw;
     background-color: var(--hover-home-bg);
 }
-.gradientBgSoft{
+.gradientBgSoft {
     position: absolute;
+    width: 200vw;
     left: 0;
     right: 0;
     top: 340px;
@@ -65,9 +65,24 @@
     z-index: -2;
     background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(var(--main-background)));
     background-image: linear-gradient(rgba(0,0,0,.6),var(--main-background));
-
     background-color: var(--hover-home-bg);
 }
+
+.bbg {
+    position: fixed;
+    height: 100vh;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    background: -webkit-gradient(linear,left top,left bottom,from(transparent),to(rgba(0,0,0,.5)));
+    background: linear-gradient(transparent,rgba(0,0,0,.5));
+    -webkit-transition: background 1s ease;
+    transition: background 1s ease;
+    width: var(--sidenav-width);
+    left: -2px;
+    background-color: var(--hover-home-bg);
+}
+
 .GridIcons {
     display: inline-block;
 }
