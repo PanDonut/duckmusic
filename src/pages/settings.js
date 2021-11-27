@@ -137,7 +137,7 @@ function Settings() {
                         </section>
                         {size.width > CONST.MOBILE_SIZE &&
                             <section>
-                                <h4>Efekty przezroczystości</h4>
+                                <h4>Efekty przezroczystości (Lumina)</h4>
                                 <div className="container--toggle">
                                     {
                                         blur1 === "true" ?
