@@ -314,7 +314,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         <footer className={styles.footer}>
                             
                 <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />         
-            <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg} />
+            
             
             
             <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>
@@ -377,7 +377,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
             <button id="bt1" className="hid" onClick={() => { Hide2() }}>
                 <Icons.Nextpage />
             </button >
-            
+            <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg} />
         </footer>
     );
 }
