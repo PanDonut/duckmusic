@@ -7,6 +7,8 @@ import { useHistory } from "react-router-dom";
 
 function Authorize() {
 
+const history = useHistory();
+
 	const secondaryAppConfig = {
 		apiKey: "AIzaSyBrTxMT7hdosmizt_zbNeakK360BcrfYhM",
 		authDomain: "duck-auth.firebaseapp.com",
