@@ -20,6 +20,7 @@
 .Topnav span {
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 .ProfileBtn{
     border: none;
@@ -86,7 +87,7 @@
 
     .btn12 {
         display: flex;
-        justify-content: flex-end
+        justify-content: flex-end;
     }
 }
 

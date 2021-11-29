@@ -198,3 +198,11 @@ p{
     height: 1px;
   }
 }
+
+.authtext {
+    color: var(--text-white);
+    position: absolute;
+    left: 50%;
+    top: 25%;
+    transform: translateY(-50%) translateX(-50%);
+}

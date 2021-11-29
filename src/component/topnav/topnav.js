@@ -1,4 +1,4 @@
-import PrevPageBtn from '../buttons/prev-page-button';
+﻿import PrevPageBtn from '../buttons/prev-page-button';
 import NextPageBtn from '../buttons/next-page-button';
 import SearchBox from './search-box';
 import { useParams } from 'react-router';
@@ -25,11 +25,19 @@ function Topnav({ search = false, tabButtons = false, normal = false, playlist =
 		<nav className={styles.Topnav}>
 			{normal ?
 				<div className={styles.btn12}>
-							{size.width > CONST.MOBILE_SIZE &&
+					{size.width > CONST.MOBILE_SIZE &&
+						<span>
 								<span>
                     <PrevPageBtn />
 								<NextPageBtn />
-								</span>
+						</span>
+						<span>
+							<button onClick={() => { history.push("/profile") }} className={styles.ProfileBtn}>
+								{localStorage.getItem('name')}
+							</button>
+						</span>
+						</span>
+
 							}
                     {size.width < CONST.MOBILE_SIZE &&
                         <Link to="/settings" >

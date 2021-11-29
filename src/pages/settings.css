@@ -1,3 +1,8 @@
+.cu {
+    margin: 0px;
+    color: #808080;
+}
+
 #toggle{
     position: relative;
     margin-right: 40px;
@@ -53,6 +58,12 @@
     margin-left: 50px;
     overflow-y: scroll;
     padding-bottom: 100px;   
+}
+
+.merg {
+    margin-left: 50px;
+    overflow-y: scroll;
+    padding-bottom: 100px;
 }
 
 .marg section {
@@ -112,4 +123,9 @@
     .marg section {
         width: 90%;
     }
+}
+
+.cu {
+    margin: 0px;
+    color: #808080;
 }

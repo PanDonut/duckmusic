@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useCallback  } from 'react';
+﻿import React, { useState, useEffect, useRef, useCallback  } from 'react';
 import { BrowserRouter as Router,
   Switch,
     Route,
@@ -33,9 +33,12 @@ import Connection from './pages/connection';
 import Settings from './pages/settings';
 import ID from './pages/songid';
 import TV from './tv/index';
+import Profile from './pages/profile';
+import Logout from './pages/logout'
 
 import './security.js';
 import './menu.css'
+import HandleAuth from './authorization.js';
 
 function App() {
 
@@ -90,6 +93,8 @@ function App() {
         };
     });
 
+    
+
     useEffect(() => {
         keepTheme();
     })
@@ -103,6 +108,7 @@ function App() {
     } else {
         localStorage.setItem('shuffle', 'false')
     }
+
     
 
     return (
@@ -111,6 +117,15 @@ function App() {
           <Switch>
             <Route exact path="/">
                 <Home />
+            </Route>
+            <Route exact path="/profile">
+                <Profile />
+            </Route>
+            <Route exact path="/logout">
+                <Logout />
+            </Route>
+            <Route exact path="/auth&email=:path">
+                <HandleAuth />
             </Route>
             <Route exact path="/lyrics">
                 <Lyrics />
@@ -167,7 +182,13 @@ function App() {
                         <Link to="/info">
                             <button className="menuitem"><Icons.Info />Informacje</button>
                         </Link>
-                        <br/>
+                        <Link to="/profile">
+                            <button className="menuitem"><Icons.Profile />Profil</button>
+                        </Link>
+                        <br />
+                        <Link to="/logout">
+                            <button className="menuitem"><Icons.LogOut />Wyloguj się</button>
+                        </Link>
                         
                     </div>
                 ) : ''}

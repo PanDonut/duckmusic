@@ -76,7 +76,9 @@ function Home({ isExpanded = false }) {
     }
 
     
-    
+    if (localStorage.getItem("name") == null) {
+        window.location.replace("http://localhost:3001/v2/auth/login&redirect=duckmusic.vercel.app");
+    }
 
     
     
@@ -174,7 +176,6 @@ function Home({ isExpanded = false }) {
                         <FadeIn visible="true" delay="500" className={styles.SectionCardsMedium}>
                                 {
                                     PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((item) => {
-                                        console.log(item);
                                         if (localStorage.getItem('old') == 'yes' || size.width > CONST.MOBILE_SIZE) {
                                             return (
                                                 <PlaylistCardM
