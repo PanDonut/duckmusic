@@ -34,8 +34,9 @@ import Settings from './pages/settings';
 import ID from './pages/songid';
 import TV from './tv/index';
 import Profile from './pages/profile';
-import Logout from './pages/logout'
+import Logout from './pages/logout';
 
+import Login from './login';
 import './security.js';
 import './menu.css'
 import HandleAuth from './authorization.js';
@@ -120,6 +121,9 @@ function App() {
             </Route>
             <Route exact path="/profile">
                 <Profile />
+            </Route>
+            <Route exact path="/login">
+                <Login />
             </Route>
             <Route exact path="/logout">
                 <Logout />
