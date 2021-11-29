@@ -3,6 +3,7 @@ import { getDatabase, ref, onValue, set } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { useState } from 'react';
+import { useHistory } from "react-router-dom";
 
 function Authorize() {
 
@@ -37,7 +38,7 @@ function Authorize() {
 
 	localStorage.setItem('email', window.location.href.split('=')[1]);
 
-	setTimeout(function () { if(!!(window.history && history.replaceState)){ window.history.replaceState({}, document.title, "https://duckmusic.vercel.app"); } else { window.location.replace("https://duckmusic.vercel.app"); } }, 2000);
+	setTimeout(function () { history.push("/"); } }, 2000);
 
     return (
         <div>
