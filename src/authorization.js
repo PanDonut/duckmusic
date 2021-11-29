@@ -40,7 +40,7 @@ const history = useHistory();
 
 	localStorage.setItem('email', window.location.href.split('=')[1]);
 
-	setTimeout(function () { history.push("/"); } }, 2000);
+	setTimeout(function () { history.push("/"); }, 2000);
 
     return (
         <div>
