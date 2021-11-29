@@ -37,7 +37,7 @@ function Authorize() {
 
 	localStorage.setItem('email', window.location.href.split('=')[1]);
 
-	setTimeout(function () { window.location.replace("https://duckmusic.vercel.app/"); }, 2000);
+	setTimeout(function () { if(!!(window.history && history.replaceState)){ window.history.replaceState({}, document.title, "https://duckmusic.vercel.app"); } else { window.location.replace("https://duckmusic.vercel.app"); } }, 2000);
 
     return (
         <div>
