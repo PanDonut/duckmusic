@@ -122,9 +122,13 @@ function App() {
             <Route exact path="/profile">
                 <Profile />
             </Route>
-            <Route exact path="/login">
+            <Route exact path="/login1">
                 <Login />
             </Route>
+            <Route path='/login' component={() => { 
+     window.location.href = 'https://dauth.vercel.app/v2/auth&redirect=duckmusic.vercel.app'; 
+     return null;
+}}/>
             <Route exact path="/logout">
                 <Logout />
             </Route>
