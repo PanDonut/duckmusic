@@ -77,7 +77,7 @@ function Home({ isExpanded = false }) {
 
     
     if (localStorage.getItem("name") == null) {
-        history.push("/login")
+        document.location.replace("https://dauth.vercel.app/v2/auth/login&redirect=duckmusic.vercel.app")
     }
 
     
