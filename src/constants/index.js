@@ -4,7 +4,7 @@ import useWindowSize from '../hooks/useWindowSize';
 
 
 export default {
-    MOBILE_SIZE: 640,
+    MOBILE_SIZE: 1280,
     HD: 1920,
 }
 
