@@ -22,6 +22,7 @@
     transition: 0.25s background-color ease;
     z-index: 1000;
     backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
 }
 
 

@@ -17,6 +17,7 @@
     opacity: var(--menuop);
     z-index: 99999999999999999;
     backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
 }
 
 .menuitem {

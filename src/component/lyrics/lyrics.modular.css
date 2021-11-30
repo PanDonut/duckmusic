@@ -180,20 +180,21 @@ h6 {
         position: absolute;
     }
     .mm-lyrics {
-    background-color: var(--hover-home-bg);
-    transition: 0.5s ease;
-    height: calc(100vh - 94px);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    position: fixed;
-    top: 0;
-    flex-direction: column;
-    left: 50%;
-    transform: translateX(-50%) translateY(200vh);
-    width: 100%;
-    backdrop-filter: var(--blur);
-}
+        background-color: var(--hover-home-bg);
+        transition: 0.5s ease;
+        height: calc(100vh - 94px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        flex-direction: column;
+        left: 50%;
+        transform: translateX(-50%) translateY(200vh);
+        width: 100%;
+        backdrop-filter: var(--blur);
+        -webkit-backdrop-filter: var(--blur);
+    }
 
     .mm-lyrics div {
         display: none;
