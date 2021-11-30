@@ -8,7 +8,6 @@ function SvgPlay(props) {
       width="1em"
       viewBox="0 0 16 16"
       className="play_svg__Svg-ulyrgf-0 play_svg__hJgLcF"
-      {...props}
     >
       <path d="M4.018 14L14.41 8 4.018 2z" />
     </svg>

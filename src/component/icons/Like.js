@@ -9,7 +9,6 @@ function SvgLike(props) {
       width="1em"
       viewBox="0 0 24 24"
       className="like_svg__Svg-ulyrgf-0 like_svg__hJgLcF"
-      {...props}
     >
           <g>
               <path fill="none" d="M0 0h24v24H0z" />

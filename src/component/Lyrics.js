@@ -42,12 +42,6 @@ function Lyrics({song, currentTime, songId, sly}) {
                     setState.lyrics(lyrics);
                     dispatch({type: actions.SET_LYRICS, payload: {id: songId, lyrics}})
                 })
-                .catch(err => {
-                    setState.error(true)
-                })
-                .finally(() => {
-                    setState.loading(false);
-                })
         } else if (song.lyrics.length > 0) {
             const url = `/lyrics/noly.json`
             axios.get(url)

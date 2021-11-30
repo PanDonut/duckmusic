@@ -8,7 +8,6 @@ function SvgLoop(props) {
             width="1em"
             viewBox="0 0 491.213 491.213"
             className="loop_svg__Svg-ulyrgf-0 loop_svg__hJgLcF"
-            {...props}
         >
             <polygon fill="currentColor" points="146.213,3.107 146.213,175.607 176.213,175.607 176.213,33.107 461.213,33.107 461.213,458.107 176.213,458.107 
 		176.213,315.607 146.213,315.607 146.213,488.107 491.213,488.107 491.213,3.107 	"/>

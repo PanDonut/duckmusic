@@ -8,7 +8,6 @@ function SvgShare(props) {
       width="1em"
       viewBox="0 0 306 306"
       className="expand_svg__Svg-ulyrgf-0 expand_svg__hJgLcF"
-      {...props}
     >
           <g>
               <g id="expand-more">

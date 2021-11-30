@@ -46,16 +46,13 @@ function Hide() {
 };
 
 
-function Home({ isExpanded = false }) {
+function Home() {
 
     console.log("re-render");
 
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const size = useWindowSize();
     const history = useHistory();
-    if (size > CONST.HD && /android/i.test(userAgent) ) {
-        history.push('/tv');
-    }
 
     console.log(localStorage.getItem('explicit'));
     

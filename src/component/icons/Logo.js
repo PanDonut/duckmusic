@@ -11,7 +11,6 @@ function SvgLogo(props) {
         viewBox="0 0 320 140"
         width="1em"
         height="1em"
-        {...props}
       >
         <path
           fill="currentColor"
