@@ -1,0 +1,168 @@
+.cu {
+    margin: 0px;
+    color: #808080;
+}
+
+#toggle{
+    position: relative;
+    margin-right: 40px;
+    opacity: 1;
+}
+
+
+.body2 {
+    background-color: var(--main-background);
+}
+
+.body1 {
+    background-color: var(--main-background);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 45vh;
+}
+
+.body1 img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+#toggle input{
+    display: none;
+}
+    #toggle:checked::before
+{
+    transform: translateX(100%);
+}
+
+#toggle:checked::after {
+    background: #5b88e1;
+}
+
+
+#toggle::after,
+#toggle::before {
+    content: '';
+    top: -2px;
+    left: -2px;
+    position: absolute;
+    transition: all 0.2s ease;
+}
+
+    #toggle::after {
+        background: #c4c4c4;
+        width: 50px;
+        height: 25px;
+        border-radius: 50px;
+        outline: none;
+    }
+
+#toggle::before {
+    width: 23px;
+    height: 23px;
+    left: 1px;
+    top: -1px;
+    border-radius: 50%;
+    background: #fff;
+    z-index: 1;
+    outline: none;
+}
+
+.marg {
+    margin-left: 50px;
+    overflow-y: scroll;
+    padding-bottom: 100px;   
+}
+
+.merg {
+    margin-left: 50px;
+    overflow-y: scroll;
+    padding-bottom: 100px;
+}
+
+.marg section {
+    display: inline-flex;
+    width: 100%;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-left: 30px;
+}
+    .marg h2, .marg h3, .marg h4 {
+        color: var(--text-white);
+        transition: 0.5s color;
+        margin-bottom: 0px;
+    }
+
+.marg h5 {
+    color: var(--text-white);
+    transition: 0.5s color;
+    margin-bottom: 0px;
+}
+
+.marg h1 {
+    color: var(--text-white);
+    font-size: 100px;
+    margin: 0px;
+}
+.ust {
+    margin-top: 0px;
+    margin-left: 15px;
+    border-bottom: solid thin var(--sepe);
+    padding-bottom: 20px;
+    width: 80%;
+}
+
+.marg h4 span {   
+    position: absolute;
+    color: var(--text-white);
+    margin-left: 5px;
+    background-color: #5b88e1;
+    font-size: 10px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.marg h4 span:before {
+    content: "BETA";
+}
+
+@media screen and (max-width: 640px) {
+
+    .marg {
+        margin-left: 5px;
+    }
+
+    .ust {
+        width: 95%;
+    }
+
+    .marg section {
+        width: 90%;
+    }
+
+    .marg h1 {
+        font-size: 50px;
+    }
+
+    .body1 {
+        background-color: var(--main-background);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 70vh;
+    }
+
+        .body1 img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+        }
+}
+
+.cu {
+    margin: 0px;
+    color: #808080;
+}

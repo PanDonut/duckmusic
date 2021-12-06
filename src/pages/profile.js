@@ -1,4 +1,4 @@
-﻿import './settings.css';
+﻿import './profile.css';
 import Topnav from '../component/topnav/topnav';
 import lay from '../style/App.module.css';
 import Sidebar from '../component/sidebar/sidebar';
@@ -25,13 +25,17 @@ function Settings() {
                 ? <Sidebar />
                 : <MobileNavigation />
             }
-            <div className="body">
-                <Topnav back={true}/>
+            <div className="body2">
+                <Topnav back={true} />
+                <div className="body1">
+                
+                <img src={localStorage.getItem('image')} />
             <FadeIn visible="true" delay="50" className="marg">
-                    <h2>Profil</h2>
-                    <h3>{localStorage.getItem('name')}</h3>
+                    <h5>Profil</h5>
+                    <h1>{localStorage.getItem('name')}</h1>
                     <h5 className="cu">{localStorage.getItem('email')}</h5>
-                </FadeIn>
+                    </FadeIn>
+                    </div>
                 </div>
         </div>
         )

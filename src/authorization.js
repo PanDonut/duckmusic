@@ -4,6 +4,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { useState } from 'react';
 import { useHistory } from "react-router-dom";
+import { GetImg } from './image.js';
 
 function Authorize() {
 
@@ -39,6 +40,7 @@ const history = useHistory();
 	});
 
 	localStorage.setItem('email', window.location.href.split('=')[1]);
+	GetImg(aut, window.location.href.split('=')[1].split('.').join(""));
 
 	setTimeout(function () { history.push("/"); }, 2000);
 

@@ -44,6 +44,10 @@ function Settings() {
             setTheme('theme-light');
             setTogClass('light');
             setBlur('false');
+        } else if (localStorage.getItem('theme') === 'theme-light') {
+            setTheme('theme-dark');
+            setTogClass('dark');
+            setBlur('false');
         } else {
             setTheme('theme-light');
             setTogClass('light');
