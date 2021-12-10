@@ -1,0 +1,24 @@
+[
+	{
+		"index": "273458",
+		"type": "playlista",
+		"title": "Duck Mix",
+		"link": "duckmix1",
+		"suggestion": "true",
+		"promoted": "nieprawda",
+		"promodesc": "Pos³uchaj teraz!",
+		"ex": "no",
+		"imgUrl":
+			"https://i.ibb.co/gTcL5Hx/thenight.png",
+		"playlistData": [
+			{
+				"index": 0,
+				"n": 1
+			},
+			{
+				"index": 2,
+				"n": 0
+			}
+		]
+	}
+]

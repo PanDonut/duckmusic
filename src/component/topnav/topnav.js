@@ -8,7 +8,7 @@ import styles from './topnav.module.css';
 import CONST from '../../constants/index';
 import useWindowSize from '../../hooks/useWindowSize';
 import { useHistory } from "react-router-dom";
-import { PLAYLIST } from '../../data/index';
+import PLAYLIST from '../../data/index';
 
 
 function Topnav({ search = false, tabButtons = false, normal = false, playlist = false, back = false }, props) {
@@ -29,7 +29,8 @@ function Topnav({ search = false, tabButtons = false, normal = false, playlist =
 						<span>
 								<span>
                     <PrevPageBtn />
-								<NextPageBtn />
+							<NextPageBtn />
+							{tabButtons ? <LibraryTabBtn /> : ''}
 						</span>
 						<span>
 							<button onClick={() => { history.push("/profile") }} className={styles.ProfileBtn}>

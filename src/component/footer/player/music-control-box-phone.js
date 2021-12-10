@@ -4,7 +4,7 @@ import * as Icons from '../../icons';
 import IconButton from '../../buttons/icon-button';
 import PlayButton from '../../buttons/play-button';
 import React, { useEffect, useState } from 'react';
-import { PLAYLIST } from "../../../data/index";
+import PLAYLIST from "../../../data/index";
 import styles from "./music-control-box-phone.module.css";
 import Connection from '../../../pages/connection';
 

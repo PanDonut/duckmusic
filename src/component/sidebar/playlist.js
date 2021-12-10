@@ -6,7 +6,7 @@ import TitleS from '../text/title-s';
 import TextRegularM from '../text/text-regular-m';
 import PlaylistButton from './playlist-button';
 import { PLAYLISTBTN } from '../../constants';
-import { PLAYLIST } from '../../data';
+import PLAYLIST from '../../data';
 
 var indexnmbr = PLAYLIST.length;
 var rand = Math.floor((Math.random() * indexnmbr) + 1);

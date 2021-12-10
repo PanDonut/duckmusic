@@ -20,7 +20,7 @@ import firebase from '../../firebase.js'
 import { getDatabase, ref, set } from "firebase/database";
 import Lyrics from '../Lyrics';
 
-import { PLAYLIST } from "../../data/index";
+import PLAYLIST from "../../data/index";
 import CONST from '../../constants/index';
 import styles from "./footer.module.css";
 import '../lyrics/lyrics.modular.css';
@@ -32,7 +32,7 @@ import FadeIn from 'react-fade-in';
 
 function Footer(props) {
 
-
+    console.log(props.trackData.trackKey);
      function decreaseIndex() {
         if (localStorage.getItem('shuffle') == 'false') {
             if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {

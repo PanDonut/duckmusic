@@ -23,7 +23,7 @@ import Info from './pages/info';
 import EmbedSmall from './pages/embed-s';
 import * as Icons from './component/icons/index';
 import CONST from './constants/index';
-import { PLAYLIST } from './data/index';
+import PLAYLIST from './data/index';
 import styles from './style/App.module.css';
 import Card from './component/cards/playlist-card-m';
 import NotFound from './pages/404';
@@ -125,15 +125,14 @@ function App() {
             <Route exact path="/login1">
                 <Login />
             </Route>
-            <Route path='/login' component={() => { 
-     window.location.href = 'https://dauth.vercel.app/v2/auth&redirect=duckmusic.vercel.app'; 
-     return null;
-}}/>
             <Route exact path="/logout">
                 <Logout />
             </Route>
             <Route exact path="/auth&email=:path">
                 <HandleAuth />
+            </Route>
+            <Route exact path="/library">
+                <Library />
             </Route>
             <Route exact path="/lyrics">
                 <Lyrics />

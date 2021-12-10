@@ -4,7 +4,7 @@ import * as Icons from '../../icons';
 import IconButton from '../../buttons/icon-button';
 import PlayButton from '../../buttons/play-button';
 
-import { PLAYLIST } from "../../../data/index";
+import PLAYLIST from "../../../data/index";
 import styles from "./music-control-box-small.module.css";
 
 function MusicControlBox(props, {audioRef}) {

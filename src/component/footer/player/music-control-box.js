@@ -6,7 +6,7 @@ import PlayButton from '../../buttons/play-button';
 
 import React, { useEffect, useState } from 'react';
 
-import { PLAYLIST } from "../../../data/index";
+import PLAYLIST from "../../../data/index";
 import styles from "./music-control-box.module.css";
 
 import { ToastContainer, toast } from 'react-toastify';

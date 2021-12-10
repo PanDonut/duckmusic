@@ -1,4 +1,4 @@
-import { PLAYLIST } from "../data/index";
+import PLAYLIST from "../data/index";
 import { PLAYPAUSE, CHANGETRACK } from "../actions/index";
 
 const INITIAL_STATE = {
@@ -15,7 +15,7 @@ const INITIAL_STATE = {
     currentLine: 0,
     loading: true,
     error: false,
-    isPlaying: false
+    myisPlaying: false
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {

@@ -34,5 +34,8 @@ export const PLAYLISTBTN = [
 ]
 
 export const LIBRARYTABS = [
-
+    {
+        title: 'Biblioteka',
+        path: '/library'
+    }
 ]

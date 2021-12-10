@@ -1,6 +1,4 @@
-import { SONGS } from './songs.js';
-
-export const PLAYLIST = [
+const PLAYLIST = [
 	{
 		index: "0",
 		type: "playlista",
@@ -19,51 +17,51 @@ export const PLAYLIST = [
 			{
 				songID: "0",
 				index: "1",				
-				songName: SONGS[0].songName,
+				songName: "Call Me Maybe",
 				songimg:
-					SONGS[0].songimg,
-				songArtist: SONGS[0].songArtist,
+					"https://i.scdn.co/image/ab67616d00001e02d3ee4bf67c2ac2154006ad72",
+				songArtist: "Carly Rae Jepsen",
 				link:
-					SONGS[0].link,
+					"https://data.pandasuite.com/audios/60f19d8267425919ea00108e.mp3",
 				lyrics: []
 				
 			},
 			{
 				index: "2",
-				songName: SONGS[1].songName,
+				songName: "ME!",
 				songimg:
-					SONGS[1].songimg,
-				songArtist: SONGS[1].songArtist,
+					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				songArtist: "Taylor Swift",
 				link:
-					SONGS[1].link,
+					"https://drive.google.com/u/0/uc?id=1yoMFyGHBL6SaoAKFatS36oqAkXLcazj-&export=download",
 			},
 			{
 				index: "3",
-				songName: SONGS[2].songName,
+				songName: "Blinding Lights",
 				songimg:
-					SONGS[2].songimg,
-				songArtist: SONGS[2].songArtist,
+					"https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
+				songArtist: "The Weeknd",
 				link:
-					SONGS[2].link,
-				lyrics: SONGS[2].lyrics
+					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
+				lyrics: []
 			},
 			{
 				index: "4",
-				songName: SONGS[3].songName,
+				songName: "Blank Space",
 				songimg:
-					SONGS[3].songimg,
-				songArtist: SONGS[3].songArtist,
+					"https://i.scdn.co/image/ab67616d00001e0252b2a3824413eefe9e33817a",
+				songArtist: "Taylor Swift",
 				link:
-					SONGS[3].link,
+					"https://drive.google.com/u/0/uc?id=1QncqOuyt4xCS3GU9kBwTTeAh0wGb_G3r&export=download",
 			},
 			{
 				index: "5",
-				songName: SONGS[4].songName,
+				songName: "I Forgot That You Existed",
 				songimg:
-					SONGS[4].songimg,
-				songArtist: SONGS[4].songArtist,
+					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				songArtist: "Taylor Swift",
 				link:
-					SONGS[4].link,
+					"https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download",
 			},
 			{
 				index: "6",
@@ -651,7 +649,7 @@ export const PLAYLIST = [
 				songArtist: "The Weeknd",
 				link:
 					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
-				lyrics: SONGS[2].lyrics
+				lyrics: []
 			},
 			{
 				index: "5",
@@ -725,8 +723,4 @@ export const PLAYLIST = [
 
 ];
 
-export const MUSICLINKS = [
-];
-
-export const SEARCHCARDS = [
-];
+export default PLAYLIST;

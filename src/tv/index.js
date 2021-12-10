@@ -31,7 +31,7 @@ import { Link } from 'react-router-dom';
 
 import { decode } from 'he';
 
-import { PLAYLIST } from '../data/index';
+import PLAYLIST from '../data/index';
 
 
 import { useHistory } from "react-router-dom";
