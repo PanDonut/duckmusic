@@ -20,7 +20,7 @@ import firebase from '../../firebase.js'
 import { getDatabase, ref, set } from "firebase/database";
 import Lyrics from '../Lyrics';
 
-import PLAYLIST from "../../data/index";
+import PLAYLIST from "../../data/index.json";
 import CONST from '../../constants/index';
 import styles from "./footer.module.css";
 import '../lyrics/lyrics.modular.css';

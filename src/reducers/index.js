@@ -1,4 +1,4 @@
-import PLAYLIST from "../data/index";
+import PLAYLIST from "../data/index.json";
 import { PLAYPAUSE, CHANGETRACK } from "../actions/index";
 
 const INITIAL_STATE = {

@@ -11,7 +11,7 @@ import IconButton from '../component/buttons/icon-button';
 import PlaylistDetails from '../component/playlist/playlist-details';
 import PlaylistTrack from '../component/playlist/playlist-track';
 import * as Icons from '../component/icons';
-import PLAYLIST from "../data/index";
+import PLAYLIST from "../data/index.json";
 import { NavLink, useLocation, Link } from "react-router-dom";
 import { decode } from 'he';
 

@@ -1,7 +1,7 @@
 import Topnav from '../component/topnav/topnav';
 import TitleM from '../component/text/title-m'
 import PlaylistCardS from '../component/cards/playlist-card-s';
-import PLAYLIST from '../data/index';
+import PLAYLIST from '../data/index.json';
 
 import styles from "./search.module.css";
 import * as Icons from '../component/icons';

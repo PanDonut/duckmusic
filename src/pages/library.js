@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import TitleM from '../component/text/title-m';
 import Topnav from '../component/topnav/topnav';
 import PlaylistCardM from '../component/cards/playlist-card-custom'
-import PLAYLIST from "../data/index";
+import PLAYLIST from "../data/index.json";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import styles from "./library.module.css";
 import { aut } from '../dauth';

@@ -8,7 +8,7 @@ import MusicProgressBar from './player/music-progress-bar';
 import FooterRight from './footer-right';
 import Audio from './audio';
 
-import PLAYLIST from "../../data/index";
+import PLAYLIST from "../../data/index.json";
 import CONST from '../../constants/index';
 import styles from "./footertop.module.css";
 

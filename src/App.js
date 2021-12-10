@@ -23,7 +23,7 @@ import Info from './pages/info';
 import EmbedSmall from './pages/embed-s';
 import * as Icons from './component/icons/index';
 import CONST from './constants/index';
-import PLAYLIST from './data/index';
+import PLAYLIST from './data/index.json';
 import styles from './style/App.module.css';
 import Card from './component/cards/playlist-card-m';
 import NotFound from './pages/404';

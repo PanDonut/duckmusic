@@ -1,6 +1,6 @@
 import './lyrics.modular.css'
 import convertTime from '../../functions/convertTime';
-import PLAYLIST from "../../data/index";
+import PLAYLIST from "../../data/index.json";
 import { LYRICSNEW } from "../../data/lyrics";
 import { connect } from "react-redux";
 import MusicProgressBar from '../footer/player/music-control-box-small';

@@ -32,7 +32,7 @@ import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
 
 
-import PLAYLIST from '../data/index';
+import PLAYLIST from '../data/index.json';
 
 
 import { useHistory } from "react-router-dom";
