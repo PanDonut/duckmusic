@@ -13,7 +13,7 @@
 
 
 .musicControl div svg path{
-    fill: #fff;
+    fill: var(--btns);
 }
 
     .musicControl div {
@@ -41,11 +41,11 @@
 }
 .button svg{
     font-size: 26px;
-    fill: #fff;
+    fill: var(--btns);
     color: hsla(0,0%,100%,.7);
 }
 .musicControl svg:hover {
-    fill: rgb(255, 255, 255);
+    fill: var(--btns);
     color: rgb(255, 255, 255);
     width: 20px;
     height: 20px;

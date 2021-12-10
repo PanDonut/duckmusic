@@ -113,7 +113,7 @@
 
 .songDetailsfull p {
     margin: 0px;
-    color: #fff;
+    color: var(--text-white);
     font-weight: 500;
     font-size: 20px;
     height: auto;
