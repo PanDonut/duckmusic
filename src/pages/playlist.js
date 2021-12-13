@@ -35,7 +35,7 @@ import NotFound from './404';
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
-
+import convertTime from '../functions/convertTimeTxt';
 import FadeIn from 'react-fade-in';
 
 function PlaylistPage(props) {
@@ -51,8 +51,38 @@ function PlaylistPage(props) {
         }
 	}
 
+	const [timetext, setTimetext] = useState('Obliczanie')
+
+	function fetchDuration(path) {
+		return new Promise((resolve) => {
+			const audio = new Audio();
+			audio.src = path;
+			audio.addEventListener(
+				'loadedmetadata',
+				() => {
+					// To keep a promise maintainable, only do 1
+					// asynchronous activity for each promise you make
+					resolve(audio.duration)
+				},
+			);
+		})
+	}
+
+	function fetchTotalDuration(paths) {
+		// Create an array of promises and wait until all have completed
+		return Promise.all(paths.map((path) => fetchDuration(path)))
+			// Reduce the results back to a single value
+			.then((durations) => durations.reduce(
+				(acc, duration) => acc + duration,
+				0,
+			))
+			;
+	}
 
 
+
+
+	var arr = [];
 	const size = useWindowSize();
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
 	const [isthisplay, setIsthisPlay] = useState(false);
@@ -65,7 +95,14 @@ function PlaylistPage(props) {
 	useEffect(() => {
 		setIsthisPlay(playlistIndex === props.trackData.trackKey[0])
 	})
+	
 
+		setTimeout(function () {
+			fetchTotalDuration(arr)
+				.then((totalDuration) => {
+					setTimetext(convertTime(totalDuration));
+				});
+		}, 2000);
 	oncontextmenu = function (e) {
 		e.preventDefault();
 	};
@@ -106,15 +143,18 @@ function PlaylistPage(props) {
 					: <Topnav normal={true}/>}
 
 			{PLAYLIST.map((item) => {
-                if(item.link == path){
+				if (item.link == path) {
+					item.playlistData.forEach(function (number) {
+						arr.push(number.link);
+					});
                     return (
                         <div key={item.title} onLoad={() => {
 							changeBg(item.playlistBg);
-							setPlaylistIndex(PLAYLIST.indexOf(item))
+							setPlaylistIndex(PLAYLIST.indexOf(item));														
 						}}>
 							{size.width < CONST.MOBILE_SIZE &&
 								<div className={styles.overlay}>
-								<PlaylistDetails data={item}/>
+								<PlaylistDetails data={item} />								
 									<div className={styles.ovlist}>
 										<Link to="/settings" >
 											<button className={styles.btn}>
@@ -162,8 +202,7 @@ function PlaylistPage(props) {
 								</div>
 							}
 
-							<PlaylistDetails data={item} />
-
+							<PlaylistDetails data={item} txt={timetext}/>
 							<div className={styles.GridIcons}>
 								{size.width > CONST.MOBILE_SIZE &&
 									<div className={styles.PlaylistIcons}>

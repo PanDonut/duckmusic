@@ -20,34 +20,44 @@
     color: #fff;
     height: var(--footersize);
     transition: 0.25s background-color ease;
-    z-index: 1000;
     backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);  
+}
+
+.nowplayingbar div {
 }
 
 
 
 
-.footerMid{
+.footerMid {
     display: flex;
     flex-direction: column;
     align-items: center;
+    display: var(--musicctr);
 }
 
 @media screen and (max-width: 640px) {
     :root {
         --footersize: 62px;
-        --botf: 52px;
+        --botf: 55px;
         --phmu: none;
+        --footwidth: calc(100% - 20px);
+        --footopa: 0.5;
     }
 
     .footer {
         bottom: var(--botf);
+        width: var(--footwidth);
+        left: 50%;
+        transform: translateX(-50%);
+        transition: width 0.25s ease;
     }
-    .nowplayingbar{
+    .nowplayingbar {
         padding: 0px 0px;
         grid-template-columns: 75vw 25vw;
         row-gap: 0px;
+        border-radius: 20px;
     }
     .footerMe {
         display: var(--phmu);

@@ -89,28 +89,28 @@
 
 @keyframes eI4wjv0hVNk3_ts__ts {
     0% {
-        transform: translate(9.116667px, 14px) scale(1, 0.15753);
+        transform: translate(8px, 14px) scale(1, 0.15753);
         animation-timing-function: cubic-bezier(0.25,1,0.25,1)
     }
 
     20% {
-        transform: translate(9.116667px,14px) scale(1,0.893324)
+        transform: translate(8px,14px) scale(1,0.893324)
     }
 
     40% {
-        transform: translate(9.116667px,14px) scale(1,0.659024)
+        transform: translate(8px,14px) scale(1,0.659024)
     }
 
     60% {
-        transform: translate(9.116667px,14px) scale(1,1.825524)
+        transform: translate(8px,14px) scale(1,1.825524)
     }
 
     80% {
-        transform: translate(9.116667px,14px) scale(1,1)
+        transform: translate(8px,14px) scale(1,1)
     }
 
     100% {
-        transform: translate(9.116667px,14px) scale(1,0.16)
+        transform: translate(8px,14px) scale(1,0.16)
     }
 }
 
@@ -121,28 +121,28 @@
 
 @keyframes eI4wjv0hVNk4_ts__ts {
     0% {
-        transform: translate(12px, 14px) scale(1, 2);
+        transform: translate(11px, 14px) scale(1, 2);
         animation-timing-function: cubic-bezier(0.25,1,0.25,1)
     }
 
     20% {
-        transform: translate(12px,14px) scale(1,-0.339983)
+        transform: translate(11px,14px) scale(1,1)
     }
 
     40% {
-        transform: translate(12px,14px) scale(1,-0.893324)
+        transform: translate(11px,14px) scale(1,-0.893324)
     }
 
     60% {
-        transform: translate(12px,14px) scale(1,-0.255236)
+        transform: translate(11px,14px) scale(1,-0.255236)
     }
 
     80% {
-        transform: translate(12px,14px) scale(1,-2)
+        transform: translate(11px,14px) scale(1,1)
     }
 
     100% {
-        transform: translate(12px,14px) scale(1,-1.5)
+        transform: translate(11px,14px) scale(1,2)
     }
 }
 

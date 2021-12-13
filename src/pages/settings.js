@@ -6,7 +6,7 @@ import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import React, { useEffect, useState } from 'react';
-import { setTheme, setEc, setSwi, setSwif, setOl } from '../theme';
+import { setTheme, setEc, setSwi, setSwif, setOl, setAd } from '../theme';
 import { decode } from 'he';
 
 import FadeIn from 'react-fade-in';
@@ -16,6 +16,7 @@ function Settings() {
     console.log("re-render");
 
     const size = useWindowSize();
+    const [ads, setAds] = useState(localStorage.getItem('duckads'));
     const [togClass, setTogClass] = useState('dark');
     const [blur1, setBlur] = useState('dark');
     const [toggle, setToggle] = useState(localStorage.getItem('explicit'));
@@ -106,6 +107,15 @@ function Settings() {
             setOld('no')
         }
     }
+    const handleOnClick9 = () => {
+        if (localStorage.getItem('duckads') == 'false') {
+            setAds(true);
+            setAd(true)
+        } else {
+            setAds(false);
+            setAd(false)
+        }
+    }
 
     console.log(swipe);
     console.log(swipefull);
@@ -184,6 +194,20 @@ function Settings() {
                                         <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick1} checked />
                                         :
                                         <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick1} />
+                                }
+                                <label htmlFor="toggle" className="toggle--label">
+                                    <span className="toggle--label-background"></span>
+                                </label>
+                            </div>
+                        </section>
+                        <section>
+                            <h4>Reklamy</h4>
+                            <div className="container--toggle">
+                                {
+                                    ads === "true" ?
+                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick9} checked />
+                                        :
+                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick9} />
                                 }
                                 <label htmlFor="toggle" className="toggle--label">
                                     <span className="toggle--label-background"></span>

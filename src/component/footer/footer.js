@@ -98,28 +98,32 @@ function Footer(props) {
         document.documentElement.style.setProperty('--dispbg', 'block');
         document.documentElement.style.setProperty('--dispbt1', 'block');
         document.documentElement.style.setProperty('--dispbt2', 'none');
-        document.documentElement.style.setProperty('--imgfull', 'inline-flex');
         document.documentElement.style.setProperty('--imgn', 'none');
         document.documentElement.style.setProperty('--musicctr', 'none');
         document.documentElement.style.setProperty('--phmu', 'flex');
         document.documentElement.style.setProperty('--dipy', 'flex');
         document.documentElement.style.setProperty('--expanded', 'translateY(200vh)');
         document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
+        document.documentElement.style.setProperty('--footwidth', '100%');
         document.documentElement.style.setProperty('--txtdisplay', "block");
+        document.documentElement.style.setProperty('--footopa', '0');
+        document.documentElement.style.setProperty('--imgfull', 'inline-flex');
     };
 
     function Hide1() {
         document.documentElement.style.setProperty('--footersize', '62px');
-        document.documentElement.style.setProperty('--botf', '52px');
+        document.documentElement.style.setProperty('--footwidth', 'calc(100% - 20px)');
+        document.documentElement.style.setProperty('--botf', '55px');
         document.documentElement.style.setProperty('--dispbg', 'none');
         document.documentElement.style.setProperty('--dispbt1', 'none');
         document.documentElement.style.setProperty('--dispbt2', 'none');
-        document.documentElement.style.setProperty('--imgfull', 'none');
         document.documentElement.style.setProperty('--imgn', 'block');
+        document.documentElement.style.setProperty('--imgfull', 'none');
         document.documentElement.style.setProperty('--musicctr', 'flex');
         document.documentElement.style.setProperty('--phmu', 'none');
         document.documentElement.style.setProperty('--dipy', 'none');
         document.documentElement.style.setProperty('--txtdisplay', "none");
+        document.documentElement.style.setProperty('--footopa', '0.5');
     };
 
     const [touchStart, setTouchStart] = React.useState(0);
@@ -148,6 +152,8 @@ if(isOpen == "false") {
         
         if (touchStart - touchEnd > 40 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 3.5 + "vh");
+            document.documentElement.style.setProperty('--footwidth', (touchStart - touchEnd) / (349 / 100) + "%");
+            document.documentElement.style.setProperty('--footopa', ((touchStart + touchEnd) / ((touchStart + touchEnd) * 2)) / (349 / (touchStart + touchEnd) * (touchStart + touchEnd)));
         }
         if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
             document.documentElement.style.setProperty('--dispbg', '1');
@@ -278,10 +284,13 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
         audioRef.current.volume = volume;
     }, [audioRef, volume]);
 
-
+    const [songsPlayed, setNewSong] = useState(0);
         useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
-        setCurrentTime(0);
+            audioRef.current.currentTime = 0;
+            if (localStorage.getItem('duckads') == 'true') {
+                setNewSong(songsPlayed + 1);
+            }
             if (localStorage.getItem('loop') == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
                     if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
@@ -317,9 +326,16 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
             
             
             
-            <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>
-
+            <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>               
                 <div onTouchStart={touchStartEvent => handleTouchStart1(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove1(touchMoveEvent)} onTouchEnd={() => handleTouchEnd1()}>
+                    {size.width < CONST.MOBILE_SIZE &&
+                        <div className={styles.footerMid}>
+                            <MusicProgressBarBot
+                                currentTime={currentTime}
+                                duration={duration}
+                            />
+                        </div>
+                    }
                     <FooterLeft />
                 </div>
                 
@@ -363,14 +379,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                     />
                 
             </div>
-            {size.width < CONST.MOBILE_SIZE &&
-                <div className={styles.footerMid}>
-                    <MusicProgressBarBot
-                        currentTime={currentTime}
-                        duration={duration}
-                    />
-                </div>
-            }
+            
             <button id="bt1" className="exp" onClick={() => { Expand2() }}>
                 <Icons.Prevpage />
             </button>

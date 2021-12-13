@@ -1,9 +1,10 @@
-.musicProgress{
+.musicProgress {
     display: flex;
-    justify-content: center;
-    width: 100%;
-    z-index: 1000000;
+    justify-content: flex-start;
+    width: calc(100% - 110px);
+    z-index: 0;
     background-color: var(--card-background);
+    opacity: var(--footopa);   
 }
 .musicProgress span p{
     margin: 0px 8px;
@@ -14,8 +15,8 @@
 .musicProgress div{
     display: flex;
     align-items: center;
-    width: 100%;
+    width: calc(100% + 50px);
 }
-.musicProgress input {
-    width: 100%;
-}
+    .musicProgress input {
+        width: calc(100% - 110px);
+    }

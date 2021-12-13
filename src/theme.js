@@ -20,6 +20,10 @@ function setOl(walu) {
     localStorage.setItem('old', walu);
 }
 
+function setAd(walu) {
+    localStorage.setItem('duckads', walu);
+}
+
 
 
 function keepTheme() {
@@ -43,5 +47,6 @@ module.exports = {
     setEc,
     setSwi,
     setSwif,
-    setOl
+    setOl,
+    setAd
 }

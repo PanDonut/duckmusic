@@ -49,10 +49,11 @@
     letter-spacing: -.04em;
     text-transform: none;
 }
-.Artist{
+.Artist {
     display: flex;
     align-items: center;
     margin-top: 16px;
+    justify-content: flex-start
 }
 .Artist figure{
     width: 24px;
@@ -67,9 +68,24 @@
     -o-object-fit: cover;
     object-fit: cover;
 }
-.Artist p{
-    margin: 0;
-    margin-left: 6px;
+    .Artist:last-child {
+        margin: 0;
+        margin-left: 6px;
+        
+    }
+
+    .Artist h5 {
+        color: var(--text-gray);
+    }
+.svb {
+    color: var(--text-gray);
+    height: 12px;
+    width: 90px;
+    overflow: visible;
+}
+.svv {
+    fill: var(--text-gray);
+    font-size: 35px;
 }
 @media screen and (max-width: 640px) {
     .playlistDetails{
@@ -88,5 +104,11 @@
     }
     .Artist{
         justify-content: center;
+    }
+    .svb {
+        color: var(--text-gray);
+        height: 12px;
+        width: 125px;
+        overflow: visible;
     }
 }

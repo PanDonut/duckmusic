@@ -8,177 +8,140 @@
 		"promoted": "nieprawda",
 		"promodesc": "Posłuchaj teraz!",
 		"ex": "no",
-		"imgUrl":
-			"https://i.ibb.co/gTcL5Hx/thenight.png",
+		"imgUrl": "https://i.ibb.co/gTcL5Hx/thenight.png",
 		"hoverColor": "rgb(161, 0, 0)",
 		"artist": "Carly Rae Jepsen, Taylor Swift, Vance Joy, Dawid Podsiadło, Toto, Bruno Mars, Ed Helms, Camila Cabello, Shawn Mendes, Rick Astley, Pitbull, Rachel Platten, OneRepublic, Fools Garden i inni",
 		"playlistBg": "rgb(161, 0, 0)",
 		"playlistData": [
 			{
 				"songID": "0",
-				"index": "1",				
+				"index": "1",
 				"songName": "Call Me Maybe",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02d3ee4bf67c2ac2154006ad72",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02d3ee4bf67c2ac2154006ad72",
 				"songArtist": "Carly Rae Jepsen",
-				"link":
-					"https://data.pandasuite.com/audios/60f19d8267425919ea00108e.mp3",
+				"link": "https://data.pandasuite.com/audios/60f19d8267425919ea00108e.mp3",
 				"lyrics": []
-				
+
 			},
 			{
 				"index": "2",
 				"songName": "ME!",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
 				"songArtist": "Taylor Swift",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1yoMFyGHBL6SaoAKFatS36oqAkXLcazj-&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1yoMFyGHBL6SaoAKFatS36oqAkXLcazj-&export=download"
 			},
 			{
 				"index": "3",
 				"songName": "Blinding Lights",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
 				"songArtist": "The Weeknd",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
+				"link": "https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
 				"lyrics": []
 			},
 			{
 				"index": "4",
 				"songName": "Blank Space",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e0252b2a3824413eefe9e33817a",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e0252b2a3824413eefe9e33817a",
 				"songArtist": "Taylor Swift",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1QncqOuyt4xCS3GU9kBwTTeAh0wGb_G3r&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1QncqOuyt4xCS3GU9kBwTTeAh0wGb_G3r&export=download"
 			},
 			{
 				"index": "5",
 				"songName": "I Forgot That You Existed",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
 				"songArtist": "Taylor Swift",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download"
 			},
 			{
 				"index": "6",
 				"songName": "Lover",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
 				"songArtist": "Taylor Swift",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1r6TdJ-dVtrsFYhZyBiziP-Tv68iS9kF-&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1r6TdJ-dVtrsFYhZyBiziP-Tv68iS9kF-&export=download"
 			},
 			{
 				"index": "7",
 				"songName": "Riptide",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
 				"songArtist": "Vance Joy",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1gYF7U60oYiwF4fP-UHbt2Mj2okjQ3aNH&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1gYF7U60oYiwF4fP-UHbt2Mj2okjQ3aNH&export=download"
 			},
 			{
 				"index": "8",
 				"songName": "Trofea",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02c4aa14d6f01b64808cf9ae31",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02c4aa14d6f01b64808cf9ae31",
 				"songArtist": "Dawid Podsiadło",
-				"link":
-					"https://drive.google.com/u/0/uc?id=13WosreJVwYmnrKIXWnW0yD3n5y9JxR0-&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=13WosreJVwYmnrKIXWnW0yD3n5y9JxR0-&export=download"
 			},
 			{
 				"index": "9",
 				"songName": "Africa",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e024a052b99c042dc15f933145b",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e024a052b99c042dc15f933145b",
 				"songArtist": "Toto",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1rGYxCI5Ng_eJUzYeL1lFxDTdkie1Qmog&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1rGYxCI5Ng_eJUzYeL1lFxDTdkie1Qmog&export=download"
 			},
 			{
 				"index": "10",
 				"songName": "The Lazy Song",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
 				"songArtist": "Bruno Mars",
-				"link":
-					"https://drive.google.com/u/0/uc?id=19nGAC84T-DUsMDt4eVaVxLUq081FNt0j&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=19nGAC84T-DUsMDt4eVaVxLUq081FNt0j&export=download"
 			},
 			{
 				"index": "11",
 				"songName": "How Bad Can I Be?",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02d228a76299b89385a7f642fd",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02d228a76299b89385a7f642fd",
 				"songArtist": "Ed Helms",
-				"link":
-					"https://drive.google.com/u/0/uc?id=15qhYm8m66zf2FJaXLBm6rB1Yb_u5AjsN&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=15qhYm8m66zf2FJaXLBm6rB1Yb_u5AjsN&export=download"
 			},
 			{
 				"index": "12",
 				"songName": "Señorita",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02e6095c382c2853667c1623eb",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02e6095c382c2853667c1623eb",
 				"songArtist": "Camila Cabello feat. Shawn Mendes",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1RDra8uflnC1y8YrnojhITZZG5bIf5yRq&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1RDra8uflnC1y8YrnojhITZZG5bIf5yRq&export=download"
 			},
 			{
 				"index": "13",
 				"songName": "I Think He Knows",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
 				"songArtist": "Taylor Swift",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download"
 			},
 			{
 				"index": "14",
 				"songName": "Treat You Better",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e021376b4b16f4bfcba02dc571b",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e021376b4b16f4bfcba02dc571b",
 				"songArtist": "Shawn Mendes",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1wkleUVQ3ak1lxyY3nQ1Es_M37gxZ0o45&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1wkleUVQ3ak1lxyY3nQ1Es_M37gxZ0o45&export=download"
 			},
 			{
 				"index": "15",
 				"songName": "When I Fall in Love",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e025755e164993798e0c9ef7d7a",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e025755e164993798e0c9ef7d7a",
 				"songArtist": "Rick Astley",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1UtmbiiTuviwAS2bKXooc4etLcL4WM7v0&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1UtmbiiTuviwAS2bKXooc4etLcL4WM7v0&export=download"
 			},
 			{
 				"index": "16",
 				"songName": "Feel This Moment",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
 				"songArtist": "Pitbull feat. Christina Aguilera",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1DwT2hBc2u9wvJqBh2gWkcLbb6Q8bCnrG&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1DwT2hBc2u9wvJqBh2gWkcLbb6Q8bCnrG&export=download"
 			},
 			{
 				"index": "17",
 				"songName": "Fight Song",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02a9e4d7fae5dfcc8f9cc96bc9",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02a9e4d7fae5dfcc8f9cc96bc9",
 				"songArtist": "Rachel Platten",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1Rbpl06PuMzFpw4i1DJmRj8T4ycyBCRcG&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1Rbpl06PuMzFpw4i1DJmRj8T4ycyBCRcG&export=download"
 			},
 			{
 				"index": "18",
 				"songName": "Counting Stars",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e029e2f95ae77cf436017ada9cb",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e029e2f95ae77cf436017ada9cb",
 				"songArtist": "OneRepublic",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1VZPKdwftKwZFPmCqfgw54APatmD7o1cO&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1VZPKdwftKwZFPmCqfgw54APatmD7o1cO&export=download"
 			},
 			{
 				"index": "19",
@@ -190,128 +153,100 @@
 			{
 				"index": "20",
 				"songName": "High Hopes",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02c5148520a59be191eea16989",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02c5148520a59be191eea16989",
 				"songArtist": "Panic! at the Disco",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1564Z9BGhUevu_HxCOcGNXMk0rG-dWTGR&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1564Z9BGhUevu_HxCOcGNXMk0rG-dWTGR&export=download"
 			},
 			{
 				"index": "21",
 				"songName": "Happier",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e0204bfd5a5fd5aa6ca648f66aa",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e0204bfd5a5fd5aa6ca648f66aa",
 				"songArtist": "Marshmello feat. Bastille",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1P3YXqD5UeD4ZD1CuRAX5zs12p11gM67r&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1P3YXqD5UeD4ZD1CuRAX5zs12p11gM67r&export=download"
 			},
 			{
 				"index": "22",
 				"songName": "Uptown Funk",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02e419ccba0baa8bd3f3d7abf2",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02e419ccba0baa8bd3f3d7abf2",
 				"songArtist": "Mark Ronson feat. Bruno Mars",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1lHuakfIM7kBY_K-iKOLtEz-JrtxDCXzz&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1lHuakfIM7kBY_K-iKOLtEz-JrtxDCXzz&export=download"
 			},
 			{
 				"index": "23",
 				"songName": "Moves Like Jagger",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02c5e1cecaedcd413599e4e866",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02c5e1cecaedcd413599e4e866",
 				"songArtist": "Maroon 5 feat. Christina Aguilera",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1QhEpC9nvhpB0UmyYXGvihvuxAJvyS-Dy&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1QhEpC9nvhpB0UmyYXGvihvuxAJvyS-Dy&export=download"
 			},
 			{
 				"index": "24",
 				"songName": "This Girl (Kungs Vs. Cookin' On 3 Burners)",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02af72d0856c5527dc97f3ea08",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02af72d0856c5527dc97f3ea08",
 				"songArtist": "Kungs",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1KodU-CcOMcUJXBYOCHjthVmsqwf2PxUg&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1KodU-CcOMcUJXBYOCHjthVmsqwf2PxUg&export=download"
 			},
 			{
 				"index": "25",
 				"songName": "Never Really Over",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e029bea3b79b95f86d1b66ac960",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e029bea3b79b95f86d1b66ac960",
 				"songArtist": "Katy Perry",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1R393kyUIDxqz4da3FOCU7lGwvdkMcLu0&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1R393kyUIDxqz4da3FOCU7lGwvdkMcLu0&export=download"
 			},
 			{
 				"index": "26",
 				"songName": "Firework",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02f619042d5f6b2149a4f5e0ca",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02f619042d5f6b2149a4f5e0ca",
 				"songArtist": "Katy Perry",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1MilmkFouSYRQHAsH-wFoBEzu6mNj97Zz&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1MilmkFouSYRQHAsH-wFoBEzu6mNj97Zz&export=download"
 			},
 			{
 				"index": "27",
 				"songName": "Thunder",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e025675e83f707f1d7271e5cf8a",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e025675e83f707f1d7271e5cf8a",
 				"songArtist": "Imagine Dragons",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1cSmPWZTUBFPOXsseisC9uJL9v7sXsiYc&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1cSmPWZTUBFPOXsseisC9uJL9v7sXsiYc&export=download"
 			},
 			{
 				"index": "28",
 				"songName": "Believer",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e025675e83f707f1d7271e5cf8a",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e025675e83f707f1d7271e5cf8a",
 				"songArtist": "Imagine Dragons",
-				"link":
-					"https://drive.google.com/u/0/uc?id=18okV9hsOVLMFy91w2cLGXBgOh2HG1BNc&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=18okV9hsOVLMFy91w2cLGXBgOh2HG1BNc&export=download"
 			},
 			{
 				"index": "29",
 				"songName": "Happier",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02ba5db46f4b838ef6027e6f96",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02ba5db46f4b838ef6027e6f96",
 				"songArtist": "Ed Sheeran",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1wgkysokUFFGZsUc-Y4aut5o3tizGVFeF&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1wgkysokUFFGZsUc-Y4aut5o3tizGVFeF&export=download"
 			},
 			{
 				"index": "30",
 				"songName": "We Are Young",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e0205fb4e9947c6edaf3836766e",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e0205fb4e9947c6edaf3836766e",
 				"songArtist": "Fun feat. Janelle Monáe",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1D0s59hAb_v2bZ42-RVa-tZssr0CLaKmn&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1D0s59hAb_v2bZ42-RVa-tZssr0CLaKmn&export=download"
 			},
 			{
 				"index": "31",
 				"songName": "Can't stop the feeling",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02ef37416970812293c08e8a78",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02ef37416970812293c08e8a78",
 				"songArtist": "Justin Timberlake",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1KswgwlLgyEAUEirg6d_hacHEpyKs1fJm&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1KswgwlLgyEAUEirg6d_hacHEpyKs1fJm&export=download"
 			},
 			{
 				"index": "32",
 				"songName": "Pompeii",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02faee7306ec2f36aeccc4bc98",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02faee7306ec2f36aeccc4bc98",
 				"songArtist": "Bastille (Kat Krazy Remix)",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1nToHED58QEFiNd1Hmavif74NFLpAjr5S&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1nToHED58QEFiNd1Hmavif74NFLpAjr5S&export=download"
 			},
 			{
 				"index": "33",
 				"songName": "The Nights",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e020ae4f4d42e4a09f3a29f64ad",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e020ae4f4d42e4a09f3a29f64ad",
 				"songArtist": "Avicii",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1x-Zh7_3GiC4e7WVhtYPRcCE21FJuwEzl&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1x-Zh7_3GiC4e7WVhtYPRcCE21FJuwEzl&export=download"
 			}
 		]
 	},
@@ -321,8 +256,7 @@
 		"title": "Mr. Heavybeat",
 		"link": "heavybeat",
 		"ex": "no",
-		"imgUrl":
-			"https://i.ibb.co/GsD7sgw/heavybeat.png",
+		"imgUrl": "https://i.ibb.co/GsD7sgw/heavybeat.png",
 		"hoverColor": "rgb(97, 82, 255)",
 		"artist": "TheDuck Studios feat. Alexandra Stan",
 		"playlistBg": "rgb(132, 82, 163)",
@@ -330,11 +264,9 @@
 			{
 				"index": "1",
 				"songName": "Mr. Heavybeat",
-				"songimg":
-					"https://i.ibb.co/GsD7sgw/heavybeat.png",
+				"songimg": "https://i.ibb.co/GsD7sgw/heavybeat.png",
 				"songArtist": "TheDuck Studios feat. Alexandra Stan",
-				"link":
-					"https://www.mboxdrive.com/heavy_mr_saxobeat.mp3"
+				"link": "https://www.mboxdrive.com/heavy_mr_saxobeat.mp3"
 			}
 		]
 	},
@@ -540,8 +472,7 @@
 		"title": "Down Under",
 		"link": "downunder_robots",
 		"ex": "yes",
-		"imgUrl":
-			"https://i.ibb.co/4j70KRF/downunder.jpg",
+		"imgUrl": "https://i.ibb.co/4j70KRF/downunder.jpg",
 		"hoverColor": "rgb(232, 176, 139)",
 		"artist": "SharaX",
 		"playlistBg": "rgb(75, 44, 39)",
@@ -549,11 +480,9 @@
 			{
 				"index": "1",
 				"songName": "🅴 Down Under",
-				"songimg":
-					"https://i.ibb.co/4j70KRF/downunder.jpg",
+				"songimg": "https://i.ibb.co/4j70KRF/downunder.jpg",
 				"songArtist": "SharaX",
-				"link":
-					"https://www.mboxdrive.com/[TF2%20Remix]%20SharaX%20-%20Down%20Under%20(More%20Gun).mp3"
+				"link": "https://www.mboxdrive.com/[TF2%20Remix]%20SharaX%20-%20Down%20Under%20(More%20Gun).mp3"
 			}
 		]
 	},
@@ -563,8 +492,7 @@
 		"title": "Blinding Squad",
 		"link": "squad_remix_theduck",
 		"ex": "yes",
-		"imgUrl":
-			"https://i.ibb.co/RCvsgpj/squad.png",
+		"imgUrl": "https://i.ibb.co/RCvsgpj/squad.png",
 		"hoverColor": "rgb(179, 199, 206)",
 		"artist": "TheDuck Studios",
 		"playlistBg": "rgb(223, 204, 200)",
@@ -572,11 +500,9 @@
 			{
 				"index": "1",
 				"songName": "🅴 Blinding Squad",
-				"songimg":
-					"https://i.ibb.co/RCvsgpj/squad.png",
+				"songimg": "https://i.ibb.co/RCvsgpj/squad.png",
 				"songArtist": "TheDuck Studios",
-				"link":
-					"https://www.mboxdrive.com/squad_remix_theduck.mp3",
+				"link": "https://www.mboxdrive.com/squad_remix_theduck.mp3",
 				"songID": "2"
 			}
 		]
@@ -587,8 +513,7 @@
 		"title": "Dmuch Guy",
 		"link": "dmuch_guy",
 		"ex": "no",
-		"imgUrl":
-			"https://i.ibb.co/wLTXNyZ/dmuchboys.png",
+		"imgUrl": "https://i.ibb.co/wLTXNyZ/dmuchboys.png",
 		"hoverColor": "rgb(170, 0, 255)",
 		"artist": "Dmuch Boys",
 		"playlistBg": "rgb(191, 214, 13)",
@@ -596,11 +521,9 @@
 			{
 				"index": "1",
 				"songName": "Dmuch Guy",
-				"songimg":
-					"https://i.ibb.co/wLTXNyZ/dmuchboys.png",
+				"songimg": "https://i.ibb.co/wLTXNyZ/dmuchboys.png",
 				"songArtist": "Dmuch Boys",
-				"link":
-					"https://www.mboxdrive.com/duch_guy.mp3"
+				"link": "https://www.mboxdrive.com/duch_guy.mp3"
 			}
 		]
 	},
@@ -610,8 +533,7 @@
 		"title": "Jesienny Odpoczynek",
 		"link": "jesienny_odp",
 		"ex": "no",
-		"imgUrl":
-			"https://i.ibb.co/M96JJgP/playlist-jesien-chill.png",
+		"imgUrl": "https://i.ibb.co/M96JJgP/playlist-jesien-chill.png",
 		"promoted": "prawda",
 		"promodesc": "Tak po prostu",
 		"hoverColor": "rgb(255, 145, 0)",
@@ -642,11 +564,9 @@
 			{
 				"index": "4",
 				"songName": "Blinding Lights",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
 				"songArtist": "The Weeknd",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
+				"link": "https://drive.google.com/u/0/uc?id=1qSpmTFXpUtWoXSCN3lPNO4oWOMpaKkM7&export=download",
 				"lyrics": []
 			},
 			{
@@ -655,14 +575,13 @@
 				"songimg": "https://i.scdn.co/image/ab67616d00001e02e14f11f796cef9f9a82691a7",
 				"songArtist": "Avicii",
 				"link": "https://drive.google.com/u/0/uc?id=1w5jcy4tJp-11CU6VQd-I9DquCrULGc35&export=download"
-			}, {
+			},
+			{
 				"index": "6",
 				"songName": "Riptide",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
 				"songArtist": "Vance Joy",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1gYF7U60oYiwF4fP-UHbt2Mj2okjQ3aNH&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1gYF7U60oYiwF4fP-UHbt2Mj2okjQ3aNH&export=download"
 			},
 			{
 				"index": "7",
@@ -691,15 +610,13 @@
 				"songimg": "https://i.scdn.co/image/ab67616d00001e029e2f95ae77cf436017ada9cb",
 				"songArtist": "OneRepublic",
 				"link": "https://drive.google.com/u/0/uc?id=1VZPKdwftKwZFPmCqfgw54APatmD7o1cO&export=download"
-			}, 
+			},
 			{
 				"index": "11",
 				"songName": "High Hopes",
-				"songimg":
-					"https://i.scdn.co/image/ab67616d00001e02c5148520a59be191eea16989",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02c5148520a59be191eea16989",
 				"songArtist": "Panic! at the Disco",
-				"link":
-					"https://drive.google.com/u/0/uc?id=1564Z9BGhUevu_HxCOcGNXMk0rG-dWTGR&export=download"
+				"link": "https://drive.google.com/u/0/uc?id=1564Z9BGhUevu_HxCOcGNXMk0rG-dWTGR&export=download"
 			},
 			{
 				"index": "12",
@@ -714,6 +631,71 @@
 				"songimg": "https://i.scdn.co/image/ab67616d00001e02e8107e6d9214baa81bb79bba",
 				"songArtist": "Pharrell Williams",
 				"link": "https://drive.google.com/u/0/uc?id=1O3iDDkx-Dj-XwAcyYH0vJAc38khBofgO&export=download"
+			}
+		]
+	},
+	{
+		"index": "7",
+		"type": "playlista",
+		"title": "Świąteczne Hity",
+		"link": "christmas2021",
+		"imgUrl": "https://i.ibb.co/zVgXCB3/christmas-playlist.png",
+		"hoverColor": "rgb(22, 91, 51)",
+		"artist": "Glee Cast, Mariah Carey, Wham!, Ed Sheeran, Shakin' Stevens, Dean Martin i inni",
+		"playlistBg": "rgb(187, 37, 40)",
+		"playlistData": [
+
+			{
+				"index": "1",
+				"songName": "Jingle Bell Rock",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02de2f9f9eeafae84b2b867843",
+				"songArtist": "Glee Cast",
+				"link": "https://drive.google.com/u/0/uc?id=1onX3zD8LqYKj4Udk90uTmK9RsXz-6wZo&export=download"
+			},
+
+			{
+				"index": "2",
+				"songName": "All I Want for Christmas Is You (Make My Wish Come True Edition)",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e024246e3158421f5abb75abc4f",
+				"songArtist": "Mariah Carey",
+				"link": "https://drive.google.com/u/0/uc?id=13728Ea4PTzpodR8VJdawZdmOhm4Z14di&export=download"
+			},
+
+			{
+				"index": "3",
+				"songName": "Last Christmas",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e0280619aadf960d102f987c900",
+				"songArtist": "Wham!",
+				"link": "https://drive.google.com/u/0/uc?id=13smdaAUYMOMRfA9mEkbiY14phtwpeqTj&export=download"
+			},
+			{
+				"index": "4",
+				"songName": "Merry Christmas",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02b629026e4cf6254a90dfc414",
+				"songArtist": "Ed Sheeran, Elton John",
+				"link": "https://drive.google.com/u/0/uc?id=1af0vGgU4KV_lNqj9irMy5lTb-P5TlxzL&export=download"
+			},
+
+			{
+				"index": "5",
+				"songName": "Merry Christmas Everyone",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e02d962f3b4235f8c6429a829fb",
+				"songArtist": "Shakin Stevens",
+				"link": "https://drive.google.com/u/0/uc?id=1xdTUfwzNkA5WfB_djHKsYEWnaLAdYsf-&export=download"
+			},
+			{
+				"index": "6",
+				"songName": "Driving Home For Christmas",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e029c8d257b1af6187595e7c087",
+				"songArtist": "Chris Rea",
+				"link": "https://drive.google.com/u/0/uc?id=1U-S-G_1J2ewWw907vIhkfl_gkodVyTnI&export=download"
+			},
+			{
+				"index": "7",
+				"songName": "The Christmas Sweater",
+				"songimg": "https://i.scdn.co/image/ab67616d00001e020211d806261a42bf2bb7ebd7",
+				"songArtist": "Michael Bublé",
+				"link": "https://drive.google.com/u/0/uc?id=1ZaJGLpZ3weIUuWFAUmH4ZeyLAuxXsZ64&export=download"
 			}
 		]
 	}

@@ -46,3 +46,38 @@
         transform: scaleY(1);
     }
 }
+
+#mydiv {
+    position: absolute;
+    z-index: 9;
+    background-color: #f1f1f1;
+    border: 1px solid #d3d3d3;
+    text-align: center;
+    z-index: 999999999999;
+    top: var(--top);
+    left: var(--left);
+    width: 25vw;
+    height: 50vh;
+    overflow-y: scroll;    
+}
+
+.consoleitem h1 {
+    overflow-y: scroll;
+    font-size: 10px;
+}
+
+.consoleitem {
+    overflow-y: scroll;
+    text-align: start;
+    padding: 50px 10px;
+}
+
+#mydivheader {
+    padding: 10px;
+    cursor: move;
+    z-index: 10;
+    background-color: #2196F3;
+    color: #fff;
+    position: fixed;
+    width: 23vw;
+}
