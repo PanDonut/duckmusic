@@ -163,7 +163,7 @@ function PlaylistPage(props) {
 								</div>
 							}
 
-							<PlaylistDetails data={item} txt={timetext}/>
+							<PlaylistDetails data={item}/>
 							<div className={styles.GridIcons}>
 								{size.width > CONST.MOBILE_SIZE &&
 									<div className={styles.PlaylistIcons}>
