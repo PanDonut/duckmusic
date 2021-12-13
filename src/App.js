@@ -14,7 +14,6 @@ import MobileNavigation from './component/sidebar/mobile-navigation';
 import Footer from './component/footer/footer';
 import FooterTop from './component/footer/footertop';
 import Home from './pages/home';
-import Songs from './pages/songs';
 import Search from './pages/search';
 import Library from './pages/library';
 import PlaylistPage from './pages/playlist';
@@ -31,7 +30,6 @@ import LyricsCard from './component/lyrics/lyrics-main';
 import { keepTheme } from './theme';
 import Connection from './pages/connection';
 import Settings from './pages/settings';
-import ID from './pages/songid';
 import TV from './tv/index';
 import Profile from './pages/profile';
 import Logout from './pages/logout';
@@ -164,9 +162,6 @@ function App() {
             <Route exact path="/lyrics">
                 <Lyrics />
             </Route>
-            <Route exact path="/songs">
-                <Songs />
-            </Route>
             <Route exact path="/settings">
                 <Settings />
             </Route>
@@ -175,9 +170,6 @@ function App() {
             </Route>
             <Route exact path="/playlist/:path">
                 <PlaylistPage />
-            </Route>
-            <Route exact path="/songs/id/:path">
-                <ID />
             </Route>
             <Route exact path="/card/:path">
                 <Card />
