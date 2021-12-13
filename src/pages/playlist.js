@@ -51,7 +51,6 @@ function PlaylistPage(props) {
         }
 	}
 
-	const [timetext, setTimetext] = useState('Obliczanie')
 	const size = useWindowSize();
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
 	const [isthisplay, setIsthisPlay] = useState(false);
@@ -108,8 +107,7 @@ function PlaylistPage(props) {
 
 			{PLAYLIST.map((item) => {
 				if (item.link == path) {
-					item.playlistData.forEach(function (number) {				
-					});
+					
                     return (
                         <div key={item.title} onLoad={() => {
 							changeBg(item.playlistBg);
