@@ -287,10 +287,6 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
     const [songsPlayed, setNewSong] = useState(0);
         useEffect(() => {
         audioRef.current.addEventListener('ended', () => {
-            audioRef.current.currentTime = 0;
-            if (localStorage.getItem('duckads') == 'true') {
-                setNewSong(songsPlayed + 1);
-            }
             if (localStorage.getItem('loop') == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
                     if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
