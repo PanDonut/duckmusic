@@ -52,37 +52,6 @@ function PlaylistPage(props) {
 	}
 
 	const [timetext, setTimetext] = useState('Obliczanie')
-
-	function fetchDuration(path) {
-		return new Promise((resolve) => {
-			const audio = new Audio();
-			audio.src = path;
-			audio.addEventListener(
-				'loadedmetadata',
-				() => {
-					// To keep a promise maintainable, only do 1
-					// asynchronous activity for each promise you make
-					resolve(audio.duration)
-				},
-			);
-		})
-	}
-
-	function fetchTotalDuration(paths) {
-		// Create an array of promises and wait until all have completed
-		return Promise.all(paths.map((path) => fetchDuration(path)))
-			// Reduce the results back to a single value
-			.then((durations) => durations.reduce(
-				(acc, duration) => acc + duration,
-				0,
-			))
-			;
-	}
-
-
-
-
-	var arr = [];
 	const size = useWindowSize();
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
 	const [isthisplay, setIsthisPlay] = useState(false);
@@ -97,12 +66,7 @@ function PlaylistPage(props) {
 	})
 	
 
-		setTimeout(function () {
-			fetchTotalDuration(arr)
-				.then((totalDuration) => {
-					setTimetext(convertTime(totalDuration));
-				});
-		}, 2000);
+
 	oncontextmenu = function (e) {
 		e.preventDefault();
 	};
@@ -144,8 +108,7 @@ function PlaylistPage(props) {
 
 			{PLAYLIST.map((item) => {
 				if (item.link == path) {
-					item.playlistData.forEach(function (number) {
-						arr.push(number.link);
+					item.playlistData.forEach(function (number) {				
 					});
                     return (
                         <div key={item.title} onLoad={() => {
