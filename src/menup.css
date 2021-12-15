@@ -16,7 +16,7 @@
     flex-direction: column;
     animation: open 0.25s ease;
     opacity: var(--menuop);
-    z-index: 99999999999999999;
+    z-index: 999;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
 }
@@ -101,7 +101,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 9999999999999999999999999999;
+    z-index: 999;
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 25%,var(--color) 100%);
     display: flex;
@@ -122,7 +122,6 @@
     padding-bottom: 10px;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 .inputtrack {
     background: transparent;
     border: 0;
