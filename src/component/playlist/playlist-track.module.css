@@ -18,7 +18,7 @@
 .dots {
     background: transparent;
     border: none;
-    z-index: 999999;
+    z-index: 12;
     border-radius: 50%;
     transition: 0.01s ease-in-out;
     height: 16px;
