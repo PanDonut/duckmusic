@@ -3,9 +3,9 @@ import TitleM from '../component/text/title-m';
 import Topnav from '../component/topnav/topnav';
 import PlaylistCardM from '../component/cards/playlist-card-custom'
 import PLAYLIST from "../data/index.json";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import styles from "./library.module.css";
 import { aut } from '../dauth';
+import { getDatabase, ref, onValue, set } from "firebase/database";
 import Sidebar from '../component/sidebar/sidebar';
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
@@ -14,7 +14,7 @@ import lay from '../style/App.module.css';
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { connect } from 'react-redux';
-import { changeTrack } from '../actions';
+import { changeTrack, customTrack } from '../actions';
 import { Link } from "react-router-dom";
 import TextBoldL from "../component/text/text-bold-l";
 import TextRegularM from '../component/text/text-regular-m';
@@ -44,32 +44,32 @@ function Library(props) {
 }
 
 
-function PlaylistTab(props) {
+function PlaylistTab(props) {    
     let isMounted = true;
-    const [urlaxios, setAUrl] = useState('');
-    const [posts, setPosts] = useState(null);
+    const [urlaxios, setAUrl] = useState('');    
     const [loader, setLoadingState] = useState(true);
-    const storage = getStorage(aut);
-    if (urlaxios != '') {
-        getDownloadURL(ref(storage, 'users/' + localStorage.getItem('email').split('.').join("") + '/test.json'))
-            .then((url) => {
-                setAUrl(url);
-                console.log(urlaxios);
-            }).catch(err => {
-                setTimeout(function () { setLoadingState(false); }, 500);
-            })
-    }
     const [datamap, setDMap] = useState(``);
-        axios.get(`/lyrics/test.json`).then(res => {
+    const [posts, setPosts] = useState(null);
+    const db = getDatabase(aut);
+    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    onValue(nameRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null) {
             if (isMounted) {
-                if (posts != res.data) {
-                    setPosts(res.data);
-                    setTimeout(function () { setLoadingState(false); }, 1500);
+                if (posts == null) {
+                    isMounted = false;
+                    setPosts(JSON.parse(data));
+                    setLoadingState(false);
                 }
             }
-        })
-    const [isthisplay, setIsthisPlay] = useState(false)
-    
+        } else {
+            if (loader == true) {
+                setLoadingState(false);
+            }
+        }
+    });
+    const [isthisplay, setIsthisPlay] = useState(false)   
+
     return (
         <div>
             {loader == true ?
@@ -83,7 +83,6 @@ function PlaylistTab(props) {
                 {
                     posts != null ?
                         posts.map((item) => {
-                            console.log(item.playlistData[0].index)
                             isMounted = false
                             return (
                                 <PlaylistCardM
@@ -146,7 +145,8 @@ function AlbumTab() {
 const mapStateToProps = (state) => {
     return {
         trackData: state.trackData,
-        isPlaying: state.isPlaying
+        isPlaying: state.isPlaying,
+        custplay: state.custplay
     };
 };
 

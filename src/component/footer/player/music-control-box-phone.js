@@ -11,7 +11,6 @@ import Connection from '../../../pages/connection';
 
 function MusicControlBox(props, {audioRef}) {
 
-    console.log("re-render");
 
     const [looping, setLooping] = React.useState(localStorage.getItem('loop'));
 

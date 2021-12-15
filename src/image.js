@@ -4,7 +4,6 @@ export function Store(path, file) {
     const storage = getStorage();
     const storageRef = ref(storage, 'users/' + path + '/profile.png');
     uploadBytes(storageRef, file).then((snapshot) => {
-        console.log('Uploaded a blob or file!');
         GetImg(path);
     });
 

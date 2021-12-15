@@ -4,10 +4,12 @@ import { BrowserRouter as Router,
     Route,
   Link
 } from "react-router-dom";
+import { connect } from 'react-redux';
+import { firebaseg } from './actions/index';
 import Lyrics from './component/Lyrics';
 import { initializeApp } from "firebase/app";
 import { getAnalytics, initializeAnalytics, logEvent } from "firebase/analytics";
-import { getDatabase } from "firebase/database";
+import { getDatabase, ref, onValue, set } from "firebase/database";
 import useWindowSize from './hooks/useWindowSize';
 import Sidebar from './component/sidebar/sidebar';
 import MobileNavigation from './component/sidebar/mobile-navigation';
@@ -17,6 +19,8 @@ import Home from './pages/home';
 import Search from './pages/search';
 import Library from './pages/library';
 import PlaylistPage from './pages/playlist';
+import PlaylistPageC from './pages/playlistc';
+import SongPage from './pages/songlist';
 import Embed from './pages/embed';
 import Info from './pages/info';
 import EmbedSmall from './pages/embed-s';
@@ -30,19 +34,20 @@ import LyricsCard from './component/lyrics/lyrics-main';
 import { keepTheme } from './theme';
 import Connection from './pages/connection';
 import Settings from './pages/settings';
-import TV from './tv/index';
 import Profile from './pages/profile';
 import Logout from './pages/logout';
-
+import { aut } from './dauth';
 import Login from './login';
 import './security.js';
 import './menu.css'
 import HandleAuth from './authorization.js';
 
-function App() {
+let indexn = null;
+
+
+function App(props) {
 
     const footerRef = useRef(null);
-
     if (localStorage.getItem('cindex') == null) {
         localStorage.setItem('cindex', [0, 0]);
     }
@@ -67,6 +72,8 @@ function App() {
     if (localStorage.getItem('cimg') == null) {
         localStorage.setItem('cimg', `https://i.ibb.co/jzp9qcm/trans.png`);
     }
+
+    const db = getDatabase(aut);
 
 
     const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
@@ -144,6 +151,9 @@ function App() {
             <Route exact path="/">
                 <Home />
             </Route>
+            <Route exact path="/duckmusic::path">
+                <SongPage />
+            </Route>
             <Route exact path="/profile">
                 <Profile />
             </Route>
@@ -152,6 +162,9 @@ function App() {
             </Route>
             <Route exact path="/logout">
                 <Logout />
+            </Route>
+            <Route exact path="/myplaylist/:path">
+                <PlaylistPageC />
             </Route>
             <Route exact path="/auth&email=:path">
                 <HandleAuth />
@@ -224,4 +237,13 @@ function App() {
   );
 }
 
-export default App;
+
+const mapStateToProps = (state) => {
+    return {
+        custplay: state.custplay,
+    };
+};
+
+
+
+export default connect(mapStateToProps, { firebaseg })(App);

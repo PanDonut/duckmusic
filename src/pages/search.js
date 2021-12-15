@@ -1,8 +1,9 @@
-import Topnav from '../component/topnav/topnav';
+﻿import Topnav from '../component/topnav/topnav';
 import TitleM from '../component/text/title-m'
-import PlaylistCardS from '../component/cards/playlist-card-s';
+import PlaylistCardS from '../component/cards/playlist-card-m';
+import PlaylistCardM from '../component/cards/playlist-card-music';
 import PLAYLIST from '../data/index.json';
-
+import SONGLIST from '../data/songs.json';
 import styles from "./search.module.css";
 import * as Icons from '../component/icons';
 import Sidebar from '../component/sidebar/sidebar';
@@ -16,9 +17,9 @@ import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import lay from '../style/App.module.css';
-
+import { getDatabase, ref, onValue, set } from "firebase/database";
 import {decode} from 'he';
-
+import { aut } from '../dauth.js';
 
 import FadeIn from 'react-fade-in';
 
@@ -27,8 +28,36 @@ import SearchButton from '../component/buttons/search-button';
 
 function Search() {
 
-    console.log("re-render");
 
+	const db = getDatabase(aut);
+
+	const pl = [
+		{
+			"index": "24876e",
+			"type": "playlista",
+			"title": "Duck Mix",
+			"link": "1",
+			"suggestion": "true",
+			"promoted": "nieprawda",
+			"promodesc": "Posłuchaj teraz!",
+			"ex": "no",
+			"imgUrl": "https://i.ibb.co/gTcL5Hx/thenight.png",
+			"hoverColor": "rgb(161, 0, 0)",
+			"artist": "Carly Rae Jepsen, Taylor Swift, Vance Joy, Dawid Podsiadło, Toto, Bruno Mars, Ed Helms, Camila Cabello, Shawn Mendes, Rick Astley, Pitbull, Rachel Platten, OneRepublic, Fools Garden i inni",
+			"playlistBg": "rgb(161, 0, 0)",
+			"playlistData": [
+				{
+					"index": "1",
+					"songindex": 10
+
+				}
+			]
+		}
+	];
+
+        set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
+            playlist: JSON.stringify(pl)
+        });
 
 
     const size = useWindowSize();
@@ -48,8 +77,17 @@ function Search() {
                 // our fetch codes
             }, []);
 
-    console.log(input);
 
+
+    const handleScroll = (e) => {
+        if (Math.round(e.target.scrollTop) > 110) {
+            document.documentElement.style.setProperty('--topsearch', '0');
+            document.documentElement.style.setProperty('--transearch', 'translateX(15%)');
+        } else {
+            document.documentElement.style.setProperty('--topsearch', '100px');
+            document.documentElement.style.setProperty('--transearch', 'translateX(0%)');
+        }
+    }
  
     return (
         <div className={lay.layout}>
@@ -57,16 +95,16 @@ function Search() {
                 ? <Sidebar />
                 : <MobileNavigation />
             }
-            <div className={styles.SearchPage}>
+            <div className={styles.SearchPage} onScroll={handleScroll}>
                 <Topnav normal={true}/>
                 
-
                     <div className={styles.SeachBox}>
-                    <input className={styles.SeachInpt} id="txts" placeholder={decode("Wyszukaj tytu&#322;. Jest wra&#380;liwy na WIELKO&#346;&#262; LITER")} maxLength="80" value={input} onInput={e => setInput(e.target.value)}></input>
-                        </div>
-                        
+                    <input className={styles.SeachInpt} autocomplete="off" id="txts" placeholder="Wyszukaj tytuł lub wykonawcę" maxLength="80" value={input} onInput={e => setInput(e.target.value)}></input>
+                </div>
+                <div className={styles.new} onScroll={handleScroll}>
+                <h1>Playlisty</h1>
                 <FadeIn visible="true" delay="50" className={styles.SearchCardGrid}>
-                    {PLAYLIST.filter(item => item.title.toLowerCase().includes(input.toLowerCase()) && item.ex == "no" || item.title.toLowerCase().includes(input.toLowerCase()) && item.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((list) => {
+                    {PLAYLIST.filter(item => item.title.toLowerCase().includes(input.toLowerCase()) || item.artist.toLowerCase().includes(input.toLowerCase())).map((list) => {
                         var title = list.title;
                         return (
                             <PlaylistCardS
@@ -76,7 +114,18 @@ function Search() {
                         );
                     })}
                 </FadeIn>
-                    
+                <h1>Utwory</h1>
+                <FadeIn visible="true" delay="50" className={styles.SearchCardGrid}>
+                    {SONGLIST.filter(item => item.songName.toLowerCase().includes(input.toLowerCase()) || item.songArtist.toLowerCase().includes(input.toLowerCase())).map((list) => {
+                        return (
+                            <PlaylistCardM
+                                key={list.title}
+                                data={list}
+                            />
+                        );
+                    })}
+                </FadeIn>
+                    </div>
         </div>
         </div>
     );

@@ -14,6 +14,32 @@
     column-gap: 16px;
     height: 56px;
 }
+
+.dots {
+    background: transparent;
+    border: none;
+    z-index: 999999;
+    border-radius: 50%;
+    transition: 0.01s ease-in-out;
+    height: 16px;
+    width: 16px
+}
+
+    .dots:active svg {
+        -webkit-box-shadow: 0px 0px 0px 15px rgba(255,255,255,0.3);
+        box-shadow: 0px 0px 0px 15px rgba(255,255,255,0.3);
+    }
+
+    .dots svg:after {
+        transition: 0.15s ease-in-out;
+    }
+
+    .dots svg {
+        fill: var(--text-white);
+        border-radius: 50%;
+        transition: 0.10s ease-in-out;
+    }
+
 .playBtn{
     position: absolute;
     opacity: 0;

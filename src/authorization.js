@@ -18,7 +18,6 @@ const history = useHistory();
 
 	const analytics = getAnalytics(aut);
 	const db = getDatabase(aut);
-	console.log(window.location.href.split('=')[1].split('.').join(""));
 
 	const nameRef = ref(db, 'users/' + window.location.href.split('=')[1].split('.').join("") + '/name');
 	onValue(nameRef, (snapshot) => {
@@ -27,7 +26,6 @@ const history = useHistory();
 		if (uname != data) {
 			setUName(data);
 		}
-		console.log(data);
 	});
 
 	localStorage.setItem('email', window.location.href.split('=')[1]);

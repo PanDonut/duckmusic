@@ -11,7 +11,7 @@ import { aut } from '../../dauth.js';
 import SONGS from '../../data/songs.json';
 import styles from "./playlist-track.module.css";
 import { RgbStringColorPicker } from "react-colorful";
-import { CreatePlaylist, AddToPlaylist } from '../../playlistcreator'
+import { CreatePlaylist, RemoveItem } from '../../playlistcreator'
 
 function PlaylistTrack(props) {
     const [thisSong, setthisSong] = useState(false);
@@ -35,6 +35,8 @@ function PlaylistTrack(props) {
             setthisSong(false)
         }
     })
+
+    console.log(props.data.ind);
 
     const [PLAYLIST, setPLAYLIST] = useState(null);
     const db = getDatabase(aut);
@@ -103,14 +105,6 @@ function PlaylistTrack(props) {
                         <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 
 	455,242.5 "/>
                     </svg>Nowa playlista</button>
-                    {PLAYLIST != null ?
-                        PLAYLIST.map((item) => {
-                                return (
-                                    <button className="menuitem" onClick={() => AddToPlaylist(SONGS.indexOf(props.data.song), PLAYLIST.indexOf(item), item)}>{item.title}</button>
-                            );
-                        }
-                        ) : ''
-                    }
                     <button className="menuitem" onClick={() => { setShow(false) }}><svg className="rot" version="1.1" id="Layer_1"
                         viewBox="0 0 455 455" width="1em"
                         height="1em">

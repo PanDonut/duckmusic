@@ -51,7 +51,6 @@ function Hide() {
 
 function Home({ isExpanded = false }) {
 
-    console.log("re-render");
 
     const gitInfo = GitInfo();
     const history = useHistory();
@@ -93,12 +92,6 @@ function Home({ isExpanded = false }) {
         document.documentElement.style.setProperty('--disp1', 'none');
         document.documentElement.style.setProperty('--rot', 'rotate(0deg)');
     };
-    console.log(gitInfo.branch);
-    console.log(gitInfo.tags);
-    console.log(gitInfo.commit.date);
-    console.log(gitInfo.commit.hash);
-    console.log(gitInfo.commit.message);
-    console.log(gitInfo.commit.shortHash);
     return (
         <div className={lay.layout} onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()}>
             {size.width > CONST.MOBILE_SIZE

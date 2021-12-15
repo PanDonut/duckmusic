@@ -13,7 +13,6 @@ import FadeIn from 'react-fade-in';
 
 function Settings() {
 
-    console.log("re-render");
 
     const size = useWindowSize();
     const [ads, setAds] = useState(localStorage.getItem('duckads'));
@@ -117,10 +116,6 @@ function Settings() {
         }
     }
 
-    console.log(swipe);
-    console.log(swipefull);
-    console.log("LOKALOWE" + localStorage.getItem('swipenext'));
-    console.log("LOKALOWEME" + localStorage.getItem('swipenext'));
 
 
     return (

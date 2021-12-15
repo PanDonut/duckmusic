@@ -11,13 +11,12 @@ import { useHistory } from "react-router-dom";
 import PLAYLIST from '../../data/index.json';
 
 
-function Topnav({ search = false, tabButtons = false, normal = false, playlist = false, back = false }, props) {
+function Topnav({ search = false, tabButtons = false, normal = false, playlist = false, back = false, pl }, props) {
 	const size = useWindowSize();
 	let history = useHistory();
 	const { path } = useParams();
 
 	function open() {
-		console.log("TWOJA MAMA");
 		document.documentElement.style.setProperty('--dispopen', 'block');
     }
 

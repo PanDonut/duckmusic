@@ -13,7 +13,6 @@ import FadeIn from 'react-fade-in';
 
 function Settings() {
 
-    console.log("re-render");
 
     const size = useWindowSize();
 

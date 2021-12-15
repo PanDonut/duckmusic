@@ -1,17 +1,18 @@
 ﻿import { useParams } from 'react-router';
 import { connect } from 'react-redux';
-import { changeTrack } from '../actions';
+import { changeTrack, customTrack } from '../actions';
 import react from 'react';
+import { aut } from '../dauth';
+import { getDatabase, ref, onValue, set } from "firebase/database";
 import Topnav from '../component/topnav/topnav';
 import TextRegularM from "../component/text/text-regular-m";
 import PlayButton from '../component/buttons/play-button';
-import LinkButton from '../component/buttons/link-button';
+import LinkButton from '../component/buttons/link-button1';
 import EmbedButton from '../component/buttons/embed-button';
 import IconButton from '../component/buttons/icon-button';
-import PlaylistDetails from '../component/playlist/playlist-details';
-import PlaylistTrack from '../component/playlist/playlist-track';
+import PlaylistDetails from '../component/playlist/playlist-details-c';
+import PlaylistTrack from '../component/playlist/playlist-track-custom';
 import * as Icons from '../component/icons';
-import PLAYLIST from "../data/index.json";
 import { NavLink, useLocation, Link } from "react-router-dom";
 import { decode } from 'he';
 import SONGLIST from '../data/songs.json'
@@ -40,7 +41,15 @@ import FadeIn from 'react-fade-in';
 
 function PlaylistPage(props) {
 
-	
+	const [PLAYLIST, setPLAYLIST] = useState(null);
+	const db = getDatabase(aut);
+	const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+	onValue(nameRef, (snapshot) => {
+		const data = snapshot.val();
+			if (PLAYLIST == null) {
+				setPLAYLIST(JSON.parse(data));
+			}
+	});
 	
 
 	const handleScroll = (e) => {
@@ -102,27 +111,28 @@ function PlaylistPage(props) {
 				<div className={styles.bbg}></div>
 			<div className={styles.Bg}></div>
 				{size.width < CONST.MOBILE_SIZE ?
-					<Topnav playlist={true} pl={PLAYLIST}/>
+					<Topnav playlist={true} pl={PLAYLIST} />
 					: <Topnav normal={true}/>}
 
-			{PLAYLIST.map((item) => {
-				if (item.link == path) {
-					
-                    return (
-                        <div key={item.title} onLoad={() => {
-							changeBg(item.playlistBg);
-							setPlaylistIndex(PLAYLIST.indexOf(item));														
-						}}>
-							{size.width < CONST.MOBILE_SIZE &&
-								<div className={styles.overlay}>
-								<PlaylistDetails data={item} />								
-									<div className={styles.ovlist}>
-										<Link to="/settings" >
-											<button className={styles.btn}>
+				{PLAYLIST != null ?
+					PLAYLIST.map((item) => {
+					if (item.link == path) {
 
-												<svg width="50px" height="50px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-													viewBox="0 0 489.8 489.8">
-													<path d="M343.45,71.8c-14.4-8.2-29.7-14.6-45.7-19V36.5c0-20.1-16.4-36.5-36.5-36.5h-32.5c-20.1,0-36.5,16.4-36.5,36.5v16.3
+							return (
+								<div key={item.title} onLoad={() => {
+									changeBg(item.playlistBg);
+									setPlaylistIndex(PLAYLIST.indexOf(item));
+								}}>
+									{size.width < CONST.MOBILE_SIZE &&
+										<div className={styles.overlay}>
+											<PlaylistDetails data={item} />
+											<div className={styles.ovlist}>
+												<Link to="/settings" >
+													<button className={styles.btn}>
+
+														<svg width="50px" height="50px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+															viewBox="0 0 489.8 489.8">
+															<path d="M343.45,71.8c-14.4-8.2-29.7-14.6-45.7-19V36.5c0-20.1-16.4-36.5-36.5-36.5h-32.5c-20.1,0-36.5,16.4-36.5,36.5v16.3
 				c-16,4.4-31.3,10.7-45.7,19l-11.6-11.5c-6.9-6.9-16.1-10.7-25.8-10.7s-18.9,3.8-25.8,10.7l-23,23c-6.9,6.9-10.7,16.1-10.7,25.8
 				s3.8,18.9,10.7,25.8l11.5,11.5c-8.2,14.4-14.6,29.7-19,45.7h-16.3c-20.1,0-36.5,16.4-36.5,36.5v32.5c0,20.1,16.4,36.5,36.5,36.5
 				h16.3c4.4,16,10.7,31.3,19,45.7l-11.5,11.6c-14.2,14.2-14.2,37.4,0,51.6l23,23c6.9,6.9,16.1,10.7,25.8,10.7s18.9-3.8,25.8-10.7
@@ -141,104 +151,101 @@ function PlaylistPage(props) {
 				c-0.4-0.4-0.6-0.9-0.6-1.6c0-0.6,0.2-1.1,0.6-1.5l23-23c0.9-0.9,2.2-0.9,3.1,0l21.1,21.1c5.8,5.8,14.9,6.7,21.7,2.1
 				c18.1-12.1,38-20.3,59.2-24.5c8-1.6,13.8-8.6,13.8-16.8V36.5c0-1.2,1-2.2,2.2-2.2h32.5c1.2,0,2.2,1,2.2,2.2v29.9
 				c0,8.2,5.8,15.2,13.8,16.8c21.2,4.2,41.2,12.5,59.2,24.5c6.8,4.5,15.9,3.7,21.7-2.1L379.25,84.5z"/>
-													<path d="M244.95,145.3c-54.9,0-99.6,44.7-99.6,99.6s44.7,99.6,99.6,99.6s99.6-44.7,99.6-99.6S299.85,145.3,244.95,145.3z
+															<path d="M244.95,145.3c-54.9,0-99.6,44.7-99.6,99.6s44.7,99.6,99.6,99.6s99.6-44.7,99.6-99.6S299.85,145.3,244.95,145.3z
 				 M244.95,310.2c-36,0-65.3-29.3-65.3-65.3s29.3-65.3,65.3-65.3s65.3,29.3,65.3,65.3S280.95,310.2,244.95,310.2z"/>
-												</svg>
-												<h2>Ustawienia</h2>
-											</button>
-										</Link>
-										<button className={styles.btn} onClick={() => { copy(link11); { notify(); } }}>
+														</svg>
+														<h2>Ustawienia</h2>
+													</button>
+												</Link>
+											<button className={styles.btn} onClick={() => {
+												var json_string = JSON.stringify(PLAYLIST, undefined, 2);
+												var link = document.createElement('a');
+												link.download = 'duckmusic-mobilegen.json';
+												var blob = new Blob([json_string], { type: 'text/plain' });
+												link.href = window.URL.createObjectURL(blob);
+												link.click();
+											}
+											}>
 
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												height="50px"
-												width="50px"
-												viewBox="0 -22 612 511"
-												className="embed_svg__Svg-ulyrgf-0 embed_svg__hJgLcF">
-												<path d="m453.332031 85.332031c0 38.292969-31.039062 69.335938-69.332031 69.335938s-69.332031-31.042969-69.332031-69.335938c0-38.289062 31.039062-69.332031 69.332031-69.332031s69.332031 31.042969 69.332031 69.332031zm0 0" /><path d="m384 170.667969c-47.0625 0-85.332031-38.273438-85.332031-85.335938 0-47.058593 38.269531-85.332031 85.332031-85.332031s85.332031 38.273438 85.332031 85.332031c0 47.0625-38.269531 85.335938-85.332031 85.335938zm0-138.667969c-29.417969 0-53.332031 23.9375-53.332031 53.332031 0 29.398438 23.914062 53.335938 53.332031 53.335938s53.332031-23.9375 53.332031-53.335938c0-29.394531-23.914062-53.332031-53.332031-53.332031zm0 0" /><path d="m453.332031 426.667969c0 38.289062-31.039062 69.332031-69.332031 69.332031s-69.332031-31.042969-69.332031-69.332031c0-38.292969 31.039062-69.335938 69.332031-69.335938s69.332031 31.042969 69.332031 69.335938zm0 0" /><path d="m384 512c-47.0625 0-85.332031-38.273438-85.332031-85.332031 0-47.0625 38.269531-85.335938 85.332031-85.335938s85.332031 38.273438 85.332031 85.335938c0 47.058593-38.269531 85.332031-85.332031 85.332031zm0-138.667969c-29.417969 0-53.332031 23.9375-53.332031 53.335938 0 29.394531 23.914062 53.332031 53.332031 53.332031s53.332031-23.9375 53.332031-53.332031c0-29.398438-23.914062-53.335938-53.332031-53.335938zm0 0" /><path d="m154.667969 256c0 38.292969-31.042969 69.332031-69.335938 69.332031-38.289062 0-69.332031-31.039062-69.332031-69.332031s31.042969-69.332031 69.332031-69.332031c38.292969 0 69.335938 31.039062 69.335938 69.332031zm0 0" /><path d="m85.332031 341.332031c-47.058593 0-85.332031-38.269531-85.332031-85.332031s38.273438-85.332031 85.332031-85.332031c47.0625 0 85.335938 38.269531 85.335938 85.332031s-38.273438 85.332031-85.335938 85.332031zm0-138.664062c-29.417969 0-53.332031 23.933593-53.332031 53.332031s23.914062 53.332031 53.332031 53.332031c29.421875 0 53.335938-23.933593 53.335938-53.332031s-23.914063-53.332031-53.335938-53.332031zm0 0" /><path d="m135.703125 245.761719c-7.425781 0-14.636719-3.863281-18.5625-10.773438-5.824219-10.21875-2.238281-23.253906 7.980469-29.101562l197.949218-112.851563c10.21875-5.867187 23.253907-2.28125 29.101563 7.976563 5.824219 10.21875 2.238281 23.253906-7.980469 29.101562l-197.953125 112.851563c-3.328125 1.898437-6.953125 2.796875-10.535156 2.796875zm0 0" /><path d="m333.632812 421.761719c-3.585937 0-7.210937-.898438-10.539062-2.796875l-197.953125-112.851563c-10.21875-5.824219-13.800781-18.859375-7.976563-29.101562 5.800782-10.238281 18.855469-13.84375 29.097657-7.976563l197.953125 112.851563c10.21875 5.824219 13.800781 18.859375 7.976562 29.101562-3.945312 6.910157-11.15625 10.773438-18.558594 10.773438zm0 0" />
-											</svg>
-											<h2>Udostępnij</h2>
-										</button>
-									</div>
-								</div>
-							}
-
-							<PlaylistDetails data={item}/>
-							<div className={styles.GridIcons}>
-								{size.width > CONST.MOBILE_SIZE &&
-									<div className={styles.PlaylistIcons}>
-
-										<button
-											onClick={() => props.changeTrack([PLAYLIST.indexOf(item), 0])}
-										>
-											<PlayButton isthisplay={isthisplay} />
-										</button>
-
-
-										
-									</div>
-								}
-								{size.width < CONST.MOBILE_SIZE &&
-									<button onClick={() => props.changeTrack([PLAYLIST.indexOf(item), 0])}>
-										Słuchaj
-									</button>
-								}
-								{size.width > CONST.MOBILE_SIZE &&
-									<div className={styles.PlaylistIcons1}>
-
-										<button
-											onClick={() => { copy(link11); { notify(); } }}
-										>
-											<LinkButton />
-										</button>
-										<button
-											onClick={() => { copy(embed11); { notifyembed(); { setOpen(false); } } }}
-										>
-											<EmbedButton />
-										</button>
-										<Modal open={open} onClose={() => setOpen(false)}>
-											<div className={styles.pop}>
-												<button onClick={() => { copy(embed11); { notifyembed(); { setOpen(false); } } }}>
-													{decode("Zwyk&#322;y embed")}
-												</button>
-												<button onClick={() => { copy(embed111); { notifyembed(); { setOpen(false); } } }}>
-													{decode("Ma&#322;y embed")}
+													
+													<LinkButton/>
+													<h2>Pobierz</h2>
 												</button>
 											</div>
-										</Modal>
+										</div>
+									}
 
+									<PlaylistDetails data={item} />
+									<div className={styles.GridIcons}>
+										{size.width > CONST.MOBILE_SIZE &&
+											<div className={styles.PlaylistIcons}>
+
+												<button
+													onClick={() => props.customTrack([PLAYLIST.indexOf(item), 0])}
+												>
+													<PlayButton isthisplay={isthisplay} />
+												</button>
+
+
+
+											</div>
+										}
+										{size.width < CONST.MOBILE_SIZE &&
+											<button onClick={() => props.customTrack([PLAYLIST.indexOf(item), 0])}>
+												Słuchaj
+											</button>
+										}
+										{size.width > CONST.MOBILE_SIZE &&
+											<div className={styles.PlaylistIcons1}>
+
+												<button
+												onClick={() => {
+													var json_string = JSON.stringify(PLAYLIST, undefined, 2);
+														var link = document.createElement('a');
+														link.download = 'duckm-usergeneratedplaylist.json';
+														var blob = new Blob([json_string], { type: 'text/plain' });
+														link.href = window.URL.createObjectURL(blob);
+														link.click();
+													}
+												}
+												>
+													<LinkButton />
+												</button>
+											</div>
+										}
 									</div>
-								}
-							</div>
 
-							<div className={styles.ListHead}>
-								<TextRegularM></TextRegularM>
-								<TextRegularM>UTWORY</TextRegularM>
-							</div>
+									<div className={styles.ListHead}>
+										<TextRegularM></TextRegularM>
+										<TextRegularM>UTWORY</TextRegularM>
+									</div>
 
-							<FadeIn visible="true" delay="50" className={styles.PlaylistSongs}>
-								{item.playlistData.map((song) => {
-									return (
-										<button
-											key={song.songindex}
-											onClick={() => props.changeTrack([PLAYLIST.indexOf(item), item.playlistData.indexOf(song)])}
-											className={styles.SongBtn}
-										>
+									<FadeIn visible="true" delay="50" className={styles.PlaylistSongs}>
+										{item.playlistData.map((song) => {
+											return (
+												<button
+													key={song.songindex}
+													onClick={() => props.customTrack([PLAYLIST.indexOf(item), item.playlistData.indexOf(song)])}
+													className={styles.SongBtn}
+												>
 													<PlaylistTrack
 														data={{
 															listType: item.type,
 															sin: song.index,
-															song: SONGLIST[song.songindex]
+															song: SONGLIST[song.songindex],
+															sing: item,
+															ind: song
 														}}
 													/>
-										</button>
-									);
-								})}
-							</FadeIn>
-                        </div>
-                    );
-                }
-			})}
+												</button>
+											);
+										})}
+									</FadeIn>
+								</div>
+							);
+						}
+					} 
+					) : ''}
 			</div>
 		</div>
 	);
@@ -252,4 +259,4 @@ const mapStateToProps = (state) => {
 	};
 };
   
-export default connect(mapStateToProps, { changeTrack })(PlaylistPage);
+export default connect(mapStateToProps, { changeTrack, customTrack })(PlaylistPage);

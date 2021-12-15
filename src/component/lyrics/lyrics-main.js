@@ -50,7 +50,6 @@ return (
 }
 
 function TxtBox({ trackData }, props) {
-    console.log(trackData.id);
 
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
@@ -64,8 +63,6 @@ function TxtBox({ trackData }, props) {
         <div>
             <h6 id="text-card">{trackData.trackName}</h6>
             {LYRICSNEW.filter((item) => item.songID == trackData.id).map((list) => {
-                console.log(list.lyrics);
-                console.log("CuTe"  + currentTime);
 
                             return (
                                 <div>
@@ -85,7 +82,6 @@ function TxtBox({ trackData }, props) {
 }
 
 const mapStateToProps = (state) => {
-    console.log("Czaas " + state.currentTime);
     return {
         trackData: state.trackData
     };

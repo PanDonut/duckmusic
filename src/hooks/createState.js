@@ -6,8 +6,6 @@ const createState = (initialState) => {
 
     Object.keys(initialState).forEach(key => {
         const [ item, setItem ] = useState(initialState[key]);
-        // console.log(initialState[key]);
-        // console.log(item)
 
         state[key] = item;
         setState[key] = setItem;

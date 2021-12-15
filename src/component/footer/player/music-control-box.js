@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { changeTrack } from '../../../actions';
+import { changeTrack, customTrack } from '../../../actions';
 import * as Icons from '../../icons';
 import IconButton from '../../buttons/icon-button';
 import PlayButton from '../../buttons/play-button';
@@ -16,46 +16,84 @@ import 'react-toastify/dist/ReactToastify.css';
 import { decode } from 'he';
 
 function MusicControlBox(props, {audior}) {
-    console.log("re-render");
 
     const [looping, setLooping] = React.useState(localStorage.getItem('loop'));
 
     const [shuffling, setShuffling] = React.useState(localStorage.getItem('shuffle'));
 
-   
-
+    const PLAYLISTC = JSON.parse(localStorage.getItem('dmplaylist'));
     function decreaseIndex() {
-        if (localStorage.getItem('shuffle') == 'false') {
-            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            } else {
-                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+        if (props.trackData.canSkip == 'true') {
+            if (props.trackData.isCustom == 'false') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
+            } else if (props.trackData.isCustom == 'true') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.customTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.customTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
             }
-        } else if (localStorage.getItem('shuffle') == 'true') {
-            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            } else {
-                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
-            }
-        } else {
-            localStorage.setItem('shuffle', 'false')
         }
     }
     function increaseIndex() {
-        if (localStorage.getItem('shuffle') == 'false') {
-            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            } else {
-                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+        if (props.trackData.canSkip == 'true') {
+            if (props.trackData.isCustom == 'false') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
+            } else if (props.trackData.isCustom == 'true') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.customTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.customTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.customTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) + 0)])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
             }
-        } else if (localStorage.getItem('shuffle') == 'true') {
-            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            } else {
-                props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
-            }
-        } else {
-            localStorage.setItem('shuffle', 'false')
         }
     }
 
@@ -151,4 +189,4 @@ const mapStateToProps = (state) => {
     };
 };
   
-export default connect(mapStateToProps, { changeTrack })(MusicControlBox);
+export default connect(mapStateToProps, { changeTrack, customTrack })(MusicControlBox);

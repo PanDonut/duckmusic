@@ -30,12 +30,6 @@ function PlaylistCardS(props){
                     </div>
                 </div>
             </Link>
-            <div
-                onClick={() => props.changeTrack([parseInt(props.data.index), 0])} 
-                className={`${styles.IconBox} ${isthisplay&&props.isPlaying ? styles.ActiveIconBox : ''}`}
-            >
-                <PlayButton isthisplay={isthisplay}/>
-            </div>
         </div>
     );
 }

@@ -1,5 +1,21 @@
 import PLAYLIST from "../data/index.json";
-import { PLAYPAUSE, CHANGETRACK } from "../actions/index";
+import SONGLIST from "../data/songs.json";
+import { PLAYPAUSE, CHANGETRACK, CUSTOMTRACK, SONGTRACK, FIREBASEG } from "../actions/index";
+import axios from 'axios';
+import { aut } from '../dauth';
+import { getDatabase, ref, onValue, set } from "firebase/database";
+import { useState } from 'react';
+
+let CPLAYLIST = null;
+const db = getDatabase(aut);
+const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+onValue(nameRef, (snapshot) => {
+    const data = snapshot.val();
+        if (CPLAYLIST == null) {
+            CPLAYLIST = JSON.parse(data);
+        }
+});
+
 
 const INITIAL_STATE = {
     trackData: {
@@ -9,13 +25,16 @@ const INITIAL_STATE = {
         trackName: `Brak utworu`,
         trackImg: `https://i.ibb.co/jzp9qcm/trans.png`,
         trackArtist: ` `,
-        lyrics: []
+        lyrics: [],
+        canSkip: true,
+        isCustom: false
     },
     lyrics: [],
     currentLine: 0,
     loading: true,
     error: false,
-    myisPlaying: false
+    myisPlaying: false,
+    custplay: []
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -32,25 +51,93 @@ export const reducer = (state = INITIAL_STATE, action) => {
           ...state.trackData,
           trackKey: action.payload,
           track: `${
-            PLAYLIST[action.payload[0]].playlistData[action.payload[1]].link
+              SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].link
           }`,
           trackName: `${
-            PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songName
+              SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songName
           }`,
           trackImg: `${
-            PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songimg
+              SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songimg
           }`,
           trackArtist: `${
-            PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songArtist
+              SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songArtist
           }`,
           id: `${
-            PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songID
+              SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songID
           }`,
           lyrics: `${
-            PLAYLIST[action.payload[0]].playlistData[action.payload[1]].lyrics
+              SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].lyrics
+          }`,
+          canSkip: `${
+              true
+          }`,
+          isCustom: `${
+             false
           }`
         }
       };
+      case CUSTOMTRACK:
+      return {
+        ...state,
+        trackData: {
+          ...state.trackData,
+          trackKey: action.payload,
+          track: `${
+              SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].link
+          }`,
+          trackName: `${
+              SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songName
+          }`,
+          trackImg: `${
+              SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songimg
+          }`,
+          trackArtist: `${
+              SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songArtist
+          }`,
+          id: `${
+              SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songID
+          }`,
+          lyrics: `${
+              SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].lyrics
+          }`,
+          canSkip: `${
+              true
+          }`,
+          isCustom: `${
+             true
+          }`
+        }
+      };
+      case SONGTRACK:
+          return {
+              ...state,
+              trackData: {
+                  ...state.trackData,
+                  trackKey: action.payload,
+                  track: `${SONGLIST[action.payload[0]].link
+                      }`,
+                  trackName: `${SONGLIST[action.payload[0]].songName
+                      }`,
+                  trackImg: `${SONGLIST[action.payload[0]].songimg
+                      }`,
+                  trackArtist: `${SONGLIST[action.payload[0]].songArtist
+                      }`,
+                  id: `${SONGLIST[action.payload[0]].songID
+                      }`,
+                  lyrics: `${SONGLIST[action.payload[0]].lyrics
+                      }`,
+                  canSkip: `${false
+                      }`,
+                  isCustom: `${false
+                      }`
+              }
+          };
+      case FIREBASEG:
+          return {
+              ...state,
+                  custplay: `${action.payload[0]
+                      }`
+          };
     default:
       return state;
   }

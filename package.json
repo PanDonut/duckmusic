@@ -20,6 +20,8 @@
     "react-audio-player": "^0.17.0",
     "react-bootstrap": "^1.6.4",
     "react-chromecast": "0.0.5-alpha",
+    "react-color": "^2.19.3",
+    "react-colorful": "^5.5.1",
     "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.1",
     "react-fade-in": "^2.0.1",

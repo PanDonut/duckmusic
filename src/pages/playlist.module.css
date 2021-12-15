@@ -203,6 +203,7 @@
     background: none;
     border: 1px solid transparent;
     border-radius: 4px;
+    z-index: 9;
 }
 .SongBtn p{
     margin: 0;

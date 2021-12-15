@@ -9,7 +9,6 @@ import styles from "./music-control-box-small.module.css";
 
 function MusicControlBox(props, {audioRef}) {
 
-    console.log("re-render");
 
      function decreaseIndex() {
         if (localStorage.getItem('shuffle') == 'false') {

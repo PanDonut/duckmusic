@@ -48,26 +48,20 @@ function Hide() {
 
 function Home() {
 
-    console.log("re-render");
 
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
     const size = useWindowSize();
     const history = useHistory();
-
-    console.log(localStorage.getItem('explicit'));
     
     var today = new Date()
     var curHr = today.getHours()
     const [timetext, setTimetext] = React.useState("");
     if (timetext == "") {
         if (curHr < 13) {
-            console.log('Dzieñ dobry')
             setTimetext(decode("Dzie&#324; dobry"));
         } else if (curHr < 18) {
-            console.log('Mi³ego popo³udnia')
             setTimetext(decode("Mi&#322;ego popo&#322;udnia"));
         } else {
-            console.log('Dobry wieczór')
             setTimetext(decode("Dobry wiecz&#243;r"));
         }
     }
@@ -187,7 +181,6 @@ function Home() {
                         <FadeIn visible="true" delay="250" className={styles.SectionCardsMedium}>
                             {
                                 PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((item) => {
-                                    console.log(item);
                                     if (localStorage.getItem('old') == 'no' && size.width < CONST.MOBILE_SIZE || localStorage.getItem('old') == null && size.width < CONST.MOBILE_SIZE) {
                                         return (
                                             <PlaylistCardMNew
