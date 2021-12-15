@@ -106,7 +106,7 @@ function PlaylistTrack(props) {
                     {PLAYLIST != null ?
                         PLAYLIST.map((item) => {
                                 return (
-                                    <button className="menuitem" onClick={() => AddToPlaylist(SONGS.indexOf(props.data.song), PLAYLIST.indexOf(item), item)}>{item.title}</button>
+                                    <button className="menuitem" onClick={() => {AddToPlaylist(SONGS.indexOf(props.data.song), PLAYLIST.indexOf(item), item); {setShow(false)}}}>{item.title}</button>
                             );
                         }
                         ) : ''
