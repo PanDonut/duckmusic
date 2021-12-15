@@ -29,36 +29,6 @@ import SearchButton from '../component/buttons/search-button';
 function Search() {
 
 
-	const db = getDatabase(aut);
-
-	const pl = [
-		{
-			"index": "24876e",
-			"type": "playlista",
-			"title": "Duck Mix",
-			"link": "1",
-			"suggestion": "true",
-			"promoted": "nieprawda",
-			"promodesc": "Posłuchaj teraz!",
-			"ex": "no",
-			"imgUrl": "https://i.ibb.co/gTcL5Hx/thenight.png",
-			"hoverColor": "rgb(161, 0, 0)",
-			"artist": "Carly Rae Jepsen, Taylor Swift, Vance Joy, Dawid Podsiadło, Toto, Bruno Mars, Ed Helms, Camila Cabello, Shawn Mendes, Rick Astley, Pitbull, Rachel Platten, OneRepublic, Fools Garden i inni",
-			"playlistBg": "rgb(161, 0, 0)",
-			"playlistData": [
-				{
-					"index": "1",
-					"songindex": 10
-
-				}
-			]
-		}
-	];
-
-        set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
-            playlist: JSON.stringify(pl)
-        });
-
 
     const size = useWindowSize();
     const [input, setInput] = useState(''); // '' is the initial state value
