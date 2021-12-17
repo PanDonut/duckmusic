@@ -6,7 +6,7 @@ import PLAYLIST from "../data/index.json";
 import styles from "./library.module.css";
 import { aut } from '../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import { ImportPlaylist } from '../playlistcreator';
+import { ImportPlaylist, RemoveItem } from '../playlistcreator';
 import Sidebar from '../component/sidebar/sidebar';
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
@@ -92,7 +92,7 @@ function PlaylistTab(props) {
                 </div>
                 : ''
             }
-            <input style={{ color: 'transparent' }} type="file" id={styles.upload} accept="*.json" onInput={e => readFileAsString(e.target.files[0])} />
+            <input style={{ color: 'transparent' }} type="file" id={styles.upload} accept=".json" onInput={e => readFileAsString(e.target.files[0])} />
             <div className={styles.su}>
             <TitleM>Twoje playlisty</TitleM>
             <div className={styles.Grid}>
@@ -100,13 +100,17 @@ function PlaylistTab(props) {
                     posts != null ?
                         posts.map((item) => {
                             isMounted = false
-                            return (
-                                <PlaylistCardM
-                                    key={item.title}
-                                    data={item}
-                                    playlistData={item.playlistData}
-                                />
-                            );
+                            if (item.playlistData[0] == undefined) {
+                                RemoveItem(posts.indexOf(item))
+                            } else {
+                                return (
+                                    <PlaylistCardM
+                                        key={item.title}
+                                        data={item}
+                                        playlistData={item.playlistData}
+                                    />
+                                );
+                            }
                         }) : ''
                 }
                 </div>

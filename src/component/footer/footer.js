@@ -124,15 +124,15 @@ function Footer(props) {
     
 
     function Expand() {
-        document.documentElement.style.setProperty('--expanded', 'translateY(0px)');
+        document.documentElement.style.setProperty('--disp-ly', 'block');
         document.documentElement.style.setProperty('--disp2', 'none');
-        document.documentElement.style.setProperty('--disp3', 'flex');
+        document.documentElement.style.setProperty('--disp3', 'flex');        
     };
 
     function Hide() {
-        document.documentElement.style.setProperty('--expanded', 'translateY(200vh)');
         document.documentElement.style.setProperty('--disp2', 'flex');
         document.documentElement.style.setProperty('--disp3', 'none');
+        setTimeout(document.documentElement.style.setProperty('--disp-ly', 'none'), 500)
     };
 
     function Expand2() {

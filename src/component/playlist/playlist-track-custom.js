@@ -11,7 +11,7 @@ import { aut } from '../../dauth.js';
 import SONGS from '../../data/songs.json';
 import styles from "./playlist-track.module.css";
 import { RgbStringColorPicker } from "react-colorful";
-import { CreatePlaylist, RemoveItem } from '../../playlistcreator'
+import { RemoveSong } from '../../playlistcreator'
 
 function PlaylistTrack(props) {
     const [thisSong, setthisSong] = useState(false);
@@ -88,46 +88,13 @@ function PlaylistTrack(props) {
 				<TextBoldL>{props.data.song.songName}</TextBoldL>
 				<TextRegularM>{props.data.song.songArtist}</TextRegularM>
 			</span>
-                <button className={styles.dots} onClick={() => { setTimeout(setShow(true), 2000); } }>
+                <button className={styles.dots} onClick={() => { RemoveSong(0, PLAYLIST.indexOf(props.data.song)) } }>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
                 </svg>
             </button>
             </div>
-            {show ? (
-                <div
-                    className="menu"
-                >
-                    <div className="blur" />
-                    <button className="menuitem" onClick={() => { StartPlaylistCreation(SONGS.indexOf(props.data.song)); { setShow(false) } }}><svg version="1.1" id="Layer_1"
-                        viewBox="0 0 455 455" width="1em"
-                        height="1em">
-                        <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 
-	455,242.5 "/>
-                    </svg>Nowa playlista</button>
-                    <button className="menuitem" onClick={() => { setShow(false) }}><svg className="rot" version="1.1" id="Layer_1"
-                        viewBox="0 0 455 455" width="1em"
-                        height="1em">
-                        <polygon points="455,212.5 242.5,212.5 242.5,0 212.5,0 212.5,212.5 0,212.5 0,242.5 212.5,242.5 212.5,455 242.5,455 242.5,242.5 
-	455,242.5 "/>
-                    </svg>Anuluj</button>
-
-                </div>
-            ) : ''}
-            {create ? (
-                <div className="foverlay">
-                    <div className="ff">
-                        <input className="inputtrack" autocomplete="off" placeholder="Nazwa playlisty" maxLength="40" value={input} onInput={e => setInput(e.target.value)}></input>
-                        <RgbStringColorPicker
-                            onChange={setColor}
-                    />
-                        <button className="lumina_button" onClick={() => { CreatePlaylist(index, color, input); { setCreate(false); } }}>
-                            Utwórz playlistę
-                        </button>
-                    </div>
-                </div>
-            ) : ''}
-            </div>
+           </div>
 	);
 }
 

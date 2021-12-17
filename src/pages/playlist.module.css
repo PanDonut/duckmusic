@@ -15,6 +15,41 @@
     -ms-user-select: none;
 }
 
+.flexselect {
+    background-color: #00000030;
+    display: flex;
+    position: fixed;
+    width: 75%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: column;
+    align-content: center;
+    align-items: center
+}
+
+.selectoverlay {
+    background-color: #00000099;
+    position: fixed;
+    z-index: 9999999999;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.listitem {
+    background-color: #00000030;
+    transition: 0.25s ease;
+    width: 100%;
+    text-align: center;
+}
+
+    .listitem:hover {
+        cursor: pointer;
+        background-color: #00000050;
+    }
+
 .time {
     margin: 0px;
     width: 100%;
@@ -218,7 +253,12 @@
     color: rgb(179, 179, 179);
 }
 @media screen and (max-width: 640px) {
-
+    .flexselect {
+        background-color: #000000;
+        width: 100%;
+        height: 100%;
+        padding-bottom: 70px;
+    }
     .btn {
         display: flex;
         border: none;

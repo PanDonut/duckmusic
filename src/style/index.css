@@ -10,6 +10,7 @@ body {
     width: 100vw;
 }
 
+
 .theme-dark {
     --sidenav-black: #000;
     --sidenav-active: #0d0c11;

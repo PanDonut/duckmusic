@@ -8,6 +8,7 @@ import Topnav from '../component/topnav/topnav';
 import TextRegularM from "../component/text/text-regular-m";
 import PlayButton from '../component/buttons/play-button';
 import LinkButton from '../component/buttons/link-button1';
+import AddButton from '../component/buttons/add-button';
 import EmbedButton from '../component/buttons/embed-button';
 import RemoveButton from '../component/buttons/remove-button';
 import IconButton from '../component/buttons/icon-button';
@@ -117,7 +118,11 @@ function PlaylistPage(props) {
 
 				{PLAYLIST != null ?
 					PLAYLIST.map((item) => {
-					if (item.link == path) {
+						if (item.link == path) {
+							if (item.playlistData[0] == undefined) {
+								window.location.reload(true);
+								history.push('/library');
+							}
 
 							return (
 								<div key={item.title} onLoad={() => {

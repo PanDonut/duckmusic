@@ -10,6 +10,9 @@ import Palette from 'react-palette'
 
 function Lyrics({song, currentTime, songId, sly}) {
     const dispatch = useDispatch();
+    const [topsc, setTop] = useState(0);
+    const [cu, setCu] = useState([]);
+    const [ly, setLy] = useState(null);
     let lyrics = song.lyrics
 
         const [state, setState] = createState({
@@ -28,9 +31,9 @@ function Lyrics({song, currentTime, songId, sly}) {
         })
 
     
-
     const [ses, setSes] = useState(true);
 
+    console.log(currentTime);
 
     useEffect(() => {
         if(lyrics.length < 1){
@@ -38,6 +41,7 @@ function Lyrics({song, currentTime, songId, sly}) {
             axios.get(url)
                 .then(res => {
                     lyrics = res.data;
+                    setLy(res.data);
                     setState.lyrics(lyrics);
                     dispatch({type: actions.SET_LYRICS, payload: {id: songId, lyrics}})
                 })
@@ -77,57 +81,47 @@ function Lyrics({song, currentTime, songId, sly}) {
             }
 
             setState.currentLine(currentLine);
+            setCu(currentLine);
         }
     }, [currentTime])
 
-    if (state.currentLine != state.lyrics.length - 1) {
-        return (
-            <div className="mm-lyrics">
-                <p>©Musiq</p>
-                {
-                                <div>
-                                    <span className="lt">
-                            {state.lyrics[state.currentLine].lyrics}
-                                    </span>
-                                    <span className="lt-n">
-                            {state.lyrics[state.currentLine + 1].lyrics}
-                                    </span>
-                                </div>
-                }
+    return (
+        <div className="mm-lyrics">
+            <p>©Musiq</p>
+            <div className="lydiv">
                 
+                {ly != null ?
+        state.lyrics.map((list) => {
+            if (currentTime >= list.start && currentTime <= list.end) {
+                if (state.lyrics.indexOf(list) == 0 || state.lyrics.indexOf(list) == 1) {
+                    document.documentElement.style.setProperty('--top-lyrics', '10%');
+                } else {
+                    document.documentElement.style.setProperty('--top-lyrics', '' + ( (-295 * (state.lyrics.indexOf(list))) + 100) + 'px');
+                }                
+                    return (
+                        <div>
+                            <span className="lt">
+                                {list.lyrics}
+                            </span>
+                        </div>
+                    )
+        } else {
+                    return (
+                        <div>
+                            <span className="lt-n">
+                                {list.lyrics}
+                            </span>
+                        </div>
+                    )
+            }
+        })
+        : ''
+                }
+                </div>
             </div>
-        )
-    } else if (state.currentLine == state.lyrics.length - 1) {
-        return (
-            <div className="mm-lyrics">
-                <p>©Musiq</p>
-                {
-                    <div>
-                        <span className="lt">
-                            {state.lyrics[state.currentLine].lyrics}
-                        </span>
-                    </div>
+)
 
-                }
-                
-            </div>
-        )
-    } else if (state.lyrics.length == 0) {
-        return (
-            <div className="mm-lyrics">
-                <p>©Musiq</p>
-                {
-                    <div>
-                        <span className="lt">
-                            "f"
-                        </span>
-                    </div>
 
-                }
-                
-            </div>
-        )
-    }
 }
 
 export default Lyrics

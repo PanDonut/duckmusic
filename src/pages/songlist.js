@@ -10,6 +10,7 @@ import EmbedButton from '../component/buttons/embed-button';
 import IconButton from '../component/buttons/icon-button';
 import PlaylistDetails from '../component/playlist/playlist-details1';
 import PlaylistTrack from '../component/playlist/playlist-track';
+import AddButton from '../component/buttons/add-button';
 import * as Icons from '../component/icons';
 import PLAYLIST from "../data/index.json";
 import { NavLink, useLocation, Link } from "react-router-dom";
@@ -23,7 +24,7 @@ import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import copy from "copy-to-clipboard";
-
+import { AddToPlaylist } from '../playlistcreator';
 import Sidebar from '../component/sidebar/sidebar';
 import lay from '../style/App.module.css';
 import {
@@ -32,6 +33,8 @@ import {
 	Route
 } from "react-router-dom";
 import NotFound from './404';
+import { getDatabase, ref, onValue, set } from "firebase/database";
+import { aut } from '../dauth';
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
@@ -41,7 +44,15 @@ import FadeIn from 'react-fade-in';
 function PlaylistPage(props) {
 
 	
-	
+	const [PLAYLISTC, setPLAYLIST] = useState(null);
+	const db = getDatabase(aut);
+	const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+	onValue(nameRef, (snapshot) => {
+		const data = snapshot.val();
+		if (PLAYLISTC == null) {
+			setPLAYLIST(JSON.parse(data));
+		}
+	});
 
 	const handleScroll = (e) => {
 		if (Math.round(e.target.scrollTop) > 227) {
@@ -76,6 +87,9 @@ function PlaylistPage(props) {
 		position: toast.POSITION.TOP_RIGHT,
 		autoClose: 5000
 	});
+
+
+	const [sho, setSho] = useState(false);
 	const [open, setOpen] = react.useState(false);
 	var link11 = "https://duckmusic.vercel.app/embed/" + path;
 	var embed11 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
@@ -112,9 +126,41 @@ function PlaylistPage(props) {
                         <div key={item.songName} onLoad={() => {
 							changeBg('rgb(100, 100, 100)');														
 						}}>
+							{sho == true ?
+								<div className={styles.selectoverlay}>
+									<div className={styles.flexselect}>
+									{PLAYLISTC != null ?
+										PLAYLISTC.map((list) => {
+											return (
+												<div className={styles.listitem} onClick={() => { AddToPlaylist(SONGLIST.indexOf(item), PLAYLISTC.indexOf(list)); { setSho(false); } }}>
+													<p>{list.title}</p>
+											</div>
+											)
+										}) : ''}
+										<div className={styles.listitem} onClick={() => { { setSho(false); } }}>
+											<p>Anuluj</p>
+										</div>
+									</div>									
+								</div>
+								: ''
+                            }
+							{size.width < CONST.MOBILE_SIZE &&
+								<div className={styles.overlay}>
+									<PlaylistDetails data={item} />
+									<div className={styles.ovlist}>
+										<button className={styles.btn} onClick={() => { setSho(true) }}>
+
+
+											<AddButton />
+											<h2>Dodaj do playlisty</h2>
+										</button>
+									</div>
+								</div>
+							}
 
 							<PlaylistDetails data={item}/>
 							<div className={styles.GridIcons}>
+
 								{size.width > CONST.MOBILE_SIZE &&
 									<div className={styles.PlaylistIcons}>
 
@@ -132,6 +178,15 @@ function PlaylistPage(props) {
 									<button onClick={() => props.songTrack([SONGLIST.indexOf(item), 0])}>
 										Słuchaj
 									</button>
+								}
+								{size.width > CONST.MOBILE_SIZE &&
+									<div className={styles.PlaylistIcons1}>
+										<button
+											onClick={() => { setSho(true) }}
+										>
+											<AddButton />
+										</button>
+									</div>
 								}
 								
 							</div>

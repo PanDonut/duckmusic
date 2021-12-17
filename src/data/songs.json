@@ -555,5 +555,18 @@
     "songimg": "https://i.scdn.co/image/ab67616d00001e020211d806261a42bf2bb7ebd7",
     "songArtist": "Michael Bublé",
     "link": "https://drive.google.com/u/0/uc?id=1ZaJGLpZ3weIUuWFAUmH4ZeyLAuxXsZ64&export=download"
+  },
+  {
+    "songName": "Ocean Drive",
+    "songimg": "https://i.scdn.co/image/ab67616d0000b2733ce84b2c05a3bac3d48c8217",
+    "songArtist": "Duke Dumont",
+    "link": "https://drive.google.com/u/0/uc?id=1D5xCC1c1uJi0RLTrzdp-21un_v6YkKAB&export=download"
+  },
+  {
+    "songName": "I Feel It Coming",
+    "songimg": "https://i.scdn.co/image/ab67616d00001e024718e2b124f79258be7bc452",
+    "songArtist": "The Weeknd, Daft Punk",
+    "link": "https://drive.google.com/u/0/uc?id=1ewX9SHniHEUqGC5d7w3mkHehwOLNoJsO&export=download",
+    "lyrics": []
   }
 ]

@@ -113,3 +113,24 @@ export function ImportPlaylist(file) {
 
     window.location.reload(true);
 }
+
+export function RemoveSong(index, song) {
+    const db = getDatabase(aut);
+    let pl = [];
+    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    onValue(nameRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null) {
+            if (pl != data) {
+                pl = JSON.parse(data);
+            }
+        }
+    });
+
+    pl[index].playlistData.splice(song, 1);
+    console.log(pl);
+
+    set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
+        playlist: JSON.stringify(pl)
+    });
+}

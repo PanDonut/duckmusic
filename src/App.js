@@ -41,39 +41,15 @@ import Login from './login';
 import './security.js';
 import './menu.css'
 import HandleAuth from './authorization.js';
-
 let indexn = null;
 
 
 function App(props) {
 
     const footerRef = useRef(null);
-    if (localStorage.getItem('cindex') == null) {
-        localStorage.setItem('cindex', [0, 0]);
-    }
+    postMessage(localStorage.getItem('email'))
+    const db = getDatabase();
 
-    if (localStorage.getItem('cid') == null) {
-        localStorage.setItem('cid', 0);
-    }
-
-    if (localStorage.getItem('curl') == null) {
-        localStorage.setItem('curl', ' ');
-    }
-
-    if (localStorage.getItem('cname') == null) {
-        localStorage.setItem('cname', ' ');
-    }
-
-    if (localStorage.getItem('cartist') == null) {
-        localStorage.setItem('cartist', ' ');
-    }
-    
-
-    if (localStorage.getItem('cimg') == null) {
-        localStorage.setItem('cimg', `https://i.ibb.co/jzp9qcm/trans.png`);
-    }
-
-    const db = getDatabase(aut);
 
 
     const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
@@ -240,7 +216,8 @@ function App(props) {
 
 const mapStateToProps = (state) => {
     return {
-        custplay: state.custplay,
+        trackData: state.trackData,
+        custplay: state.custplay
     };
 };
 
