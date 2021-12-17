@@ -99,9 +99,6 @@ function PlaylistTrack(props) {
             {show ? (
                 <div
                     className="menup"                    
-                    style={{
-                        top: anchorPoint.y
-                    }}
                 >
                     <div className="blur" />
                     <button className="menuitem" onClick={() => { StartPlaylistCreation(SONGS.indexOf(props.data.song)); { setShow(false) } }}><svg version="1.1" id="Layer_1"
