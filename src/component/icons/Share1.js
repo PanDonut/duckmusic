@@ -8,7 +8,8 @@ function SvgShare(props) {
       width="0.5em"
       viewBox="0 0 490 490"
       className="share_svg__Svg-ulyrgf-0 share_svg__hJgLcF"
-    >
+      >
+          <title id="binIconTitle">Pobierz</title>
           <path d="M245,0c-9.5,0-17.2,7.7-17.2,17.2v331.2L169,289.6c-6.7-6.7-17.6-6.7-24.3,0s-6.7,17.6,0,24.3l88.1,88.1
 				c3.3,3.3,7.7,5,12.1,5c4.4,0,8.8-1.7,12.1-5l88.1-88.1c6.7-6.7,6.7-17.6,0-24.3c-6.7-6.7-17.6-6.7-24.3,0L262,348.4V17.1
 				C262.1,7.6,254.5,0,245,0z"/>

@@ -6,6 +6,7 @@ import PLAYLIST from "../data/index.json";
 import styles from "./library.module.css";
 import { aut } from '../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
+import { ImportPlaylist } from '../playlistcreator';
 import Sidebar from '../component/sidebar/sidebar';
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
@@ -31,7 +32,7 @@ function Library(props) {
                 : <MobileNavigation />
             }
             <div className={styles.LibPage}>
-                <Topnav tabButtons={true} />
+                <Topnav normal={true} />
                 <div className={styles.Library}>
                     <Route exact path="/library"><PlaylistTab /></Route>
                     <Route path="/library/podcasts"><PodcastTab /></Route>
@@ -70,6 +71,19 @@ function PlaylistTab(props) {
     });
     const [isthisplay, setIsthisPlay] = useState(false)   
 
+    function readFileAsString(files) {
+        if (files.length === 0) {
+            console.log('No file is selected');
+            return;
+        }
+
+        var reader = new FileReader();
+        reader.onload = function (event) {
+            ImportPlaylist(event.target.result);
+        };
+        reader.readAsText(files);
+    }
+
     return (
         <div>
             {loader == true ?
@@ -77,7 +91,9 @@ function PlaylistTab(props) {
                     <div className={styles.loader} id={styles.loader} />
                 </div>
                 : ''
-                }
+            }
+            <input style={{ color: 'transparent' }} type="file" id={styles.upload} accept="*.json" onInput={e => readFileAsString(e.target.files[0])} />
+            <div className={styles.su}>
             <TitleM>Twoje playlisty</TitleM>
             <div className={styles.Grid}>
                 {
@@ -93,7 +109,8 @@ function PlaylistTab(props) {
                             );
                         }) : ''
                 }
-            </div>
+                </div>
+                </div>
         </div>
         )
 }

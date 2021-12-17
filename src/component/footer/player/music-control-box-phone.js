@@ -7,7 +7,8 @@ import React, { useEffect, useState } from 'react';
 import PLAYLIST from "../../../data/index.json";
 import styles from "./music-control-box-phone.module.css";
 import Connection from '../../../pages/connection';
-
+import { aut } from '../../../dauth';
+import { getDatabase, ref, onValue, set } from "firebase/database";
 
 function MusicControlBox(props, {audioRef}) {
 
@@ -16,38 +17,94 @@ function MusicControlBox(props, {audioRef}) {
 
     const [shuffling, setShuffling] = React.useState(localStorage.getItem('shuffle'));
 
-     function decreaseIndex() {
-        if (localStorage.getItem('shuffle') == 'false') {
-            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            } else {
-                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+    let isMounted = true;
+    const [PLAYLISTC, setPosts] = useState(null);
+    const db = getDatabase(aut);
+    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    onValue(nameRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null) {
+            if (isMounted) {
+                if (PLAYLISTC == null) {
+                    isMounted = false;
+                    setPosts(JSON.parse(data));
+                }
             }
-        } else if (localStorage.getItem('shuffle') == 'true') {
-            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            } else {
-                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+        }
+    });
+
+    function decreaseIndex() {
+        if (props.trackData.canSkip == 'true') {
+            if (props.trackData.isCustom == 'false') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
+            } else if (props.trackData.isCustom == 'true') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.customTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.customTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
             }
-        } else {
-            localStorage.setItem('shuffle', 'false')
         }
     }
     function increaseIndex() {
-        if (localStorage.getItem('shuffle') == 'false') {
-            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            } else {
-                props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+        if (props.trackData.canSkip == 'true') {
+            if (props.trackData.isCustom == 'false') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
+            } else if (props.trackData.isCustom == 'true') {
+                if (localStorage.getItem('shuffle') == 'false') {
+                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.customTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.customTrack([props.trackData.trackKey[0], (parseInt(props.trackData.trackKey[1]) + 1)])
+                    }
+                } else if (localStorage.getItem('shuffle') == 'true') {
+                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
+                        props.customTrack([props.trackData.trackKey[0], 0])
+                    } else {
+                        props.customTrack([props.trackData.trackKey[0], Math.floor(Math.random() * parseInt(PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) + 0])
+                    }
+                } else {
+                    localStorage.setItem('shuffle', 'false')
+                }
             }
-        } else if (localStorage.getItem('shuffle') == 'true') {
-            if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                props.changeTrack([props.trackData.trackKey[0], 0])
-            } else {
-                props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
-            }
-        } else {
-            localStorage.setItem('shuffle', 'false')
         }
     }
 

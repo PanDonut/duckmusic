@@ -1,6 +1,6 @@
 
 
-.menu {
+.menup {
     font-size: 14px;
     background-color: var(--menu);
     border-radius: 5px;
@@ -9,16 +9,16 @@
     height: auto;
     margin: 0;
     right: 0px;
-    position:absolute;
     list-style: none;
     display: flex;
     justify-content: center;
     flex-direction: column;
     animation: open 0.25s ease;
     opacity: var(--menuop);
-    z-index: 999;
+    z-index: 9999999999;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
+    position: absolute;
 }
 
 .menuitem {

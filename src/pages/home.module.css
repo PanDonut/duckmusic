@@ -62,6 +62,7 @@
         padding-left: 6px;
         width: calc(100% - 8px);
     }
+    
 }
 
 
@@ -238,12 +239,6 @@ body {
 }
 
 @media screen and (max-width: 640px) {
-    .HoverBg {
-    -webkit-transition: background 1s ease;
-    transition: background 1s ease;
-    background: var(--hover-home-bg);
-    background: linear-gradient(150deg, var(--hover-home-bg) 0%, var(--main-background) 50%, var(--main-background) 100%);
-}
     .gradC img {
         width: 50px;
         height: 50px;
@@ -337,5 +332,13 @@ body {
         text-align: center;
         display: none;
         transform: rotate(180deg);
+    }
+    .HoverBg {
+        background-color: var(--hover-home-bg);
+        background: linear-gradient(169deg, var(--hover-home-bg) 0%, rgba(0,0,0,0) 52%, rgba(0,0,0,0) 100%);
+        position: absolute;
+        height: 100vh;
+        width: 100%;
+        opacity: .5;
     }
 }

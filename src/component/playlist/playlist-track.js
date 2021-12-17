@@ -48,7 +48,9 @@ function PlaylistTrack(props) {
         }
     });
 
-   
+    const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
+    console.log(anchorPoint);
+    const positi = useRef(null);
 
     let col = 'rgb(0,0,0)'
     const [color, setColor] = useState('rgb(0,0,0)');
@@ -57,7 +59,7 @@ function PlaylistTrack(props) {
     }
     return (
         <div>
-		<div 
+            <div ref={positi}
             className={`${styles.trackDiv} ${thisSong ? "activeTrack" : ""}`}
             style={
                 props.data.listType === "album1" 
@@ -86,7 +88,9 @@ function PlaylistTrack(props) {
 				<TextBoldL>{props.data.song.songName}</TextBoldL>
 				<TextRegularM>{props.data.song.songArtist}</TextRegularM>
 			</span>
-                <button className={styles.dots} onClick={() => { setTimeout(setShow(true), 2000); } }>
+                <button className={styles.dots} onClick={() => {
+                    setTimeout(setShow(true), 2000);
+                }}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">
                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
                 </svg>
@@ -94,7 +98,10 @@ function PlaylistTrack(props) {
             </div>
             {show ? (
                 <div
-                    className="menu"
+                    className="menup"                    
+                    style={{
+                        top: anchorPoint.y
+                    }}
                 >
                     <div className="blur" />
                     <button className="menuitem" onClick={() => { StartPlaylistCreation(SONGS.indexOf(props.data.song)); { setShow(false) } }}><svg version="1.1" id="Layer_1"

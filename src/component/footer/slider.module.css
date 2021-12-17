@@ -13,6 +13,7 @@
 	width: calc(50% - 120px);
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 20px;
+	transition: 1s ease;
 }
 .spanThumb{
 	width: 10px;

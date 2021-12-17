@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
-
+import Slider from 'react-smooth-range-input';
 import styles from "./slider.module.css";
 
 function RangeSlider({value, minvalue, maxvalue, handleChange}){
@@ -23,7 +23,7 @@ function RangeSlider({value, minvalue, maxvalue, handleChange}){
 
     return (
         <div className={styles.progressBar}>
-            <input ref={inputRef} type="range" className={styles.range__slider} min={minvalue} max={maxvalue} step="0.000001" value={value} />
+            <input ref={inputRef} type="range" className={styles.range__slider} min={minvalue} max={maxvalue} step="0.1" value={value} />
             <span
                 className={styles.spanThumb}
                 style={{left: `${(decimalValue * inputRefWidth.current) - 3}px`}}

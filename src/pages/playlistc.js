@@ -9,11 +9,12 @@ import TextRegularM from "../component/text/text-regular-m";
 import PlayButton from '../component/buttons/play-button';
 import LinkButton from '../component/buttons/link-button1';
 import EmbedButton from '../component/buttons/embed-button';
+import RemoveButton from '../component/buttons/remove-button';
 import IconButton from '../component/buttons/icon-button';
 import PlaylistDetails from '../component/playlist/playlist-details-c';
 import PlaylistTrack from '../component/playlist/playlist-track-custom';
 import * as Icons from '../component/icons';
-import { NavLink, useLocation, Link } from "react-router-dom";
+import { NavLink, useLocation, Link, useHistory } from "react-router-dom";
 import { decode } from 'he';
 import SONGLIST from '../data/songs.json'
 import Footer from '../component/footer/footer';
@@ -24,7 +25,7 @@ import { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import copy from "copy-to-clipboard";
-
+import { RemoveItem } from '../playlistcreator'
 import Sidebar from '../component/sidebar/sidebar';
 import lay from '../style/App.module.css';
 import {
@@ -64,7 +65,7 @@ function PlaylistPage(props) {
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
 	const [isthisplay, setIsthisPlay] = useState(false);
 	const { path } = useParams();
-
+	const history = useHistory();
 	function changeBg(color) {
 		document.documentElement.style.setProperty('--hover-home-bg', color);
 	}
@@ -158,9 +159,9 @@ function PlaylistPage(props) {
 													</button>
 												</Link>
 											<button className={styles.btn} onClick={() => {
-												var json_string = JSON.stringify(PLAYLIST, undefined, 2);
+												var json_string = JSON.stringify(item, undefined, 2);
 												var link = document.createElement('a');
-												link.download = 'duckmusic-mobilegen.json';
+												link.download = 'dm_mobilegen_' + item.index.substring(0,6) + '.json';
 												var blob = new Blob([json_string], { type: 'text/plain' });
 												link.href = window.URL.createObjectURL(blob);
 												link.click();
@@ -170,7 +171,13 @@ function PlaylistPage(props) {
 													
 													<LinkButton/>
 													<h2>Pobierz</h2>
-												</button>
+											</button>
+											<button className={styles.btn} onClick={() => { RemoveItem(PLAYLIST.indexOf(item)); {history.push('/library')}}}>
+
+
+												<RemoveButton />
+												<h2>Usuń playlistę</h2>
+											</button>
 											</div>
 										</div>
 									}
@@ -197,20 +204,24 @@ function PlaylistPage(props) {
 										}
 										{size.width > CONST.MOBILE_SIZE &&
 											<div className={styles.PlaylistIcons1}>
-
-												<button
-												onClick={() => {
-													var json_string = JSON.stringify(PLAYLIST, undefined, 2);
-														var link = document.createElement('a');
-														link.download = 'duckm-usergeneratedplaylist.json';
-														var blob = new Blob([json_string], { type: 'text/plain' });
-														link.href = window.URL.createObjectURL(blob);
-														link.click();
-													}
-												}
-												>
-													<LinkButton />
-												</button>
+													<button
+														onClick={() => {
+															var json_string = JSON.stringify(item, undefined, 2);
+															var link = document.createElement('a');
+															link.download = 'dm_generated_' + item.index + '.json';
+															var blob = new Blob([json_string], { type: 'text/plain' });
+															link.href = window.URL.createObjectURL(blob);
+															link.click();
+														}
+														}
+													>
+														<LinkButton />
+													</button>
+											<button
+												onClick={() => { RemoveItem(PLAYLIST.indexOf(item)); { history.push('/library') } }}
+											>
+												<RemoveButton />
+											</button>
 											</div>
 										}
 									</div>

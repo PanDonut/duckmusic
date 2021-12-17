@@ -22,6 +22,7 @@
     transition: 0.25s background-color ease;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: blur(50px);  
+    z-index: 10;
 }
 
 .nowplayingbar div {
@@ -64,7 +65,7 @@
         position: absolute;
         width: 100%;
         bottom: 23vh;
-        z-index: 100000;
+        z-index: 10;
         flex-direction: column;
     }
 }

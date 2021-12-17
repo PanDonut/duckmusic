@@ -78,9 +78,38 @@ export function RemoveItem(index, song) {
         }
     });
 
-    pl[0] = null
+    const removeNumber = (arr, num) => arr.filter(el => el !== num);
+    pl = pl.slice(index, index).concat(pl.slice(index + 1));
+    console.log(pl);
 
     set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
+}
+
+export function ImportPlaylist(file) {
+    const db = getDatabase(aut);
+    let pl = [];
+    const index = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    onValue(nameRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null) {
+            if (pl != data) {
+                pl = JSON.parse(data);
+            }
+        }
+    });
+
+    if (pl.includes(JSON.parse(file))) {
+        console.log(file + " istnieje!")
+    } else {
+        pl.push(JSON.parse(file))
+    }
+
+    set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
+        playlist: JSON.stringify(pl)
+    });
+
+    window.location.reload(true);
 }

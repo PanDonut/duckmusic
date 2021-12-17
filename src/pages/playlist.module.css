@@ -160,9 +160,10 @@
     transition: all 0.25s;
 }
 .PlaylistIcons1 div button svg{
-    font-size: 28px;
+    font-size: 32px;
     fill: #fff !important;
     transition: all 0.25s;
+    stroke: #fff;
 }
 .PlaylistIcons1 button svg{
     font-size: 28px;
@@ -203,7 +204,6 @@
     background: none;
     border: 1px solid transparent;
     border-radius: 4px;
-    z-index: 9;
 }
 .SongBtn p{
     margin: 0;
@@ -240,11 +240,13 @@
         display: none;
     }
 
-        .btn svg {
-            width: 30px;
-            height: 30px;
-        }
+    .btn svg {
+        width: 30px;
+        height: 30px;
+        stroke: #b3b3b3;
+    }
 
+       
             .btn svg path {
                 fill: #b3b3b3;
             }

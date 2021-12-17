@@ -17,7 +17,6 @@ import * as Icons from '../icons';
 import { LYRICSNEW } from "../../data/lyrics";
 import database from 'firebase/database';
 import firebase from '../../firebase.js'
-import { getDatabase, ref, set } from "firebase/database";
 import Lyrics from '../Lyrics';
 import SONGLIST from '../../data/songs.json'
 import PLAYLIST from "../../data/index.json";
@@ -26,12 +25,27 @@ import styles from "./footer.module.css";
 import '../lyrics/lyrics.modular.css';
 import TextTransition, { presets } from "react-text-transition";
 import convertTime from '../../functions/convertTime';
-
+import { aut } from '../../dauth';
+import { getDatabase, ref, onValue, set } from "firebase/database";
 import FadeIn from 'react-fade-in';
 
 
 function Footer(props) {
-    const PLAYLISTC = JSON.parse(localStorage.getItem('dmplaylist'));
+    let isMounted = true;
+    const [PLAYLISTC, setPosts] = useState(null);
+    const db = getDatabase(aut);
+    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    onValue(nameRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null) {
+            if (isMounted) {
+                if (PLAYLISTC == null) {
+                    isMounted = false;
+                    setPosts(JSON.parse(data));
+                }
+            }
+        }
+    });
     function decreaseIndex() {
         if (props.trackData.canSkip == 'true') {
             if (props.trackData.isCustom == 'false') {
@@ -92,13 +106,13 @@ function Footer(props) {
                     if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
                         props.customTrack([props.trackData.trackKey[0], 0])
                     } else {
-                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+                        props.customTrack([props.trackData.trackKey[0], (parseInt(props.trackData.trackKey[1]) + 1)])
                     }
                 } else if (localStorage.getItem('shuffle') == 'true') {
                     if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
                         props.customTrack([props.trackData.trackKey[0], 0])
                     } else {
-                        props.customTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) + 0)])
+                        props.customTrack([props.trackData.trackKey[0], Math.floor(Math.random() * parseInt(PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) + 0])
                     }
                 } else {
                     localStorage.setItem('shuffle', 'false')
@@ -106,6 +120,8 @@ function Footer(props) {
             }
         }
     }
+
+    
 
     function Expand() {
         document.documentElement.style.setProperty('--expanded', 'translateY(0px)');
@@ -164,6 +180,7 @@ function Footer(props) {
         document.documentElement.style.setProperty('--txtdisplay', "none");
         document.documentElement.style.setProperty('--footopa', '0.5');
     };
+
 
     const [touchStart, setTouchStart] = React.useState(0);
     const [touchEnd, setTouchEnd] = React.useState(0);
@@ -325,62 +342,19 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
 
 
     const [songsPlayed, setNewSong] = useState(0);
-        useEffect(() => {
-            audioRef.current.addEventListener('ended', () => {
-                if (props.trackData.canSkip == 'true') {
-                    if (props.trackData.isCustom == 'false') {
-                        if (localStorage.getItem('loop') == 'false') {
-                            if (localStorage.getItem('shuffle') == 'false') {
-                                if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                                    props.changeTrack([props.trackData.trackKey[0], 0])
-                                } else {
-                                    props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
-                                }
-                            } else if (localStorage.getItem('shuffle') == 'true') {
-                                if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                                    props.changeTrack([props.trackData.trackKey[0], 0])
-                                } else {
-                                    props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
-                                }
-                            } else {
-                                localStorage.setItem('shuffle', 'false')
-                            }
-                        } else if (localStorage.getItem('loop') == 'true') {
-                            audioRef.current.currentTime = 0;
-                            audioRef.current.play();
-                        }
-                    } else if (props.trackData.isCustom == 'true') {
-                        if (localStorage.getItem('loop') == 'false') {
-                            if (localStorage.getItem('shuffle') == 'false') {
-                                if (localStorage.getItem('shuffle') == 'false') {
-                                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
-                                        props.customTrack([props.trackData.trackKey[0], 0])
-                                    } else {
-                                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
-                                    }
-                                } else if (localStorage.getItem('shuffle') == 'true') {
-                                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
-                                        props.customTrack([props.trackData.trackKey[0], 0])
-                                    } else {
-                                        props.customTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) + 0)])
-                                    }
-                                } else {
-                                    localStorage.setItem('shuffle', 'false')
-                                }
-                            }
-                        } else if (localStorage.getItem('loop') == 'true') {
-                            audioRef.current.currentTime = 0;
-                            audioRef.current.play();
-                        }                        
-                    }
-                }
-        })
-        });
 
     const [state, setState] = createState({
         currentTime: currentTime
     })
 
+    function EndSong() {
+        if (localStorage.getItem('loop', 'true')) {
+            audioRef.current.currentTime = 0;
+            audioRef.current.play();
+        } else {
+            increaseIndex();
+        }
+    }
 
     return (
         <footer className={styles.footer}>
@@ -439,6 +413,7 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                         handleCurrentTime={setCurrentTime}
                         trackData={props.trackData}
                         isPlaying={props.isPlaying}
+                        handleEnd={EndSong}
                     />
                 
             </div>
