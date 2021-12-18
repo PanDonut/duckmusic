@@ -2,18 +2,19 @@
 	display: flex;
 	align-items: center;
 	position: relative;
-	bottom: -1px;
+	bottom: 0px;
 	position: absolute;
 }
 .range__slider {
 	-webkit-appearance: none;
 	background-color: transparent;	
-	height: 61px;
+	height: 62px;
 	overflow: hidden;
 	width: calc(50% - 120px);
 	border-top-right-radius: 20px;
 	border-bottom-right-radius: 20px;
 	transition: 1s ease;
+	margin: 0;
 }
 .spanThumb{
 	width: 10px;

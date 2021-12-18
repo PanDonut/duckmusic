@@ -1,5 +1,7 @@
 :root {
     --botf: 0;
+    --mobile-radius: 20px;
+    --bg-footer1: var(--card-background)
 }
 
 .footer {
@@ -15,18 +17,17 @@
 .nowplayingbar {
     display: grid;
     grid-template-columns: 30% 40% 30%;
-    background-color: var(--card-background);
+    background: var(--bg-footer1);
     padding: 17px 16px;
     color: #fff;
     height: var(--footersize);
     transition: 0.25s background-color ease;
     backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: blur(50px);  
+    -webkit-backdrop-filter: blur(50px);
     z-index: 10;
 }
 
-.nowplayingbar div {
-}
+    
 
 
 
@@ -46,6 +47,11 @@
         --footwidth: calc(100% - 20px);
         --footopa: 0.5;
     }
+    .child1 {
+        backdrop-filter: var(--sus);
+        -webkit-backdrop-filter: var(--sus);
+        width: 100vw;
+    }
 
     .footer {
         bottom: var(--botf);
@@ -58,8 +64,15 @@
         padding: 0px 0px;
         grid-template-columns: 75vw 25vw;
         row-gap: 0px;
-        border-radius: 20px;
+        border-radius: var(--mobile-radius);   
+        overflow-y: scroll;
+        background-repeat: no-repeat;
+        background-size: cover;
     }
+        .nowplayingbar:first-child {
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(50px);
+        }
     .footerMe {
         display: var(--phmu);
         position: absolute;
@@ -68,20 +81,26 @@
         z-index: 10;
         flex-direction: column;
     }
+
+    .fullscreen {
+        width: 100vw;
+    }
 }
 
 @media (prefers-color-scheme: dark) {
 }
 
 .bgron {
-    position: fixed;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
-    z-index: 1;
+    z-index: -1;
     filter: blur(10px) grayscale(25%) brightness(50%);
     display: var(--dispbg);
     transition: 0.5s ease;
+    top: 0;
+    left: 0;
 }
 
 .buttt {

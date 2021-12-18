@@ -31,6 +31,7 @@ import FadeIn from 'react-fade-in';
 
 
 function Footer(props) {
+    const size = useWindowSize();
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
@@ -148,21 +149,27 @@ function Footer(props) {
     };
 
     function Expand1() {
-        document.documentElement.style.setProperty('--footersize', '100%');
-        document.documentElement.style.setProperty('--botf', '0px');
-        document.documentElement.style.setProperty('--dispbg', 'block');
-        document.documentElement.style.setProperty('--dispbt1', 'block');
-        document.documentElement.style.setProperty('--dispbt2', 'none');
-        document.documentElement.style.setProperty('--imgn', 'none');
-        document.documentElement.style.setProperty('--musicctr', 'none');
-        document.documentElement.style.setProperty('--phmu', 'flex');
-        document.documentElement.style.setProperty('--dipy', 'flex');
-        document.documentElement.style.setProperty('--expanded', 'translateY(200vh)');
-        document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
-        document.documentElement.style.setProperty('--footwidth', '100%');
-        document.documentElement.style.setProperty('--txtdisplay', "block");
-        document.documentElement.style.setProperty('--footopa', '0');
-        document.documentElement.style.setProperty('--imgfull', 'inline-flex');
+        if (size.width < CONST.MOBILE_SIZE) {
+            document.documentElement.style.setProperty('--footersize', '100%');
+            document.documentElement.style.setProperty('--botf', '0px');
+            document.documentElement.style.setProperty('--mobile-radius', '0px');
+            document.documentElement.style.setProperty('--dispbg', 'block');
+            document.documentElement.style.setProperty('--dispbt1', 'block');
+            document.documentElement.style.setProperty('--dispbt2', 'none');
+            document.documentElement.style.setProperty('--imgn', 'none');
+            document.documentElement.style.setProperty('--musicctr', 'none');
+            document.documentElement.style.setProperty('--lyrics', 'flex');
+            document.documentElement.style.setProperty('--phmu', 'flex');
+            document.documentElement.style.setProperty('--dipy', 'flex');
+            document.documentElement.style.setProperty('--expanded', 'translateY(200vh)');
+            document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
+            document.documentElement.style.setProperty('--footwidth', '100%');
+            document.documentElement.style.setProperty('--txtdisplay', "block");
+            document.documentElement.style.setProperty('--footopa', '0');
+            document.documentElement.style.setProperty('--imgfull', 'inline-flex');
+            document.documentElement.style.setProperty('--sus', 'blur(4px) grayscale(20%) brightness(50%)');
+            document.documentElement.style.setProperty('--bg-footer1', 'url(' + props.trackData.trackImg + ')');
+        }
     };
 
     function Hide1() {
@@ -171,139 +178,28 @@ function Footer(props) {
         document.documentElement.style.setProperty('--botf', '55px');
         document.documentElement.style.setProperty('--dispbg', 'none');
         document.documentElement.style.setProperty('--dispbt1', 'none');
+        document.documentElement.style.setProperty('--lyrics', 'none;');
         document.documentElement.style.setProperty('--dispbt2', 'none');
         document.documentElement.style.setProperty('--imgn', 'block');
         document.documentElement.style.setProperty('--imgfull', 'none');
         document.documentElement.style.setProperty('--musicctr', 'flex');
         document.documentElement.style.setProperty('--phmu', 'none');
+        document.documentElement.style.setProperty('--mobile-radius', '20px');
         document.documentElement.style.setProperty('--dipy', 'none');
         document.documentElement.style.setProperty('--txtdisplay', "none");
+        document.documentElement.style.setProperty('--sus', 'none');
         document.documentElement.style.setProperty('--footopa', '0.5');
+        document.documentElement.style.setProperty('--bg-footer1', 'var(--card-background)');
     };
 
-
-    const [touchStart, setTouchStart] = React.useState(0);
-    const [touchEnd, setTouchEnd] = React.useState(0);
-    const [touchStartx, setTouchStartx] = React.useState(0);
-    const [touchEndx, setTouchEndx] = React.useState(0);
     const [isOpen, setIsOpen] = React.useState("false");
     const audioRef = useRef(null);
 
-    function handleTouchStart(e) {
-        setTouchStart(e.targetTouches[0].clientY);
-        setTouchStartx(e.targetTouches[0].clientX);
-if(isOpen == "true") {
-}
-if(isOpen == "false") {
-        
-}
-    }
-
-    function handleTouchMove(e) {
-        setTouchEnd(e.targetTouches[0].clientY);
-        setTouchEndx(e.targetTouches[0].clientX);
-if(isOpen == "true") {
-}
-if(isOpen == "false") {
-        
-        if (touchStart - touchEnd > 40 && touchStart - touchEnd < 349) {
-            document.documentElement.style.setProperty('--footersize', (touchStart - touchEnd) / 3.5 + "vh");
-            document.documentElement.style.setProperty('--footwidth', (touchStart - touchEnd) / (349 / 100) + "%");
-            document.documentElement.style.setProperty('--footopa', ((touchStart + touchEnd) / ((touchStart + touchEnd) * 2)) / (349 / (touchStart + touchEnd) * (touchStart + touchEnd)));
-        }
-        if (touchStart - touchEnd > 200 && touchStart - touchEnd < 349) {
-            document.documentElement.style.setProperty('--dispbg', '1');
-            document.documentElement.style.setProperty('--botf', '0px');
-            document.documentElement.style.setProperty('--imgn', 'none');
-        }
-}
-    }
-
-    function handleTouchEnd() {
-        if (isOpen == "true") {
-            if (touchStart - touchEnd < -160) {
-                Hide1();
-                setIsOpen("false");
-            }
-        }
-        if (isOpen == "false") {
-            if (touchStart - touchEnd > 300) {
-                Expand1();
-                setIsOpen("true");
-            }
-
-            if (touchStart - touchEnd < 340) {
-                Hide1();
-            }
-        }
-    }
 
 
-function handleTouchStart1(e) {
-        setTouchStartx(e.targetTouches[0].clientX);
-    }
 
-    function handleTouchMove1(e) {
-        setTouchEndx(e.targetTouches[0].clientX);
-        if (localStorage.getItem('swipenext') === 'yes') {
-            if (isOpen == "false") {
-                document.documentElement.style.setProperty('--ne', '0');
-                document.documentElement.style.setProperty('--re', '0');
-if (touchStart - touchEnd < 25){
-                if(touchStartx - touchEndx > 20 || touchStartx - touchEndx < -20) {
-                document.documentElement.style.setProperty('--txtpos', "translateX(" + (touchStartx - touchEndx) + "px)");
-} else {
-document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
-}
-}
-            }
-        }
-        if (localStorage.getItem('swipenextfull') === 'yes') {
-            if (isOpen == "true") {
-                document.documentElement.style.setProperty('--imgpos', "translateX(" + (touchStartx - touchEndx) + "px)");
 
-                if (touchStartx - touchEndx > 20) {
-                    document.documentElement.style.setProperty('--ne', '0');
-                    document.documentElement.style.setProperty('--re', '1');
-                }
-                if (touchStartx - touchEndx < -20) {
-                    document.documentElement.style.setProperty('--ne', '1');
-                    document.documentElement.style.setProperty('--re', '0');
-                }
-            }
-        }
-    }
-
-    function handleTouchEnd1() {
-        document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
-        document.documentElement.style.setProperty('--imgpos', "translateX(calc(50vw - 50%))");
-        document.documentElement.style.setProperty('--ne', '0');
-        document.documentElement.style.setProperty('--re', '0');
-        if (isOpen == "false") {
-                if(touchStartx - touchEndx > 20 || touchStartx - touchEndx < -20) {
-            if (localStorage.getItem('swipenext') === 'yes') {
-                if (touchStartx - touchEndx > 50) {
-                    increaseIndex();
-                }
-                if (touchStartx - touchEndx < -50) {
-                    decreaseIndex();
-                }
-            }
-            }
-        }
-        if (isOpen == "true") {
-            if (localStorage.getItem('swipenextfull') === 'yes') {
-                if (touchStartx - touchEndx > 50) {
-                    increaseIndex();
-                }
-                if (touchStartx - touchEndx < -50) {
-                    decreaseIndex();
-                }
-            }
-        }
-    }
-
-    const size = useWindowSize();
+    
 
     
     const [currentTime, setCurrentTime] = useState(0);
@@ -359,12 +255,15 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
     return (
         <footer className={styles.footer}>
                             
-                <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />         
+            {size.width > CONST.MOBILE_SIZE ?
+                <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />
+                : ''
+            }
             
             
             
-            <div onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.nowplayingbar}>               
-                <div onTouchStart={touchStartEvent => handleTouchStart1(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove1(touchMoveEvent)} onTouchEnd={() => handleTouchEnd1()}>
+            <div className={styles.nowplayingbar}>
+                <div onClick={() => { Expand1() }} className={styles.child1}>
                     {size.width < CONST.MOBILE_SIZE &&
                         <div className={styles.footerMid}>
                             <MusicProgressBarBot
@@ -417,14 +316,10 @@ document.documentElement.style.setProperty('--txtpos', "translateX(0px)");
                     />
                 
             </div>
-            
-            <button id="bt1" className="exp" onClick={() => { Expand2() }}>
-                <Icons.Prevpage />
-            </button>
-            <button id="bt1" className="hid" onClick={() => { Hide2() }}>
-                <Icons.Nextpage />
-            </button >
-            <img onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()} className={styles.bgron} src={props.trackData.trackImg} />
+            { size.width < CONST.MOBILE_SIZE ?
+                <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />
+                : ''
+            }
         </footer>
     );
 }
