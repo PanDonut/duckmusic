@@ -220,6 +220,7 @@ h6 {
     margin-top: 15px;
     transition: ease 0.4s;
     text-align: center;
+    pointer-events: none;
     left: 50%;
     transform: translateX(-50%) translateY(var(--top-lyrics));
 }
@@ -248,7 +249,7 @@ h6 {
     color: var(--hover-home-bg);
     filter: brightness(40%);
     transition: 0.15s ease-out;
-    opacity: 0;
+    visibility: hidden;
 }
 
 .mm-lyrics p {
@@ -359,7 +360,6 @@ h6 {
         transform: translateX(-50%) translateY(calc(75vh));
         width: 75vw;
         border-radius: 10px;
-        pointer-events: none;
     }
 
         .mm-lyrics p {
