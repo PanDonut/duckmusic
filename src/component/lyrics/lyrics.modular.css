@@ -237,12 +237,14 @@ h6 {
 .lt {
     color: white;
     transition: 0.6s ease-out;
+    font-family: 'Roboto', sans-serif;
 }
 
 .lt-n {
     color: var(--hover-home-bg);
     filter: brightness(40%);
-    transition: 0.75s ease-out;
+    transition: 0.75s ease-out; 
+    font-family: 'Roboto', sans-serif;
 }
 
 .lt-no {
@@ -250,6 +252,7 @@ h6 {
     filter: brightness(40%);
     transition: 0.15s ease-out;
     opacity: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 .mm-lyrics p {
@@ -392,5 +395,6 @@ h6 {
 
         .lydiv div {
             height: 45px;
+            font-family: 'Roboto', sans-serif;
         }
 }
