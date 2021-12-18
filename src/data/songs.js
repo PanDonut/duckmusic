@@ -496,7 +496,7 @@
 					"https://i.ibb.co/RCvsgpj/squad.png",
 				songArtist: "TheDuck Studios",
 				link:
-					"https://www.mboxdrive.com/squad_remix_theduck.mp3",
+					"https://drive.google.com/u/0/uc?id=1DAnEr7h4SzDntdrMZ0xtKTN3MhYhQsAx&export=download",
 				songID: "2",
 			},
 			{
@@ -535,14 +535,6 @@
 				songimg: "https://i.scdn.co/image/ab67616d00001e02e14f11f796cef9f9a82691a7",
 				songArtist: "Avicii",
 				link: "https://drive.google.com/u/0/uc?id=1w5jcy4tJp-11CU6VQd-I9DquCrULGc35&export=download",
-			}, {
-				index: "6",
-				songName: "Riptide",
-				songimg:
-					"https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
-				songArtist: "Vance Joy",
-				link:
-					"https://drive.google.com/u/0/uc?id=1gYF7U60oYiwF4fP-UHbt2Mj2okjQ3aNH&export=download",
 			},
 			{
 				index: "7",
