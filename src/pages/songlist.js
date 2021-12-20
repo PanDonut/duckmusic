@@ -49,7 +49,7 @@ function PlaylistPage(props) {
 	const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
 	onValue(nameRef, (snapshot) => {
 		const data = snapshot.val();
-		if (PLAYLISTC == null) {
+		if (PLAYLISTC != JSON.parse(data)) {
 			setPLAYLIST(JSON.parse(data));
 		}
 	});
@@ -90,7 +90,6 @@ function PlaylistPage(props) {
 
 
 	const [sho, setSho] = useState(false);
-	const [open, setOpen] = react.useState(false);
 	var link11 = "https://duckmusic.vercel.app/embed/" + path;
 	var embed11 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	var embed111 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed-small/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
@@ -208,4 +207,4 @@ const mapStateToProps = (state) => {
 	};
 };
   
-export default connect(mapStateToProps, { changeTrack, songTrack })(PlaylistPage);
+export default connect(mapStateToProps, { songTrack })(PlaylistPage);
