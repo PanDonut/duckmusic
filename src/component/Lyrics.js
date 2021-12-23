@@ -103,24 +103,23 @@ function Lyrics({ song, currentTime, songId, sly }) {
         }
     }, [currentTime])
     if (size.width > 640) {
-        if (state.lyrics[0].start == 'nosynchro') {
+        if (state.lyrics[0].start == 'nosync') {
             return (
-                <div className="mm-lyrics">
-                    <p>©Musiq</p>
-                    <div className="lydiv">
-
+                <div className="mm-lyrics1">                    
+                    <div className="lydivsc">
+                    <span className="lt">Ten tekst nie jest jeszcze zsynchronizowany z utworem</span>
                         {ly != null ?
                             state.lyrics.map((list) => {
                                     return (
-                                        <div>
                                             <span className="lt">
                                                 {list.lyrics}
                                             </span>
-                                        </div>
                                     )
                             })
                             : ''
                         }
+
+                        <span className="lt">&nbsp;</span>
                     </div>
                 </div>
             );
