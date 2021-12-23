@@ -103,6 +103,28 @@ function Lyrics({ song, currentTime, songId, sly }) {
         }
     }, [currentTime])
     if (size.width > 640) {
+        if (state.lyrics[0].start == 'nosynchro') {
+            return (
+                <div className="mm-lyrics">
+                    <p>©Musiq</p>
+                    <div className="lydiv">
+
+                        {ly != null ?
+                            state.lyrics.map((list) => {
+                                    return (
+                                        <div>
+                                            <span className="lt">
+                                                {list.lyrics}
+                                            </span>
+                                        </div>
+                                    )
+                            })
+                            : ''
+                        }
+                    </div>
+                </div>
+            );
+        } else {
         return (
             <FullScreen handle={handle}>
                 <div className="mm-lyrics">
@@ -124,6 +146,26 @@ function Lyrics({ song, currentTime, songId, sly }) {
 
                                             dispatch({ type: actions.SET_LYRICS, payload: { id: songId, lyrics } })
 
+                                        } else {
+                                            lyrics = [{
+                                                "start": 0,
+                                                "end": 1000,
+                                                "lyrics": "Nie mamy tłumaczenia dla tego tekstu"
+                                            }, {
+                                                "start": 1000,
+                                                "end": 100000,
+                                                "lyrics": " "
+                                            }];
+                                            setLy([{
+                                                "start": 0,
+                                                "end": 1000,
+                                                "lyrics": "Nie mamy tłumaczenia dla tego tekstu"
+                                            }, {
+                                                "start": 1000,
+                                                "end": 100000,
+                                                "lyrics": " "
+                                            }]);
+                                            setState.lyrics(lyrics);
                                         }
 
                                     })
@@ -201,6 +243,7 @@ function Lyrics({ song, currentTime, songId, sly }) {
                 </div>
             </FullScreen>
         )
+                    }
     } else {
         return (
                 <div className="mm-lyrics">
