@@ -118,11 +118,38 @@ function App(props) {
         document.onmousemove = null;
     }
 
-
+    
 
     return (
         <Router>
             <div className={styles.layout}>
+                {
+                    window.navigator.appVersion.split("NT")[1].split(";")[0].trim() == "100.0" && localStorage.getItem('promowindowsdm') == null ? 
+                    <div className={styles.windowspromote}>
+                        <div id={styles.promo1step}>
+                            <h1>Hej, hej, hej</h1>
+                            <h2>Korzystasz z systemu Windows 10 lub Windows 11?</h2>
+                            <div id={styles.selectbtns}><button className={styles.btnyes} onClick={() => {document.documentElement.style.setProperty('--promo', '-100vw')}}>Tak</button><button className={styles.btnno} onClick={() => {document.documentElement.style.setProperty('--promo', '-300vw'); { localStorage.setItem('promowindowsdm', 'showed') }}}>Nie</button></div>
+                        </div>
+                        <div id={styles.promo2step}>
+                            <h1>Świetnie!</h1>
+                            <h2>Możesz więc zainstalować nową aplikację Duck Music!</h2>
+                            <h3>Zalety to:</h3>
+                            <h4>Szybsze ładowanie</h4>
+                            <h4>Automatyczne aktualizacje</h4>
+                            <h4>Natywność</h4>
+                            <h2>Chcesz ją zainstalować?</h2>
+                            <div id={styles.selectbtns}><button className={styles.btnyes} onClick={() => {document.documentElement.style.setProperty('--promo', '300vw'); { localStorage.setItem('promowindowsdm', 'showed') }}}>Tak</button><button className={styles.btnno} onClick={() => {document.documentElement.style.setProperty('--promo', '-200vw')}}>Nie</button></div>
+                        </div>
+                        <div id={styles.promo2step}>
+                            <h1>OK</h1>
+                            <h2>Szanujemy Twoją decyzję</h2>
+                            <h3>Jeżeli zmienisz zdanie kliknij 'Zainstaluj nową wersję' w Ustawieniach Duck Music</h3>
+                            <div id={styles.selectbtns}><button className={styles.btnyes} onClick={() => {document.documentElement.style.setProperty('--promo', '-100vw')}}>Wróć</button><button className={styles.btnno} onClick={() => {document.documentElement.style.setProperty('--promo', '-300vw'); { localStorage.setItem('promowindowsdm', 'showed') }}}>OK</button></div>
+                        </div>
+                    </div>
+                    : ''
+                }
           <Switch>
             <Route exact path="/">
                 <Home />

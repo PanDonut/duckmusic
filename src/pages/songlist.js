@@ -49,8 +49,10 @@ function PlaylistPage(props) {
 	const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
 	onValue(nameRef, (snapshot) => {
 		const data = snapshot.val();
-		if (PLAYLISTC != JSON.parse(data)) {
-			setPLAYLIST(JSON.parse(data));
+		if (PLAYLISTC == null) {
+			if (PLAYLISTC != JSON.parse(data)) {
+				setPLAYLIST(JSON.parse(data));
+			}
 		}
 	});
 

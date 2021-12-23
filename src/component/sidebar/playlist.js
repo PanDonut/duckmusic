@@ -30,43 +30,17 @@ if (rand == rand1) {
 } else if (rand == rand2) {
     rand = Math.floor((Math.random() * indexnmbr) + 1);
 }
+
+const random = Math.floor((Math.random() * PLAYLIST.length) + 0);
 function Playlist() {
     return (
       <div className={styles.Playlist}>
         <TitleS>Proponowane</TitleS>
 
-        <div>
-          {PLAYLISTBTN.map((playlist) => {
-            return (
-                <PlaylistButton 
-                  href={playlist.path} 
-                  ImgName={playlist.ImgName}
-                  key={playlist.title}
-                >
-                  {playlist.title}
-                </PlaylistButton>
-            );
-          })}
-        </div>
-
         <hr className={styles.hr}/>
 
         <div>
-          {PLAYLIST.filter((item) => item.index == rand).map((list) => {
-            return (
-              <Link to={`/playlist/${list.link}`} key={list.title}>
-                  <TextRegularM>{list.title}</TextRegularM>
-              </Link>
-            );
-          })}
-          {PLAYLIST.filter((item) => item.index == rand1).map((list) => {
-            return (
-              <Link to={`/playlist/${list.link}`} key={list.title}>
-                  <TextRegularM>{list.title}</TextRegularM>
-              </Link>
-            );
-          })}
-          {PLAYLIST.filter((item) => item.index == rand2).map((list) => {
+          {PLAYLIST.slice(random, (random + 2)).map((list) => {
             return (
               <Link to={`/playlist/${list.link}`} key={list.title}>
                   <TextRegularM>{list.title}</TextRegularM>

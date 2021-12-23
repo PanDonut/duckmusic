@@ -27,7 +27,11 @@
     z-index: 10;
 }
 
-    
+   #snow {
+       position: fixed;
+       width: 100vw;
+       top: -62px;
+   } 
 
 
 

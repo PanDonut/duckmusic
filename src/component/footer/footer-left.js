@@ -2,11 +2,10 @@
 import * as Icons from '../icons';
 import TextRegularM from '../text/text-regular-m';
 import IconButton from '../buttons/icon-button';
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { aut } from '../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { changeTrack, customTrack, songTrack } from '../../actions/index'
-
 import styles from "./footer-left.module.css";
 
 import PLAYLIST from "../../data/index.json";
@@ -24,11 +23,12 @@ function FooterLeft(props, increaseIndex, decreaseIndex){
     );
 }
 
-function ImgBox({ trackData }){
+function ImgBox({ trackData }) {
+    const img = useRef(null);
     return (
         <div>
         <div className={styles.imgBox}>
-            <img src={trackData.trackImg} alt=" "/>
+                <img ref={img} src={trackData.trackImg} alt=" "/>
         </div>
             <div className={styles.imgBoxfull}>
                 <img src={trackData.trackImg} alt=" " />
