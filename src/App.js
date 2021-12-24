@@ -16,6 +16,7 @@ import MobileNavigation from './component/sidebar/mobile-navigation';
 import Footer from './component/footer/footer';
 import FooterTop from './component/footer/footertop';
 import Home from './pages/home';
+import Sylwester2021 from './pages/event_sylwester202122';
 import Search from './pages/search';
 import Library from './pages/library';
 import PlaylistPage from './pages/playlist';
@@ -124,7 +125,7 @@ function App(props) {
         <Router>
             <div className={styles.layout}>
                 {
-                    window.navigator.appVersion.split("NT")[1].split(";")[0].trim() == "100.0" && localStorage.getItem('promowindowsdm') == null ? 
+                    localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>
                         <div id={styles.promo1step}>
                             <h1>Hej, hej, hej</h1>
@@ -198,6 +199,9 @@ function App(props) {
             </Route>
             <Route exact path="/search">
                <Search />
+            </Route>
+            <Route exact path="/liveevent/sylwester202122">
+               <Sylwester2021 />
             </Route>
             <Route exact path="/info">
                <Info />
