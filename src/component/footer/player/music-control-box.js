@@ -24,7 +24,7 @@ function MusicControlBox(props, {audior}) {
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {

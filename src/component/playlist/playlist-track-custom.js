@@ -40,7 +40,7 @@ function PlaylistTrack(props) {
 
     const [PLAYLIST, setPLAYLIST] = useState(null);
     const db = getDatabase(aut);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {

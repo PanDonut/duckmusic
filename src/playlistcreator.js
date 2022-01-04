@@ -7,7 +7,7 @@ export function CreatePlaylist(firstindex, color, name) {
     const db = getDatabase(aut);
     let pl = [];
     const index = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -35,7 +35,7 @@ export function CreatePlaylist(firstindex, color, name) {
             }
         )
 
-    set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 }
@@ -43,7 +43,7 @@ export function CreatePlaylist(firstindex, color, name) {
 export function AddToPlaylist(song, index, item) {
     const db = getDatabase(aut);
     let pl = [];
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -60,7 +60,7 @@ export function AddToPlaylist(song, index, item) {
                     }
                 )
 
-    set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 }
@@ -68,7 +68,7 @@ export function AddToPlaylist(song, index, item) {
 export function RemoveItem(index, song) {
     const db = getDatabase(aut);
     let pl = [];
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -82,7 +82,7 @@ export function RemoveItem(index, song) {
     pl = pl.slice(index, index).concat(pl.slice(index + 1));
     console.log(pl);
 
-    set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 }
@@ -91,7 +91,7 @@ export function ImportPlaylist(file) {
     const db = getDatabase(aut);
     let pl = [];
     const index = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -107,7 +107,7 @@ export function ImportPlaylist(file) {
         pl.push(JSON.parse(file))
     }
 
-    set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 
@@ -117,7 +117,7 @@ export function ImportPlaylist(file) {
 export function RemoveSong(index, song) {
     const db = getDatabase(aut);
     let pl = [];
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -130,7 +130,7 @@ export function RemoveSong(index, song) {
     pl[index].playlistData.splice(song, 1);
     console.log(pl);
 
-    set(ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 }

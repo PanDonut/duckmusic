@@ -67,7 +67,7 @@ function Home() {
     }
 
     
-    if (localStorage.getItem("name") == null) {
+    if (localStorage.getItem("emaildm") == null) {
         document.location.href = "https://dauth.vercel.app/v2/auth/login&redirect=duckmusic.vercel.app"
     }
 

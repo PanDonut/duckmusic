@@ -50,7 +50,7 @@ function Search() {
 
 
     const handleScroll = (e) => {
-        if (Math.round(e.target.scrollTop) > 110) {
+        if (Math.round(e.target.scrollTop) > 50) {
             document.documentElement.style.setProperty('--topsearch', '0');
             document.documentElement.style.setProperty('--transearch', 'translateX(15%)');
         } else {

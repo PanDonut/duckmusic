@@ -41,7 +41,8 @@ function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+    if (localStorage.getItem("emaildm") != null) {
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -53,6 +54,7 @@ function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
             }
         }
     });
+}
     
     return (
         <div>

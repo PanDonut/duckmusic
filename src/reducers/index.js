@@ -8,8 +8,8 @@ import { useState } from 'react';
 
 let CPLAYLIST = null;
 const db = getDatabase(aut);
-if (localStorage.getItem('email') != null) {
-    const nameRef = ref(db, 'users/' + localStorage.getItem('email').split('.').join("") + '/duckmusic/playlist');
+if (localStorage.getItem('emaildm') != null) {
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (CPLAYLIST == null) {

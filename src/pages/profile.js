@@ -32,7 +32,7 @@ function Settings() {
             <FadeIn visible="true" delay="50" className="marg">
                     <h5>Profil</h5>
                     <h1>{localStorage.getItem('name')}</h1>
-                    <h5 className="cu">{localStorage.getItem('email')}</h5>
+                    <h5 className="cu">{localStorage.getItem('emaildm')}</h5>
                     </FadeIn>
                     </div>
                 </div>

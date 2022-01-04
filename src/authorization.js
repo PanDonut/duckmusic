@@ -28,7 +28,7 @@ const history = useHistory();
 		}
 	});
 
-	localStorage.setItem('email', window.location.href.split('=')[1]);
+	localStorage.setItem('emaildm', window.location.href.split('=')[1]);
 	GetImg(aut, window.location.href.split('=')[1].split('.').join(""));
 
 	setTimeout(function () { history.push("/"); }, 2000);

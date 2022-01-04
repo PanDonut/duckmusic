@@ -48,14 +48,10 @@ let indexn = null;
 function App(props) {
 
     const footerRef = useRef(null);
-    postMessage(localStorage.getItem('email'))
-    const db = getDatabase();
-
-
+    const db = getDatabase(aut);
 
     const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
     const [show, setShow] = useState(false); // hide menu
-
     const handleContextMenu = useCallback(
         (event) => {
             event.preventDefault();
@@ -113,17 +109,19 @@ function App(props) {
         }
     }
 
+    const [tourStep, setTourStep] = useState(0);
+
     function closeDragElement() {
         // stop moving when mouse button is released:
         document.onmouseup = null;
         document.onmousemove = null;
     }
-
-    
-
     return (
         <Router>
             <div className={styles.layout}>
+            <div className={styles.tour}>
+                
+            </div>
                 {
                     localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>
@@ -150,6 +148,23 @@ function App(props) {
                         </div>
                     </div>
                     : ''
+                }
+                { localStorage.getItem("emaildm") != null && localStorage.getItem("dmtour") == "mogus" ?
+                <div className={styles.tour}>
+                    <h1>{"Cześć " + localStorage.getItem("name") + ", witaj na Duck Music!"}</h1>
+                    <h3>Czy chcesz nauczyć się jak korzystać z Duck Music?</h3>
+                    <div id={styles.selectbtns}><button className={styles.btnyes} onClick={() => {localStorage.setItem('dmtour', 'showed');{ setTourStep(1) }}}>Tak</button><button className={styles.btnno} onClick={() => { localStorage.setItem('dmtour', 'showed'); { window.location.reload(true) }}}>Nie, dziękuję</button></div>
+                </div>
+                : ''
+                }
+
+                { tourStep == 1 ?
+                <div className={styles.tour}>
+                <h1>{"Świetnie!"}</h1>
+                <h3>Czy chcesz nauczyć się jak korzystać z Duck Music?</h3>
+                <div id={styles.selectbtns}><button className={styles.btnno} onClick={() => { localStorage.setItem('dmtour', 'showed'); { window.location.reload(true) }}}>Zamknij</button></div>
+            </div>
+            : ''
                 }
           <Switch>
             <Route exact path="/">

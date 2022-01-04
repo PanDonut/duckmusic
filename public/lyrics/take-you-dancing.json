@@ -1,0 +1,22 @@
+[
+    {
+      "start": 0,
+      "end": 2,
+      "lyrics": "Pa pa pa pa para"
+    },
+    {
+        "start": 2,
+        "end": 4.2,
+        "lyrics": "Pa pa pa pa para"
+      },
+      {
+        "start": 4.2,
+        "end": 6.5,
+        "lyrics": "Pa pa pa pa para"
+      },
+      {
+        "start": 6.5,
+        "end": 8.5,
+        "lyrics": "JSON Derulo"
+      }
+  ]

@@ -21,6 +21,37 @@
     align-items: center
 }
 
+.friends {
+    background-color: var(--sidenav-black);
+    height: calc(90vh - 94px);
+    top: 50%;
+    transform: translateY(calc(-50% - 46px));
+    width: 25vw;
+    right: 50px;
+    position: fixed;
+    z-index: 99999999;
+    border-radius: 20px;
+    min-width: 290px;
+}
+
+.sus {
+    color: var(--text-white)
+}
+
+.tour {
+    position: fixed;
+    background-color: #000;
+    height: 100%;
+    width: 100vw;
+    z-index: 11;
+    color: #fff;
+    justify-content: center;
+    flex-direction: column;
+    display: flex;  
+    transition: 0.5s ease; 
+    align-items: center
+}
+
 #promo1step {
     color: #fff;
     display: flex;
