@@ -13,9 +13,6 @@
     justify-content: center;
 }
 
-    .playBtn:hover {
-        transform: scale(1.1);
-    }
 
     .playBtn svg {
         fill: var(--fillsvg);

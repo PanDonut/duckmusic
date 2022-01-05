@@ -265,7 +265,6 @@ function Footer(props) {
             
             
             <div className={styles.nowplayingbar}>
-                <svg id={styles.snow}><path fill="#fff" d="M 0 0 L 1 0 C 1 -1 2 0 3 0 C 3.6667 0 4 -2 5 0 C 6 -1 7 0 8 0" /></svg>
                 <div onClick={() => { Expand1() }} className={styles.child1}>
                     {size.width < CONST.MOBILE_SIZE &&
                         <div className={styles.footerMid}>
