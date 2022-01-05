@@ -127,6 +127,7 @@ function PlaylistTab(props) {
             <div className={styles.Grid}>
                 { likedSongs != null || likedSongs != [] ?
                 likedSongs.sort((a, b) => 0.5 - Math.random()).map(item => {
+                    if (likedSongs != null && likedSongs != []) {
                     return (
                         <PlaylistCardMS
                                 key={SONGLIST[item].songName}
@@ -134,6 +135,7 @@ function PlaylistTab(props) {
                             />
                     )
                 }
+            }
                 )
                 : ''
                 }

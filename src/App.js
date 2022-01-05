@@ -50,6 +50,7 @@ function App(props) {
     const footerRef = useRef(null);
     const db = getDatabase(aut);
 
+    
     const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
     const [show, setShow] = useState(false); // hide menu
     const handleContextMenu = useCallback(

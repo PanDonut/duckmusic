@@ -3,7 +3,8 @@ import '../style/index.css'
 
 function Logout() {
 
-    localStorage.removeItem('name');
+    localStorage.removeItem('namedm');
+    localStorage.removeItem('emaildm');
 
     setTimeout(function () { window.location.replace("https://duckmusic.vercel.app/"); }, 2000);
 

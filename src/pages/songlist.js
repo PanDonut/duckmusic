@@ -45,7 +45,10 @@ import { useReducer } from 'react';
 
 var likedSongs = [];
 const db = getDatabase(aut);
-	const nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/liked');
+var nameRef1 = ref(db, 'users/');
+if (localStorage.getItem('emaildm') != null) {
+	nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/liked');
+}
 onValue(nameRef1, (snapshot) => {
 	const data = snapshot.val();
 		if (data != null || data != undefined) {
