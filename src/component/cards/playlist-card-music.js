@@ -6,7 +6,7 @@ import TextBoldL from "../text/text-bold-l";
 import TextRegularM from '../text/text-regular-m';
 import PlayButton from '../buttons/play-button';
 import FadeIn from 'react-fade-in';
-import styles from "./playlist-card-m.module.css";
+import styles from "./playlist-card-m-c.module.css";
 import SONGLIST from '../../data/songs.json'
 
 function PlaylistCardM(props) {
@@ -24,19 +24,19 @@ function PlaylistCardM(props) {
 				<FadeIn visible="true" delay="100" className={styles.PlaylistCardS}>
 					<div className={styles.ImgBox}>
 						<img src={props.data.songimg} alt={props.data.title} />
+						<div 
+				onClick={() => props.songTrack([parseInt(SONGLIST.indexOf(props.data))])} 
+				className={`${styles.IconBox} ${isthisplay&&props.isPlaying ? styles.ActiveIconBox : ''}`}
+			>
+				<PlayButton isthisplay={isthisplay} />
+			</div>
 					</div>
 					<div className={styles.Title}>
 						<TextBoldL>{props.data.songName}</TextBoldL>
 						<TextRegularM>{props.data.songArtist}</TextRegularM>
 					</div>
 				</FadeIn>
-			</Link>
-			<div 
-				onClick={() => props.songTrack([parseInt(SONGLIST.indexOf(props.data))])} 
-				className={`${styles.IconBox} ${isthisplay&&props.isPlaying ? styles.ActiveIconBox : ''}`}
-			>
-				<PlayButton isthisplay={isthisplay} />
-			</div>
+			</Link>			
 		</div>
 	);
 }

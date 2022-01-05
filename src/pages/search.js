@@ -86,7 +86,7 @@ function Search() {
                 </FadeIn>
                 <h1>Utwory</h1>
                 <FadeIn visible="true" delay="50" className={styles.SearchCardGrid}>
-                    {SONGLIST.filter(item => item.songName.toLowerCase().includes(input.toLowerCase()) || item.songArtist.toLowerCase().includes(input.toLowerCase())).map((list) => {
+                    {SONGLIST.filter(item => item.songName.toLowerCase().includes(input.toLowerCase()) || item.songArtist.toLowerCase().includes(input.toLowerCase())).sort((a, b) => 0.5 - Math.random()).map((list) => {
                         return (
                             <PlaylistCardM
                                 key={list.title}

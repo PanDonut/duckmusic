@@ -3,6 +3,7 @@ import TitleM from '../component/text/title-m';
 import Topnav from '../component/topnav/topnav';
 import PlaylistCardM from '../component/cards/playlist-card-custom'
 import PLAYLIST from "../data/index.json";
+import PlaylistCardMS from '../component/cards/playlist-card-music';
 import styles from "./library.module.css";
 import { aut } from '../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
@@ -14,6 +15,7 @@ import MobileNavigation from '../component/sidebar/mobile-navigation';
 import lay from '../style/App.module.css';
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import SONGLIST from '../data/songs.json';
 import { connect } from 'react-redux';
 import { changeTrack, customTrack } from '../actions';
 import { Link } from "react-router-dom";
@@ -83,7 +85,14 @@ function PlaylistTab(props) {
         };
         reader.readAsText(files);
     }
-
+    var likedSongs = [];
+	const nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/liked');
+    onValue(nameRef1, (snapshot) => {
+        const data = snapshot.val();
+            if (data != null || data != undefined) {
+                likedSongs = JSON.parse(data);			
+            }
+    });
     return (
         <div>
             {loader == true ?
@@ -112,6 +121,21 @@ function PlaylistTab(props) {
                                 );
                             }
                         }) : ''
+                }
+                </div>
+                <TitleM>Ulubione</TitleM>
+            <div className={styles.Grid}>
+                { likedSongs != null || likedSongs != [] ?
+                likedSongs.map(item => {
+                    return (
+                        <PlaylistCardMS
+                                key={SONGLIST[item].songName}
+                                data={SONGLIST[item]}
+                            />
+                    )
+                }
+                )
+                : ''
                 }
                 </div>
                 </div>
