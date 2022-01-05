@@ -7,7 +7,6 @@ import { BrowserRouter as Router,
 import { connect } from 'react-redux';
 import { firebaseg } from './actions/index';
 import Lyrics from './component/Lyrics';
-import Favourites from './pages/favourites'
 import { initializeApp } from "firebase/app";
 import { getAnalytics, initializeAnalytics, logEvent } from "firebase/analytics";
 import { getDatabase, ref, onValue, set } from "firebase/database";
@@ -47,10 +46,6 @@ let indexn = null;
 
 
 function App(props) {
-
-    const [dmDevice, setDevice] = useState("default");
-
-    document.addEventListener("message", function() {if(dmDevice != "pc"){ setDevice("pc")}});
 
     const footerRef = useRef(null);
     const db = getDatabase(aut);
@@ -121,12 +116,9 @@ function App(props) {
         document.onmouseup = null;
         document.onmousemove = null;
     }
-
-    
-
     return (
         <Router>
-            <div className={styles.layout} data-content={dmDevice}>
+            <div className={styles.layout}>
                 {
                     localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>
@@ -180,9 +172,6 @@ function App(props) {
             </Route>
             <Route exact path="/profile">
                 <Profile />
-            </Route>
-            <Route exact path="/profile/personal/favourites">
-                <Favourites />
             </Route>
             <Route exact path="/login1">
                 <Login />
