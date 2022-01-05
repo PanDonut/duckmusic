@@ -126,7 +126,7 @@ function PlaylistTab(props) {
                 <TitleM>Ulubione</TitleM>
             <div className={styles.Grid}>
                 { likedSongs != null || likedSongs != [] ?
-                likedSongs.map(item => {
+                likedSongs.sort((a, b) => 0.5 - Math.random()).map(item => {
                     return (
                         <PlaylistCardMS
                                 key={SONGLIST[item].songName}
