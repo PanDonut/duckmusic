@@ -244,7 +244,6 @@ function Footer(props) {
     const [state, setState] = createState({
         currentTime: currentTime
     })
-
     function EndSong() {
         if (localStorage.getItem('loop', 'true')) {
             audioRef.current.currentTime = 0;
@@ -256,7 +255,9 @@ function Footer(props) {
 
     return (
         <footer className={styles.footer}>
-                            
+            <div className={styles.cantplay}>
+                <h4>Duck Music nie może teraz tego odtworzyć</h4>
+            </div>
             {size.width > CONST.MOBILE_SIZE ?
                 <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />
                 : ''

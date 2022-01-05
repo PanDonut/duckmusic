@@ -1,7 +1,20 @@
 :root {
     --botf: 0;
     --mobile-radius: 20px;
-    --bg-footer1: var(--card-background)
+    --bg-footer1: var(--card-background);
+    --error-play: none;
+}
+
+.cantplay {
+    position: fixed;
+    bottom: 120px;
+    padding: 5px 20px;
+    background-color: var(--akcent);
+    border-radius: 10px;
+    color: #fff;
+    left: 50%;
+    transform: translateX(-50%);
+    display: var(--error-play);
 }
 
 .footer {
