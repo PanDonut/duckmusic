@@ -119,10 +119,6 @@ function App(props) {
     return (
         <Router>
             <div className={styles.layout}>
-            <div className={styles.tour}>
-                <h1>Duck Music jest teraz niedostępne</h1>
-                <h3>Pracujemy nad tym</h3>
-            </div>
                 {
                     localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>
