@@ -19,6 +19,7 @@ import Home from './pages/home';
 import Sylwester2021 from './pages/event_sylwester202122';
 import Search from './pages/search';
 import Library from './pages/library';
+import Artist from './pages/artist';
 import PlaylistPage from './pages/playlist';
 import PlaylistPageC from './pages/playlistc';
 import SongPage from './pages/songlist';
@@ -191,6 +192,9 @@ function App(props) {
             </Route>
             <Route exact path="/lyrics">
                 <Lyrics />
+            </Route>
+            <Route exact path="/artist/:path">
+                <Artist />
             </Route>
             <Route exact path="/settings">
                 <Settings />

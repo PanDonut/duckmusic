@@ -10,6 +10,24 @@
     -webkit-user-select: none;
     -ms-user-select: none;
 }
+
+.ar1 {
+    display: flex;
+    flex-direction: row;
+}
+
+.playlistDetails1 {
+    padding: 0;
+    display: grid;
+    grid-template-columns: 232px 1fr;
+    column-gap: 24px;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
 .imgBox{
     width: 232px;
     height: 232px;
@@ -25,6 +43,44 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+}
+
+.nn {
+    width: 100%;
+    height: calc(100% - 94px);
+    background: var(--bg);
+    position: absolute;
+    top: 0;
+    opacity: var(--img-opacity);  
+    transition: 0.1s ease;
+}
+
+.nn1 {
+    width: 100%;
+    height: 150px;
+    background: var(--bg);
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(255, 255, 255, 0) 61%, rgba(255,255,255,0) 100%);
+    position: absolute;
+    bottom: -56px;
+}
+
+.imgBox1{
+    width: 100%;
+    height: calc(100vh - 94px);
+}
+.imgBox1 img{
+    width: 100%;
+    height: calc(100% - 94px);
+    -webkit-box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+    box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    object-fit: cover; 
+    position: absolute;
 }
 .textBox{
     display: flex;
@@ -49,11 +105,49 @@
     letter-spacing: -.04em;
     text-transform: none;
 }
+
+.textBox1{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    justify-content: flex-end;
+    bottom: 100px;
+}
+.textBox1 h3{
+    margin: 0;
+    margin-top: 4px;
+    letter-spacing: -0.4px;
+}
+.textBox1 h1{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin: 0;
+    padding: 0.08em 0px;
+    font-size: 96px;
+    line-height: 96px;
+    font-weight: 700;
+    letter-spacing: -.04em;
+    text-transform: none;
+}
+
 .Artist {
     display: flex;
     align-items: center;
     margin-top: 16px;
     justify-content: flex-start
+}
+
+.Artist1 {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+    justify-content: flex-start
+}
+
+.Artist1 p:hover {
+    text-decoration: underline white 1px;
 }
 .Artist figure{
     width: 24px;
@@ -111,4 +205,68 @@
         width: 125px;
         overflow: visible;
     }
+    .imgBox1{
+        width: 100%;
+        height: calc(100vh - 40px);
+    }
+    .imgBox1 img{
+        width: 100%;
+        height: 100%;
+        -webkit-box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+        box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+        user-drag: none;
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        object-fit: cover; 
+        position: absolute;
+    }
+    .nn {
+        width: 100%;
+        height: 100%;
+        background: var(--bg);
+        position: absolute;
+        top: 0;
+        opacity: var(--img-opacity);  
+        transition: 0.1s ease;
+    }
+    .textBox1{
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        justify-content: flex-end;
+        bottom: 100px;
+        width: 100%;
+    }
+    .textBox1 h1{
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: 0;
+        padding: 0.08em 0px;
+        font-size: 36px;
+        line-height: 96px;
+        font-weight: 700;
+        letter-spacing: -.04em;
+        text-transform: none;
+        left: 50%;
+        transform: translateX(-50%);
+        position: absolute;
+        width: 100%;
+        text-align: center;
+    }
+
+    
+    
+.nn1 {
+    width: 100%;
+    height: 100px;
+    background: var(--bg);
+    background: linear-gradient(180deg, var(--bg) 0%, rgba(255, 255, 255, 0) 61%, rgba(255,255,255,0) 100%);
+    position: absolute;
+    bottom: -98px;
+}
 }

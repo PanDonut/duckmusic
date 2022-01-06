@@ -1,0 +1,68 @@
+[
+    {
+        "name": "The Weeknd",
+        "image": "https://i.scdn.co/image/ab6761670000ecd466ae0ff4e27e5621f73c9c6b",
+        "bg": "#04649a",
+        "verified": "true"
+    },
+    {
+        "name": "Taylor Swift",
+        "image": "https://i.scdn.co/image/ab6761860000101622f03de0ecaa0937397461fd",
+        "bg": "#000",
+        "verified": "true"
+    },
+    {
+        "name": "Lewis Capaladi",
+        "image": "https://i.scdn.co/image/ab676186000010167801d09c77b4ac0923162655",
+        "bg": "#a20400",
+        "verified": "true"
+    },
+    {
+        "name": "Daria",
+        "image": "https://i.scdn.co/image/ab67618600001016a1a543bd0363f15c228ba304",
+        "bg": "#9da6a3",
+        "verified": "true"
+    },
+    {
+        "name": "Maroon 5",
+        "image": "https://i.scdn.co/image/ab6761670000ecd4eac2fda392922323963b29c1",
+        "bg": "#b7b9b6",
+        "verified": "true"
+    },
+    {
+        "name": "Memenicus",
+        "image": "https://i.scdn.co/image/ab67618600001016275e34ccbaf9b8a64eedc929",
+        "bg": "#23377e",
+        "verified": "true"
+    },
+    {
+        "name": "Alice Merton",
+        "image": "https://i.scdn.co/image/ab676186000010164902c85c8e26e2f8e64cd563",
+        "bg": "#5f2c17",
+        "verified": "true"
+    },
+    {
+        "name": "Imagine Dragons",
+        "image": "https://i.scdn.co/image/ab67618600001016bc2c5c47436fd26b8ac1aa1b",
+        "bg": "#000",
+        "verified": "true"
+    },
+    {
+        "name": "Marshmello",
+        "image": "https://i.scdn.co/image/ab6761670000ecd4c92abec7efd8077e0891fabc",
+        "bg": "#7b7b79",
+        "verified": "true"
+    },
+    {
+        "name": "Bastille",
+        "image": "https://i.scdn.co/image/ab6761860000101657c44fd7ea0040b34578a794",
+        "bg": "#4f55aa",
+        "verified": "true"
+    },
+    {
+        "name": "Kungs",
+        "image": "https://i.scdn.co/image/ab6761860000101621641487e9a0b843fe3f34cf",
+        "bg": "#e0cead",
+        "verified": "true"
+    }
+]

@@ -15,6 +15,10 @@
     -ms-user-select: none;
 }
 
+.sus {
+    margin-top: -60px;
+}
+
 .flexselect {
     background-color: #00000030;
     display: flex;
@@ -126,6 +130,11 @@
 
 .GridIcons {
     display: inline-block;
+}
+
+.GridIcons1 {
+    display: inline-block;
+    height: 106px;
 }
 .Bg{
     position: fixed;
@@ -339,6 +348,10 @@
         padding: 15px 35px;
         color: #fff;
         font-weight: 700;
+        z-index: 99;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     .overlay {

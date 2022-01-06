@@ -72,7 +72,7 @@
   {
     "songName": "Señorita",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02e6095c382c2853667c1623eb",
-    "songArtist": "Camila Cabello feat. Shawn Mendes",
+    "songArtist": "Camila Cabello,Shawn Mendes",
     "link": "https://drive.google.com/u/0/uc?id=1RDra8uflnC1y8YrnojhITZZG5bIf5yRq&export=download"
   },
   {
@@ -99,7 +99,7 @@
     "index": "16",
     "songName": "Feel This Moment",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02f2486b438645e97b523e4f90",
-    "songArtist": "Pitbull feat. Christina Aguilera",
+    "songArtist": "Pitbull,Christina Aguilera",
     "link": "https://drive.google.com/u/0/uc?id=1DwT2hBc2u9wvJqBh2gWkcLbb6Q8bCnrG&export=download"
   },
   {
@@ -127,21 +127,21 @@
     "index": "21",
     "songName": "Happier",
     "songimg": "https://i.scdn.co/image/ab67616d00001e0204bfd5a5fd5aa6ca648f66aa",
-    "songArtist": "Marshmello feat. Bastille",
+    "songArtist": "Marshmello,Bastille",
     "link": "https://drive.google.com/u/0/uc?id=1P3YXqD5UeD4ZD1CuRAX5zs12p11gM67r&export=download"
   },
   {
     "index": "22",
     "songName": "Uptown Funk",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02e419ccba0baa8bd3f3d7abf2",
-    "songArtist": "Mark Ronson feat. Bruno Mars",
+    "songArtist": "Mark Ronson,Bruno Mars",
     "link": "https://drive.google.com/u/0/uc?id=1lHuakfIM7kBY_K-iKOLtEz-JrtxDCXzz&export=download"
   },
   {
     "index": "23",
     "songName": "Moves Like Jagger",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02c5e1cecaedcd413599e4e866",
-    "songArtist": "Maroon 5 feat. Christina Aguilera",
+    "songArtist": "Maroon 5,Christina Aguilera",
     "link": "https://drive.google.com/u/0/uc?id=1QhEpC9nvhpB0UmyYXGvihvuxAJvyS-Dy&export=download"
   },
   {
@@ -190,7 +190,7 @@
     "index": "30",
     "songName": "We Are Young",
     "songimg": "https://i.scdn.co/image/ab67616d00001e0205fb4e9947c6edaf3836766e",
-    "songArtist": "Fun feat. Janelle Monáe",
+    "songArtist": "Fun,Janelle Monáe",
     "link": "https://drive.google.com/u/0/uc?id=1D0s59hAb_v2bZ42-RVa-tZssr0CLaKmn&export=download"
   },
   {
@@ -218,7 +218,7 @@
     "index": "1",
     "songName": "Mr. Heavybeat",
     "songimg": "https://i.ibb.co/GsD7sgw/heavybeat.png",
-    "songArtist": "TheDuck Studios feat. Alexandra Stan",
+    "songArtist": "TheDuck Studios,Alexandra Stan",
     "link": "https://www.mboxdrive.com/heavy_mr_saxobeat.mp3"
   },
   {
@@ -290,7 +290,7 @@
     "index": "10",
     "songName": "Someone You Loved",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02fc2101e6889d6ce9025f85f2",
-    "songArtist": "Lewis Capaldi",
+    "songArtist": "Lewis Capaladi",
     "link": "https://www.dl.dropboxusercontent.com/s/7z8nq4zrqfcs784/Lewis%20Capaldi%20-%20Someone%20You%20Loved.mp3"
   },
 
@@ -469,7 +469,7 @@
     "index": "9",
     "songName": "Happier - Stripped",
     "songimg": "https://i.scdn.co/image/ab67616d00001e024368b0b219c5ab6805f42669",
-    "songArtist": "Marshello, Bastille",
+    "songArtist": "Marshmello, Bastille",
     "link": "https://drive.google.com/u/0/uc?id=1YdVDs77xhXyXasR8nsej2WAfu7-atsLg&export=download"
   },
   {
@@ -561,7 +561,7 @@
   {
     "songName": "I Feel It Coming",
     "songimg": "https://i.scdn.co/image/ab67616d00001e024718e2b124f79258be7bc452",
-    "songArtist": "The Weeknd, Daft Punk",
+    "songArtist": "The Weeknd,Daft Punk",
     "link": "https://drive.google.com/u/0/uc?id=1ewX9SHniHEUqGC5d7w3mkHehwOLNoJsO&export=download",
     "lyrics": []
   },
