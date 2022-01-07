@@ -64,5 +64,17 @@
         "image": "https://i.scdn.co/image/ab6761860000101621641487e9a0b843fe3f34cf",
         "bg": "#e0cead",
         "verified": "true"
+    },
+    {
+        "name": "Tones And I",
+        "image": "https://i.scdn.co/image/e77a2bebfb4c34c04a11574a52c343ccb01f412a",
+        "bg": "#d50c1f",
+        "verified": "true"
+    },
+    {
+        "name": "Dmuch Boys",
+        "image": "https://i.ibb.co/vkqzNp5/dmuch-boys.png",
+        "bg": "#001e06",
+        "verified": "false"
     }
 ]

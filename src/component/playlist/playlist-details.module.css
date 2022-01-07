@@ -67,10 +67,14 @@
 .imgBox1{
     width: 100%;
     height: calc(100vh - 94px);
+    overflow: hidden;
+    box-sizing: border-box;
+    object-fit: contain;
 }
 .imgBox1 img{
     width: 100%;
     height: calc(100% - 94px);
+    max-height: calc(100% - 94px);
     -webkit-box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
     box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
     user-drag: none;
@@ -81,6 +85,7 @@
     -ms-user-select: none;
     object-fit: cover; 
     position: absolute;
+    object-position: center;
 }
 .textBox{
     display: flex;
