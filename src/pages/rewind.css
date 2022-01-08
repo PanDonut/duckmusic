@@ -1,0 +1,24 @@
+.bg12 {
+    animation: bganim 60s ease;
+}
+
+@keyframes bganim {
+    0% {
+        background-color: turquoise;
+    }
+    25% {
+        background-color: turquoise;
+    }
+    50% {
+        background-color: orange;
+    }
+    75% {
+        background-color: orange;
+    }
+    90% {
+        background-color: limegreen;
+    }
+    100% {
+        background-color: limegreen;
+    }
+}

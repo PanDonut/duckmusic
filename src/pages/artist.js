@@ -45,13 +45,16 @@ import FadeIn from 'react-fade-in';
 
 function PlaylistPage(props) {
 
+	const [loader, setLoadingState] = useState(true);
 	const [PLAYLIST, setPLAYLIST] = useState(null);
 	const db = getDatabase(aut);
 	const url = `/artists.json`
 	        if (PLAYLIST == null) {
             axios.get(url)
                 .then(res => {
+					document.documentElement.style.setProperty('--img-opacity', 0);
 					setPLAYLIST(res.data);
+					setLoadingState(false);
                 })
 			}
 	
@@ -91,6 +94,12 @@ function PlaylistPage(props) {
 	var embed111 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed-small/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	return (
 		<div className={lay.layout}>
+			{loader == true ?
+                <div className={styles.wrapper}>
+                    <div className={styles.loader} id={styles.loader} />
+                </div>
+                : ''
+            }
 			{size.width > CONST.MOBILE_SIZE
 				? <Sidebar />
 				: <MobileNavigation />
@@ -117,7 +126,6 @@ function PlaylistPage(props) {
 				{PLAYLIST != null ?
 					PLAYLIST.map((item) => {
 						if (item.name.toLowerCase().split(" ").join("-") == path) {
-
 							return (
 								<div key={item.title} className={styles.sus} onLoad={() => {
 									changeBg(item.bg);
@@ -126,6 +134,7 @@ function PlaylistPage(props) {
 								
 
 									<PlaylistDetails data={item} />
+									<div className={styles.imgbg}></div>
 									<div className={styles.GridIcons1}>
 
 									</div>
@@ -160,6 +169,12 @@ function PlaylistPage(props) {
 						}
 					} 
 					) : ''}
+					<div className={styles.notexist}>	
+							<div>	
+							<h1>Nie możemy tego znaleźć</h1>
+							<h4 onClick={() => {history.goBack()}}>Wróć do poprzedniej strony</h4>
+							</div>
+							</div>
 			</div>
 		</div>
 	);

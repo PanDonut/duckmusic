@@ -32,6 +32,7 @@ import PLAYLIST from './data/index.json';
 import styles from './style/App.module.css';
 import Card from './component/cards/playlist-card-m';
 import NotFound from './pages/404';
+import Rewind from './pages/rewind';
 import LyricsCard from './component/lyrics/lyrics-main';
 import { keepTheme } from './theme';
 import Connection from './pages/connection';
@@ -177,6 +178,9 @@ function App(props) {
             </Route>
             <Route exact path="/login1">
                 <Login />
+            </Route>
+            <Route exact path="/rewind/:token/:path">
+                <Rewind />
             </Route>
             <Route exact path="/logout">
                 <Logout />

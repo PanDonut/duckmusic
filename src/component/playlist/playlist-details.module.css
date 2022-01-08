@@ -27,6 +27,7 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    z-index: 2;
 }
 .imgBox{
     width: 232px;
@@ -62,6 +63,7 @@
     background: linear-gradient(180deg, var(--bg) 0%, rgba(255, 255, 255, 0) 61%, rgba(255,255,255,0) 100%);
     position: absolute;
     bottom: -56px;
+    z-index: 5;
 }
 
 .imgBox1{
