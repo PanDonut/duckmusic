@@ -28,6 +28,7 @@ import convertTime from '../../functions/convertTime';
 import { aut } from '../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import FadeIn from 'react-fade-in';
+import AudioSpectrum from 'react-audio-spectrum';
 
 
 function Footer(props) {
@@ -48,6 +49,10 @@ function Footer(props) {
             }
         }
     });
+}
+
+if (localStorage.getItem("fadetime") == null) {
+    localStorage.setItem("fadetime", 0)
 }
     function decreaseIndex() {
         if (props.trackData.canSkip == 'true') {
@@ -199,8 +204,6 @@ function Footer(props) {
 
 
 
-
-
     
 
     
@@ -225,6 +228,20 @@ function Footer(props) {
         localStorage.setItem('firecon', false);
     }
 
+    if (Math.round(currentTime) >= Math.round(duration - localStorage.getItem("fadetime"))) {
+        if (audioRef.current && audioRef.current.volume > 0.1) {
+        audioRef.current.volume = audioRef.current.volume - 0.05;
+        console.log(audioRef.current.volume);
+        }
+    }
+
+    if (Math.round(currentTime) <= Math.round(duration - duration + localStorage.getItem("fadetime"))) {
+        if (audioRef.current && audioRef.current.volume < 1) {
+        audioRef.current.volume = audioRef.current.volume + 0.05;
+        console.log(audioRef.current.volume);
+        }
+    }
+
     
     if (localStorage.getItem('loop') == 'true') {
 
@@ -238,6 +255,12 @@ function Footer(props) {
         audioRef.current.volume = volume;
     }, [audioRef, volume]);
 
+    localStorage.getItem('explicit');
+    if (props.isPlaying && props.trackData.trackName.includes("🅴") && localStorage.getItem('explicit') == 'no' || props.isPlaying && props.trackData.trackName.includes("🅴") && localStorage.getItem('explicit') == null) {
+          audioRef.current.pause();
+          document.documentElement.style.setProperty('--error-ex', 'block');
+          setTimeout(function() {document.documentElement.style.setProperty('--error-ex', 'none'); console.log("mogus")}, 10000)
+    }
 
     const [songsPlayed, setNewSong] = useState(0);
 
@@ -253,10 +276,15 @@ function Footer(props) {
         }
     }
 
+
+
     return (
         <footer className={styles.footer}>
             <div className={styles.cantplay}>
                 <h4>Duck Music nie może teraz tego odtworzyć</h4>
+            </div>
+            <div className={styles.cantplayex}>
+                <h4>Odtwarzanie nieodpowiednich utworów jest wyłączone</h4>
             </div>
             {size.width > CONST.MOBILE_SIZE ?
                 <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />

@@ -46,6 +46,7 @@ function PlaylistPage(props) {
 	const handleScroll = (e) => {
 		if (Math.round(e.target.scrollTop) > 227) {
 			document.documentElement.style.setProperty('--playbg', 'linear-gradient(180deg, rgba(11,11,11,1) 0%, rgba(11,11,11,1) 37%, rgba(11,11,11,0.8018557764902836) 78%, rgba(11,11,11,0.5553571770505077) 89%, rgba(11,11,11,0) 100%)');
+			document.documentElement.style.setProperty('--bg-full', 'var(--hover-home-bg)');
 		} else {
 			document.documentElement.style.setProperty('--playbg', 'linear-gradient(180deg, rgba(0,0,0,0.47692580450148814) 0%, rgba(0,0,0,0.4) 37%, rgba(0,0,0,0.15) 78%, rgba(0,0,0,0.1) 89%, rgba(0,0,0,0) 100%)');
         }

@@ -92,6 +92,45 @@
     width: 80%;
 }
 
+.ust-disabled {
+    margin-top: 0px;
+    margin-left: 15px;
+    border-bottom: solid thin var(--sepe);
+    padding-bottom: 20px;
+    width: 80%;
+    color: #000;
+    pointer-events:none;
+}
+
+#rang {
+    color: var(--akcent);
+    -webkit-appearance: none;
+    background-color: #55555525;
+    border-radius: 50px;
+    width: 150%;
+    height: 10px;
+}
+
+#rang::-webkit-slider-thumb {
+    -webkit-appearance: none;
+	position: relative;
+	z-index: 9;
+	background: #b3b3b3;
+	border-radius: 50%;
+	box-shadow: 0 0 0 0 #b3b3b3;
+	cursor: pointer;
+	height: 10px;
+	width: 10px;
+	transition: 0.25s ease;
+	border: 0;
+}
+
+#rang
+
+.ust-disabled div section h4 {
+    color: #0006;
+}
+
 .marg h4 span {   
     position: absolute;
     color: var(--text-white);
@@ -107,6 +146,21 @@
     content: "BETA";
 }
 
+.marg-disabled h4 span {   
+    position: absolute;
+    color: var(--text-white);
+    margin-left: 5px;
+    background-color: #5b88e1;
+    font-size: 10px;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+.marg-disabled h4 span:before {
+    content: "BETA";
+}
+
 @media screen and (max-width: 640px) {
     .body {
         background: linear-gradient(140deg, var(--main-background) 0%, var(--main-background) 30%, rgba(91,136,225,1) 100%);
@@ -119,10 +173,34 @@
     .ust {
         width: 95%;
     }
+    .ust-disabled {
+        width: 95%;
+    }
 
     .marg section {
         width: 90%;
     }
+    #rang {
+        height: 25px;
+        background-color: #55555550;
+        width: 100%;
+    }
+
+    #rang::-webkit-slider-thumb {
+        height: 25px;
+        width: 25px;
+    }
+}
+
+.container-pp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.container-pp p {
+    color: var(--text-white);
+    width: 45px;
 }
 
 .cu {

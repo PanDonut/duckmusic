@@ -38,7 +38,6 @@ function Settings() {
         }
     }, [theme])
 
-
     const handleOnClick = () => {
         if (localStorage.getItem('theme') === 'theme-dark') {
             setTheme('theme-light');
@@ -116,6 +115,7 @@ function Settings() {
         }
     }
 
+    const [val, setVal] = useState(localStorage.getItem('fadetime'));
 
 
     return (
@@ -163,7 +163,7 @@ function Settings() {
                         {size.width < CONST.MOBILE_SIZE &&
                             <div>
                                 <section>
-                                    <h4>{decode("Stary design")}</h4>
+                                    <h4>{decode("Nieprzezroczystość kafelków")}</h4>
                                     <div className="container--toggle">
                                         {
                                             old === "yes" ?
@@ -182,7 +182,7 @@ function Settings() {
                     <FadeIn visible="true" delay="100" className="ust">
                         <h3>{decode("Kontrola tre&#347;ci")}</h3>
                         <section>
-                            <h4>{decode("Wy&#347;wietlaj nieodpowiednie playlisty")}</h4>
+                            <h4>Zezwalaj na odtwarzanie nieodpowiednich utworów</h4>
                             <div className="container--toggle">
                                 {
                                     toggle === "yes" ?
@@ -195,28 +195,24 @@ function Settings() {
                                 </label>
                             </div>
                         </section>
+                    </FadeIn>
+                    <FadeIn visible="true" delay="100" className="ust">
+                        <h3>Odtwarzacz</h3>
                         <section>
-                            <h4>Reklamy</h4>
-                            <div className="container--toggle">
-                                {
-                                    ads === "true" ?
-                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick9} checked />
-                                        :
-                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick9} />
-                                }
-                                <label htmlFor="toggle" className="toggle--label">
-                                    <span className="toggle--label-background"></span>
-                                </label>
+                            <h4>Płynne przejście między utworami</h4>
+                            <div className="container-pp">
+                                <p>{val + "s"}</p>
+                                <input type="range" id="rang" step="1" min="0" max="10" value={val} onChange={(e) => {setVal(e.target.value); localStorage.setItem('fadetime', e.target.value); console.log(val + " " + e.target.value)}}/>
                             </div>
                         </section>
                     </FadeIn>
-                    <FadeIn visible="true" delay="100" className="ust">
+                    <FadeIn visible="true" delay="100" className="ust-disabled">
                         <h3>{decode("U&#322;atwienia dost&#281;pu")}</h3>
                         {size.width < CONST.MOBILE_SIZE &&
                             <div>
                         <section>
                             <h4>{decode("Przesu&#324; aby przewin&#261;&#263;")}<span/></h4>
-                            <div className="container--toggle">
+                            <div className="container--toggle-d">
                                 {
                                     swipe === "yes" ?
                                         <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick2} checked />

@@ -20,6 +20,7 @@
     "little-loader": "^0.2.0",
     "react": "^17.0.2",
     "react-audio-player": "^0.17.0",
+    "react-audio-spectrum": "^0.1.0",
     "react-bootstrap": "^1.6.4",
     "react-chromecast": "0.0.5-alpha",
     "react-color": "^2.19.3",

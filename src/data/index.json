@@ -281,55 +281,51 @@
 		"playlistData": [
 			{
 				"index": "1",
-				"songindex": 61
+				"songindex": 60
 			},
 			{
 				"index": "2",
-				"songindex": 62
+				"songindex": 61
 			},
 			{
 				"index": "3",
-				"songindex": 63
+				"songindex": 62
 			},
 			{
 				"index": "4",
-				"songindex": 2
+				"songindex": 63
 			},
 			{
 				"index": "5",
-				"songindex": 64
+				"songindex": 2
 			},
 			{
 				"index": "6",
-				"songindex": 6
+				"songindex": 64
 			},
 			{
 				"index": "7",
-				"songindex": 66
+				"songindex": 6
 			},
 			{
 				"index": "8",
-				"songindex": 67
+				"songindex": 66
 			},
 			{
 				"index": "9",
-				"songindex": 68
+				"songindex": 67
 			},
 			{
 				"index": "10",
-				"songindex": 17
+				"songindex": 68
 			},
 			{
 				"index": "11",
-				"songindex": 21
+				"songindex": 17
 			},
 			{
 				"index": "12",
-				"songindex": 71
-			},
-			{
-				"index": "13",
-				"songindex": 72
+				"songindex": 69
 			}
 		]
 	},
@@ -338,8 +334,7 @@
 		"type": "playlista",
 		"title": "Świąteczne Hity",
 		"link": "christmas2021",
-                "ex": "no",
-                "promoted": "prawda",
+        "ex": "no",
 		"promodesc": "Najpopularniejsze świąteczne utwory!",
 		"imgUrl": "https://i.ibb.co/zVgXCB3/christmas-playlist.png",
 		"hoverColor": "rgb(22, 91, 51)",

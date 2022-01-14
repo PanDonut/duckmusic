@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, handleEnd }, ref) => {
+const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, handleEnd, Chng }, ref) => {
     return (
       <audio
         ref={ref}

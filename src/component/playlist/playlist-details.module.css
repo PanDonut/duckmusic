@@ -276,4 +276,8 @@
     position: absolute;
     bottom: -98px;
 }
+
+.ar1 {
+    justify-content: center;
+}
 }
