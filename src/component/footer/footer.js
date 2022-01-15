@@ -268,18 +268,13 @@ if (localStorage.getItem("fadetime") == null) {
         currentTime: currentTime
     })
     function EndSong() {
-        if (localStorage.getItem('loop', 'true')) {
+        if (localStorage.getItem('loop') == 'true') {
             audioRef.current.currentTime = 0;
             audioRef.current.play();
         } else {
             increaseIndex();
         }
     }
-    useEffect(() => {
-        audioRef.current.addEventListener('ended', () => {
-            EndSong();
-        })
-      }, []);
 
     return (
         <footer className={styles.footer}>
