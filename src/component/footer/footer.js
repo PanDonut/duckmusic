@@ -275,8 +275,11 @@ if (localStorage.getItem("fadetime") == null) {
             increaseIndex();
         }
     }
-
-
+    useEffect(() => {
+        audioRef.current.addEventListener('ended', () => {
+            EndSong();
+        })
+      }, []);
 
     return (
         <footer className={styles.footer}>
