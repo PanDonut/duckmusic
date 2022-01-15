@@ -101,7 +101,7 @@ function PlaylistTab(props) {
                 </div>
                 : ''
             }
-            <input style={{ color: 'transparent' }} type="file" id={styles.upload} accept=".json" onInput={e => readFileAsString(e.target.files[0])} />
+            <input style={{ color: 'transparent' }} type="file" id={styles.upload} accept=".dmusic" onInput={e => readFileAsString(e.target.files[0])} />
             <div className={styles.su}>
             <TitleM>Twoje playlisty</TitleM>
             <div className={styles.Grid}>

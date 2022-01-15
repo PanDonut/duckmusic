@@ -166,7 +166,7 @@ function PlaylistPage(props) {
 											<button className={styles.btn} onClick={() => {
 												var json_string = JSON.stringify(item, undefined, 2);
 												var link = document.createElement('a');
-												link.download = 'dm_mobilegen_' + item.index.substring(0,6) + '.json';
+												link.download = 'dm_mobilegen_' + item.index.substring(0,6) + '.dmusic';
 												var blob = new Blob([json_string], { type: 'text/plain' });
 												link.href = window.URL.createObjectURL(blob);
 												link.click();
@@ -213,7 +213,7 @@ function PlaylistPage(props) {
 														onClick={() => {
 															var json_string = JSON.stringify(item, undefined, 2);
 															var link = document.createElement('a');
-															link.download = 'dm_generated_' + item.index + '.json';
+															link.download = 'dm_generated_' + item.index + '.dmusic';
 															var blob = new Blob([json_string], { type: 'text/plain' });
 															link.href = window.URL.createObjectURL(blob);
 															link.click();
