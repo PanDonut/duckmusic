@@ -104,7 +104,7 @@ if (localStorage.getItem("fadetime") == null) {
                     if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
                         props.changeTrack([props.trackData.trackKey[0], 0])
                     } else {
-                        props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) + 0)])
+                        props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) - 1)])
                     }
                 } else {
                     localStorage.setItem('shuffle', 'false')
@@ -275,6 +275,11 @@ if (localStorage.getItem("fadetime") == null) {
             increaseIndex();
         }
     }
+    if (props.trackData.trackName != "Brak utworu") {
+    document.title = props.trackData.trackName;
+} else {
+    document.title = "Duck Music";
+}
 
     return (
         <footer className={styles.footer}>
