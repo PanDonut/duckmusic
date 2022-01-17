@@ -1,7 +1,7 @@
 self.addEventListener("fetch", function(event) {
     event.respondWith(
       caches.match(event.request).then(function(response) {
-        if (response && navigator.onLine == true) {
+        if (response) {
           return response;
         } else {
           return fetch(event.request)
