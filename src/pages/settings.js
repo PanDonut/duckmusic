@@ -241,6 +241,16 @@ function Settings() {
                             </div>
                         }
                     </FadeIn>
+                    <FadeIn visible="true" delay="100" className="ust">
+                        <h3>Dane offline</h3>
+                        <section id='btnsec'>
+                            <div className='datea'>
+                            <h4>Usuwanie danych offline</h4>
+                            <h5>Możesz usunąć dane offline jeżeli Duck Music nie aktualizuje się lub nie masz miejsca na urządzeniu</h5>
+                            </div>
+                            <button onClick={() => {caches.delete('duckmusic-offline-version-storage')}}>Usuń</button>
+                        </section>
+                    </FadeIn>
                 </FadeIn>
                 </div>
         </div>

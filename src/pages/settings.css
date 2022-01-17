@@ -207,3 +207,28 @@
     margin: 0px;
     color: #808080;
 }
+
+.datea {
+    display: flex;
+    flex-direction: column;
+}
+
+.datea h4 {
+    margin: 0;
+    padding: 0;
+}
+
+.datea h5 {
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    color: #555;
+}
+
+#btnsec button {
+    background-color: var(--akcent);
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    padding: 10px 15px;
+}
