@@ -56,6 +56,10 @@ function PlaylistPage(props) {
 					setPLAYLIST(res.data);
 					setLoadingState(false);
                 })
+				.catch(err => {
+					setLoadingState(false);
+				}
+				)
 			}
 	
 
@@ -123,7 +127,7 @@ function PlaylistPage(props) {
 					<Topnav playlist={true} pl={PLAYLIST} />
 					: <Topnav normal={true}/>}
 
-				{PLAYLIST != null ?
+				{PLAYLIST != null && navigator.onLine ?
 					PLAYLIST.map((item) => {
 						if (item.name.toLowerCase().split(" ").join("-") == path) {
 							return (
@@ -168,7 +172,12 @@ function PlaylistPage(props) {
 							);
 						}
 					} 
-					) : ''}
+					) : <div className={styles.notexist}>	
+					<div>	
+					<h1>Nie możemy tego znaleźć</h1>
+					<h4 onClick={() => {history.goBack()}}>Wróć do poprzedniej strony</h4>
+					</div>
+					</div>}
 					<div className={styles.notexist}>	
 							<div>	
 							<h1>Nie możemy tego znaleźć</h1>
