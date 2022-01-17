@@ -230,14 +230,14 @@ if (localStorage.getItem("fadetime") == null) {
 
     if (Math.round(currentTime) >= Math.round(duration - localStorage.getItem("fadetime"))) {
         if (audioRef.current && audioRef.current.volume > 0.1) {
-        audioRef.current.volume = audioRef.current.volume - 0.05;
+        audioRef.current.volume = audioRef.current.volume - 0.01;
         console.log(audioRef.current.volume);
         }
     }
 
     if (Math.round(currentTime) <= Math.round(duration - duration + localStorage.getItem("fadetime"))) {
-        if (audioRef.current && audioRef.current.volume < 1) {
-        audioRef.current.volume = audioRef.current.volume + 0.05;
+        if (audioRef.current && audioRef.current.volume < volume) {
+        audioRef.current.volume = audioRef.current.volume + 0.01;
         console.log(audioRef.current.volume);
         }
     }
@@ -276,9 +276,13 @@ if (localStorage.getItem("fadetime") == null) {
         }
     }
     if (props.trackData.trackName != "Brak utworu") {
-    document.title = props.trackData.trackName;
+    document.title = props.trackData.trackName + ' | Duck Music';
+    document.head.children.namedItem('description').content = props.trackData.trackArtist;
+    document.head.children.namedItem('author').content = props.trackData.trackArtist;
 } else {
     document.title = "Duck Music";
+    document.head.children.namedItem('description').content = ' ';
+    document.head.children.namedItem('author').content = ' '
 }
 
     return (

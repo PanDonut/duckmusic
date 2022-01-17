@@ -35,6 +35,21 @@ export default {
         }
     ]
 
+    export const MENUOFF = [
+        {
+            title: 'Główna',
+            path: '/',
+            icon: <Icon.Home />,
+            iconSelected: <Icon.HomeActive />
+        },
+        {
+            title: 'Szukaj',
+            path: '/search',
+            icon: <Icon.Search />,
+            iconSelected: <Icon.SearchActive />
+        }
+    ]
+
 export const PLAYLISTBTN = [
 
 ]

@@ -88,6 +88,7 @@ function PlaylistTrack(props) {
 				<TextBoldL>{props.data.song.songName}</TextBoldL>
 				<TextRegularM>{props.data.song.songArtist}</TextRegularM>
 			</span>
+            { navigator.onLine ?
                 <button className={styles.dots} onClick={() => {
                     setTimeout(setShow(true), 2000);
                 }}>
@@ -95,6 +96,8 @@ function PlaylistTrack(props) {
                     <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
                 </svg>
             </button>
+            : ''
+}
             </div>
             {show ? (
                 <div

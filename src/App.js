@@ -231,7 +231,7 @@ function App(props) {
                <NotFound />
             </Route>
                 </Switch>
-                {show ? (
+                {show ?
                     <div
                         className="menu"
                         style={{
@@ -258,7 +258,7 @@ function App(props) {
                         </Link>
                         
                     </div>
-                ) : ''}
+                 : ''}
                 <Footer fre={footerRef} className={styles.foot}/>
             </div>
             </Router>

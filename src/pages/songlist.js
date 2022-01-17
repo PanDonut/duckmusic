@@ -167,7 +167,7 @@ function PlaylistPage(props) {
 								</div>
 								: ''
                             }
-							{size.width < CONST.MOBILE_SIZE &&
+							{size.width < CONST.MOBILE_SIZE && navigator.onLine &&
 								<div className={styles.overlay}>
 									<PlaylistDetails data={item} />
 									<div className={styles.ovlist}>
@@ -202,7 +202,7 @@ function PlaylistPage(props) {
 										Słuchaj
 									</button>
 								}
-								{size.width > CONST.MOBILE_SIZE &&
+								{size.width > CONST.MOBILE_SIZE && navigator.onLine &&
 									<div className={styles.PlaylistIcons1}>
 										<button
 											onClick={() => { setSho(true) }}

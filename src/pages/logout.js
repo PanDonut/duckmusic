@@ -1,8 +1,10 @@
+import { useHistory } from "react-router-dom";
 import { Logo } from "../component/icons";
 import '../style/index.css'
 
 function Logout() {
-
+    const history= useHistory();
+    if (navigator.onLine) {
     localStorage.removeItem('namedm');
     localStorage.removeItem('emaildm');
 
@@ -13,6 +15,9 @@ function Logout() {
             <h1 className="authtext">Wylogowywanie...</h1>
         </div>
         )
+    } else {
+        history.push('/')
+    }
 }
 
 export default Logout;
