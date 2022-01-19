@@ -3,7 +3,7 @@ import TextBoldM from '../text/text-bold-m';
 import SONGS from '../../data/songs.json';
 import styles from "./playlist-details.module.css";
 
-function PlaylistDetails({ data }) {
+function PlaylistDetails({ data, artists }) {
 	return (
         <div className={styles.playlistDetails} onClick={() => { document.documentElement.style.setProperty('--dispopen', 'none') }}>
             <div className={styles.imgBox}>
@@ -12,6 +12,9 @@ function PlaylistDetails({ data }) {
             <div className={styles.textBox}>
                 <TitleS>{data.type}</TitleS>
                 <h1>{data.title}</h1>
+                <div className={styles.Artist}>
+                    <TextBoldM>{artists}</TextBoldM>
+                </div>
             </div>
         </div>
 	);

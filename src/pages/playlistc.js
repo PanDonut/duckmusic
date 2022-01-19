@@ -1,4 +1,4 @@
-﻿import { useParams } from 'react-router';
+import { useParams } from 'react-router';
 import { connect } from 'react-redux';
 import { changeTrack, customTrack } from '../actions';
 import react from 'react';
@@ -17,7 +17,6 @@ import PlaylistTrack from '../component/playlist/playlist-track-custom';
 import * as Icons from '../component/icons';
 import { NavLink, useLocation, Link, useHistory } from "react-router-dom";
 import { decode } from 'he';
-import SONGLIST from '../data/songs.json'
 import Footer from '../component/footer/footer';
 import Modal from 'react-responsive-modal-scroll/lib/css';
 import './react-responsive-modal.css';
@@ -34,6 +33,7 @@ import {
 	Switch,
 	Route
 } from "react-router-dom";
+import SONGLIST from '../data/songs.json'
 import NotFound from './404';
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
@@ -187,7 +187,7 @@ function PlaylistPage(props) {
 										</div>
 									}
 
-									<PlaylistDetails data={item} />
+									<PlaylistDetails data={item} artists={item.playlistData.map(list => {return (SONGLIST[list.songindex].songArtist + "  ")})} />
 									<div className={styles.GridIcons}>
 										{size.width > CONST.MOBILE_SIZE &&
 											<div className={styles.PlaylistIcons}>
