@@ -29,7 +29,7 @@ function PlaylistCardM(props) {
 					</div>
 					<div className={styles.Title}>
 						<TextBoldL>{props.data.title}</TextBoldL>
-						<TextRegularM> </TextRegularM>
+						<TextRegularM>{localStorage.getItem('name')}</TextRegularM>
 					</div>
 				</FadeIn>
 			</Link>
