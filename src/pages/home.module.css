@@ -98,13 +98,12 @@
     right: 0;
     top: 60px;
     bottom: 0px;
-    background: var(--bgcol);
+    background: transparent;
     z-index: -2;
 }
 .Content {
     padding: 0 32px;
     padding-top: 24px;
-    animation: goIn ease 500ms;
 }
 .Content section:not(:first-child) {
     margin-top: 32px;

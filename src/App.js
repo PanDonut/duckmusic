@@ -7,6 +7,7 @@ import { BrowserRouter as Router,
 import { connect } from 'react-redux';
 import { firebaseg } from './actions/index';
 import Lyrics from './component/Lyrics';
+import QueueShow  from './pages/queue';
 import { initializeApp } from "firebase/app";
 import { getAnalytics, initializeAnalytics, logEvent } from "firebase/analytics";
 import { getDatabase, ref, onValue, set } from "firebase/database";
@@ -205,6 +206,9 @@ function App(props) {
             </Route>
             <Route exact path="/connect">
                 <Connection />
+            </Route>
+            <Route exact path="/profile/user/currentuser/playlistdata/visual/queue">
+                <QueueShow />
             </Route>
             <Route exact path="/playlist/:path">
                 <PlaylistPage />

@@ -13,8 +13,12 @@ function PlaylistCardM(props) {
 	const[isthisplay, setIsthisPlay] = useState(false)
 
 	useEffect(() => {
-		setIsthisPlay(parseInt(props.data.index) === props.trackData.trackKey[0])
+		if (props.trackData.isCustom == 'false' && props.trackData.canSkip == 'false') {
+			setIsthisPlay(parseInt(SONGLIST.indexOf(props.data)) === props.trackData.trackKey[0])
+			}
 	})
+
+	console.log(props.trackData.trackKey)
 
 	const link = "duckmusic:" + props.data.songName.toLowerCase().split(' ').join("").split('?').join("") + props.data.songArtist.toLowerCase().split(' ').join("").split('?').join("");
 

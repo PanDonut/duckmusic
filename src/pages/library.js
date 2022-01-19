@@ -86,7 +86,7 @@ function PlaylistTab(props) {
         reader.readAsText(files);
     }
     var likedSongs = [];
-	const nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/liked');
+	const nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/dmusic/liked');
     onValue(nameRef1, (snapshot) => {
         const data = snapshot.val();
             if (data != null || data != undefined) {
@@ -117,6 +117,7 @@ function PlaylistTab(props) {
                                         key={item.title}
                                         data={item}
                                         playlistData={item.playlistData}
+                                        data_pl={posts}
                                     />
                                 );
                             }

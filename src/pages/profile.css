@@ -12,10 +12,11 @@
 
 .body2 {
     background-color: var(--main-background);
+    backdrop-filter: blur(500000px);
 }
 
 .body1 {
-    background-color: var(--main-background);
+    background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: flex-start;

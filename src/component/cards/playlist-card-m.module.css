@@ -5,7 +5,6 @@
 .PlaylistCardS {
     position: relative;
     padding: 16px;
-    background: var(--card-bg1);
     border-radius: 4px;
     backdrop-filter: var(--blur);
     -webkit-backdrop-filter: var(--blur);
@@ -21,7 +20,7 @@
 .ImgBox img{
     height: 100%;
     width: 100%;
-    border-radius: 2px;
+    border-radius: 10px;
     user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
@@ -31,20 +30,27 @@
 }
 .IconBox{
     position: absolute;
-    bottom: 94px;
-    right: 24px;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     opacity: 0;
     -webkit-transition: all .3s ease;
     transition: all .3s ease;
     -webkit-box-shadow: 0 8px 8px rgb(0 0 0 / 30%);
     box-shadow: 0 8px 8px rgb(0 0 0 / 30%);
     z-index: 2;
-    border-radius: 500px;
 }
 .IconBox div{
-    background-color: #5b88e1;
-    height: 40px;
-    width: 40px;
+    height: 50%;
+    width: 50%;
+    background-color: #fff5;
+    border-radius: 50%;
+    border: solid #fff5 2px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .IconBox button{
     height: 40px;
@@ -74,11 +80,19 @@
     margin-top: 4px;
     -webkit-line-clamp: 2;
 }
-.IconBox button:hover{
-    -webkit-transform: scale(1.06);
-    transform: scale(1.06);
-}
 .PlaylistCardSBox:hover .IconBox{
-    bottom: 106px;
     opacity: 1;
+}
+
+
+.PlaylistCardSBox:hover .ImgBox img {
+    filter: blur(4px);
+}
+
+.PlaylistCardSBox:hover .ImgBox img::after {
+    background-color: #fff2;
+    transition: 0.15s ease;
+}
+.ImgBox img {
+    transition: 0.15s ease;
 }

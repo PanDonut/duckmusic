@@ -11,6 +11,8 @@
 
 .body {
     background-color: var(--main-background);
+    backdrop-filter: blur(500000px);
+    height: calc(100% - 100px);
 }
 
 #toggle input{

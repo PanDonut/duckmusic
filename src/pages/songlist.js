@@ -47,11 +47,11 @@ var likedSongs = [];
 const db = getDatabase(aut);
 var nameRef1 = ref(db, 'users/');
 if (localStorage.getItem('emaildm') != null) {
-	nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/liked');
+	nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/dmusic/liked');
 }
 onValue(nameRef1, (snapshot) => {
 	const data = snapshot.val();
-		if (data != null || data != undefined) {
+		if (data != null || data != undefined || likedSongs == []) {
 			likedSongs = JSON.parse(data);			
 		}
 });
@@ -214,12 +214,12 @@ function PlaylistPage(props) {
 											onClick={() => {
 												forceUpdate();		
 												if (likedSongs.includes(SONGLIST.indexOf(item))) {
-													likedSongs = likedSongs.slice(SONGLIST.indexOf(item), SONGLIST.indexOf(item)).concat(likedSongs.slice(SONGLIST.indexOf(item) + 1));
 													likedSongs.splice(SONGLIST.indexOf(item), 1);
 												console.log(likedSongs);
-												set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+												set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/dmusic"), {
 													liked: JSON.stringify(likedSongs)
 												});
+												forceUpdate();	
 											}
 											 }}
 										>
@@ -232,7 +232,7 @@ function PlaylistPage(props) {
 												if (!likedSongs.includes(SONGLIST.indexOf(item))) {
 												likedSongs.push(SONGLIST.indexOf(item));
 												console.log(likedSongs);
-												set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+												set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/dmusic"), {
 													liked: JSON.stringify(likedSongs)
 												});
 											}

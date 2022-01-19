@@ -4,14 +4,13 @@ import TitleM from '../component/text/title-m'
 import PlaylistCardS from '../component/cards/playlist-card-s';
 import PlaylistCardM from '../component/cards/playlist-card-m';
 
-import styles from "./embed.module.css";
-
 
 import Sidebar from '../component/sidebar/sidebar';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    useHistory
 } from "react-router-dom";
 import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
@@ -22,7 +21,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Slide, Zoom, Flip, Bounce } from 'react-toastify';
 
-
+import styles from './playlist.module.css';
 import PLAYLIST from '../data/index.json'
 
 oncontextmenu = function (e) {
@@ -33,6 +32,7 @@ oncontextmenu = function (e) {
 
 function NotFound() {
     const size = useWindowSize();
+    const history = useHistory();
 
     const errr = toast.error('Wystąpił błąd', {
         transition: Slide,
@@ -45,7 +45,7 @@ function NotFound() {
                 ? <Sidebar />
                 : <MobileNavigation />
             }
-            <div className={styles.Home}>
+           <div className={styles.PlaylistPage}>
                 <ToastContainer
                     transition={Slide}
                     position="top-center"
@@ -61,6 +61,12 @@ function NotFound() {
                 <div></div>
                 
                 <div className={styles.Content}>
+                    <div className={styles.notexist}>	
+							<div>	
+							<h1>Nie możemy tego znaleźć</h1>
+							<h4 onClick={() => {history.goBack()}}>Wróć do poprzedniej strony</h4>
+							</div>
+							</div>
                 </div>
             </div>
             </div>

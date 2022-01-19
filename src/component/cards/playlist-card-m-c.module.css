@@ -20,7 +20,7 @@
 .ImgBox img{
     height: 100%;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
     user-drag: none;
     -webkit-user-drag: none;
     user-select: none;

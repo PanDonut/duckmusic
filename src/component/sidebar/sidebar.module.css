@@ -2,8 +2,7 @@
     /*width: var(--sidenav-width);*/
     background-color: var(--sidenav-black);
     position: relative;
-    backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: var(--blur);
+    backdrop-filter: blur(500000px);
 }
 .Fixed{
     position: sticky;

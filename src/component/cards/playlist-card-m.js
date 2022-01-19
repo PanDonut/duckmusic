@@ -7,12 +7,15 @@ import TextRegularM from '../text/text-regular-m';
 import PlayButton from '../buttons/play-button';
 import FadeIn from 'react-fade-in';
 import styles from "./playlist-card-m.module.css";
+import PLAYLIST from '../../data/index.json'
 
 function PlaylistCardM(props) {
 	const[isthisplay, setIsthisPlay] = useState(false)
 
 	useEffect(() => {
+		if (props.trackData.isCustom == 'false' && props.trackData.canSkip == 'true') {
 		setIsthisPlay(parseInt(props.data.index) === props.trackData.trackKey[0])
+		}
 	})
 
 	return (
@@ -21,6 +24,10 @@ function PlaylistCardM(props) {
 				<FadeIn visible="true" delay="100" className={styles.PlaylistCardS}>
 					<div className={styles.ImgBox}>
 						<img src={props.data.imgUrl} alt={props.data.title} />
+						<div 
+				onClick={() => props.changeTrack([PLAYLIST.indexOf(props.data), 0])} 
+				className={`${styles.IconBox} ${isthisplay&&props.isPlaying ? styles.ActiveIconBox : ''}`}
+			><PlayButton isthisplay={isthisplay} /></div>
 					</div>
 					<div className={styles.Title}>
 						<TextBoldL>{props.data.title}</TextBoldL>
