@@ -117,7 +117,7 @@ function PlaylistTab(props) {
                                         key={item.title}
                                         data={item}
                                         playlistData={item.playlistData}
-                                        data_pl={posts}
+                                        inx={posts.indexOf(item)}
                                     />
                                 );
                             }
