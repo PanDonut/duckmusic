@@ -285,6 +285,41 @@ if (localStorage.getItem("fadetime") == null) {
     document.head.children.namedItem('author').content = ' '
 }
 
+const [keyguide, setKeyGuide] = useState(false);
+
+document.onkeyup = function(e) {
+    if (e.ctrlKey && e.keyCode == 32) {
+        e.preventDefault();
+        props.changePlay(!props.isPlaying);
+    } else if (e.ctrlKey && e.keyCode == 66) {
+        e.preventDefault();
+        decreaseIndex();
+    } else if (e.ctrlKey && e.keyCode == 77) {
+        e.preventDefault();
+        increaseIndex();
+    } else if (e.ctrlKey && e.keyCode == 81) {
+        e.preventDefault();
+        if (keyguide == true) {
+            document.documentElement.style.setProperty('--keyguide', 'none')
+        } else {
+            document.documentElement.style.setProperty('--keyguide', 'block')
+        }
+        setKeyGuide(!keyguide);
+    }
+  };
+
+  document.onkeydown = function(e) {
+    if (e.ctrlKey && e.keyCode == 32) {
+        e.preventDefault();
+      } else if (e.ctrlKey && e.keyCode == 66) {
+        e.preventDefault();
+      } else if (e.ctrlKey && e.keyCode == 77) {
+        e.preventDefault();
+      } else if (e.ctrlKey && e.keyCode == 81) {
+        e.preventDefault();
+      }
+  };
+
     return (
         <footer className={styles.footer}>
             <div className={styles.cantplay}>

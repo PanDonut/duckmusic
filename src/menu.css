@@ -1,4 +1,53 @@
+:root {
+    --keyguide: none;
+}
 
+.keyguide {
+    display: var(--keyguide);
+    background-color: var(--solid-main);
+    position: fixed;
+    height: calc(100% - 94px);
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+.key {
+    color: var(--text-white);
+    display: flex;
+    flex-direction: column;
+}
+
+
+.kes {
+    display: flex;
+}
+
+.keys {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: calc(100vw / 3) calc(100vw / 3) calc(100vw / 3);
+    grid-template-rows: 200px 200px;
+}
+
+.keyguide span {
+    background-color: #4f545c;
+    border: 1px solid #36393f;
+    display: block;
+    padding: 3px 6px 4px;
+    margin-right: 3px;
+    border-radius: 4px;
+    cursor: default;
+    min-width: 14px;
+    min-height: 14px;
+    text-align: center;
+    color: #f6f6f7;
+    -webkit-box-shadow: inset 0 -4px 0 #202225;
+    box-shadow: inset 0 -4px 0 #202225;
+    text-transform: uppercase;
+    font-weight: 700;
+}
 
 .menu {
     font-size: 14px;

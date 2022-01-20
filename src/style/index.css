@@ -14,6 +14,7 @@ body {
 
 
 .theme-dark {
+    --solid-main: #0d0c11;
     --sidenav-black: #121214f0;
     --sidenav-active: #0d0c11f9;
     --text-gray: #b3b3b3;
@@ -46,6 +47,7 @@ body {
 }
 
 .theme-light {
+    --solid-main: #fff;
     --sidenav-black: #fff;
     --sidenav-active: rgba(255, 255, 255, 0.80);
     --text-gray: #2c2c2c;

@@ -122,7 +122,7 @@ function App(props) {
     }
     return (
         <Router>
-            <div className={styles.layout}>
+            <div className={styles.layout}>               
                 {
                     localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>
@@ -264,6 +264,14 @@ function App(props) {
                     </div>
                  : ''}
                 <Footer fre={footerRef} className={styles.foot}/>
+                <div className='keyguide'>
+                    <div className='keys'>
+                        <div className='key'><h3>Otwórz / zamknij to menu</h3><div className='kes'><span>ctrl</span><span>q</span></div></div>
+                        <div className='key'><h3>Odtwarzaj / zatrzymaj utwór</h3><div className='kes'><span>ctrl</span><span>spacja</span></div></div>
+                        <div className='key'><h3>Następny utwór</h3><div className='kes'><span>ctrl</span><span>m</span></div></div>
+                        <div className='key'><h3>Poprzedni utwór</h3><div className='kes'><span>ctrl</span><span>b</span></div></div>
+                    </div>
+                </div>
             </div>
             </Router>
   );

@@ -26,11 +26,7 @@ function PlaylistCardM(props) {
 					</div>
 					<FadeIn visible="true" delay="600" className={styles.Title}>
 						<TextBoldL>{props.data.title}</TextBoldL>
-						<TextRegularM>{props.data.type.toUpperCase()} <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-							viewBox="0 0 31.955 31.955" width="5px" height="5px">
-							<circle cx="10" cy="1" r="6.117" />
-						</svg>
- {props.data.artist}</TextRegularM>
+						<TextRegularM>{props.data.type.toUpperCase() + ' · ' + props.data.artist}</TextRegularM>
 					</FadeIn>
 				</FadeIn>
 			</Link>
