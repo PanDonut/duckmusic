@@ -276,7 +276,7 @@ if (localStorage.getItem("fadetime") == null) {
         }
     }
     if (props.trackData.trackName != "Brak utworu") {
-    document.title = props.trackData.trackName + ' | Duck Music';
+    document.title = props.trackData.trackName + ' · ' + props.trackData.trackArtist + ' | Duck Music';
     document.head.children.namedItem('description').content = props.trackData.trackArtist;
     document.head.children.namedItem('author').content = props.trackData.trackArtist;
 } else {
