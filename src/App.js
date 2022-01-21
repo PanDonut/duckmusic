@@ -347,7 +347,7 @@ onValue(refData1, (snapshot) => {
                     </div>
                 </div>                
             </div>
-            { localStorage.getItem('deviceiddm') != usd && usd != 'none' ?
+            { localStorage.getItem('deviceiddm') != usd && usd != 'none' && usd != null ?
             <div className='playingoverlay'>
                 <h3>{"Odtwarzam "}<span>{utr}</span>{" na urządzeniu " + usd}</h3>
                 <button onClick={() => {
