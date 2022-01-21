@@ -38,11 +38,24 @@
 .songDetails p{
     margin: 0px;
     color: var(--text-white);
+    transition: var(--txt-ov);
+    animation: var(--anim);
 }
 .songDetails p small{
     color: var(--text-gray);
     font-size: 11px;
 }
+
+@keyframes sussy {
+    from {
+        margin-left: 0px;
+    }
+
+    to {
+        margin-left: var(--txt-wi)
+    }
+}
+
 
 @media screen and (max-width: 640px) {
     .footerLeft {

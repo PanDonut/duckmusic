@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef, useCallback  } from 'react';
+﻿import React, { useState, useEffect, useRef, useCallback, useReducer  } from 'react';
 import { BrowserRouter as Router,
   Switch,
     Route,
@@ -49,9 +49,23 @@ let indexn = null;
 
 
 function App(props) {
+    const db1 = getDatabase();
+    const [, forceUpdate] = useReducer(x => x + 1, 0);
+  let pl = null;
+  let [usd, setUsd] = useState(false);
+  const refData = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/deviceid');
+  onValue(refData, (snapshot) => {
+    const data = snapshot.val();
+    if (usd != data) {
+                pl = data;  
+                setUsd(data);
+                console.log(pl);
+    }
+});
 
     const footerRef = useRef(null);
     const db = getDatabase(aut);
+    
 
     
     const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
@@ -120,9 +134,38 @@ function App(props) {
         document.onmouseup = null;
         document.onmousemove = null;
     }
+
+    const [setIt, setI] = useState(false);
+
+    if (localStorage.getItem('deviceiddm') == null) {
+        localStorage.setItem('deviceiddm',Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+    }
+
+    if (localStorage.getItem('emaildm') != null && props.isPlaying == true) {
+        set(ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + "/playing"), {
+            deviceid: localStorage.getItem('deviceiddm')
+        });
+    } else if (localStorage.getItem('emaildm') != null && props.isPlaying == false && setIt == false) {
+        setI(true);
+        set(ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + "/playing"), {
+            deviceid: 'none'
+        });
+    }
+
+    window.addEventListener('beforeunload', function (e) {
+        // the absence of a returnValue property on the event will guarantee the browser unload happens
+        delete e['returnValue'];
+        set(ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + "/playing"), {
+            deviceid: 'none'
+        });
+      });
+
+      
+
+
     return (
         <Router>
-            <div className={styles.layout}>               
+            <div className={styles.layout}>                       
                 {
                     localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>
@@ -271,8 +314,14 @@ function App(props) {
                         <div className='key'><h3>Następny utwór</h3><div className='kes'><span>ctrl</span><span>m</span></div></div>
                         <div className='key'><h3>Poprzedni utwór</h3><div className='kes'><span>ctrl</span><span>b</span></div></div>
                     </div>
-                </div>
+                </div>                
             </div>
+            { localStorage.getItem('deviceiddm') != usd && usd != 'none' ?
+            <div className='playingoverlay'>
+                <h3>{"Odtwarzam na urządzeniu " + usd}</h3>
+            </div>
+            : ''
+            }   
             </Router>
   );
 }
@@ -281,7 +330,8 @@ function App(props) {
 const mapStateToProps = (state) => {
     return {
         trackData: state.trackData,
-        custplay: state.custplay
+        custplay: state.custplay,
+        isPlaying: state.isPlaying
     };
 };
 

@@ -23,6 +23,18 @@
     display: flex;
 }
 
+.playingoverlay {
+    position: fixed;
+    background-color: var(--akcent);
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 94px;
+    color: #fff;
+    text-align: center;
+    vertical-align: middle;
+}
+
 .keys {
     width: 100%;
     height: 100%;
@@ -129,4 +141,10 @@
     color: #fff;
     position: fixed;
     width: 23vw;
+}
+
+@media screen and (max-width: 640px) {
+    .playingoverlay {
+        bottom: 46px
+    }
 }

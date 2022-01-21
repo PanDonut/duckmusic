@@ -38,6 +38,22 @@ function ImgBox({ trackData }) {
 }
 
 function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
+    const sus = useRef(null);
+    function checkOverflow(el)
+{
+   var curOverflow = el.style.overflow;
+
+   if ( !curOverflow || curOverflow === "visible" )
+      el.style.overflow = "hidden";
+
+   var isOverflowing = el.clientWidth < el.scrollWidth 
+      || el.clientHeight < el.scrollHeight;
+
+   el.style.overflow = curOverflow;
+
+   return isOverflowing;
+}   
+    var name = props.trackData.trackName;
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
@@ -59,7 +75,9 @@ function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
     return (
         <div>
             <div className={styles.songDetails} >
-                <p className={styles.tit}>{props.trackData.trackName}</p>
+                <p className={styles.tit} ref={sus} onLoad={() => {if (sus.current) {
+        console.log(checkOverflow(sus.current))
+    }}}>{props.trackData.trackName}</p>
                 <TextRegularM><small>{props.trackData.trackArtist}</small></TextRegularM>
             
         </div>

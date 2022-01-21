@@ -29,6 +29,7 @@ import { aut } from '../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import FadeIn from 'react-fade-in';
 import AudioSpectrum from 'react-audio-spectrum';
+import { useReducer } from 'react';
 
 
 function Footer(props) {
@@ -36,6 +37,7 @@ function Footer(props) {
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
+    const db1 = getDatabase(aut);
     if (localStorage.getItem("emaildm") != null) {
     const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
@@ -307,6 +309,7 @@ document.onkeyup = function(e) {
         setKeyGuide(!keyguide);
     }
   };
+  
 
   document.onkeydown = function(e) {
     if (e.ctrlKey && e.keyCode == 32) {
@@ -331,7 +334,7 @@ document.onkeyup = function(e) {
             {size.width > CONST.MOBILE_SIZE ?
                 <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />
                 : ''
-            }
+            }           
             
             
             
@@ -393,6 +396,7 @@ document.onkeyup = function(e) {
                 <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />
                 : ''
             }
+            
         </footer>
     );
 }
