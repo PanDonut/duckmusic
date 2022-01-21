@@ -48,13 +48,13 @@ const db = getDatabase(aut);
 var nameRef1 = ref(db, 'users/');
 if (localStorage.getItem('emaildm') != null) {
 	nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/dmusic/liked');
-}
 onValue(nameRef1, (snapshot) => {
 	const data = snapshot.val();
 		if (data != null || data != undefined || likedSongs == []) {
 			likedSongs = JSON.parse(data);			
 		}
 });
+}
 
 function PlaylistPage(props) {
 	const [, forceUpdate] = useReducer(x => x + 1, 0);
