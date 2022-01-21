@@ -54,6 +54,7 @@ function App(props) {
   let pl = null;
   let [usd, setUsd] = useState('none');
   let [utr, setUtr] = useState(null);
+  if (localStorage.getItem('emaildm') != null) {
   const refData = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/deviceid');
   const refData1 = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/track');
   onValue(refData, (snapshot) => {
@@ -70,6 +71,7 @@ onValue(refData1, (snapshot) => {
                 console.log(pl);
     }
 });
+  }
 
     const footerRef = useRef(null);
     const db = getDatabase(aut);
