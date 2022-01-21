@@ -52,13 +52,21 @@ function App(props) {
     const db1 = getDatabase();
     const [, forceUpdate] = useReducer(x => x + 1, 0);
   let pl = null;
-  let [usd, setUsd] = useState(false);
+  let [usd, setUsd] = useState('none');
+  let [utr, setUtr] = useState(null);
   const refData = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/deviceid');
+  const refData1 = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/track');
   onValue(refData, (snapshot) => {
     const data = snapshot.val();
     if (usd != data) {
-                pl = data;  
                 setUsd(data);
+                console.log(pl);
+    }
+});
+onValue(refData1, (snapshot) => {
+    const data = snapshot.val();
+    if (utr != data) {
+                setUtr(data);
                 console.log(pl);
     }
 });
@@ -138,11 +146,15 @@ function App(props) {
     const [setIt, setI] = useState(false);
 
     if (localStorage.getItem('deviceiddm') == null) {
-        localStorage.setItem('deviceiddm',Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+        localStorage.setItem('deviceiddm', Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
     }
 
     if (localStorage.getItem('emaildm') != null && props.isPlaying == true) {
+        if (setIt == true) {
+            setI(false)
+        }
         set(ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + "/playing"), {
+            track: props.trackData.trackName + " · " + props.trackData.trackArtist,
             deviceid: localStorage.getItem('deviceiddm')
         });
     } else if (localStorage.getItem('emaildm') != null && props.isPlaying == false && setIt == false) {
@@ -318,7 +330,7 @@ function App(props) {
             </div>
             { localStorage.getItem('deviceiddm') != usd && usd != 'none' ?
             <div className='playingoverlay'>
-                <h3>{"Odtwarzam na urządzeniu " + usd}</h3>
+                <h3>{"Odtwarzam "}<span>{utr}</span>{" na urządzeniu " + usd}</h3>
             </div>
             : ''
             }   

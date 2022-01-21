@@ -148,3 +148,11 @@
         bottom: 46px
     }
 }
+
+.playingoverlay h3 span {
+    font-weight: 600;
+}
+
+.playingoverlay h3 {
+    font-weight: 400;
+}
