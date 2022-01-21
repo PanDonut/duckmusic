@@ -4,6 +4,7 @@ import { BrowserRouter as Router,
     Route,
   Link
 } from "react-router-dom";
+import { changePlay } from './actions';
 import { connect } from 'react-redux';
 import { firebaseg } from './actions/index';
 import Lyrics from './component/Lyrics';
@@ -47,7 +48,7 @@ import './menu.css'
 import HandleAuth from './authorization.js';
 let indexn = null;
 
-
+var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function App(props) {
     const db1 = getDatabase();
     const [, forceUpdate] = useReducer(x => x + 1, 0);
@@ -57,6 +58,7 @@ function App(props) {
   if (localStorage.getItem('emaildm') != null) {
   const refData = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/deviceid');
   const refData1 = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/track');
+  const refReq = ref(db1, 'userrequests/' + localStorage.getItem('emaildm').split('.').join("") + '/pause');
   onValue(refData, (snapshot) => {
     const data = snapshot.val();
     if (usd != data) {
@@ -69,6 +71,17 @@ onValue(refData1, (snapshot) => {
     if (utr != data) {
                 setUtr(data);
                 console.log(pl);
+    }
+});
+    onValue(refReq, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null) {
+        if (JSON.parse(data)[0] == localStorage.getItem('deviceiddm') && JSON.parse(data)[1] == "true") {
+                    props.changePlay(false);
+                    set(ref(db1, 'userrequests/' + localStorage.getItem('emaildm').split('.').join("")), {
+                        pause: null
+        });
+        }
     }
 });
   }
@@ -148,7 +161,11 @@ onValue(refData1, (snapshot) => {
     const [setIt, setI] = useState(false);
 
     if (localStorage.getItem('deviceiddm') == null) {
+        if (isIOS == true) {
+            localStorage.setItem('deviceiddm', 'IPhone');
+        } else {
         localStorage.setItem('deviceiddm', Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15));
+        }
     }
 
     if (localStorage.getItem('emaildm') != null && props.isPlaying == true) {
@@ -333,6 +350,15 @@ onValue(refData1, (snapshot) => {
             { localStorage.getItem('deviceiddm') != usd && usd != 'none' ?
             <div className='playingoverlay'>
                 <h3>{"Odtwarzam "}<span>{utr}</span>{" na urządzeniu " + usd}</h3>
+                <button onClick={() => {
+                    set(ref(db1, 'userrequests/' + localStorage.getItem('emaildm').split('.').join("")), {
+                        pause: JSON.stringify([usd, 'true'])
+        });
+        set(ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + "/playing"), {
+            track: null,
+            deviceid: null
+        });      
+        }}>Zatrzymaj odtwarzanie</button>
             </div>
             : ''
             }   
@@ -351,4 +377,4 @@ const mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, { firebaseg })(App);
+export default connect(mapStateToProps, { firebaseg, changePlay })(App);
