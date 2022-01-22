@@ -8,6 +8,7 @@ import MobileNavigation from '../component/sidebar/mobile-navigation';
 import React, { useEffect, useState } from 'react';
 import { setTheme, setEc, setSwi, setSwif, setOl, setAd } from '../theme';
 import { decode } from 'he';
+import axios from 'axios';
 
 import FadeIn from 'react-fade-in';
 
@@ -67,6 +68,18 @@ function Settings() {
             setBlur('false');
         }
     }
+    const [sussy, sS] = useState("Wczytuję...");
+    const url1 = `/updates.json`;
+    if (sussy == "Wczytuję...") {
+    axios.get(url1)
+                .then(res1 => {
+					sS(res1)
+                })
+				.catch(err => {
+					console.log(err)
+				}
+				)
+            }
 
     const handleOnClick1 = () => {
         if (localStorage.getItem('explicit') === 'no') {
@@ -273,19 +286,15 @@ function Settings() {
                             <button onClick={() => {caches.delete('duckmusic-offline-version-storage')}}>Usuń</button>
                         </section>
                     </FadeIn>
-                    { size.width < 640 ?
                     <FadeIn visible="true" delay="100" className="ust">
-                        <h3>?</h3>
+                        <h3>Debugging</h3>
                         <section id='btnsec'>
                             <div className='datea'>
-                            <h4>?</h4>
-                            <h5>?</h5>
+                            <h4>Wersja aktualizacji (debug)</h4>
+                            <h5>{sussy}</h5>
                             </div>
-                            <button onClick={() => {navigator.vibrate(eastereggsongs[Math.floor(Math.random()*eastereggsongs.length)]);}}>?</button>
                         </section>
                     </FadeIn>
-                    : ''
-                    }
                 </FadeIn>
                 </div>
         </div>
