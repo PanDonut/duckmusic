@@ -15,19 +15,19 @@ body {
 
 .theme-dark {
     --solid-main: #0d0c11;
-    --sidenav-black: #121214f0;
-    --sidenav-active: #0d0c11f9;
+    --sidenav-black: #121214dd;
+    --sidenav-active: #0d0c11dd;
     --text-gray: #b3b3b3;
     --text-white: #fff;
-    --main-background: #0d0c11f9;
+    --main-background: #0d0c11dd;
     --card-background: #100e14ef;
     --sidenav-width: 238px;
     --sidenav-margin-left: 24px;
     --sidenav-margin-right: 24px;
     --small-cards-column-width: 270px;
     --cards-column-width: 180px;
-    --hover-home-bg: #0d0c11f9;
-    --bgcol: #0d0c11f9;
+    --hover-home-bg: #0d0c11dd;
+    --bgcol: #0d0c11dd;
     --scroll: hsla(0, 0%, 90%, .07);
     --mobile-side: #181818;
     --logo: #fff;

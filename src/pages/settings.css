@@ -234,3 +234,11 @@
     color: #fff;
     padding: 10px 15px;
 }
+
+#inpt {
+    background-color: #555;
+    border: none;
+    color: var(--text-white);
+    border-radius: 5px;
+    padding: 10px 15px;
+}

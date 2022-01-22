@@ -68,18 +68,6 @@ function Settings() {
             setBlur('false');
         }
     }
-    const [sussy, sS] = useState("Wczytuję...");
-    const url1 = `/updates.json`;
-    if (sussy == "Wczytuję...") {
-    axios.get(url1).then(res1 => {
-					sS(res1[0])
-                    console.log(res1[0])
-                })
-				.catch(err => {
-					console.log(err)
-				}
-				)
-            }
 
     const handleOnClick1 = () => {
         if (localStorage.getItem('explicit') === 'no') {
@@ -127,6 +115,7 @@ function Settings() {
             setAd(false)
         }
     }
+    const [suss, sSu] = useState(localStorage.getItem('deviceiddm'))
    const eastereggsongs = [
     [200, 200, 200, 200, 100, 100, 100, 100, 100, 300, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 500, 100, 100, 100, 100, 100, 100, 100, 300, 200, 200, 100, 100, 100, 100, 100, 100, 100, 900],
     [660, 60, 180, 60, 60, 180, 60, 180, 60, 180, 420, 60, 180, 60, 60, 180, 60, 180, 60, 180, 420, 60, 180, 60, 60, 180, 60, 180, 60, 180, 420, 60, 180, 60, 60, 180, 60, 180, 420, 60, 420, 60],
@@ -240,6 +229,12 @@ function Settings() {
                                 <input type="range" id="rang" step="1" min="0" max="10" value={val} onChange={(e) => {setVal(e.target.value); localStorage.setItem('fadetime', e.target.value); console.log(val + " " + e.target.value)}}/>
                             </div>
                         </section>
+                        <section>
+                            <h4>Nazwa urządzenia</h4>
+                            <div className="container-pt">
+                                <input type="text" id="inpt" step="1" min="0" max="10" value={suss} onChange={(e) => {sSu(e.target.value); localStorage.setItem('deviceiddm', e.target.value)}}/>
+                            </div>
+                        </section>
                     </FadeIn>
                     <FadeIn visible="true" delay="100" className="ust-disabled">
                         <h3>{decode("U&#322;atwienia dost&#281;pu")}</h3>
@@ -284,15 +279,6 @@ function Settings() {
                             <h5>Możesz usunąć dane offline jeżeli Duck Music nie aktualizuje się lub nie masz miejsca na urządzeniu</h5>
                             </div>
                             <button onClick={() => {caches.delete('duckmusic-offline-version-storage')}}>Usuń</button>
-                        </section>
-                    </FadeIn>
-                    <FadeIn visible="true" delay="100" className="ust">
-                        <h3>Debugging</h3>
-                        <section id='btnsec'>
-                            <div className='datea'>
-                            <h4>Wersja aktualizacji (debug)</h4>
-                            <h5>{sussy}</h5>
-                            </div>
                         </section>
                     </FadeIn>
                 </FadeIn>

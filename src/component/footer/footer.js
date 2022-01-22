@@ -129,6 +129,12 @@ if (localStorage.getItem("fadetime") == null) {
                     localStorage.setItem('shuffle', 'false')
                 }
             }
+        } else {
+            if (props.trackData.isCustom == 'false') {
+            if (localStorage.getItem('shuffle') == 'true') {
+                props.songTrack([0, Math.floor(Math.random() * (SONGLIST.length - 1))])
+           }
+        }
         }
     }
 
