@@ -46,7 +46,9 @@ import Login from './login';
 import './security.js';
 import './menu.css'
 import HandleAuth from './authorization.js';
+import Download_app from './pages/download_app';
 let indexn = null;
+
 
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function App(props) {
@@ -277,6 +279,9 @@ onValue(refData1, (snapshot) => {
             </Route>
             <Route exact path="/myplaylist/:path">
                 <PlaylistPageC />
+            </Route>
+            <Route exact path="/download/app">
+                <Download_app />
             </Route>
             <Route exact path="/auth&email=:path">
                 <HandleAuth />
