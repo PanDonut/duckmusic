@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { connect } from 'react-redux';
-import { changeTrack, changePlay, customTrack } from '../../actions';
+import { changeTrack, changePlay, customTrack, songTrack } from '../../actions';
 import useWindowSize from '../../hooks/useWindowSize';
 import FooterLeft from './footer-left';
 import createState from '../../hooks/createState';
@@ -15,6 +15,7 @@ import FooterRight from './footer-right';
 import Audio from './audio';
 import * as Icons from '../icons';
 import { LYRICSNEW } from "../../data/lyrics";
+import axios from 'axios';
 import database from 'firebase/database';
 import firebase from '../../firebase.js'
 import Lyrics from '../Lyrics';
@@ -323,6 +324,63 @@ document.onkeyup = function(e) {
       }
   };
 
+window.addEventListener('load', useEffect(() => {
+    if (localStorage.getItem('dmsavedata') != null) {
+        if (JSON.parse(localStorage.getItem('dmsavedata'))[0].type == 0) {
+            props.changeTrack(JSON.parse(localStorage.getItem('dmsavedata'))[0].data);            
+        } else if (JSON.parse(localStorage.getItem('dmsavedata'))[0].type == 1) {
+          props.songTrack(JSON.parse(localStorage.getItem('dmsavedata'))[0].data)
+      } else if (JSON.parse(localStorage.getItem('dmsavedata'))[0].type == 2) {
+          props.customTrack(JSON.parse(localStorage.getItem('dmsavedata'))[0].data)
+      }    
+        if (audioRef.current) {
+            audioRef.current.currentTime = JSON.parse(localStorage.getItem('dmsavedata'))[0].time;
+        }
+        console.log(audioRef.current);        
+    }
+    const url = `https://raw.githubusercontent.com/PanDonut/duckmusic/main/public/updates.json`
+    const url1 = `/updates.json`
+            axios.get(url)
+                .then(res => {
+					axios.get(url1)
+                .then(res1 => {
+					if (res1 < res) {
+                        window.location.reload(true);
+                    }
+                })
+				.catch(err => {
+					console.log(err)
+				}
+				)
+                })
+				.catch(err => {
+					console.log(err)
+				}
+				)
+}, []))
+
+    if (props.trackData.isCustom == 'false' && props.trackData.canSkip == 'true') {
+        localStorage.setItem("dmsavedata", JSON.stringify(
+            [
+                {
+                    "type": 0,
+                    "data": props.trackData.trackKey,
+                    "time": currentTime
+                }
+            ]
+        ))
+    } else if (props.trackData.isCustom == 'false' && props.trackData.canSkip == 'false') {
+        localStorage.setItem("dmsavedata", JSON.stringify(
+            [
+                {
+                    "type": 1,
+                    "data": props.trackData.trackKey,
+                    "time": currentTime
+                }
+            ]
+        ))
+    }
+
     return (
         <footer className={styles.footer}>
             <div className={styles.cantplay}>
@@ -409,4 +467,4 @@ const mapStateToProps = (state) => {
     };
 };
   
-export default connect(mapStateToProps, { changeTrack, changePlay, customTrack })(Footer);
+export default connect(mapStateToProps, { changeTrack, changePlay, customTrack, songTrack })(Footer);

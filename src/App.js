@@ -50,12 +50,13 @@ let indexn = null;
 
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function App(props) {
+    const [si, sE] = useState(false);
     const db1 = getDatabase();
     const [, forceUpdate] = useReducer(x => x + 1, 0);
   let pl = null;
   let [usd, setUsd] = useState('none');
   let [utr, setUtr] = useState(null);
-  if (localStorage.getItem('emaildm') != null) {
+  if (localStorage.getItem('emaildm') != null && si == false) {
   const refData = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/deviceid');
   const refData1 = ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/playing/track');
   const refReq = ref(db1, 'userrequests/' + localStorage.getItem('emaildm').split('.').join("") + '/pause');
@@ -63,14 +64,12 @@ function App(props) {
     const data = snapshot.val();
     if (usd != data) {
                 setUsd(data);
-                console.log(pl);
     }
 });
 onValue(refData1, (snapshot) => {
     const data = snapshot.val();
     if (utr != data) {
                 setUtr(data);
-                console.log(pl);
     }
 });
     onValue(refReq, (snapshot) => {
@@ -84,6 +83,17 @@ onValue(refData1, (snapshot) => {
         }
     }
 });
+  }
+
+  if (localStorage.getItem('dmsavedata') == null) {
+    localStorage.setItem('dmsavedata', JSON.stringify(
+        [
+            {
+                "type": 0,
+                "data": [0,0]
+            }
+        ]
+    ))
   }
 
     const footerRef = useRef(null);
@@ -182,13 +192,17 @@ onValue(refData1, (snapshot) => {
             deviceid: 'none'
         });
     }
+    
 
     window.addEventListener('beforeunload', function (e) {
         // the absence of a returnValue property on the event will guarantee the browser unload happens
+        if (si == false) {
+            sE(true);
         delete e['returnValue'];
         set(ref(db1, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + "/playing"), {
             deviceid: 'none'
         });
+    }
       });
 
       
@@ -347,7 +361,7 @@ onValue(refData1, (snapshot) => {
                     </div>
                 </div>                
             </div>
-            { localStorage.getItem('deviceiddm') != usd && usd != 'none' ?
+            { localStorage.getItem('deviceiddm') != usd && usd != 'none' && usd != null ?
             <div className='playingoverlay'>
                 <h3>{"Odtwarzam "}<span>{utr}</span>{" na urządzeniu " + usd}</h3>
                 <button onClick={() => {
