@@ -115,6 +115,7 @@ function Settings() {
             setAd(false)
         }
     }
+    const url1 = `/updates.json`
     const [suss, sSu] = useState(localStorage.getItem('deviceiddm'))
    const eastereggsongs = [
     [200, 200, 200, 200, 100, 100, 100, 100, 100, 300, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 500, 100, 100, 100, 100, 100, 100, 100, 300, 200, 200, 100, 100, 100, 100, 100, 100, 100, 900],
@@ -156,6 +157,18 @@ function Settings() {
 
       console.log(getCacheStoragesAssetTotalSize());
     const [val, setVal] = useState(localStorage.getItem('fadetime'));
+
+    const [sss, ssss] = useState("Wczytywanie...")
+    if (sss == "Wczytywanie...") {
+        axios.get(url1)
+                .then(res1 => {
+					ssss(res1.data)
+                })
+				.catch(err => {
+					console.log(err)
+				}
+				)
+    }
 
 
     return (
@@ -279,6 +292,15 @@ function Settings() {
                             <h5>Możesz usunąć dane offline jeżeli Duck Music nie aktualizuje się lub nie masz miejsca na urządzeniu</h5>
                             </div>
                             <button onClick={() => {caches.delete('duckmusic-offline-version-storage')}}>Usuń</button>
+                        </section>
+                    </FadeIn>
+                    <FadeIn visible="true" delay="100" className="ust">
+                        <h3>Debug</h3>
+                        <section id='btnsec'>
+                            <div className='datea'>
+                            <h4>Update</h4>
+                            <h5>{sss}</h5>
+                            </div>
                         </section>
                     </FadeIn>
                 </FadeIn>
