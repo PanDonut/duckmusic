@@ -59,6 +59,15 @@ export default {
         }
     ]
 
+    export const DWNM = [
+        {
+            title: 'Aplikacja',
+            path: '/download/app',
+            icon: <Icon.DownloadApp />,
+            iconSelected: <Icon.DownloadApp />
+        }
+    ]
+
 export const PLAYLISTBTN = [
 
 ]
