@@ -90,7 +90,8 @@ onValue(refData1, (snapshot) => {
         [
             {
                 "type": 0,
-                "data": [0,0]
+                "data": [0,0],
+                "time": 0
             }
         ]
     ))
