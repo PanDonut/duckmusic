@@ -13,7 +13,7 @@ var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function Navigation() {
   const size = useWindowSize();
   const router = useLocation();
-  
+  var userAgent = window.navigator.userAgent.toLowerCase();
   if (navigator.onLine == true) {
     return (
       <div className={styles.navBtns}>
@@ -31,7 +31,7 @@ function Navigation() {
               );
         })
       }
-      { window !== window.parent ?
+      { window !== window.parent || userAgent.includes('wv') ?
         ''
         : 
         size.width > 640 && isIOS == false ?
