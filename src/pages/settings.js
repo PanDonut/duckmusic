@@ -71,9 +71,9 @@ function Settings() {
     const [sussy, sS] = useState("Wczytuję...");
     const url1 = `/updates.json`;
     if (sussy == "Wczytuję...") {
-    axios.get(url1)
-                .then(res1 => {
-					sS(res1)
+    axios.get(url1).then(res1 => {
+					sS(res1[0])
+                    console.log(res1[0])
                 })
 				.catch(err => {
 					console.log(err)
