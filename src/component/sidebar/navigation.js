@@ -13,7 +13,6 @@ var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function Navigation() {
   const size = useWindowSize();
   const router = useLocation();
-  console.log(isIOS)
   
   if (navigator.onLine == true) {
     return (
