@@ -353,6 +353,7 @@ window.addEventListener('load', useEffect(() => {
 					if (res1.data < res.data) {
                         window.location.reload(true);
                     }
+                    console.log(res1.data)
                 })
 				.catch(err => {
 					console.log(err)
