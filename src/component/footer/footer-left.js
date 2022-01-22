@@ -7,7 +7,7 @@ import { aut } from '../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { changeTrack, customTrack, songTrack } from '../../actions/index'
 import styles from "./footer-left.module.css";
-
+import { useHistory } from "react-router-dom";
 import PLAYLIST from "../../data/index.json";
 
 function FooterLeft(props, increaseIndex, decreaseIndex){
@@ -39,6 +39,7 @@ function ImgBox({ trackData }) {
 
 function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
     const sus = useRef(null);
+    const history = useHistory();
     function checkOverflow(el)
 {
    var curOverflow = el.style.overflow;
@@ -78,7 +79,7 @@ function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
                 <p className={styles.tit} ref={sus} onLoad={() => {if (sus.current) {
         console.log(checkOverflow(sus.current))
     }}}>{props.trackData.trackName}</p>
-                <TextRegularM><small>{props.trackData.trackArtist}</small></TextRegularM>
+                <TextRegularM><small className={styles.sussy} onClick={() => {document.documentElement.style.setProperty('--img-opacity', '1'); history.push(`/artist/${props.trackData.trackArtist.toLowerCase().split(" ").join("-")}`)}}>{props.trackData.trackArtist}</small></TextRegularM>
             
         </div>
         <div className={styles.songDetailsfull}>

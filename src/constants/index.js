@@ -50,6 +50,15 @@ export default {
         }
     ]
 
+    export const DWN = [
+        {
+            title: 'Pobierz aplikację',
+            path: '/download/app',
+            icon: <Icon.DownloadApp />,
+            iconSelected: <Icon.DownloadApp />
+        }
+    ]
+
 export const PLAYLISTBTN = [
 
 ]

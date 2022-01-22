@@ -46,6 +46,11 @@
     font-size: 11px;
 }
 
+.sussy:hover {
+    color: var(--text-white);
+    text-decoration: underline var(--text-white) 1px;
+}
+
 @keyframes sussy {
     from {
         margin-left: 0px;

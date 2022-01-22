@@ -77,8 +77,8 @@
     width: 100%;
     height: calc(100% - 94px);
     max-height: calc(100% - 94px);
-    -webkit-box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
-    box-shadow: 0 4px 60px rgb(0 0 0 / 50%);
+    -webkit-box-shadow: 0 4px 500px rgb(0 0 0 / 50%);
+    box-shadow: 0 4px 500px rgb(0 0 0 / 50%);
     user-drag: none;
     -webkit-user-drag: none;
     user-select: none;

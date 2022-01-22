@@ -79,7 +79,7 @@ function Sidebar() {
               <Logo/>
           </div>
           <div>
-              <Navigation />
+              <Navigation />            
           </div>
           <div>
               <Playlist />
