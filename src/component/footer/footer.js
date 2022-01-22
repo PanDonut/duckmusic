@@ -350,7 +350,7 @@ window.addEventListener('load', useEffect(() => {
                 .then(res => {
 					axios.get(url1)
                 .then(res1 => {
-					if (res1[0] < res[0]) {
+					if (res1.data < res.data) {
                         window.location.reload(true);
                     }
                 })
