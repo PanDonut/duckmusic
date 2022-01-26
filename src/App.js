@@ -119,10 +119,8 @@ onValue(refData1, (snapshot) => {
 
     useEffect(() => {
         document.addEventListener("click", handleClick);
-        document.addEventListener("contextmenu", handleContextMenu);
         return () => {
             document.removeEventListener("click", handleClick);
-            document.removeEventListener("contextmenu", handleContextMenu);
         };
     });
 
@@ -210,10 +208,11 @@ onValue(refData1, (snapshot) => {
 
       
 
+      
 
     return (
         <Router>
-            <div className={styles.layout}>                       
+            <div className={styles.layout}>                      
                 {
                     localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>

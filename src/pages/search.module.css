@@ -1,11 +1,12 @@
 .SearchPage {
     background-color: var(--bgcol);
     color: #fff;
-    overflow-y: scroll;
+    overflow-y: hidden;
     overflow-x: hidden;
     padding-left: 10px;
     height: calc(100vh - 100px);
     padding-bottom: 100px;
+    backdrop-filter: blur(500000px);
 }
 
 :root {
@@ -15,6 +16,9 @@
 
 .new {
     padding-top: 100px;
+    overflow-y: scroll;
+    height: calc(100vh - 100px - 134px);
+    margin-bottom: 134px;
 }
 
 .SeachBox {
@@ -24,7 +28,7 @@
     margin-right: auto;
     padding-left: 50px;
     z-index: 99999999;
-    top: var(--topsearch);
+    top:var(--topsearch);
     transform: var(--transearch);
     transition: ease 0.5s;
 }
@@ -90,7 +94,6 @@
     grid-template-columns: repeat(auto-fill,minmax(var(--cards-column-width),1fr));
     grid-auto-rows: min-content;
     grid-template-rows: 1fr;
-    height: 100%;
     padding-left: 10px;
 }
 
@@ -112,6 +115,7 @@
     align-items: center;
     justify-content: space-around;
     height: 56px;
+    position: fixed;
 }
 
 

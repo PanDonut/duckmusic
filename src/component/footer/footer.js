@@ -38,7 +38,7 @@ function Footer(props) {
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
-    const db1 = getDatabase(aut);
+    const db1 = getDatabase();
     if (localStorage.getItem("emaildm") != null) {
     const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
@@ -132,11 +132,13 @@ if (localStorage.getItem("fadetime") == null) {
         } else {
             if (props.trackData.isCustom == 'false') {
             if (localStorage.getItem('shuffle') == 'true') {
-                props.songTrack([0, Math.floor(Math.random() * (SONGLIST.length - 1))])
+                props.songTrack([Math.floor(Math.random() * (SONGLIST.length - 1))])
            }
         }
         }
     }
+
+    console.log(props.trackData.trackKey + " " + props.trackData.canSkip + " " + props.trackData.isCustom + " " + localStorage.getItem('shuffle'))
 
     
 
@@ -363,8 +365,25 @@ window.addEventListener('load', useEffect(() => {
 				.catch(err => {
 					console.log(err)
 				}
-				)
+				);
+                if (localStorage.getItem("dmupdate") == null) {
+                    localStorage.setItem("dmupdate", 0);
+                }       
+                Notification.requestPermission();         
 }, []))
+
+const refData = ref(db1, 'manual/data/update');
+onValue(refData, (snapshot) => {
+  const data = snapshot.val();
+  if (localStorage.getItem("dmupdate") < data) {
+      caches.delete('duckmusic-offline-version-storage')
+      console.log(data);
+      localStorage.setItem("dmupdate", data);
+      window.location.reload(true);
+  }
+}
+)
+
 
     if (props.trackData.isCustom == 'false' && props.trackData.canSkip == 'true') {
         localStorage.setItem("dmsavedata", JSON.stringify(

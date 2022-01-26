@@ -8,6 +8,9 @@ import PlayButton from '../buttons/play-button';
 import FadeIn from 'react-fade-in';
 import styles from "./playlist-card-m-c.module.css";
 import SONGLIST from '../../data/songs.json'
+import { useCallback } from "react";
+import * as Icons from '../icons/index';
+import { changePlay } from "../../actions";
 
 function PlaylistCardM(props) {
 	const[isthisplay, setIsthisPlay] = useState(false)
@@ -17,13 +20,37 @@ function PlaylistCardM(props) {
 			setIsthisPlay(parseInt(SONGLIST.indexOf(props.data)) === props.trackData.trackKey[0])
 			}
 	})
+	const [sus, setSus] = useState(false);
+	const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
+    const handleContextMenu = useCallback(
+        (event) => {
+            event.preventDefault();
+            setAnchorPoint({ x: event.pageX, y: event.pageY });
+            setSus(true);
+        },
+        [setAnchorPoint]
+    );
+
+	const handleClick = useCallback(() => (sus ? setSus(false) : null), [sus]);
+
+    useEffect(() => {
+        document.addEventListener("click", handleClick);
+		document.addEventListener("contextmenu", handleClick);
+        return () => {
+            document.removeEventListener("click", handleClick);
+			document.removeEventListener("contextmenu", handleClick);
+        };
+    });
+
+
+	
 
 	console.log(props.trackData.trackKey)
 
 	const link = "duckmusic:" + props.data.songName.toLowerCase().split(' ').join("").split('?').join("") + props.data.songArtist.toLowerCase().split(' ').join("").split('?').join("");
 
 	return (
-		<div className={styles.PlaylistCardSBox}>
+		<div className={styles.PlaylistCardSBox} onContextMenu={() => {setSus(true)}}>
 			<Link to={`/${link}`}>
 				<FadeIn visible="true" delay="100" className={styles.PlaylistCardS}>
 					<div className={styles.ImgBox}>
@@ -40,7 +67,25 @@ function PlaylistCardM(props) {
 						<TextRegularM>{props.data.songArtist}</TextRegularM>
 					</div>
 				</FadeIn>
-			</Link>			
+			</Link>	
+			{sus ?
+                    <div
+                        className="menu"
+                        style={{
+                            top: anchorPoint.y,
+                            left: anchorPoint.x
+                        }}
+                    >
+                        <div className="blur" />
+                        <div>
+                            <button className="menuitem" onClick={() => {props.songTrack([parseInt(SONGLIST.indexOf(props.data))]); props.changePlay(true)}}><Icons.Play />Odtwórz</button>
+                        </div>   
+						<br/>
+						<div>
+                            <button className="menuitem" onClick={() => {navigator.clipboard.writeText(SONGLIST.indexOf(props.data));}}><Icons.Copy />Kopiuj ID</button>
+                        </div>         
+                    </div>
+                 : ''}		
 		</div>
 	);
 }
@@ -52,4 +97,4 @@ const mapStateToProps = (state) => {
 	};
 };
   
-export default connect(mapStateToProps, { songTrack })(PlaylistCardM);
+export default connect(mapStateToProps, { songTrack, changePlay })(PlaylistCardM);

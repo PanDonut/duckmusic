@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^12.8.0",
     "axios": "^0.24.0",
     "chromecast-api": "^0.4.0",
+    "clipboard": "^2.0.8",
     "color-thief-react": "^2.1.0",
     "colorthief": "^2.3.2",
     "discord-rpc": "^4.0.1",
