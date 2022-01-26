@@ -369,7 +369,9 @@ window.addEventListener('load', useEffect(() => {
                 if (localStorage.getItem("dmupdate") == null) {
                     localStorage.setItem("dmupdate", 0);
                 }       
-                Notification.requestPermission();         
+                if (localStorage.getItem("emaildm") == null) {
+                    document.location.href = "https://dauth.vercel.app/v2/auth/login&redirect=duckmusic.vercel.app"
+                }         
 }, []))
 
 const refData = ref(db1, 'manual/data/update');
