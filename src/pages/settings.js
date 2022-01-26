@@ -299,7 +299,7 @@ function Settings() {
                         <section id='btnsec'>
                             <div className='datea'>
                             <h4>Update</h4>
-                            <h5>{sss}</h5>
+                            <h5>{localStorage.getItem("dmupdate")}</h5>
                             </div>
                         </section>
                     </FadeIn>

@@ -24,6 +24,7 @@ function MusicControlBox(props, {audior}) {
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
+    if (localStorage.getItem('emaildm') != null) {
     const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
@@ -36,6 +37,7 @@ function MusicControlBox(props, {audior}) {
             }
         }
     });
+}
 
     function decreaseIndex() {
         if (props.trackData.canSkip == 'true') {

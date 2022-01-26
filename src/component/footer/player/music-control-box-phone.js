@@ -20,18 +20,20 @@ function MusicControlBox(props, {audioRef}) {
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
-    onValue(nameRef, (snapshot) => {
-        const data = snapshot.val();
-        if (data != null) {
-            if (isMounted) {
-                if (PLAYLISTC == null) {
-                    isMounted = false;
-                    setPosts(JSON.parse(data));
+    if (localStorage.getItem('emaildm') != null) {
+        const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+        onValue(nameRef, (snapshot) => {
+            const data = snapshot.val();
+            if (data != null) {
+                if (isMounted) {
+                    if (PLAYLISTC == null) {
+                        isMounted = false;
+                        setPosts(JSON.parse(data));
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 
     function decreaseIndex() {
         if (props.trackData.canSkip == 'true') {
