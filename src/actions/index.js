@@ -3,6 +3,7 @@ export const CHANGETRACK = "CHANGETRACK";
 export const CUSTOMTRACK = "CUSTOMTRACK";
 export const SONGTRACK = "SONGTRACK";
 export const FIREBASEG = "FIREBASEG";
+export const KONSOL = "KONSOL"
 
 export const changePlay = (isPlaying) => {
   return { type: PLAYPAUSE, payload: isPlaying };
@@ -22,4 +23,8 @@ export const songTrack = (trackKey) => {
 
 export const firebaseg = (trackKey) => {
     return { type: FIREBASEG, payload: trackKey };
+};
+
+export const konsol = (trackKey) => {
+  return { type: KONSOL, payload: trackKey };
 };

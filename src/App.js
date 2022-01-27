@@ -5,10 +5,12 @@ import { BrowserRouter as Router,
   Link
 } from "react-router-dom";
 import { changePlay } from './actions';
+import { konsol } from './actions';
 import { connect } from 'react-redux';
-import { firebaseg } from './actions/index';
+import { firebaseg, songTrack } from './actions/index';
 import Lyrics from './component/Lyrics';
 import QueueShow  from './pages/queue';
+import Draggable from 'react-draggable'
 import { initializeApp } from "firebase/app";
 import { getAnalytics, initializeAnalytics, logEvent } from "firebase/analytics";
 import { getDatabase, ref, onValue, set } from "firebase/database";
@@ -31,6 +33,7 @@ import EmbedSmall from './pages/embed-s';
 import * as Icons from './component/icons/index';
 import CONST from './constants/index';
 import PLAYLIST from './data/index.json';
+import SONGLIST from './data/songs.json';
 import styles from './style/App.module.css';
 import Card from './component/cards/playlist-card-m';
 import NotFound from './pages/404';
@@ -207,13 +210,127 @@ onValue(refData1, (snapshot) => {
     }
       });
 
-      
+      const [executedCmds, setexecutedCmds] = useState(
+    [
+        "Wpisz help aby zobaczyć listę dostępnych komend"
+    ]);     
 
-      
-
+    const cmds = useRef(null);
+      const [command, setCommand] = useState("");
+      const inptcmd = useRef(null);
+      function executeCmd(event) {
+        if (event.keyCode === 13) {
+            // Cancel the default action, if needed
+            event.preventDefault();
+            // Trigger the button element with a click
+            console.log("cmd-execute " + command);
+            if (command == "help") {
+                setexecutedCmds(oldArray => [...oldArray, "help \nhelp - Wyświetla listę dostępnych komend\ndelcache - Usuwa dane offline\nreload <true/false/brak> - Restartuje Duck Music\nplayer <command[play/pause/toggle/song <id>]>\nmanipulate <zmienna> - Ustaw wartość zmiennej\nclear - Czyści konsolę\ncalculate <działanie[minus/plus/divide/multiply]> <liczba> [działanie] <liczba>\nstart - Czyści konsolę i pokazuje startową informację konsoli\nkeybinds/shortcuts - Pokazuje menu skrótów klawiszowych\n'I don't even game' - ?"]);
+            } else if (command == "delcache") {
+                caches.delete('duckmusic-offline-version-storage')
+            } else if (command.split(" ")[0] == "reload") {
+                console.log(command.split(" ")[1]);
+                if (command.split(" ")[1] == "true") {
+                window.location.reload(true) 
+                } else {
+                    window.location.reload(false);
+                }
+            } else if (command == "70mln" || command == "70 milionów" || command == "siedemdziesiąt milionów") {
+                setexecutedCmds(oldArray => [...oldArray, (command + " \nWiecie że za taką kwotę Jacek Sasin miał zorganizować wybory, które w rzeczywistości nigdy się nie odbyły?")]);
+            } else if (command.split(" ")[0] == "player") {
+                console.log(command.split(" ")[1]);
+                if (command.split(" ")[1] == "play") {
+                    props.changePlay(true);
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nUruchamianie odtwarzacza...")]);                   
+                } else if (command.split(" ")[1] == "pause") {
+                    props.changePlay(false);
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nZatrzymywanie odtwarzacza...")]);                   
+                } else if (command.split(" ")[1] == "toggle") {
+                    props.changePlay(!props.isPlaying);
+                    setexecutedCmds(oldArray => [...oldArray, command]);                   
+                } else if (command.split(" ")[1] == "song") {
+                    props.songTrack([command.split(" ")[2]])
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nOdtwarzam utwór '" + SONGLIST[command.split(" ")[2]].songName + "' w wykonaniu '" + SONGLIST[command.split(" ")[2]].songArtist + "'")]);                   
+                }
+                else {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNiepoprawny argument '" + command.split(" ")[1] + "' dla komendy '" + command.split(" ")[0] + "'")]);    
+                }
+            } else if (command.split(" ")[0] == "manipulate") {
+                if (command.split(" ")[1] == "bg") {
+                    if (command.split(" ")[2] != undefined) {
+                    document.documentElement.style.setProperty('--hover-home-bg', command.split(" ")[2]);
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nZmieniam kolor tła na " + command.split(" ")[2])]);     
+                    } else {
+                        setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNiepoprawny podargument '" + command.split(" ")[2] + "' dla komendy '" + command.split(" ")[0] + "' z argumentem '" + command.split(" ")[1] + "'")]);    
+                    }              
+                } else if (command.split(" ")[1] == "footer-height") {
+                    if (command.split(" ")[2] != undefined && (command.split(" ")[2].includes("px") || command.split(" ")[2].includes("%") || command.split(" ")[2].includes("vw") || command.split(" ")[2].includes("vh") || command.split(" ")[2].includes("rem"))) {
+                    document.documentElement.style.setProperty('--footersize', command.split(" ")[2]);
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nZmieniam wysokość odtwarzacza na " + command.split(" ")[2])]);     
+                    } else if (command.split(" ")[2] == "reset") {
+                        document.documentElement.style.setProperty('--footersize', '');
+                        setexecutedCmds(oldArray => [...oldArray, (command + " \nResetuję wysokość odtwarzacza")]);     
+                        }
+                    else {
+                        setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNiepoprawny podargument '" + command.split(" ")[2] + "' dla komendy '" + command.split(" ")[0] + "' z argumentem '" + command.split(" ")[1] + "'")]);    
+                    }              
+                }
+                else {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNiepoprawny argument '" + command.split(" ")[1] + "' dla komendy '" + command.split(" ")[0] + "'")]);    
+                }
+            } else if (command.split(" ")[0] == "clear") {
+                if (command.split(" ")[1] == undefined) {
+                setexecutedCmds([])
+                } else {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nERRKomenda '" + command.split(" ")[0] + "' nie przyjmuje argumentów")]);
+                }
+            } else if (command.split(" ")[0] == "start") {
+                if (command.split(" ")[1] == undefined) {
+                setexecutedCmds(["Wpisz help aby zobaczyć listę dostępnych komend"])
+                } else {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nERRKomenda '" + command.split(" ")[0] + "' nie przyjmuje argumentów")]);
+                }
+            } else if (command.split(" ")[0] == "calculate") {
+                if (command.split(" ")[1] == "minus") {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \n" + (parseInt(command.split(" ")[2]) - parseInt(command.split(" ")[3])))]);
+                } else if (command.split(" ")[1] == "plus") {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \n" + (parseInt(command.split(" ")[2]) + parseInt(command.split(" ")[3])))]);               
+                } else  if (command.split(" ")[1] == "divide") {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \n" + (parseInt(command.split(" ")[2]) / parseInt(command.split(" ")[3])))]);                   
+                } else if (command.split(" ")[1] == "multiply") {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \n" + (parseInt(command.split(" ")[2]) * parseInt(command.split(" ")[3])))]);                    
+                } else {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNiepoprawny argument '" + command.split(" ")[1] + "' dla komendy '" + command.split(" ")[0] + "'")]);  
+                }
+            }
+            else if (command.split(" ")[0] == "keybinds" || command.split(" ")[0] == "shortcuts") {
+                if (command.split(" ")[1] == undefined) {
+                    setexecutedCmds(oldArray => [...oldArray, command]);
+                    document.documentElement.style.setProperty('--keyguide', 'block');
+                } else {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nERRKomenda '" + command.split(" ")[0] + "' nie przyjmuje argumentów")]);
+                }
+            }
+            else if (command == "I don't even game") {
+                caches.delete('duckmusic-offline-version-storage')
+            }
+            else {
+                setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNie znaleziono komendy '" + command + "'")]);
+            }
+            setCommand("");        
+            forceUpdate();
+            forceUpdate();                  
+          }          
+      }     
+      useEffect(() => {
+        const domNode = cmds.current;
+        if (domNode) {
+           domNode.scrollTop = domNode.scrollHeight;
+        }
+     })   
     return (
         <Router>
-            <div className={styles.layout}>                      
+            <div className={styles.layout}>                                    
                 {
                     localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>
@@ -385,6 +502,37 @@ onValue(refData1, (snapshot) => {
             </div>
             : ''
             }   
+            { props.konsola == true ?
+            <Draggable>
+                    <div className='console-lay'>
+                        <div className='c-top'>
+                            <h5>Konsola</h5>
+                            <svg onClick={() => {props.konsol(false)}} width="20px" height="20px" viewBox="0 0 512 512" fill='#fff' xmlns="http://www.w3.org/2000/svg"><path d="M480 480H32c-17.7 0-32-14.3-32-32s14.3-32 32-32h448c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg>
+                        </div>
+                        <div className='c-content' ref={cmds}>
+                            {
+                                executedCmds.map(item => {
+                                    if (item.includes("ERR")) {
+                                        return (
+                                            <h5 className='c-err'>{"> " + item.replace("ERR", "")}</h5>
+                                        )
+                                    } else {
+                                    return (
+                                        <h5>{"> " + item}</h5>
+                                    )
+                                    }
+                                }
+                                )
+                            }
+                        </div>
+                        <div className='c-grid'>
+                        <h5>{">"}</h5>
+                        <input ref={inptcmd} className='c-input' placeholder='Wpisz komendę' value={command} onKeyUp={(e) => {executeCmd(e)}} onChange={(e) => {setCommand(e.target.value);}}></input>
+                        </div>
+                    </div>
+                </Draggable> 
+                : ''
+}
             </Router>
   );
 }
@@ -394,10 +542,11 @@ const mapStateToProps = (state) => {
     return {
         trackData: state.trackData,
         custplay: state.custplay,
-        isPlaying: state.isPlaying
+        isPlaying: state.isPlaying,
+        konsola: state.konsola
     };
 };
 
 
 
-export default connect(mapStateToProps, { firebaseg, changePlay })(App);
+export default connect(mapStateToProps, { firebaseg, changePlay, songTrack, konsol })(App);

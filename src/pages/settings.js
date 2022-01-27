@@ -9,10 +9,12 @@ import React, { useEffect, useState } from 'react';
 import { setTheme, setEc, setSwi, setSwif, setOl, setAd } from '../theme';
 import { decode } from 'he';
 import axios from 'axios';
+import { konsol } from '../actions';
+import { connect } from 'react-redux';
 
 import FadeIn from 'react-fade-in';
 
-function Settings() {
+function Settings(props) {
 
 
     const size = useWindowSize();
@@ -302,6 +304,12 @@ function Settings() {
                             <h5>{localStorage.getItem("dmupdate")}</h5>
                             </div>
                         </section>
+                        <section id='btnsec'>
+                            <div className='datea'>
+                            <h4>Konsola deweloperska</h4>
+                            </div>
+                            <button onClick={() => {props.konsol(true)}}>Otwórz konsolę</button>
+                        </section>
                     </FadeIn>
                 </FadeIn>
                 </div>
@@ -309,4 +317,13 @@ function Settings() {
         )
 }
 
-export default Settings;
+const mapStateToProps = (state) => {
+    return {
+        trackData: state.trackData,
+        custplay: state.custplay,
+        isPlaying: state.isPlaying,
+        konsola: state.konsola
+    };
+};
+
+export default connect(mapStateToProps, { konsol })(Settings);
