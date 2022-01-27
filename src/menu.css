@@ -180,3 +180,14 @@
     background-color: #fff;
     color: var(--akcent);
 }
+
+.fx {
+    top: 50px;
+    right: 0;
+}
+
+.fx div {
+    width: 100%;
+    top: 0;
+    position: relative;
+}

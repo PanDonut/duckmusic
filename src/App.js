@@ -47,6 +47,7 @@ import './security.js';
 import './menu.css'
 import HandleAuth from './authorization.js';
 import Download_app from './pages/download_app';
+import ShareCustomPlaylist from './pages/playlistshare';
 let indexn = null;
 
 
@@ -263,6 +264,9 @@ onValue(refData1, (snapshot) => {
             </Route>
             <Route exact path="/duckmusic::path">
                 <SongPage />
+            </Route>
+            <Route exact path="/profile/:user/:path">
+                <ShareCustomPlaylist />
             </Route>
             <Route exact path="/profile">
                 <Profile />

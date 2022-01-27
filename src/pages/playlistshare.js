@@ -2,7 +2,6 @@ import { useParams } from 'react-router';
 import { connect } from 'react-redux';
 import { changeTrack, customTrack } from '../actions';
 import react from 'react';
-import LinkButton1 from '../component/buttons/link-button';
 import { aut } from '../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import Topnav from '../component/topnav/topnav';
@@ -46,11 +45,20 @@ function PlaylistPage(props) {
 
 	const [PLAYLIST, setPLAYLIST] = useState(null);
 	const db = getDatabase(aut);
-	const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+	const [name, setName] = useState("Wczytuję...");
+	const { path, user} = useParams();
+	const nameRef = ref(db, 'users/' + user + '/duckmusic/playlist');
+	const nameRef1 = ref(db, 'users/' + user + '/name');
 	onValue(nameRef, (snapshot) => {
 		const data = snapshot.val();
 			if (PLAYLIST == null) {
 				setPLAYLIST(JSON.parse(data));
+			}
+	});
+	onValue(nameRef1, (snapshot) => {
+		const data = snapshot.val();
+			if (name == "Wczytuję...") {
+				setName(data);
 			}
 	});
 	
@@ -65,8 +73,7 @@ function PlaylistPage(props) {
 
 	const size = useWindowSize();
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
-	const [isthisplay, setIsthisPlay] = useState(false);
-	const { path } = useParams();
+	const [isthisplay, setIsthisPlay] = useState(false);	
 	const history = useHistory();
 	function changeBg(color) {
 		document.documentElement.style.setProperty('--hover-home-bg', color);
@@ -89,7 +96,7 @@ function PlaylistPage(props) {
 		autoClose: 5000
 	});
 	const [open, setOpen] = react.useState(false);
-	var link11 = "https://duckmusic.vercel.app/profile/" + localStorage.getItem('emaildm').split('.').join("") + "/" + path;
+	var link11 = "https://duckmusic.vercel.app/profile/" + user + "/" + path;
 	var embed11 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	var embed111 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed-small/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	return (
@@ -160,31 +167,11 @@ function PlaylistPage(props) {
 														<h2>Ustawienia</h2>
 													</button>
 												</Link>
-											<button className={styles.btn} onClick={() => {
-												var json_string = JSON.stringify(item, undefined, 2);
-												var link = document.createElement('a');
-												link.download = 'dm_mobilegen_' + item.index.substring(0,6) + '.dmusic';
-												var blob = new Blob([json_string], { type: 'text/plain' });
-												link.href = window.URL.createObjectURL(blob);
-												link.click();
-											}
-											}>
-
-													
-													<LinkButton/>
-													<h2>Pobierz</h2>
-											</button>
-											<button className={styles.btn} onClick={() => { RemoveItem(PLAYLIST.indexOf(item)); {history.push('/library')}}}>
-
-
-												<RemoveButton />
-												<h2>Usuń playlistę</h2>
-											</button>
 											</div>
 										</div>
 									}
 
-									<PlaylistDetails data={item} artists={item.playlistData.map(list => {return (SONGLIST[list.songindex].songArtist + "  ")})} />
+									<PlaylistDetails data={item} artists={name} />
 									<div className={styles.GridIcons}>
 										{size.width > CONST.MOBILE_SIZE &&
 											<div className={styles.PlaylistIcons}>
@@ -206,29 +193,6 @@ function PlaylistPage(props) {
 										}
 										{size.width > CONST.MOBILE_SIZE &&
 											<div className={styles.PlaylistIcons1}>
-												<button
-											onClick={() => { copy(link11); { notify(); } }}
-										>
-											<LinkButton1 />
-										</button>
-													<button
-														onClick={() => {
-															var json_string = JSON.stringify(item, undefined, 2);
-															var link = document.createElement('a');
-															link.download = 'dm_generated_' + item.index + '.dmusic';
-															var blob = new Blob([json_string], { type: 'text/plain' });
-															link.href = window.URL.createObjectURL(blob);
-															link.click();
-														}
-														}
-													>
-														<LinkButton />
-													</button>
-											<button
-												onClick={() => { RemoveItem(PLAYLIST.indexOf(item)); { history.push('/library') } }}
-											>
-												<RemoveButton />
-											</button>
 											</div>
 										}
 									</div>
