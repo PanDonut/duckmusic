@@ -13,7 +13,7 @@ import EmbedButton from '../component/buttons/embed-button';
 import RemoveButton from '../component/buttons/remove-button';
 import IconButton from '../component/buttons/icon-button';
 import PlaylistDetails from '../component/playlist/playlist-details-c';
-import PlaylistTrack from '../component/playlist/playlist-track-custom';
+import PlaylistTrack from '../component/playlist/playlist-track-custom1';
 import * as Icons from '../component/icons';
 import { NavLink, useLocation, Link, useHistory } from "react-router-dom";
 import { decode } from 'he';
