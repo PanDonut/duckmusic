@@ -14,6 +14,7 @@ import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import lay from '../style/App.module.css';
 import { useState, useEffect } from "react";
+import { RgbStringColorPicker } from "react-colorful";
 import axios from 'axios';
 import SONGLIST from '../data/songs.json';
 import { connect } from 'react-redux';
@@ -23,6 +24,7 @@ import TextBoldL from "../component/text/text-bold-l";
 import TextRegularM from '../component/text/text-regular-m';
 import PlayButton from '../component/buttons/play-button';
 import FadeIn from 'react-fade-in';
+import { CreateEmptyPlaylist } from '../playlistcreator';
 
 
 function Library(props) {
@@ -47,8 +49,19 @@ function Library(props) {
 }
 
 
-function PlaylistTab(props) {    
-    let isMounted = true;
+function PlaylistTab(props) {  
+    let col = 'rgb(0,0,0)'
+    const [color, setColor] = useState('rgb(0,0,0)');
+    if (color != 'rgb(0,0,0)') {
+        document.documentElement.style.setProperty('--color', color)
+    }
+    const [index, setIndex] = useState('');
+    const [create, setCreate] = useState(false);
+    function StartPlaylistCreation() {
+        setCreate(true);
+    }  
+    const [input, setInput] = useState('');
+    let isMounted = true;   
     const [urlaxios, setAUrl] = useState('');    
     const [loader, setLoadingState] = useState(true);
     const [datamap, setDMap] = useState(``);
@@ -85,6 +98,7 @@ function PlaylistTab(props) {
         };
         reader.readAsText(files);
     }
+    const [show, setShow] = useState(false);
     var likedSongs = [];
 	const nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/dmusic/liked');
     onValue(nameRef1, (snapshot) => {
@@ -95,6 +109,19 @@ function PlaylistTab(props) {
     });
     return (
         <div>
+            {create ? (
+                <div className="foverlay">
+                    <div className="ff">
+                        <input className="inputtrack" autocomplete="off" placeholder="Nazwa playlisty" maxLength="40" value={input} onInput={e => setInput(e.target.value)}></input>
+                        <RgbStringColorPicker
+                            onChange={setColor}
+                    />
+                        <button className="lumina_button" onClick={() => { CreateEmptyPlaylist(color, input); { setCreate(false); } }}>
+                            Utwórz playlistę
+                        </button>
+                    </div>
+                </div>
+            ) : ''}
             {loader == true ?
                 <div className={styles.wrapper}>
                     <div className={styles.loader} id={styles.loader} />
@@ -104,14 +131,12 @@ function PlaylistTab(props) {
             <input style={{ color: 'transparent' }} type="file" id={styles.upload} accept=".dmusic" onInput={e => readFileAsString(e.target.files[0])} />
             <div className={styles.su}>
             <TitleM>Twoje playlisty</TitleM>
+            <button className="lumina_button" onClick={() => { StartPlaylistCreation()}}>Nowa playlista</button>
             <div className={styles.Grid}>
                 {
                     posts != null ?
                         posts.map((item) => {
                             isMounted = false
-                            if (item.playlistData[0] == undefined) {
-                                RemoveItem(posts.indexOf(item))
-                            } else {
                                 return (
                                     <PlaylistCardM
                                         key={item.title}
@@ -121,7 +146,7 @@ function PlaylistTab(props) {
                                     />
                                 );
                             }
-                        }) : ''
+                        ) : ''
                 }
                 </div>
                 <TitleM>Ulubione</TitleM>

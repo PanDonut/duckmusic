@@ -119,10 +119,6 @@ function PlaylistPage(props) {
 				{PLAYLIST != null ?
 					PLAYLIST.map((item) => {
 						if (item.link == path) {
-							if (item.playlistData[0] == undefined) {
-								window.location.reload(true);
-								history.push('/library');
-							}
 
 							return (
 								<div key={item.title} onLoad={() => {
@@ -237,7 +233,8 @@ function PlaylistPage(props) {
 									</div>
 
 									<FadeIn visible="true" delay="50" className={styles.PlaylistSongs}>
-										{item.playlistData.map((song) => {
+										{ item.playlistData[0] != undefined ? 
+										item.playlistData.map((song) => {
 											return (
 												<button
 													key={song.songindex}
@@ -255,7 +252,10 @@ function PlaylistPage(props) {
 													/>
 												</button>
 											);
-										})}
+										})
+										:
+											<h2>Trochę tu pusto</h2>
+									}
 									</FadeIn>
 								</div>
 							);

@@ -374,5 +374,41 @@
 				"songindex": 79
 			}
 		]
-	}
+	},
+	{
+		"index": "8",
+		"type": "playlista",
+		"title": "To jest The Weeknd",
+		"link": "mhkrguktu8prr2w7jku3h",
+		"ex": "no",
+		"artist": "The Weeknd",
+		"promoted": "prawda",
+		"promodesc": "Posłuchaj jednego z najlepszych wokalistów dekady",
+		"imgUrl": "https://i.ibb.co/Y0jRjRQ/ab67616d00001e024ab2520c2c77a1d66b9ee21d.png",
+		"hoverColor": "rgb(0, 137, 243)",
+		"playlistBg": "rgb(0, 137, 243)",
+		"playlistData": [
+		  {
+			"songindex": 90
+		  },
+		  {
+			"songindex": 91
+		  },
+		  {
+			"songindex": 94
+		  },
+		  {
+			"songindex": 92
+		  },
+		  {
+			"songindex": 93
+		  },
+		  {
+			"songindex": 2
+		  },
+		  {
+			"songindex": 78
+		  }
+		]
+	  }
 ]

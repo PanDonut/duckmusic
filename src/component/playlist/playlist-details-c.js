@@ -7,7 +7,7 @@ function PlaylistDetails({ data, artists }) {
 	return (
         <div className={styles.playlistDetails} onClick={() => { document.documentElement.style.setProperty('--dispopen', 'none') }}>
             <div className={styles.imgBox}>
-                <img src={SONGS[data.playlistData[0].songindex].songimg} />
+                <img src={data.playlistData[0] != undefined ? SONGS[data.playlistData[0].songindex].songimg : "https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/no.png?alt=media&token=b23a34e3-5ea9-4c32-bc04-19c0c05c99cd"} />                
             </div>
             <div className={styles.textBox}>
                 <TitleS>{data.type}</TitleS>

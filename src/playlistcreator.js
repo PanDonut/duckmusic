@@ -40,6 +40,42 @@ export function CreatePlaylist(firstindex, color, name) {
     });
 }
 
+export function CreateEmptyPlaylist(color, name) {
+    const db = getDatabase(aut);
+    let pl = [];
+    const index = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    onValue(nameRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null) {
+                if (pl != data) {
+                    pl = JSON.parse(data);
+                }
+        }
+    });
+
+    pl.push
+        (
+            {
+                "index": index,
+                "type": "playlista",
+                "title": name,
+                "link": index,
+                "ex": "no",
+                "hoverColor": color,
+                "playlistBg": color,
+                "playlistData": [
+                    ]
+            }
+        )
+
+    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+        playlist: JSON.stringify(pl)
+    });
+
+    window.location.reload(true);
+}
+
 export function AddToPlaylist(song, index, item) {
     const db = getDatabase(aut);
     let pl = [];
@@ -78,8 +114,7 @@ export function RemoveItem(index, song) {
         }
     });
 
-    const removeNumber = (arr, num) => arr.filter(el => el !== num);
-    pl = pl.slice(index, index).concat(pl.slice(index + 1));
+    pl.splice(index, 1);
     console.log(pl);
 
     set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
@@ -132,5 +167,27 @@ export function RemoveSong(index, song) {
 
     set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
         playlist: JSON.stringify(pl)
+    });
+}
+
+export function RemoveLiked(index, song) {
+    const db = getDatabase(aut);
+    let pl = [];
+    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/dmusic/liked');
+    onValue(nameRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null) {
+            if (pl != data) {
+                pl = JSON.parse(data);
+            }
+        }
+    });
+
+    console.log(index);
+    pl.splice(index, 1);
+    console.log(pl);
+
+    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/dmusic"), {
+        liked: JSON.stringify(pl)
     });
 }

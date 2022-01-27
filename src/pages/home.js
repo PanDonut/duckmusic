@@ -127,7 +127,6 @@ function Home() {
                                                 <button>{decode("S&#322;uchaj")}</button>
                                                 </Link>
                                             </FadeIn>
-                                            <button className={styles.sponsored}>Sponsorowane</button>
                                         </div>
                                     );
                                 })}

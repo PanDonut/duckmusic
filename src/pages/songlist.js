@@ -42,6 +42,7 @@ import MobileNavigation from '../component/sidebar/mobile-navigation';
 import convertTime from '../functions/convertTimeTxt';
 import FadeIn from 'react-fade-in';
 import { useReducer } from 'react';
+import { RemoveLiked } from '../playlistcreator';
 
 var likedSongs = [];
 const db = getDatabase(aut);
@@ -211,17 +212,7 @@ function PlaylistPage(props) {
 										</button>
 										{ likedSongs.includes(SONGLIST.indexOf(item)) ?
 										<button
-											onClick={() => {
-												forceUpdate();		
-												if (likedSongs.includes(SONGLIST.indexOf(item))) {
-													likedSongs.splice(SONGLIST.indexOf(item), 1);
-												console.log(likedSongs);
-												set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/dmusic"), {
-													liked: JSON.stringify(likedSongs)
-												});
-												forceUpdate();	
-											}
-											 }}
+											onClick={() => {RemoveLiked(likedSongs.indexOf(SONGLIST.indexOf(item))); forceUpdate()}}
 										>
 											<svg role="img" height="20" width="20" fill='#5b88e1' viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 hDgDGI"><path fill="none" d="M0 0h16v16H0z"></path><path d="M13.797 2.727a4.057 4.057 0 00-5.488-.253.558.558 0 01-.31.112.531.531 0 01-.311-.112 4.054 4.054 0 00-5.487.253c-.77.77-1.194 1.794-1.194 2.883s.424 2.113 1.168 2.855l4.462 5.223a1.791 1.791 0 002.726 0l4.435-5.195a4.052 4.052 0 001.195-2.883 4.057 4.057 0 00-1.196-2.883z"></path></svg>
 										</button>
