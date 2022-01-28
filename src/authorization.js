@@ -13,7 +13,7 @@ const history = useHistory();
 
 
 	const [uname, setUName] = useState('');
-	const {path, dnt} = useParams();
+	const {path, cnt} = useParams();
 	
 
 	const analytics = getAnalytics(aut);
@@ -30,8 +30,8 @@ const history = useHistory();
 
 	localStorage.setItem('emaildm', path);
 	GetImg(aut, path.split('.').join(""));
-
-	setTimeout(function () { history.push(dnt.replace(">", "/")); }, 2000);
+	console.log(cnt.replace(">", "/"));
+	setTimeout(function () { history.push(cnt.replace(">", "/")); }, 2000);
 
     return (
         <div>
