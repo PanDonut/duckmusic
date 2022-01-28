@@ -403,7 +403,7 @@ onValue(refData1, (snapshot) => {
             <Route exact path="/download/app">
                 <Download_app />
             </Route>
-            <Route exact path="/auth&email=:path">
+            <Route exact path="/auth&email=:path/continue=:cnt">
                 <HandleAuth />
             </Route>
             <Route exact path="/library">

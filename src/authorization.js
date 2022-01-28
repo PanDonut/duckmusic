@@ -3,7 +3,7 @@ import { getDatabase, ref, onValue, set } from "firebase/database";
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { GetImg } from './image.js';
 import { aut } from './dauth';
 
@@ -13,7 +13,7 @@ const history = useHistory();
 
 
 	const [uname, setUName] = useState('');
-
+	const {path, dnt} = useParams();
 	
 
 	const analytics = getAnalytics(aut);
@@ -29,9 +29,9 @@ const history = useHistory();
 	});
 
 	localStorage.setItem('emaildm', window.location.href.split('=')[1]);
-	GetImg(aut, window.location.href.split('=')[1].split('.').join(""));
+	GetImg(aut, path.split('.').join(""));
 
-	setTimeout(function () { history.push("/"); }, 2000);
+	setTimeout(function () { history.push(dnt.replace(">", "/")); }, 2000);
 
     return (
         <div>
