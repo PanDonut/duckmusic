@@ -19,7 +19,7 @@ const history = useHistory();
 	const analytics = getAnalytics(aut);
 	const db = getDatabase(aut);
 
-	const nameRef = ref(db, 'users/' + window.location.href.split('=')[1].split('.').join("") + '/name');
+	const nameRef = ref(db, 'users/' + path.split('.').join("") + '/name');
 	onValue(nameRef, (snapshot) => {
 		const data = snapshot.val();
 		localStorage.setItem('name', data);
@@ -28,7 +28,7 @@ const history = useHistory();
 		}
 	});
 
-	localStorage.setItem('emaildm', window.location.href.split('=')[1]);
+	localStorage.setItem('emaildm', path);
 	GetImg(aut, path.split('.').join(""));
 
 	setTimeout(function () { history.push(dnt.replace(">", "/")); }, 2000);
