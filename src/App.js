@@ -257,7 +257,7 @@ onValue(refData1, (snapshot) => {
                 }
             } else if (command.split(" ")[0] == "manipulate") {
                 if (command.split(" ")[1] == "bg") {
-                    if (command.split(" ")[2] != undefined) {
+                    if (command.split(" ")[2] != undefined && (command.split(" ")[2].includes("hsl") || command.split(" ")[2].includes("rgb") || command.split(" ")[2].includes("rgba") || command.split(" ")[2].includes("#"))) {
                     document.documentElement.style.setProperty('--hover-home-bg', command.split(" ")[2]);
                     setexecutedCmds(oldArray => [...oldArray, (command + " \nZmieniam kolor tła na " + command.split(" ")[2])]);     
                     } else {
