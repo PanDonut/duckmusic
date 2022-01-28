@@ -72,12 +72,16 @@ function App(props) {
                 setUsd(data);
     }
 });
+var hearts = [
+    0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+]
 onValue(refData1, (snapshot) => {
     const data = snapshot.val();
     if (utr != data) {
                 setUtr(data);
     }
 });
+
     onValue(refReq, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -90,6 +94,10 @@ onValue(refData1, (snapshot) => {
     }
 });
   }
+
+  const hcols = [
+      "#db1414", "#db144c", "#ff5c8a", "#b52a84", "#fc2b2b"
+  ]
 
   if (localStorage.getItem('dmsavedata') == null) {
     localStorage.setItem('dmsavedata', JSON.stringify(
@@ -133,10 +141,12 @@ onValue(refData1, (snapshot) => {
     useEffect(() => {
         keepTheme();
     })
+    const d = new Date();
+
 
     const header = useRef(null);
     const consolewindow = useRef(null);
-
+    var showhearts = false;
   const size = useWindowSize();
 
     if (localStorage.getItem('shuffle') == 'true') {
@@ -210,6 +220,7 @@ onValue(refData1, (snapshot) => {
     }
       });
 
+      console.log(d.getDate() + "." + (d.getMonth() + 1));
       const [executedCmds, setexecutedCmds] = useState(
     [
         "Wpisz help aby zobaczyć listę dostępnych komend"
@@ -516,7 +527,12 @@ onValue(refData1, (snapshot) => {
                                         return (
                                             <h5 className='c-err'>{"> " + item.replace("ERR", "")}</h5>
                                         )
-                                    } else {
+                                    } else if (item.includes("WARN")) {
+                                        return (
+                                            <h5 className='c-warn'>{"> " + item.replace("WARN", "")}</h5>
+                                        )
+                                    }
+                                    else {
                                     return (
                                         <h5>{"> " + item}</h5>
                                     )
@@ -533,6 +549,22 @@ onValue(refData1, (snapshot) => {
                 </Draggable> 
                 : ''
 }
+                { (d.getMonth() + 1) == 2 && d.getDate() == 14 ?
+                    hearts.map(item => {
+                        return (
+                            <div className='heart' style={{left: (Math.floor(Math.random()*100) + "vw") }}>
+                            <svg className='heart' version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
+	 width="50px" style={{left: (Math.floor(Math.random()*100) + "vw") }} fill={hcols[Math.floor(Math.random()*hcols.length)]} height="50px" viewBox="0 0 544.582 544.582">
+	<path d="M448.069,57.839c-72.675-23.562-150.781,15.759-175.721,87.898C247.41,73.522,169.303,34.277,96.628,57.839
+		C23.111,81.784-16.975,160.885,6.894,234.708c22.95,70.38,235.773,258.876,263.006,258.876
+		c27.234,0,244.801-188.267,267.751-258.876C561.595,160.732,521.509,81.631,448.069,57.839z"/>
+</svg>
+</div>
+                        )
+                    }
+                    )
+                    : ''
+                }
             </Router>
   );
 }

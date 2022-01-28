@@ -289,3 +289,34 @@
 .c-err {
     color: rgb(255, 37, 37);
 }
+
+.c-warn {
+    color: rgb(230, 162, 73);
+}
+
+.heart {
+    position: fixed;      
+    animation: heartanim ease 5s;
+    top: 200vh;
+}
+
+@keyframes heartanim {
+    0% {
+        top: 0vh;
+        transform: rotate(0deg) translateX(-25px);
+    }
+    25% {
+        transform: rotate(20deg) translateX(50px);
+    }
+    45% {
+        transform: rotate(30deg) translateX(-105px);        
+    }
+    75% {
+        transform: rotate(15deg) translateX(50px);
+        top: 35vh;
+    }
+    100% {
+        top: 75vh;
+        transform: rotate(15deg) translateX(50px);
+    }
+}

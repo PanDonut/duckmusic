@@ -17,3 +17,36 @@
     .playBtn svg {
         fill: var(--fillsvg);
     }
+
+    .heart1 {
+        position: absolute;
+        animation: anim1 2s linear;
+        opacity: 0.5;
+    }
+
+    @keyframes anim1 {
+        0% {
+            transform: translateX(0px) translateY(0px);
+            opacity: 0.85;
+         }
+         25% {
+            transform: translateX(30px) translateY(-25vh);
+            opacity: 0.85;
+         }
+        50% {
+           transform: translateX(-30px) translateY(-50vh);
+           opacity: 0.85;
+        }
+        75% {
+            transform: translateX(20px) translateY(-75vh);
+            opacity: 0.85;
+         }
+         95% {
+            transform: translateX(0px) translateY(-80vh);
+            opacity: 0.85;
+         }
+         100% {
+            transform: translateX(0px) translateY(-80vh) scale(0);
+            opacity: 0;
+         }
+    }
