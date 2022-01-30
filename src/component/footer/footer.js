@@ -370,7 +370,7 @@ window.addEventListener('load', useEffect(() => {
                     localStorage.setItem("dmupdate", 0);
                 }       
                 if (localStorage.getItem("emaildm") == null && window.location.pathname != "/logout") {
-                    document.location.href = ("https://dauth.vercel.app/v2/auth/login&redirect=duckmusic.vercel.app/continue=" + window.location.pathname.replace("/", ">"));
+                    document.location.href = ("https://dauth.vercel.app/v2/auth/login&redirect=duckmusic.vercel.app/continue=" + window.location.pathname.split("/").join(">"));
                 }         
 }, []))
 

@@ -31,7 +31,7 @@ const history = useHistory();
 	localStorage.setItem('emaildm', path);
 	GetImg(aut, path.split('.').join(""));
 	console.log(cnt.replace(">", "/"));
-	setTimeout(function () { history.push(cnt.replace(">", "/")); }, 2000);
+	setTimeout(function () { history.push(cnt.split(">").join("/")); }, 2000);
 
     return (
         <div>
