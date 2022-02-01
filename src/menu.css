@@ -294,6 +294,10 @@
     color: rgb(230, 162, 73);
 }
 
+.c-img {
+    width: calc(100% - 10px);
+}
+
 .heart {
     position: fixed;      
     animation: heartanim ease 5s;

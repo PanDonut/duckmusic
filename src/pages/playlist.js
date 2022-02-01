@@ -100,7 +100,6 @@ function PlaylistPage(props) {
 					pauseOnHover				/>
 			<div className={styles.gradientBg}></div>
 				<div className={styles.gradientBgSoft}></div>
-				<div className={styles.bbg}></div>
 			<div className={styles.Bg}></div>
 				{size.width < CONST.MOBILE_SIZE ?
 					<Topnav playlist={true} pl={PLAYLIST}/>

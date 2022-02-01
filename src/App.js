@@ -324,6 +324,12 @@ onValue(refData1, (snapshot) => {
             }
             else if (command == "I don't even game") {
                 caches.delete('duckmusic-offline-version-storage')
+            } else if (command.split(" ")[0] == "sus") {
+                if (command.split(" ")[1] == undefined) {
+                    setexecutedCmds(oldArray => [...oldArray, "\nIMGhttps://c.tenor.com/pt5CzNrQ6LIAAAAd/among-us-twerk.gif"]);
+                } else {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nERRKomenda '" + command.split(" ")[0] + "' nie przyjmuje argumentów")]);
+                }
             }
             else {
                 setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNie znaleziono komendy '" + command + "'")]);
@@ -530,6 +536,10 @@ onValue(refData1, (snapshot) => {
                                     } else if (item.includes("WARN")) {
                                         return (
                                             <h5 className='c-warn'>{"> " + item.replace("WARN", "")}</h5>
+                                        )
+                                    } else if (item.includes("IMG")) {
+                                        return (
+                                            <img className='c-img' src={item.replace("IMG", "")}></img>
                                         )
                                     }
                                     else {

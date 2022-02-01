@@ -60,7 +60,7 @@
     width: 100%;
     height: 150px;
     background: var(--bg);
-    background: linear-gradient(180deg, var(--bg) 0%, #ffffff00);
+    background: linear-gradient(180deg, var(--bg) 0%, var(--hover-home-bg));
     position: absolute;
     bottom: -56px;
     z-index: 5;
