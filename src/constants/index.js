@@ -26,14 +26,21 @@ export default {
             path: '/search',
             icon: <Icon.Search />,
             iconSelected: <Icon.SearchActive />
-        },
+        },       
         {
             title: 'Profil',
             path: '/profile',
             icon: <Icon.Profile />,
             iconSelected: <Icon.Profile />
+        },
+        {
+            title: 'Ustawienia',
+            path: '/settings',
+            icon: <Icon.Settings />,
+            iconSelected: <Icon.Settings />
         }
     ]
+    
 
     export const MENUOFF = [
         {
@@ -52,7 +59,7 @@ export default {
 
     export const DWN = [
         {
-            title: 'Pobierz aplikację',
+            title: 'Pobierz',
             path: '/download/app',
             icon: <Icon.DownloadApp />,
             iconSelected: <Icon.DownloadApp />

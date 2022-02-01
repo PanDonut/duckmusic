@@ -5,8 +5,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: rgb(0,78,255);
-    background: linear-gradient(74deg, rgba(0,78,255,1) 0%, rgba(255,0,116,1) 40%, rgba(255,151,140,1) 73%, rgba(255,0,0,1) 100%);
+    background: var(--main-background);
     width: 100vw;
     height: 100vh;
     padding: 0;
@@ -15,19 +14,19 @@ body {
 
 .theme-dark {
     --solid-main: #0d0c11;
-    --sidenav-black: #121214dd;
-    --sidenav-active: #0d0c11dd;
+    --sidenav-black: #121214;
+    --sidenav-active: #0d0c11;
     --text-gray: #b3b3b3;
     --text-white: #fff;
-    --main-background: #0d0c11dd;
-    --card-background: #100e14ef;
+    --main-background: #0d0c11;
+    --card-background: #100e14;
     --sidenav-width: 238px;
     --sidenav-margin-left: 24px;
     --sidenav-margin-right: 24px;
     --small-cards-column-width: 270px;
     --cards-column-width: 180px;
-    --hover-home-bg: #0d0c11dd;
-    --bgcol: #0d0c11dd;
+    --hover-home-bg: #0d0c11;
+    --bgcol: #0d0c11;
     --scroll: hsla(0, 0%, 90%, .07);
     --mobile-side: #181818;
     --logo: #fff;
@@ -151,6 +150,10 @@ nav .activeLink button{
 nav .activeLink button p,
 nav .activeLink button svg{
   color: var(--text-white);
+  fill: var(--text-white);
+}
+nav .activeLink button p {
+  opacity: 1;
 }
 p{
   display: -webkit-box;

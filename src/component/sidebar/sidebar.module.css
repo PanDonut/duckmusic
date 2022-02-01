@@ -3,6 +3,8 @@
     background-color: var(--sidenav-black);
     position: relative;
     backdrop-filter: blur(500000px);
+    width: 100%;
+    height: 80px;
 }
 .Fixed{
     position: sticky;
@@ -101,6 +103,10 @@
 
 .activeLink {
     bottom: 0;
+}
+
+.activeLink p{
+    opacity: 1;
 }
 
 .bot {
