@@ -34,6 +34,7 @@ import { useReducer } from 'react';
 
 
 function Footer(props) {
+    const [vau, SU] = useState(10);
     const size = useWindowSize();
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
@@ -95,6 +96,7 @@ if (localStorage.getItem("fadetime") == null) {
         }
     }
     function increaseIndex() {
+        audioRef.current.play();
         if (props.trackData.canSkip == 'true') {
             if (props.trackData.isCustom == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
@@ -136,6 +138,7 @@ if (localStorage.getItem("fadetime") == null) {
            }
         }
         }
+        audioRef.current.play();
     }
 
     console.log(props.trackData.trackKey + " " + props.trackData.canSkip + " " + props.trackData.isCustom + " " + localStorage.getItem('shuffle'))
@@ -233,25 +236,44 @@ if (localStorage.getItem("fadetime") == null) {
           audioRef.current.pause();
         }
     }, [audioRef, props.isPlaying]);
+    const au = useRef(null);
 
+    
 
     if (localStorage.getItem('firecon') == null) {
         localStorage.setItem('firecon', false);
     }
-
+    useEffect(() => {
     if (Math.round(currentTime) >= Math.round(duration - localStorage.getItem("fadetime"))) {
-        if (audioRef.current && audioRef.current.volume > 0.1) {
-        audioRef.current.volume = audioRef.current.volume - 0.01;
-        console.log(audioRef.current.volume);
+        var sussy = volume / localStorage.getItem("fadetime");
+        if (au.current.volume > 0) {
+        au.current.volume = (au.current.volume - sussy);
+        }
+    }
+},[Math.round(currentTime)]);
+useEffect(() => {
+    if (Math.round(currentTime) <= Math.round(localStorage.getItem("fadetime"))) {
+        var sussy = volume / localStorage.getItem("fadetime");
+        if (audioRef.current && audioRef.current.volume <= (1 - sussy)) {
+        audioRef.current.volume = (audioRef.current.volume + sussy);
         }
     }
 
-    if (Math.round(currentTime) <= Math.round(duration - duration + localStorage.getItem("fadetime"))) {
-        if (audioRef.current && audioRef.current.volume < volume) {
-        audioRef.current.volume = audioRef.current.volume + 0.01;
-        console.log(audioRef.current.volume);
-        }
+
+},[Math.round(currentTime)]);
+useEffect(() => {
+    if (Math.round(currentTime) == (Math.round(duration - localStorage.getItem("fadetime"))) - 5) {
+        au.current.src = props.trackData.track;
     }
+    if (Math.round(currentTime) == Math.round(duration - localStorage.getItem("fadetime"))) {
+        audioRef.current.volume = 0;
+        var sussy = volume / localStorage.getItem("fadetime");       
+        au.current.volume = volume;
+        au.current.currentTime = audioRef.current.currentTime;
+        au.current.play();
+        EndSong();
+    }
+},[currentTime]);
 
     
     if (localStorage.getItem('loop') == 'true') {
@@ -279,11 +301,12 @@ if (localStorage.getItem("fadetime") == null) {
         currentTime: currentTime
     })
     function EndSong() {
+        audioRef.current.volume = 0;
         if (localStorage.getItem('loop') == 'true') {
             audioRef.current.currentTime = 0;
             audioRef.current.play();
-        } else {
-            increaseIndex();
+        } else {              
+            increaseIndex();           
         }
     }
     if (props.trackData.trackName != "Brak utworu") {
@@ -476,6 +499,7 @@ onValue(refData, (snapshot) => {
                         isPlaying={props.isPlaying}
                         handleEnd={EndSong}
                     />
+                    <audio ref={au}></audio>
                 
             </div>
             { size.width < CONST.MOBILE_SIZE ?

@@ -14,6 +14,7 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
           setTimeout(function() {document.documentElement.style.setProperty('--error-play', 'none'); console.log("mogus")}, 7000)
         }}}
         onEnded={(e) => handleEnd()}
+        preload='none'
         src={trackData.track}
         autoPlay={isPlaying}
       />

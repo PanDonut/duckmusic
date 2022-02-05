@@ -286,6 +286,15 @@ onValue(refData1, (snapshot) => {
                         setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNiepoprawny podargument '" + command.split(" ")[2] + "' dla komendy '" + command.split(" ")[0] + "' z argumentem '" + command.split(" ")[1] + "'")]);    
                     }              
                 }
+                else if (command.split(" ")[1] == "fade") {
+                    if (command.split(" ")[2] != undefined && Number.isInteger(parseInt(command.split(" ")[2]))) {
+                    setexecutedCmds(oldArray => [...oldArray, (command + " \nWARNZmieniam długość przejścia między utworami na " + command.split(" ")[2] + "s")]);   
+                    localStorage.setItem('fadetime',parseInt(command.split(" ")[2]));  
+                    }
+                    else {
+                        setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNiepoprawny podargument '" + command.split(" ")[2] + "' dla komendy '" + command.split(" ")[0] + "' z argumentem '" + command.split(" ")[1] + "'")]);    
+                    }              
+                }
                 else {
                     setexecutedCmds(oldArray => [...oldArray, (command + " \nERRNiepoprawny argument '" + command.split(" ")[1] + "' dla komendy '" + command.split(" ")[0] + "'")]);    
                 }
