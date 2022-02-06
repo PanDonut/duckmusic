@@ -244,24 +244,27 @@ if (localStorage.getItem("fadetime") == null) {
         localStorage.setItem('firecon', false);
     }
     useEffect(() => {
+        if (props.isPlaying == true) {
     if (Math.round(currentTime) >= Math.round(duration - localStorage.getItem("fadetime"))) {
         var sussy = volume / localStorage.getItem("fadetime");
         if (au.current.volume > 0) {
         au.current.volume = (au.current.volume - sussy);
         }
     }
+}
 },[Math.round(currentTime)]);
 useEffect(() => {
+    if (props.isPlaying == true) {
     if (Math.round(currentTime) <= Math.round(localStorage.getItem("fadetime"))) {
         var sussy = volume / localStorage.getItem("fadetime");
         if (audioRef.current && audioRef.current.volume <= (1 - sussy)) {
         audioRef.current.volume = (audioRef.current.volume + sussy);
         }
     }
-
-
+}
 },[Math.round(currentTime)]);
 useEffect(() => {
+    if (props.isPlaying == true) {
     if (Math.round(currentTime) == (Math.round(duration - localStorage.getItem("fadetime"))) - 5) {
         au.current.src = props.trackData.track;
     }
@@ -273,6 +276,7 @@ useEffect(() => {
         au.current.play();
         EndSong();
     }
+}
 },[currentTime]);
 
     
