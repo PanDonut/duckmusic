@@ -99,6 +99,9 @@ onValue(refData1, (snapshot) => {
       "#db1414", "#db144c", "#ff5c8a", "#b52a84", "#fc2b2b"
   ]
 
+  if (localStorage.getItem("fadetime") == null || localStorage.getItem("fadetime") == 0) {
+     localStorage.setItem("fadetime", 1);
+}
   if (localStorage.getItem('dmsavedata') == null) {
     localStorage.setItem('dmsavedata', JSON.stringify(
         [
