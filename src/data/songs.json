@@ -5,12 +5,14 @@
     "songimg": "https://i.scdn.co/image/ab67616d00001e02d3ee4bf67c2ac2154006ad72",
     "songArtist": "Carly Rae Jepsen",
     "link": "https://data.pandasuite.com/audios/60f19d8267425919ea00108e.mp3",
+    "album": "Kiss",
     "lyrics": []
   },
   {
     "songName": "ME!",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
     "songArtist": "Taylor Swift",
+    "album": "Lover",
     "link": "https://drive.google.com/u/0/uc?id=1yoMFyGHBL6SaoAKFatS36oqAkXLcazj-&export=download"
   },
   {
@@ -25,30 +27,35 @@
     "songName": "Blank Space",
     "songimg": "https://i.scdn.co/image/ab67616d00001e0252b2a3824413eefe9e33817a",
     "songArtist": "Taylor Swift",
+    "album": "1989",
     "link": "https://drive.google.com/u/0/uc?id=1QncqOuyt4xCS3GU9kBwTTeAh0wGb_G3r&export=download"
   },
   {
     "songName": "I Forgot That You Existed",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
     "songArtist": "Taylor Swift",
+    "album": "Lover",
     "link": "https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download"
   },
   {
     "songName": "Lover",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
     "songArtist": "Taylor Swift",
+    "album": "Lover",
     "link": "https://drive.google.com/u/0/uc?id=1r6TdJ-dVtrsFYhZyBiziP-Tv68iS9kF-&export=download"
   },
   {
     "songName": "Riptide",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02d3ce97395ff522b0d70c1094",
     "songArtist": "Vance Joy",
+    "album": "God Loves You When You're Dancing",
     "link": "https://drive.google.com/u/0/uc?id=1gYF7U60oYiwF4fP-UHbt2Mj2okjQ3aNH&export=download"
   },
   {
     "songName": "Trofea",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02c4aa14d6f01b64808cf9ae31",
     "songArtist": "Dawid Podsiadło",
+    "album": "Małomiasteczkowy",
     "link": "https://drive.google.com/u/0/uc?id=13WosreJVwYmnrKIXWnW0yD3n5y9JxR0-&export=download",
     "lyrics": []
   },
@@ -56,22 +63,26 @@
     "songName": "Africa",
     "songimg": "https://i.scdn.co/image/ab67616d00001e024a052b99c042dc15f933145b",
     "songArtist": "Toto",
+    "album": "Toto IV",
     "link": "https://drive.google.com/u/0/uc?id=1rGYxCI5Ng_eJUzYeL1lFxDTdkie1Qmog&export=download"
   },
   {
     "songName": "The Lazy Song",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02caaa456c44f69f10c8b2aa53",
     "songArtist": "Bruno Mars",
+    "album": "Doo-Wops & Hooligans",
     "link": "https://drive.google.com/u/0/uc?id=19nGAC84T-DUsMDt4eVaVxLUq081FNt0j&export=download"
   },
   {
     "songName": "How Bad Can I Be?",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02d228a76299b89385a7f642fd",
     "songArtist": "Ed Helms",
+    "album": "",
     "link": "https://drive.google.com/u/0/uc?id=15qhYm8m66zf2FJaXLBm6rB1Yb_u5AjsN&export=download"
   },
   {
     "songName": "Señorita",
+    "album": "Señorita",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02e6095c382c2853667c1623eb",
     "songArtist": "Camila Cabello,Shawn Mendes",
     "link": "https://drive.google.com/u/0/uc?id=1RDra8uflnC1y8YrnojhITZZG5bIf5yRq&export=download"
@@ -80,6 +91,7 @@
     "songName": "I Think He Knows",
     "songimg": "https://i.scdn.co/image/ab67616d00001e02e787cffec20aa2a396a61647",
     "songArtist": "Taylor Swift",
+    "album": "Lover",
     "link": "https://drive.google.com/u/0/uc?id=1LJLmEpXFsl7qLFDE6hOv13Z56pIN3QR2&export=download"
   },
   {
@@ -87,6 +99,7 @@
     "songName": "Treat You Better",
     "songimg": "https://i.scdn.co/image/ab67616d00001e021376b4b16f4bfcba02dc571b",
     "songArtist": "Shawn Mendes",
+    "album": "Illuminate",
     "link": "https://drive.google.com/u/0/uc?id=1wkleUVQ3ak1lxyY3nQ1Es_M37gxZ0o45&export=download"
   },
   {

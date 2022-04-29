@@ -95,9 +95,9 @@ if (localStorage.getItem("fadetime") == null) {
                 }
             }
         }
+        SongData()
     }
     function increaseIndex() {
-        audioRef.current.play();
         if (props.trackData.canSkip == 'true') {
             if (props.trackData.isCustom == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
@@ -139,7 +139,7 @@ if (localStorage.getItem("fadetime") == null) {
            }
         }
         }
-        audioRef.current.play();
+        SongData()
     }
 
     console.log(props.trackData.trackKey + " " + props.trackData.canSkip + " " + props.trackData.isCustom + " " + localStorage.getItem('shuffle'))
@@ -392,12 +392,12 @@ window.addEventListener('load', useEffect(() => {
     }
 
 
-    useEffect(() => {
+    function SongData() {
         if ('mediaSession' in navigator) {
             navigator.mediaSession.metadata = new window.MediaMetadata({
-              title: props.trackData.trackName,
-              artist: props.trackData.trackArtist,
-              album: props.trackData.album,
+              title: props.trackData.trackName ? props.trackData.trackName : 'Fetching...',
+              artist: props.trackData.trackArtist ? props.trackData.trackArtist : 'Fetching...',
+              album: props.trackData.album ? props.trackData.album : 'Fetching...',
               artwork: [
                 { src: props.trackData.trackImg, sizes: '96x96',   type: 'image/png' },
                 { src: props.trackData.trackImg, sizes: '128x128', type: 'image/png' },
@@ -413,7 +413,14 @@ window.addEventListener('load', useEffect(() => {
             navigator.mediaSession.setActionHandler('previoustrack', function() { decreaseIndex() });
             navigator.mediaSession.setActionHandler('nexttrack', function() { increaseIndex() });
           }
-        }, [Math.round(currentTime)])
+    }
+
+    useEffect(() => {
+        SongData()
+        }, [])
+    useEffect(() => {
+        SongData()
+        }, [props.trackData.trackKey])
       
 
     return (
@@ -483,7 +490,6 @@ window.addEventListener('load', useEffect(() => {
                         isPlaying={props.isPlaying}
                         handleEnd={EndSong}
                     />
-                    <audio ref={au}></audio>
                 
             </div>
             { size.width < CONST.MOBILE_SIZE ?
