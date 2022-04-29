@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
 
-const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, handleEnd, Chng }, ref) => {
+const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlaying, handleEnd, Chng, load }, ref) => {
     return (
       <audio
         ref={ref}
@@ -15,6 +15,7 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
         }}}
         onEnded={(e) => handleEnd()}
         preload='none'
+        onLoadedData={() => load()}
         src={trackData.track}
         autoPlay={isPlaying}
       />

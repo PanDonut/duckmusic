@@ -390,6 +390,7 @@ window.addEventListener('load', useEffect(() => {
             ]
         ))
     }
+    
 
 
     function SongData() {
@@ -397,7 +398,7 @@ window.addEventListener('load', useEffect(() => {
             navigator.mediaSession.metadata = new window.MediaMetadata({
               title: props.trackData.trackName ? props.trackData.trackName : 'Fetching...',
               artist: props.trackData.trackArtist ? props.trackData.trackArtist : 'Fetching...',
-              album: props.trackData.album ? props.trackData.album : 'Fetching...',
+              album: props.trackData.album == undefined ?  "" : props.trackData.album,
               artwork: [
                 { src: props.trackData.trackImg, sizes: '96x96',   type: 'image/png' },
                 { src: props.trackData.trackImg, sizes: '128x128', type: 'image/png' },
@@ -408,19 +409,13 @@ window.addEventListener('load', useEffect(() => {
               ]
             });
           
-            navigator.mediaSession.setActionHandler('play', function() { audioRef.current.play(); props.changePlay(true) });
-            navigator.mediaSession.setActionHandler('pause', function() { audioRef.current.pause(); props.changePlay(false)});
+            navigator.mediaSession.setActionHandler('play', function() { audioRef.current.play(); props.changePlay(true); SongData() });
+            navigator.mediaSession.setActionHandler('pause', function() { audioRef.current.pause(); props.changePlay(false); SongData()});
             navigator.mediaSession.setActionHandler('previoustrack', function() { decreaseIndex() });
             navigator.mediaSession.setActionHandler('nexttrack', function() { increaseIndex() });
           }
     }
 
-    useEffect(() => {
-        SongData()
-        }, [])
-    useEffect(() => {
-        SongData()
-        }, [props.trackData.trackKey])
       
 
     return (
@@ -489,6 +484,7 @@ window.addEventListener('load', useEffect(() => {
                         trackData={props.trackData}
                         isPlaying={props.isPlaying}
                         handleEnd={EndSong}
+                        load={SongData}
                     />
                 
             </div>
