@@ -440,7 +440,7 @@ window.addEventListener('load', useEffect(() => {
     useEffect(() => {
         if ('mediaSession' in navigator) {
             navigator.mediaSession.metadata = new window.MediaMetadata({
-              title: 'Unforgettable',
+              title: props.trackData.trackName,
               artist: 'Nat King Cole',
               album: 'The Ultimate Collection (Remastered)',
               artwork: [
@@ -462,7 +462,7 @@ window.addEventListener('load', useEffect(() => {
             navigator.mediaSession.setActionHandler('previoustrack', function() { /* Code excerpted. */ });
             navigator.mediaSession.setActionHandler('nexttrack', function() { /* Code excerpted. */ });
           }
-        }, [])
+        }, [props.trackData.trackKey])
       
 
     return (
