@@ -410,8 +410,6 @@ window.addEventListener('load', useEffect(() => {
           
             navigator.mediaSession.setActionHandler('play', function() { audioRef.current.play(); props.changePlay(true) });
             navigator.mediaSession.setActionHandler('pause', function() { audioRef.current.pause(); props.changePlay(false)});
-            navigator.mediaSession.setActionHandler('stop', function() { /* Code excerpted. */ });
-            navigator.mediaSession.setActionHandler('seekto', function() { /* Code excerpted. */ });
             navigator.mediaSession.setActionHandler('previoustrack', function() { decreaseIndex() });
             navigator.mediaSession.setActionHandler('nexttrack', function() { increaseIndex() });
           }
