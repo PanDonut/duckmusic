@@ -56,6 +56,9 @@ export const reducer = (state = INITIAL_STATE, action) => {
           track: `${
               SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].link
           }`,
+          album: `${
+              SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].album
+          }`,
           trackName: `${
               SONGLIST[PLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songName
           }`,
@@ -88,6 +91,9 @@ export const reducer = (state = INITIAL_STATE, action) => {
           track: `${
               SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].link
           }`,
+          album: `${
+              SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].album
+          }`,
           trackName: `${
               SONGLIST[CPLAYLIST[action.payload[0]].playlistData[action.payload[1]].songindex].songName
           }`,
@@ -118,6 +124,8 @@ export const reducer = (state = INITIAL_STATE, action) => {
                   ...state.trackData,
                   trackKey: action.payload,
                   track: `${SONGLIST[action.payload[0]].link
+                      }`,
+                  album: `${SONGLIST[action.payload[0]].album
                       }`,
                   trackName: `${SONGLIST[action.payload[0]].songName
                       }`,

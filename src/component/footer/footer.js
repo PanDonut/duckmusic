@@ -315,7 +315,6 @@ useEffect(() => {
         }
     }
     if (props.trackData.trackName != "Brak utworu") {
-    document.title = props.trackData.trackName + ' · ' + props.trackData.trackArtist + ' | Duck Music';
     document.head.children.namedItem('description').content = props.trackData.trackArtist;
     document.head.children.namedItem('author').content = props.trackData.trackArtist;
 } else {
@@ -441,15 +440,15 @@ window.addEventListener('load', useEffect(() => {
         if ('mediaSession' in navigator) {
             navigator.mediaSession.metadata = new window.MediaMetadata({
               title: props.trackData.trackName,
-              artist: 'Nat King Cole',
-              album: 'The Ultimate Collection (Remastered)',
+              artist: props.trackData.trackArtist,
+              album: props.trackData.album,
               artwork: [
-                { src: 'https://dummyimage.com/96x96',   sizes: '96x96',   type: 'image/png' },
-                { src: 'https://dummyimage.com/128x128', sizes: '128x128', type: 'image/png' },
-                { src: 'https://dummyimage.com/192x192', sizes: '192x192', type: 'image/png' },
-                { src: 'https://dummyimage.com/256x256', sizes: '256x256', type: 'image/png' },
-                { src: 'https://dummyimage.com/384x384', sizes: '384x384', type: 'image/png' },
-                { src: 'https://dummyimage.com/512x512', sizes: '512x512', type: 'image/png' },
+                { src: props.trackData.trackImg, sizes: '96x96',   type: 'image/png' },
+                { src: props.trackData.trackImg, sizes: '128x128', type: 'image/png' },
+                { src: props.trackData.trackImg, sizes: '192x192', type: 'image/png' },
+                { src: props.trackData.trackImg, sizes: '256x256', type: 'image/png' },
+                { src: props.trackData.trackImg, sizes: '384x384', type: 'image/png' },
+                { src: props.trackData.trackImg, sizes: '512x512', type: 'image/png' },
               ]
             });
           
@@ -460,7 +459,7 @@ window.addEventListener('load', useEffect(() => {
             navigator.mediaSession.setActionHandler('previoustrack', function() { decreaseIndex() });
             navigator.mediaSession.setActionHandler('nexttrack', function() { increaseIndex() });
           }
-        }, [props.trackData.trackKey])
+        }, [props.trackData.trackKey, currentTime])
       
 
     return (
