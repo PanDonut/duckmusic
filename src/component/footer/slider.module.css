@@ -8,11 +8,9 @@
 .range__slider {
 	-webkit-appearance: none;
 	background-color: transparent;	
-	height: 62px;
+	height: 2px;
 	overflow: hidden;
 	width: calc(50% - 120px);
-	border-top-right-radius: 20px;
-	border-bottom-right-radius: 20px;
 	transition: 1s ease;
 	margin: 0;
 }
@@ -34,7 +32,7 @@
 	position: relative;
 	z-index: 9;
 	background: #b3b3b3;
-	box-shadow: -410px 0 0 408px var(--akcent);
+	box-shadow: -410px 0 0 408px #fff;
 	cursor: pointer;
 	height: 0px;
 	width: 0px;
@@ -42,7 +40,7 @@
 }
 .range__slider::-moz-range-thumb {
 	background: #b3b3b3;
-	box-shadow: -410px 0 0 408px var(--akcent);
+	box-shadow: -410px 0 0 408px #fff;
 	cursor: pointer;
 	height: 0px;
 	width: 0px;

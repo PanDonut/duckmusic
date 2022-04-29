@@ -3,7 +3,7 @@
     justify-content: flex-start;
     width: calc(-82px + 100%);
     z-index: 0;
-    left: 82px;
+    left: 80px;
     background-color: var(--card-background);
     opacity: var(--footopa);
 }

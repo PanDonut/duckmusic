@@ -94,8 +94,6 @@
     .imgBox img {
         height: 62px;
         z-index: 10000000;
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
     }
     .footerLeft button:nth-child(3){
         margin-left: auto;

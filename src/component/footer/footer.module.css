@@ -1,6 +1,6 @@
 :root {
     --botf: 0;
-    --mobile-radius: 20px;
+    --mobile-radius: 10px;
     --bg-footer1: var(--card-background);
     --error-play: none;
     --error-ex: none;
@@ -58,16 +58,16 @@
     width: 100%;
     z-index: 9;
     transition: height 0.25s ease;
+    background-color: var(--card-background);
 }
 .nowplayingbar {
     display: grid;
     grid-template-columns: 30% 40% 30%;
-    background: var(--bg-footer1);
+    background-color: var(--footer-bg);
     padding: 17px 16px;
     color: #fff;
     height: var(--footersize);
     transition: 0.25s background-color ease;
-    backdrop-filter: blur(50px);
     z-index: 10;
 }
 
@@ -107,15 +107,17 @@
         left: 50%;
         transform: translateX(-50%);
         transition: width 0.25s ease;
+        border-radius: var(--mobile-radius);
+        overflow: hidden;
     }
     .nowplayingbar {
         padding: 0px 0px;
         grid-template-columns: 75vw 25vw;
         row-gap: 0px;
-        border-radius: var(--mobile-radius);   
-        overflow-y: scroll;
+        overflow: hidden;
         background-repeat: no-repeat;
         background-size: cover;
+        background: rgba(var(--song-r), 0.7);
     }
         .nowplayingbar:first-child {
             backdrop-filter: blur(5px);

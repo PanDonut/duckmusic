@@ -193,6 +193,7 @@
     font-size: 35px;
 }
 @media screen and (max-width: 640px) {
+    
     .playlistDetails{
         grid-template-columns: 1fr;
         row-gap: 8px;

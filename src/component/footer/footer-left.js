@@ -28,9 +28,12 @@ function ImgBox({ trackData }) {
     const img = useRef(null);
     return (
         <div>
-            <Color src={trackData.trackImg} format="hex" quality={1} crossOrigin='anonymous'>
+            <Color src={trackData.trackImg} format="rgbString" quality={1} crossOrigin='anonymous'>
 								{({ data, loading, error }) => {
+                                    if (loading == false) {
 									document.documentElement.style.setProperty('--song-hover', data);	
+									document.documentElement.style.setProperty('--song-r', data.replace('rgb(', "").replace(')', ''));	
+                                    }
 									console.log(error)
 							}}
 							</Color>

@@ -128,36 +128,6 @@ function Settings(props) {
     [600, 100, 175, 125, 100,125,100,100]
    ]
 
-    const [cacheSize, setCacheSize] = useState(0);
-
-    async function getCacheStoragesAssetTotalSize() {
-        // Note: opaque (i.e. cross-domain, without CORS) responses in the cache will return a size of 0.
-        const cacheNames = await caches.keys();
-      
-        let total = 0;
-      
-        const sizePromises = cacheNames.map(async cacheName => {
-          const cache = await caches.open(cacheName);
-          const keys = await cache.keys();
-          let cacheSize = 0;
-      
-          await Promise.all(keys.map(async key => {
-            const response = await cache.match(key);
-            const blob = await response.blob();
-            total += blob.size;
-            cacheSize += blob.size;
-          }));
-      
-          console.log(`Cache ${cacheName}: ${cacheSize} bytes | ${cacheSize / 1024} kb | ${(cacheSize / 1024) / 1024} mb`);
-          setCacheSize((cacheSize / 1024) / 1024);
-        });
-      
-        await Promise.all(sizePromises);
-      
-        return `Total Cache Storage: ${total} bytes`;
-      }
-
-      console.log(getCacheStoragesAssetTotalSize());
     const [val, setVal] = useState(localStorage.getItem('fadetime'));
 
     const [sss, ssss] = useState("Wczytywanie...")
@@ -285,16 +255,6 @@ function Settings(props) {
                         </section>
                             </div>
                         }
-                    </FadeIn>
-                    <FadeIn visible="true" delay="100" className="ust">
-                        <h3>{'Dane offline (' + Math.round(cacheSize) + 'mb)'}</h3>
-                        <section id='btnsec'>
-                            <div className='datea'>
-                            <h4>Usuwanie danych offline</h4>
-                            <h5>Możesz usunąć dane offline jeżeli Duck Music nie aktualizuje się lub nie masz miejsca na urządzeniu</h5>
-                            </div>
-                            <button onClick={() => {caches.delete('duckmusic-offline-version-storage')}}>Usuń</button>
-                        </section>
                     </FadeIn>
                     <FadeIn visible="true" delay="100" className="ust">
                         <h3>Debug</h3>

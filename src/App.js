@@ -361,7 +361,7 @@ onValue(refData1, (snapshot) => {
      const [warning, setWarn] = useState(true);
     return (
         <Router>
-            <div className={styles.layout}>   
+            <div className={styles.layout}> 
             {
                 warning == true && window.location.pathname == '/' ?
                 <div className={styles.windowspromote}>
