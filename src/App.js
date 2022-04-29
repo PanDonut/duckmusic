@@ -51,6 +51,7 @@ import './menu.css'
 import HandleAuth from './authorization.js';
 import Download_app from './pages/download_app';
 import ShareCustomPlaylist from './pages/playlistshare';
+import ShowOff from './pages/showoff';
 let indexn = null;
 
 
@@ -357,9 +358,23 @@ onValue(refData1, (snapshot) => {
            domNode.scrollTop = domNode.scrollHeight;
         }
      })   
+     const [warning, setWarn] = useState(true);
     return (
         <Router>
-            <div className={styles.layout}>                                    
+            <div className={styles.layout}>   
+            {
+                warning == true && window.location.pathname == '/' ?
+                <div className={styles.windowspromote}>
+                <div id={styles.promo1stepw}>
+                    <h1 className={styles.work}>UWAGA!</h1>
+                    <h2>Jesteśmy w trakcie re-edycji Duck Music</h2>
+                    <h4>Przygotuj się na błędy</h4>
+                    <button onClick={() => {setWarn(false)}}>Kontynuuj</button>
+                </div>
+                </div> 
+                :
+                ''            
+            }               
                 {
                     localStorage.getItem('promowindowsdm') == 'susamogus' ? 
                     <div className={styles.windowspromote}>
@@ -407,6 +422,9 @@ onValue(refData1, (snapshot) => {
           <Switch>
             <Route exact path="/">
                 <Home />
+            </Route>
+            <Route exact path="/debug/showoff/:data">
+                <ShowOff />
             </Route>
             <Route exact path="/duckmusic::path">
                 <SongPage />

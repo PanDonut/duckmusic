@@ -9,6 +9,7 @@ import { changeTrack, customTrack, songTrack } from '../../actions/index'
 import styles from "./footer-left.module.css";
 import { useHistory } from "react-router-dom";
 import PLAYLIST from "../../data/index.json";
+import Color from 'color-thief-react';
 
 function FooterLeft(props, increaseIndex, decreaseIndex){
     return (
@@ -27,6 +28,12 @@ function ImgBox({ trackData }) {
     const img = useRef(null);
     return (
         <div>
+            <Color src={trackData.trackImg} format="hex" quality={1} crossOrigin='anonymous'>
+								{({ data, loading, error }) => {
+									document.documentElement.style.setProperty('--song-hover', data);	
+									console.log(error)
+							}}
+							</Color>
         <div className={styles.imgBox}>
                 <img ref={img} src={trackData.trackImg} alt=" "/>
         </div>
@@ -72,18 +79,37 @@ function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
         }
     });
 }
-    
+    console.log('dddd ' + props.trackData.trackArtist.split(",").length)
     return (
         <div>
-            <div className={styles.songDetails} >
+            <div className={styles.songDetails}>
                 <p className={styles.tit} ref={sus} onLoad={() => {if (sus.current) {
         console.log(checkOverflow(sus.current))
     }}}>{props.trackData.trackName}</p>
-                <TextRegularM><small className={styles.sussy} onClick={() => {document.documentElement.style.setProperty('--img-opacity', '1'); history.push(`/artist/${props.trackData.trackArtist.toLowerCase().split(" ").join("-")}`)}}>{props.trackData.trackArtist}</small></TextRegularM>
-            
+    <div className={styles.aaa}>
+                { props.trackData.trackArtist.split(",").map(item => {
+                    console.log(item.toLowerCase())
+                    return (
+                <div className={styles.Artist1} onClick={() => {{ document.documentElement.style.setProperty('--img-opacity', '1'); { history.push('/artist/' + item.toLowerCase().split(" ").join("-"))}}}}>
+                    <TextRegularM>{item}</TextRegularM>{props.trackData.trackArtist.split(",").indexOf(item) < props.trackData.trackArtist.split(",").length - 1 ? ',' : ''}&nbsp;
+                </div>
+                    );
+                }
+                )
+                }
+            </div>
         </div>
         <div className={styles.songDetailsfull}>
-            <TextRegularM><small>{props.trackData.trackArtist}</small></TextRegularM>
+        { props.trackData.trackArtist.split(",").map(item => {
+                    console.log(item.toLowerCase())
+                    return (
+                <div className={styles.Artist1} onClick={() => {{ document.documentElement.style.setProperty('--img-opacity', '1'); { history.push('/artist/' + item.toLowerCase().split(" ").join("-"))}}}}>
+                    <TextRegularM>{item}&nbsp;</TextRegularM>
+                </div>
+                    );
+                }
+                )
+                }
             <TextRegularM>{props.trackData.trackName}</TextRegularM>           
         </div>
         </div>

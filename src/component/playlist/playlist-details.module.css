@@ -58,12 +58,13 @@
 
 .nn1 {
     width: 100%;
-    height: 150px;
+    height: 300px;
+    top: calc(100% - 94px);
     background: var(--bg);
     background: linear-gradient(180deg, var(--bg) 0%, var(--hover-home-bg));
     position: absolute;
     bottom: -56px;
-    z-index: 5;
+    z-index: 0;
 }
 
 .imgBox1{
@@ -93,6 +94,8 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    color: var(--hover-home-bg) !important;
+    filter: brightness(450%);
 }
 .textBox h3{
     margin: 0;
@@ -154,7 +157,8 @@
 }
 
 .Artist1 p:hover {
-    text-decoration: underline white 1px;
+    filter: brightness(100%);
+    text-decoration: underline var(--hover-home-bg) 1px;
 }
 .Artist figure{
     width: 24px;

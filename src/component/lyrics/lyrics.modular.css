@@ -175,7 +175,7 @@ h6 {
 }
 
 .mm-lyrics {
-    background-color: var(--hover-home-bg);
+    background-color: var(--song-hover);
     transition: 0.25s ease;
     height: var(--ly-height);
     display: flex;
@@ -183,15 +183,15 @@ h6 {
     justify-content: center;
     position: fixed;
     top: 0;
+    left: 0;
     flex-direction: column;
-    left: 50%;
     display: var(--disp-ly);
-    transform: translateX(-50%) var(--expanded);
+    transform: var(--expanded);
     width: 100%;
 }
 
 .mm-lyrics1 {
-    background-color: var(--hover-home-bg);
+    background-color: var(--song-hover);
     transition: 0.25s ease;
     height: var(--ly-height);
     display: flex;
@@ -208,7 +208,7 @@ h6 {
 }
 
 .mm-lyrics-pip {
-    background-color: var(--hover-home-bg);
+    background-color: var(--song-hover);
     transition: 0.5s ease;
     height: 100%;
     display: flex;
@@ -235,12 +235,18 @@ h6 {
     width: 75%;
     row-gap: 25%;
     margin-top: 15px;
-    transition: ease 0.2s;
     text-align: center;
     pointer-events: none;
     left: 50%;
+    transition: 0.2s ease;
     transform: translateX(-50%) translateY(var(--top-lyrics));
 }
+
+@media (prefers-reduced-motion) {
+    .lydiv {
+        transition: 0s;
+    }
+  }
 
 .lydivsc {
     display: grid;
@@ -281,20 +287,20 @@ h6 {
 }
 
 .lt-n {
-    color: var(--hover-home-bg);
+    color: var(--song-hover);
     filter: brightness(40%);
     transition: 0.2s ease-out; 
 }
 
 .lt-no {
-    color: var(--hover-home-bg);
+    color: var(--song-hover);
     filter: brightness(40%);
     transition: 0.15s ease-out;
     opacity: 0;
 }
 
 .mm-lyrics p {
-    color: var(--hover-home-bg);
+    color: var(--song-hover);
     filter: brightness(50%);
     font-weight: 500;
     position: absolute;
@@ -303,7 +309,7 @@ h6 {
 }
 
 .ltext {
-    color: var(--hover-home-bg);
+    color: var(--song-hover);
     filter: brightness(50%);
     font-weight: 500;
     position: fixed;
@@ -312,7 +318,7 @@ h6 {
 }
 
 .mm-lyrics-pip p {
-    color: var(--hover-home-bg);
+    color: var(--song-hover);
     filter: brightness(50%);
     font-weight: 500;
     position: absolute;
@@ -397,7 +403,7 @@ h6 {
 
     .mm-lyrics {
         display: var(--lyrics);
-        background-color: var(--hover-home-bg);
+        background-color: var(--song-hover);
         transition: 0.25s ease;
         height: var(--ly-height);
         align-items: center;
@@ -413,7 +419,7 @@ h6 {
     }
 
         .mm-lyrics p {
-            color: var(--hover-home-bg);
+            color: var(--song-hover);
             filter: brightness(50%);
             font-weight: 500;
             position: absolute;

@@ -1,5 +1,42 @@
 
 
+
+.love {
+    width: 56px !important;
+    height: 56px !important;
+    background: url("./heart.png") no-repeat !important;
+    background-position: 0 -4px !important;
+    background-size: 1792px 64px !important;
+    cursor: pointer !important;
+    transition: background-position 1s steps(28) !important;
+    transition-duration: 0s !important;
+    border-radius: 0px !important;
+  }
+  
+  .love.isactive {
+      transition-duration: 1s !important;
+      background-position: -1730px -4px !important;
+    }
+  
+  .stage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .add {
+    width: 56px !important;
+    height: 56px !important;
+    background: url("./check.png") no-repeat !important;
+    background-position: 0 -4px !important;
+    background-size: 64px 64px !important;
+    cursor: pointer !important;
+    transition: background-position 1s steps(28) !important;
+    transition-duration: 0s !important;
+    border-radius: 0px !important;
+  }
+
 .PlaylistPage {
     overflow-y: scroll;
     overflow-x: hidden;
@@ -16,6 +53,22 @@
     -ms-user-select: none;
     z-index: -1;
 }
+.PlaylistPage11 {
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: transparent;
+    position: relative;
+    color: var(--text-tit);
+    -webkit-tap-highlight-color: transparent;
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    z-index: -1;
+    background-color: var(--hover-home-bg);
+}
 
 .sus {
     margin-top: -60px;
@@ -26,22 +79,24 @@
     display: flex;
     position: fixed;
     width: 75%;
-    height: 100%;
+    height: 70%;
     left: 50%;
-    transform: translateX(-50%);
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
     flex-direction: column;
     align-content: center;
     align-items: center
 }
 
 .selectoverlay {
-    background-color: #00000099;
+    background-color: #000000dd;
     position: fixed;
     z-index: 9999999999;
     width: 100%;
     height: 100%;
     left: 0;
     top: 0;
+    transition: 0.5s ease;
 }
 
 .listitem {
@@ -97,6 +152,7 @@
     transition: background 1s ease;
     width: 200vw;
     background-color: var(--hover-home-bg);
+    transition: 0.5s !important;
 }
 .gradientBgSoft {
     position: absolute;
@@ -109,6 +165,7 @@
     background-color: transparent;
     background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(transparent));
     background-image: linear-gradient(180deg, var(--hover-home-bg),rgba(0,0,0,.0));
+    transition: 0.5s !important;
 }
 
 .bbg {
@@ -248,6 +305,7 @@
     bottom: 0px;
     z-index: -3;
     background-color: var(--main-background);
+    transition: 0.5s !important;
 }
 
 .PlaylistIcons{
@@ -284,11 +342,11 @@
     display: inline-flex;
     align-items: center;
     flex-direction: row;
-    padding-top: 24px;
     padding-bottom: 24px;
     position: relative;
     transition: all 0.25s;
     margin-left: 15px;
+    top: 20px;
 }
 .PlaylistIcons1 button{
     border: 0;
@@ -479,4 +537,21 @@
             transform: translateY(-50px);
         }
     }
+}
+
+.eyes {
+    width: 30vw !important;
+    height: 30vw !important;
+    background-image: url("./eyes.png");
+    background-repeat: no-repeat;
+    cursor: pointer !important;
+    border-radius: 0px !important;
+    position: relative;
+    background-size: contain;
+    background-position: 0 0;
+    transition: background-position 1s steps(6) !important;
+    transition-duration: 0.5s !important;
+    left: 50%;
+    transform: translateX(-50%);
+    top: -100px;
 }

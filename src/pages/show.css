@@ -1,0 +1,37 @@
+.full {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100000;
+}
+
+.love {
+    width: 90vh !important;
+    height: 90vh !important;
+    background: url("./heart.png") no-repeat !important;
+    background-position: 0 -4px !important;
+    background-size: calc(90vh * 29) 90vh !important;
+    cursor: pointer !important;
+    transition: background-position 1s steps(28) !important;
+    transition-duration: 0s !important;
+    border-radius: 0px !important;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+  }
+  
+  .love.isactive {
+      transition-duration: 1s !important;
+      background-position: calc(-90vh * 28) -4px !important;
+    }
+  
+  .stage {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }

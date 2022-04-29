@@ -259,7 +259,7 @@ function PlaylistPage(props) {
 											);
 										})
 										:
-											<h2>Trochę tu pusto</h2>
+											<div className={styles.eyes}></div>
 									}
 									</FadeIn>
 								</div>
