@@ -244,41 +244,8 @@ if (localStorage.getItem("fadetime") == null) {
     if (localStorage.getItem('firecon') == null) {
         localStorage.setItem('firecon', false);
     }
-    useEffect(() => {
-        if (props.isPlaying == true) {
-    if (Math.round(currentTime) >= Math.round(duration - localStorage.getItem("fadetime"))) {
-        var sussy = volume / localStorage.getItem("fadetime");
-        if (au.current.volume > 0) {
-        au.current.volume = (au.current.volume - sussy);
-        }
-    }
-}
-},[Math.round(currentTime)]);
-useEffect(() => {
-    if (props.isPlaying == true) {
-    if (Math.round(currentTime) <= Math.round(localStorage.getItem("fadetime"))) {
-        var sussy = volume / localStorage.getItem("fadetime");
-        if (audioRef.current && audioRef.current.volume <= (1 - sussy)) {
-        audioRef.current.volume = (audioRef.current.volume + sussy);
-        }
-    }
-}
-},[Math.round(currentTime)]);
-useEffect(() => {
-    if (props.isPlaying == true) {
-    if (Math.round(currentTime) == (Math.round(duration - localStorage.getItem("fadetime"))) - 5) {
-        au.current.src = props.trackData.track;
-    }
-    if (Math.round(currentTime) == Math.round(duration - localStorage.getItem("fadetime"))) {
-        audioRef.current.volume = 0;
-        var sussy = volume / localStorage.getItem("fadetime");       
-        au.current.volume = volume;
-        au.current.currentTime = audioRef.current.currentTime;
-        au.current.play();
-        EndSong();
-    }
-}
-},[currentTime]);
+
+
 
     
     if (localStorage.getItem('loop') == 'true') {
@@ -306,7 +273,6 @@ useEffect(() => {
         currentTime: currentTime
     })
     function EndSong() {
-        audioRef.current.volume = 0;
         if (localStorage.getItem('loop') == 'true') {
             audioRef.current.currentTime = 0;
             audioRef.current.play();
@@ -425,16 +391,6 @@ window.addEventListener('load', useEffect(() => {
         ))
     }
 
-    function PlayAudio() {
-        if (audioRef.current) {
-            audioRef.current.play()
-        }
-    }
-    function PauseAudio() {
-        if (audioRef.current) {
-            audioRef.current.pause()
-        }
-    }
 
     useEffect(() => {
         if ('mediaSession' in navigator) {
@@ -459,7 +415,7 @@ window.addEventListener('load', useEffect(() => {
             navigator.mediaSession.setActionHandler('previoustrack', function() { decreaseIndex() });
             navigator.mediaSession.setActionHandler('nexttrack', function() { increaseIndex() });
           }
-        }, [props.trackData.trackKey, currentTime])
+        }, [Math.round(currentTime)])
       
 
     return (
