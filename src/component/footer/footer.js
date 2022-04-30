@@ -395,9 +395,10 @@ window.addEventListener('load', useEffect(() => {
 
     function SongData() {
         if ('mediaSession' in navigator) {
+            var li = props.trackData.trackArtist.replaceAll(",", ", ").lastIndexOf(",")
             navigator.mediaSession.metadata = new window.MediaMetadata({
               title: props.trackData.trackName ? props.trackData.trackName : 'Fetching...',
-              artist: props.trackData.trackArtist ? props.trackData.trackArtist : 'Fetching...',
+              artist: props.trackData.trackArtist.replaceAll(",", ", ").substring(0, li) + " i" + props.trackData.trackArtist.replaceAll(",", ", ").substring(li + 1),
               album: props.trackData.album == undefined ?  "" : props.trackData.album,
               artwork: [
                 { src: props.trackData.trackImg, sizes: '96x96',   type: 'image/png' },
@@ -413,6 +414,7 @@ window.addEventListener('load', useEffect(() => {
             navigator.mediaSession.setActionHandler('pause', function() { audioRef.current.pause(); props.changePlay(false); SongData()});
             navigator.mediaSession.setActionHandler('previoustrack', function() { decreaseIndex() });
             navigator.mediaSession.setActionHandler('nexttrack', function() { increaseIndex() });
+            navigator.mediaSession.setActionHandler('seekto', function (e) {audioRef.current.currentTime = e});
           }
     }
 
