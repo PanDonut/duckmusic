@@ -428,7 +428,7 @@ window.addEventListener('load', useEffect(() => {
     }
 
     const [fstyle, setFooterStyle] = useState({opacity: 0, transform: 'translateY(130px) translateX(-50%)'});
-    const [useStyle, setUsingStyle] = useState(true);
+    const [useStyle, setUsingStyle] = useState(false);
 
     useEffect(() => {
     if (size.width > CONST.MOBILE_SIZE) {
