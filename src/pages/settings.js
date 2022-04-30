@@ -12,7 +12,7 @@ import axios from 'axios';
 import { konsol } from '../actions';
 import { connect } from 'react-redux';
 
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 
 function Settings(props) {
 
@@ -151,9 +151,9 @@ function Settings(props) {
             }
             <div className="body">
                 <Topnav back={true}/>
-            <FadeIn visible="true" delay="50" className="marg">
+            <div visible="true" delay="50" className="marg">
                     <h2>Ustawienia</h2>
-                    <FadeIn visible="true" delay="100" className="ust">
+                    <div visible="true" delay="100" className="ust">
                         <h3>{decode("Wygl&#261;d")}</h3>
                 <section>                 
                             <h4>Jasny motyw</h4>
@@ -187,8 +187,8 @@ function Settings(props) {
                                 </section>
                             </div>
                         }
-                    </FadeIn>
-                    <FadeIn visible="true" delay="100" className="ust">
+                    </div>
+                    <div visible="true" delay="100" className="ust">
                         <h3>{decode("Kontrola tre&#347;ci")}</h3>
                         <section>
                             <h4>Zezwalaj na odtwarzanie nieodpowiednich utworów</h4>
@@ -204,8 +204,8 @@ function Settings(props) {
                                 </label>
                             </div>
                         </section>
-                    </FadeIn>
-                    <FadeIn visible="true" delay="100" className="ust">
+                    </div>
+                    <div visible="true" delay="100" className="ust">
                         <h3>Odtwarzacz</h3>
                         <section>
                             <h4>Płynne przejście między utworami</h4>
@@ -220,8 +220,8 @@ function Settings(props) {
                                 <input type="text" id="inpt" step="1" min="0" max="10" value={suss} onChange={(e) => {sSu(e.target.value); localStorage.setItem('deviceiddm', e.target.value)}}/>
                             </div>
                         </section>
-                    </FadeIn>
-                    <FadeIn visible="true" delay="100" className="ust-disabled">
+                    </div>
+                    <div visible="true" delay="100" className="ust-disabled">
                         <h3>{decode("U&#322;atwienia dost&#281;pu")}</h3>
                         {size.width < CONST.MOBILE_SIZE &&
                             <div>
@@ -255,8 +255,8 @@ function Settings(props) {
                         </section>
                             </div>
                         }
-                    </FadeIn>
-                    <FadeIn visible="true" delay="100" className="ust">
+                    </div>
+                    <div visible="true" delay="100" className="ust">
                         <h3>Debug</h3>
                         <section id='btnsec'>
                             <div className='datea'>
@@ -270,8 +270,8 @@ function Settings(props) {
                             </div>
                             <button onClick={() => {props.konsol(true)}}>Otwórz konsolę</button>
                         </section>
-                    </FadeIn>
-                </FadeIn>
+                    </div>
+                </div>
                 </div>
         </div>
         )

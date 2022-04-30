@@ -42,7 +42,7 @@ import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import convertTime from '../functions/convertTimeTxt';
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 import { useReducer } from 'react';
 import { RemoveLiked } from '../playlistcreator';
 import Color from 'color-thief-react';

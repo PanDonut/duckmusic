@@ -6,7 +6,7 @@ import PlaylistCardM from '../component/cards/playlist-card-m';
 import PlaylistCardMNew from '../component/cards/playlist-card-m-new';
 import ExpandButton from '../component/buttons/expand-button';
 
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 
 import styles from "./home.module.css";
 
@@ -119,49 +119,25 @@ function Home() {
                                     return (
                                         <div className={styles.gradC}>
                                             <img src={list.imgUrl} />
-                                            <FadeIn visible="true" delay="150" className={styles.mrag}>
+                                            <div visible="true" delay="150" className={styles.mrag}>
                                                 <h2>{list.title}</h2>
                                                 <h4>{list.artist}</h4>
                                                 <h3>{list.promodesc}</h3>
                                                 <Link to={"/playlist/" + list.link}>
                                                 <button>{decode("S&#322;uchaj")}</button>
                                                 </Link>
-                                            </FadeIn>
+                                            </div>
                                         </div>
                                     );
                                 })}
                         </section>
-                        <FadeIn visible="true" delay="250" className={styles.SectionCards}>
-                        {PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((item) => {
-                            return (
-                                <PlaylistCardS 
-                                    key={item.title}
-                                    data={item}
-                                />
-                            );
-                        })}
-                    </FadeIn>
-                        <div className={styles.BtnDiv}>
-                                <button
-                                    className={styles.Btn}
-                                    onClick={Expand}
-                                >
-                                    <ExpandButton />
-                                </button>
-                                <button
-                                    className={styles.Btn1}
-                                    onClick={Hide}
-                                >
-                                    <ExpandButton />
-                                </button>
-                        </div>
                 </section>
 
                 <section>
                     <div className={styles.SectionTitle1}>
                         <TitleM>Odkrywaj</TitleM>
                     </div>
-                        <FadeIn visible="true" delay="500" className={styles.SectionCardsMedium}>
+                        <div visible="true" delay="500" className={styles.SectionCardsMedium}>
                                 {
                                     PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((item) => {
                                         if (localStorage.getItem('old') == 'yes' || size.width > CONST.MOBILE_SIZE) {
@@ -174,8 +150,8 @@ function Home() {
                                         }
                                     })
                                 }
-                                </FadeIn>
-                        <FadeIn visible="true" delay="250" className={styles.SectionCardsMedium}>
+                                </div>
+                        <div visible="true" delay="250" className={styles.SectionCardsMedium}>
                             {
                                 PLAYLIST.filter((list) => list.ex == "no" || list.ex == localStorage.getItem('explicit')).sort(() => Math.random() - 0.5).map((item) => {
                                     if (localStorage.getItem('old') == 'no' && size.width < CONST.MOBILE_SIZE || localStorage.getItem('old') == null && size.width < CONST.MOBILE_SIZE) {
@@ -188,7 +164,7 @@ function Home() {
                                     }
                                 })
                             }
-                        </FadeIn>
+                        </div>
                 </section>
                 </div>
             </div>

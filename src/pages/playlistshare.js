@@ -39,7 +39,7 @@ import CONST from '../constants/index';
 import useWindowSize from '../hooks/useWindowSize';
 import MobileNavigation from '../component/sidebar/mobile-navigation';
 import convertTime from '../functions/convertTimeTxt';
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 
 function PlaylistPage(props) {
 
@@ -201,7 +201,7 @@ function PlaylistPage(props) {
 										<TextRegularM>UTWORY</TextRegularM>
 									</div>
 
-									<FadeIn visible="true" delay="50" className={styles.PlaylistSongs}>
+									<div visible="true" delay="50" className={styles.PlaylistSongs}>
 										{ item.playlistData[0] != undefined ? 
 										item.playlistData.map((song) => {
 											return (
@@ -225,7 +225,7 @@ function PlaylistPage(props) {
 										:
 											<h2>Trochę tu pusto</h2>
 									}
-									</FadeIn>
+									</div>
 								</div>
 							);
 						}

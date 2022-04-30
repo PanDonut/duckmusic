@@ -9,7 +9,7 @@ import React, { useEffect, useState } from 'react';
 import { setTheme, setEc, setSwi, setSwif, setOl } from '../theme';
 import { decode } from 'he';
 
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 
 function Settings() {
 
@@ -29,11 +29,11 @@ function Settings() {
                 <div className="body1">
                 
                 <img src={localStorage.getItem('image')} />
-            <FadeIn visible="true" delay="50" className="marg">
+            <div visible="true" delay="50" className="marg">
                     <h5>Profil</h5>
                     <h1>{localStorage.getItem('name')}</h1>
                     <h5 className="cu">{localStorage.getItem('emaildm')}</h5>
-                    </FadeIn>
+                    </div>
                     </div>
                 </div>
         </div>

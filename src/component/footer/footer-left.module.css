@@ -20,6 +20,14 @@
     width: 56px;
     height: 56px;
     display: var(--imgn);
+    user-drag: none;
+    -webkit-user-drag: none;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    background-size: contain;
+    border-radius: 2px;
 }
 .imgBox img{
     height: 100%;
@@ -29,6 +37,7 @@
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
+    transition: 0.25s ease;
 }
 .songDetails {
     margin-left: 16px;
@@ -67,8 +76,8 @@
         position: absolute;
     }
     .imgBox {
-        width: 42px;
-        height: 42px;
+        width: 62px;
+        height: 62px;
         z-index: 10000000;
         position: relative;
     }
@@ -83,7 +92,7 @@
     }
 
     .songDetails {
-        margin-left: 26px;
+        margin-left: 10px;
         margin-right: 16px;
         margin-top: 20px;
         transform: var(--txtpos);
@@ -104,6 +113,11 @@
         top: 50px; left: 0;
         transform: translate(calc(50vw - 50%));
         
+    }
+    .tit {
+        overflow: visible !important;
+        text-overflow: none !important;
+        white-space: nowrap;
     }
 }
 
@@ -203,8 +217,9 @@
     }
 
     .aaa {
-        display: flex;
-        flex-direction: row;
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: auto;
         position: absolute;
         top: 20px;
     }
@@ -215,5 +230,44 @@
         font-weight: 500;
         font-size: 13px;
         height: auto;
+        width: 100%;
+        overflow: visible;
+        white-space: nowrap;
+    }
+
+    .tit.go {
+        animation: move 10s linear infinite alternate-reverse;
+    }
+    .tit2.go {
+        animation: moveA 10s linear infinite alternate-reverse;
+    }
+
+    @keyframes moveA {
+        0% {
+            transform: translateX(0px);
+        }
+        25% {
+            transform: translateX(0px);
+        }
+        90% {
+            transform: translateX(calc(60px - var(--size-artist)));
+        }
+        100% {
+            transform: translateX(calc(60px - var(--size-artist)));
+        }
+    }
+    @keyframes move {
+        0% {
+            transform: translateX(0px);
+        }
+        25% {
+            transform: translateX(0px);
+        }
+        90% {
+            transform: translateX(calc(60px - var(--size-title)));
+        }
+        100% {
+            transform: translateX(calc(60px - var(--size-title)));
+        }
     }
     

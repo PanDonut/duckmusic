@@ -11,6 +11,10 @@ body {
     padding: 0;
 }
 
+html {
+  overflow: hidden;
+}
+
 
 .theme-dark {
     --solid-main: #0d0c11;

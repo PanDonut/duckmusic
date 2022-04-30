@@ -109,15 +109,19 @@
         transition: width 0.25s ease;
         border-radius: var(--mobile-radius);
         overflow: hidden;
+        background-color: var(--song-a);
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+        transition: all 0.25s ease;
     }
     .nowplayingbar {
         padding: 0px 0px;
-        grid-template-columns: 75vw 25vw;
+        grid-template-columns: calc(100vw - 95px) 75px;
         row-gap: 0px;
         overflow: hidden;
+        border-radius: var(--mobile-radius);
         background-repeat: no-repeat;
         background-size: cover;
-        background: rgba(var(--song-r), 0.7);
+        background: var(--song-a);
     }
         .nowplayingbar:first-child {
             backdrop-filter: blur(5px);

@@ -23,7 +23,7 @@ import { Link } from "react-router-dom";
 import TextBoldL from "../component/text/text-bold-l";
 import TextRegularM from '../component/text/text-regular-m';
 import PlayButton from '../component/buttons/play-button';
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 import { CreateEmptyPlaylist } from '../playlistcreator';
 
 

@@ -80,3 +80,16 @@
     width: 20px;
     height: 18px;
 }
+
+.gradient {
+    height: calc(100% - 3px);
+    pointer-events: none;
+    width: 200px;
+    right: -10px;
+    bottom: 3px;
+    position: absolute;
+    background: var(--song-a);
+    background: linear-gradient(270deg, var(--song-a) 0%, var(--song-a) 45%, #ffffff00 100%);
+    z-index: 99;
+    transition: 0.25s ease;
+}

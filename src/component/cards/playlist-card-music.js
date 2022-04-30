@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import TextBoldL from "../text/text-bold-l";
 import TextRegularM from '../text/text-regular-m';
 import PlayButton from '../buttons/play-button';
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 import styles from "./playlist-card-m-c.module.css";
 import SONGLIST from '../../data/songs.json'
 import { useCallback } from "react";
@@ -13,6 +13,7 @@ import * as Icons from '../icons/index';
 import { changePlay } from "../../actions";
 
 function PlaylistCardM(props) {
+	const [loaded, setLoad] = useState(false);
 	const[isthisplay, setIsthisPlay] = useState(false)
 
 	useEffect(() => {
@@ -43,30 +44,22 @@ function PlaylistCardM(props) {
     });
 
 
-	
 
-	console.log(props.trackData.trackKey)
 
 	const link = "duckmusic:" + props.data.songName.toLowerCase().split(' ').join("").split('?').join("") + props.data.songArtist.toLowerCase().split(' ').join("").split('?').join("");
 
 	return (
 		<div className={styles.PlaylistCardSBox} onContextMenu={() => {setSus(true)}}>
 			<Link to={`/${link}`}>
-				<FadeIn visible="true" delay="100" className={styles.PlaylistCardS}>
-					<div className={styles.ImgBox}>
-						<img src={props.data.songimg} alt={props.data.title} />
-						<div 
-				onClick={() => props.songTrack([parseInt(SONGLIST.indexOf(props.data))])} 
-				className={`${styles.IconBox} ${isthisplay&&props.isPlaying ? styles.ActiveIconBox : ''}`}
-			>
-				<PlayButton isthisplay={isthisplay} />
-			</div>
+				<div visible="true" delay="100" className={styles.PlaylistCardS}>
+					<div className={`${styles.ImgBox} ${loaded == true ? '' : styles.loader}`}>
+						<img onLoad={() => {setLoad(true)}} src={props.data.songimg} alt={props.data.title} />
 					</div>
-					<div className={styles.Title}>
+					<div className={`${styles.Title} ${loaded == true ? '' : styles.loader}`}>
 						<TextBoldL>{props.data.songName}</TextBoldL>
 						<TextRegularM>{props.data.songArtist}</TextRegularM>
 					</div>
-				</FadeIn>
+				</div>
 			</Link>	
 			{sus ?
                     <div

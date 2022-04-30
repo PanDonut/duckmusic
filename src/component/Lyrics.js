@@ -51,7 +51,6 @@ function Lyrics({ song, currentTime, songId, sly }) {
     
     const [ses, setSes] = useState(true);
 
-    console.log(currentTime);
 
     useEffect(() => {
         if(lyrics.length < 1){

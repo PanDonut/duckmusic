@@ -1,13 +1,12 @@
 .PlaylistCardSBox{
     position: relative;
     overflow: hidden;
+    transition: transform 0s ease;
 }
 .PlaylistCardS {
     position: relative;
     padding: 16px;
     border-radius: 4px;
-    backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: var(--blur);
     -webkit-transition: background-color .3s ease;
     transition: background-color .3s ease;
     min-height: 100px;
@@ -20,7 +19,7 @@
 .ImgBox img{
     height: 100%;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 7px;
     user-drag: none;
     -webkit-user-drag: none;
     user-select: none;
@@ -84,15 +83,44 @@
     opacity: 1;
 }
 
-
-.PlaylistCardSBox:hover .ImgBox img {
-    filter: blur(4px);
-}
-
-.PlaylistCardSBox:hover .ImgBox img::after {
-    background-color: #fff2;
-    transition: 0.15s ease;
-}
 .ImgBox img {
     transition: 0.15s ease;
+}
+
+@media screen and (max-width: 640px) {
+    .PlaylistCardSBox:active {
+        transform: scale(0.95);
+        transition: transform 0.05s ease;
+        filter: brightness(50%);
+    }
+}
+
+.loader {
+    background-color: rgb(36, 37, 41);
+    transition: 0.2s ease;
+    border-radius: 7px;
+    overflow: hidden;
+    animation: load 1s ease infinite alternate-reverse;
+}
+
+.loader:after {
+    background-color: rgb(36, 37, 41) !important;
+    transition: 0.2s ease;
+}
+
+.loader * {
+    background-color: rgb(36, 37, 41) !important;
+    content: '' !important;
+    opacity: 0;
+    transition: all 0.2s ease;
+    transition: opacity 0s ease;
+}
+
+@keyframes load {
+    from {
+        background-color: rgb(36, 37, 41);
+    }
+    to {
+        background-color: rgb(58, 60, 66);
+    }
 }

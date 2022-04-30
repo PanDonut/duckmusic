@@ -10,9 +10,6 @@ import styles from "./playlist-card-s.module.css";
 function PlaylistCardS(props){
     const[isthisplay, setIsthisPlay] = useState(false)
 
-    function changeTheme(){
-        document.documentElement.style.setProperty('--hover-home-bg', props.data.hoverColor);
-    }
 
     useEffect(() => {
 		setIsthisPlay(parseInt(props.data.index) === props.trackData.trackKey[0])
@@ -20,7 +17,7 @@ function PlaylistCardS(props){
 
     return (
         <div className={styles.PlaylistCardSBox}>
-            <Link to={`/playlist/${props.data.link}`} onMouseOver={changeTheme}>
+            <Link to={`/playlist/${props.data.link}`} onClick={() => {}}>
                 <div className={styles.PlaylistCardS}>
                     <div className={styles.ImgBox}>
                         <img src={props.data.imgUrl} alt={`${props.data.title}`} />

@@ -103,17 +103,16 @@
     letter-spacing: -0.4px;
 }
 .textBox h1{
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    white-space: nowrap;
     margin: 0;
     padding: 0.08em 0px;
     font-size: 96px;
-    line-height: 96px;
     font-weight: 700;
     letter-spacing: -.04em;
     text-transform: none;
+    text-overflow: ellipsis;
+    width: 60vw !important;
 }
 
 .textBox1{
@@ -206,7 +205,10 @@
     }
     .textBox h1{
         font-size: 32px;
-        line-height: 32px;
+        left: 50%;
+        text-align: center;
+        position: relative;
+        transform: translateX(-50%);
     }
     .Artist{
         justify-content: center;

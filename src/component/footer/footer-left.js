@@ -2,7 +2,7 @@
 import * as Icons from '../icons';
 import TextRegularM from '../text/text-regular-m';
 import IconButton from '../buttons/icon-button';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { aut } from '../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { changeTrack, customTrack, songTrack } from '../../actions/index'
@@ -10,19 +10,37 @@ import styles from "./footer-left.module.css";
 import { useHistory } from "react-router-dom";
 import PLAYLIST from "../../data/index.json";
 import Color from 'color-thief-react';
+import useWindowSize from '../../hooks/useWindowSize'
 
 function FooterLeft(props, increaseIndex, decreaseIndex){
     return (
         <div className={styles.footerLeft}>
             <ImgBox 
-                trackData={props.trackData}
+                trackData={props.data}
             />
             <SongDetails
-                trackData={props.trackData}
+                trackData={props.data}
             />
         </div>
     );
 }
+
+function changeColor(color, amount) { // #FFF not supportet rather use #FFFFFF
+    if (color) {
+    const clamp = (val) => Math.min(Math.max(val, 0), 0xFF)
+    const fill = (str) => ('00' + str).slice(-2)
+
+    const num = parseInt(color.substr(1), 16)
+    const red = clamp((num >> 16) + amount)
+    const green = clamp(((num >> 8) & 0x00FF) + amount)
+    const blue = clamp((num & 0x0000FF) + amount)
+    return '#' + fill(red.toString(16)) + fill(green.toString(16)) + fill(blue.toString(16))
+    } else {
+        return '#00000000'
+    }
+}
+
+
 
 function ImgBox({ trackData }) {
     const img = useRef(null);
@@ -31,14 +49,21 @@ function ImgBox({ trackData }) {
             <Color src={trackData.trackImg} format="rgbString" quality={1} crossOrigin='anonymous'>
 								{({ data, loading, error }) => {
                                     if (loading == false) {
-									document.documentElement.style.setProperty('--song-hover', data);	
-									document.documentElement.style.setProperty('--song-r', data.replace('rgb(', "").replace(')', ''));	
+									document.documentElement.style.setProperty('--song-hover', data);		
+                                    }
+									console.log(error)
+							}}
+							</Color>
+            <Color src={trackData.trackImg} format="hex" quality={1} crossOrigin='anonymous'>
+								{({ data, loading, error }) => {
+                                    if (loading == false) {
+									document.documentElement.style.setProperty('--song-a', changeColor(data, -20));	
                                     }
 									console.log(error)
 							}}
 							</Color>
         <div className={styles.imgBox}>
-                <img ref={img} src={trackData.trackImg} alt=" "/>
+            <img ref={img} src={trackData.trackImg}></img>
         </div>
             <div className={styles.imgBoxfull}>
                 <img src={trackData.trackImg} alt=" " />
@@ -49,6 +74,8 @@ function ImgBox({ trackData }) {
 
 function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
     const sus = useRef(null);
+    const zus = useRef(null);
+    const size = useWindowSize();
     const history = useHistory();
     function checkOverflow(el)
 {
@@ -82,16 +109,32 @@ function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
         }
     });
 }
-    console.log('dddd ' + props.trackData.trackArtist.split(",").length)
+
+const [big, setBig] = useState(false);
+const [biga, setBiga] = useState(false);
+useEffect(() => {
+    if (sus.current && zus.current) {
+        document.documentElement.style.setProperty('--size-title', sus.current.clientWidth + 'px');
+        document.documentElement.style.setProperty('--size-artist', zus.current.clientWidth + 'px');
+        if (sus.current.clientWidth > size.width - 250) {
+            setBig(true)
+        } else {
+            setBig(false)
+        }
+        if (zus.current.clientWidth > size.width - 250) {
+            setBiga(true)
+        } else {
+            setBiga(false)
+        }
+    }
+})
     return (
         <div>
             <div className={styles.songDetails}>
-                <p className={styles.tit} ref={sus} onLoad={() => {if (sus.current) {
-        console.log(checkOverflow(sus.current))
+                <p id="sas" className={`${styles.tit} ${big == true ? styles.go : ''}`} ref={sus} onLoad={() => {if (sus.current) {
     }}}>{props.trackData.trackName}</p>
-    <div className={styles.aaa}>
+    <div ref={zus} className={`${styles.aaa} ${styles.tit2} ${biga == true ? styles.go : ''}`}>
                 { props.trackData.trackArtist.split(",").map(item => {
-                    console.log(item.toLowerCase())
                     return (
                 <div className={styles.Artist1} onClick={() => {{ document.documentElement.style.setProperty('--img-opacity', '1'); { history.push('/artist/' + item.toLowerCase().split(" ").join("-"))}}}}>
                     <TextRegularM>{item}</TextRegularM>{props.trackData.trackArtist.split(",").indexOf(item) < props.trackData.trackArtist.split(",").length - 1 ? ',' : ''}&nbsp;
@@ -104,7 +147,6 @@ function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
         </div>
         <div className={styles.songDetailsfull}>
         { props.trackData.trackArtist.split(",").map(item => {
-                    console.log(item.toLowerCase())
                     return (
                 <div className={styles.Artist1} onClick={() => {{ document.documentElement.style.setProperty('--img-opacity', '1'); { history.push('/artist/' + item.toLowerCase().split(" ").join("-"))}}}}>
                     <TextRegularM>{item}&nbsp;</TextRegularM>

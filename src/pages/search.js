@@ -21,7 +21,7 @@ import { getDatabase, ref, onValue, set } from "firebase/database";
 import {decode} from 'he';
 import { aut } from '../dauth.js';
 
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 
 import SearchButton from '../component/buttons/search-button';
 
@@ -73,7 +73,7 @@ function Search() {
                 </div>
                 <div className={styles.new} onScroll={handleScroll}>
                 <h1>Playlisty</h1>
-                <FadeIn visible="true" delay="50" className={styles.SearchCardGrid}>
+                <div visible="true" delay="50" className={styles.SearchCardGrid}>
                     {PLAYLIST.filter(item => item.title.toLowerCase().includes(input.toLowerCase()) || item.artist.toLowerCase().includes(input.toLowerCase())).map((list) => {
                         var title = list.title;
                         return (
@@ -83,9 +83,9 @@ function Search() {
                             />
                         );
                     })}
-                </FadeIn>
+                </div>
                 <h1>Utwory</h1>
-                <FadeIn visible="true" delay="50" className={styles.SearchCardGrid}>
+                <div visible="true" delay="50" className={styles.SearchCardGrid}>
                     {SONGLIST.filter(item => item.songName.toLowerCase().includes(input.toLowerCase()) || item.songArtist.toLowerCase().includes(input.toLowerCase())).sort((a, b) => 0.5 - Math.random()).map((list) => {
                         return (
                             <PlaylistCardM
@@ -94,7 +94,7 @@ function Search() {
                             />
                         );
                     })}
-                </FadeIn>
+                </div>
                     </div>
         </div>
         </div>

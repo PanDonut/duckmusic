@@ -10,6 +10,7 @@ export const changePlay = (isPlaying) => {
 };
 
 export const changeTrack = (trackKey) => {
+  console.log("NEW TRACK")
   return { type: CHANGETRACK, payload: trackKey };
 };
 

@@ -52,6 +52,16 @@
     -webkit-user-select: none;
     -ms-user-select: none;
     z-index: -1;
+    animation: goinP 0.5s ease;
+}
+
+@keyframes goinP {
+    from {
+        opacity: 0;
+    }
+    top {
+        opacity: 1;
+    }
 }
 .PlaylistPage11 {
     overflow-y: auto;
@@ -68,6 +78,7 @@
     -ms-user-select: none;
     z-index: -1;
     background-color: var(--hover-home-bg);
+    animation: goinP 0.5s ease;
 }
 
 .sus {

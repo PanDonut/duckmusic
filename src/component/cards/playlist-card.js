@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 import TextBoldL from "../text/text-bold-l";
 import TextRegularM from '../text/text-regular-m';
 import PlayButton from '../buttons/play-button';
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 import styles from "./playlist-card-m.module.css";
 
 function PlaylistCardM(props) {
+	const [loaded, setLoad] = useState(false);
 	const[isthisplay, setIsthisPlay] = useState(false)
 
 	useEffect(() => {
@@ -18,15 +19,15 @@ function PlaylistCardM(props) {
 	return (
 		<div className={styles.PlaylistCardSBox}>
 			<Link to={`/songs/id/${props.data.link}`}>
-				<FadeIn visible="true" delay="100" className={styles.PlaylistCardS}>
-					<div className={styles.ImgBox}>
-						<img src={props.data.songimg} alt={props.data.title} />
+				<div visible="true" delay="100" className={styles.PlaylistCardS}>
+					<div className={`${styles.ImgBox} ${loaded == true ? '' : styles.loader}`}>
+						<img onLoad={() => {setLoad(true)}} src={props.data.songimg} alt={props.data.title} />
 					</div>
-					<div className={styles.Title}>
+					<div className={`${styles.Title} ${loaded == true ? '' : styles.loader}`}>
 						<TextBoldL>{props.data.songName}</TextBoldL>
 						<TextRegularM>{props.data.songArtist}</TextRegularM>
 					</div>
-				</FadeIn>
+				</div>
 			</Link>
 			<div 
 				onClick={() => props.changeTrack([parseInt(props.data.index), 0])} 

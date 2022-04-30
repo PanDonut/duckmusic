@@ -20,7 +20,10 @@ function FooterRight({ volume, setVolume, ctime, opn, clo }) {
                 <SoundLevel currentTi={ctime} opn={opn} clo={clo} volume={volume} setVolume={setVolume} />
             }
             {size.width < CONST.MOBILE_SIZE &&
-                <MusicControlBoxPh />
+                <>
+                    <MusicControlBoxPh />
+                    <div className={styles.gradient}></div>
+                </>
             }
             
         </div>

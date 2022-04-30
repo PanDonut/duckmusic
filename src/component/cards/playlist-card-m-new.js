@@ -6,11 +6,12 @@ import TextBoldL from "../text/text-bold-l";
 import TextRegularM from '../text/text-regular-m';
 import PlayButton from '../buttons/play-button';
 
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 
 import styles from "./playlist-card-m-new.module.css";
 
 function PlaylistCardM(props) {
+	const [loaded, setLoad] = useState(false);
 	const[isthisplay, setIsthisPlay] = useState(false)
 
 	useEffect(() => {
@@ -20,15 +21,15 @@ function PlaylistCardM(props) {
 	return (
 		<div className={styles.PlaylistCardSBox}>
 			<Link to={`/playlist/${props.data.link}`}>
-				<FadeIn visible="true" delay="550" className={styles.PlaylistCardS}>
-					<div className={styles.ImgBox}>
-						<img src={props.data.imgUrl} alt={props.data.title} />
+				<div visible="true" delay="550" className={styles.PlaylistCardS}>
+					<div className={`${styles.ImgBox} ${loaded == true ? '' : styles.loader}`}>
+						<img onLoad={() => {setLoad(true)}} src={props.data.imgUrl} alt={props.data.title} />
 					</div>
-					<FadeIn visible="true" delay="600" className={styles.Title}>
+					<div className={`${styles.Title} ${loaded == true ? '' : styles.loader}`}>
 						<TextBoldL>{props.data.title}</TextBoldL>
 						<TextRegularM>{props.data.type.toUpperCase() + ' · ' + props.data.artist}</TextRegularM>
-					</FadeIn>
-				</FadeIn>
+					</div>
+				</div>
 			</Link>
 		</div>
 	);

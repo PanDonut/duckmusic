@@ -5,33 +5,28 @@ import { Link, useHistory } from "react-router-dom";
 import TextBoldL from "../text/text-bold-l";
 import TextRegularM from '../text/text-regular-m';
 import PlayButton from '../buttons/play-button';
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 import styles from "./playlist-card-m.module.css";
 import SONGS from '../../data/songs.json';
 
 function PlaylistCardM(props) {
+	const [loaded, setLoad] = useState(false);
 	const history = useHistory();
 	const[isthisplay, setIsthisPlay] = useState(false)
 
 
-	console.log(props.trackData.isCustom)
-
 	return (
 		<div className={styles.PlaylistCardSBox}>
 			<Link to={`/myplaylist/${props.data.link}`}>
-				<FadeIn visible="true" delay="100" className={styles.PlaylistCardS}>
-					<div className={styles.ImgBox}>
-						<img src={props.data.playlistData[0] != undefined ? SONGS[props.data.playlistData[0].songindex].songimg : "https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/no.png?alt=media&token=b23a34e3-5ea9-4c32-bc04-19c0c05c99cd"} alt={props.data.title} />
-						<div 
-				onClick={() => history.push(`/myplaylist/${props.data.link}`)} 
-				className={`${styles.IconBox} ${isthisplay&&props.isPlaying ? styles.ActiveIconBox : ''}`}
-			><PlayButton isthisplay={isthisplay} /></div>
+				<div visible="true" delay="100" className={styles.PlaylistCardS}>
+					<div className={`${styles.ImgBox} ${loaded == true ? '' : styles.loader}`}>
+						<img onLoad={() => {setLoad(true)}} src={props.data.playlistData[0] != undefined ? SONGS[props.data.playlistData[0].songindex].songimg : "https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/no.png?alt=media&token=b23a34e3-5ea9-4c32-bc04-19c0c05c99cd"} alt={props.data.title} />
 					</div>
-					<div className={styles.Title}>
+					<div className={`${styles.Title} ${loaded == true ? '' : styles.loader}`}>
 						<TextBoldL>{props.data.title}</TextBoldL>
 						<TextRegularM>{localStorage.getItem('name')}</TextRegularM>
 					</div>
-				</FadeIn>
+				</div>
 			</Link>
 		</div>
 	);

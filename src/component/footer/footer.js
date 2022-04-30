@@ -28,13 +28,23 @@ import TextTransition, { presets } from "react-text-transition";
 import convertTime from '../../functions/convertTime';
 import { aut } from '../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import FadeIn from 'react-fade-in';
+import div from 'react-fade-in';
 import AudioSpectrum from 'react-audio-spectrum';
 import { useReducer } from 'react';
 import { useMediaSession, HAS_MEDIA_SESSION } from '@mebtte/react-media-session'
 
 
 function Footer(props) {
+    const [trackInfo, setTR] = useState(
+    {songid: '0',
+    trackKey: [0, 0],
+    track: ``,
+    trackName: `Brak utworu`,
+    trackImg: `https://i.scdn.co/image/ab67616d00001e02d3ee4bf67c2ac2154006ad72`,
+    trackArtist: ` `,
+    lyrics: [],
+    canSkip: true,
+    isCustom: false})
     const [vau, SU] = useState(10);
     const size = useWindowSize();
     let isMounted = true;
@@ -60,35 +70,35 @@ if (localStorage.getItem("fadetime") == null) {
     localStorage.setItem("fadetime", 0)
 }
     function decreaseIndex() {
-        if (props.trackData.canSkip == 'true') {
-            if (props.trackData.isCustom == 'false') {
+        if (trackInfo.canSkip == 'true') {
+            if (trackInfo.isCustom == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
-                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    if (trackInfo.trackKey[1] === (PLAYLIST[trackInfo.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([trackInfo.trackKey[0], 0])
                     } else {
-                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                        props.changeTrack([trackInfo.trackKey[0], parseInt(trackInfo.trackKey[1]) - 1])
                     }
                 } else if (localStorage.getItem('shuffle') == 'true') {
-                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    if (trackInfo.trackKey[1] === (PLAYLIST[trackInfo.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([trackInfo.trackKey[0], 0])
                     } else {
-                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                        props.changeTrack([trackInfo.trackKey[0], parseInt(trackInfo.trackKey[1]) - 1])
                     }
                 } else {
                     localStorage.setItem('shuffle', 'false')
                 }
-            } else if (props.trackData.isCustom == 'true') {
+            } else if (trackInfo.isCustom == 'true') {
                 if (localStorage.getItem('shuffle') == 'false') {
-                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.customTrack([props.trackData.trackKey[0], 0])
+                    if (trackInfo.trackKey[1] === (PLAYLISTC[trackInfo.trackKey[0]].playlistData.length)) {
+                        props.customTrack([trackInfo.trackKey[0], 0])
                     } else {
-                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                        props.customTrack([trackInfo.trackKey[0], parseInt(trackInfo.trackKey[1]) - 1])
                     }
                 } else if (localStorage.getItem('shuffle') == 'true') {
-                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.customTrack([props.trackData.trackKey[0], 0])
+                    if (trackInfo.trackKey[1] === (PLAYLISTC[trackInfo.trackKey[0]].playlistData.length)) {
+                        props.customTrack([trackInfo.trackKey[0], 0])
                     } else {
-                        props.customTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) - 1])
+                        props.customTrack([trackInfo.trackKey[0], parseInt(trackInfo.trackKey[1]) - 1])
                     }
                 } else {
                     localStorage.setItem('shuffle', 'false')
@@ -98,42 +108,42 @@ if (localStorage.getItem("fadetime") == null) {
         SongData()
     }
     function increaseIndex() {
-        if (props.trackData.canSkip == 'true') {
-            if (props.trackData.isCustom == 'false') {
+        if (trackInfo.canSkip == 'true') {
+            if (trackInfo.isCustom == 'false') {
                 if (localStorage.getItem('shuffle') == 'false') {
-                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    if (trackInfo.trackKey[1] === (PLAYLIST[trackInfo.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([trackInfo.trackKey[0], 0])
                     } else {
-                        props.changeTrack([props.trackData.trackKey[0], parseInt(props.trackData.trackKey[1]) + 1])
+                        props.changeTrack([trackInfo.trackKey[0], parseInt(trackInfo.trackKey[1]) + 1])
                     }
                 } else if (localStorage.getItem('shuffle') == 'true') {
-                    if (props.trackData.trackKey[1] === (PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.changeTrack([props.trackData.trackKey[0], 0])
+                    if (trackInfo.trackKey[1] === (PLAYLIST[trackInfo.trackKey[0]].playlistData.length)) {
+                        props.changeTrack([trackInfo.trackKey[0], 0])
                     } else {
-                        props.changeTrack([props.trackData.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[props.trackData.trackKey[0]].playlistData.length)) - 1)])
+                        props.changeTrack([trackInfo.trackKey[0], Math.floor((Math.random() * parseInt(PLAYLIST[trackInfo.trackKey[0]].playlistData.length)) - 1)])
                     }
                 } else {
                     localStorage.setItem('shuffle', 'false')
                 }
-            } else if (props.trackData.isCustom == 'true') {
+            } else if (trackInfo.isCustom == 'true') {
                 if (localStorage.getItem('shuffle') == 'false') {
-                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.customTrack([props.trackData.trackKey[0], 0])
+                    if (trackInfo.trackKey[1] === (PLAYLISTC[trackInfo.trackKey[0]].playlistData.length)) {
+                        props.customTrack([trackInfo.trackKey[0], 0])
                     } else {
-                        props.customTrack([props.trackData.trackKey[0], (parseInt(props.trackData.trackKey[1]) + 1)])
+                        props.customTrack([trackInfo.trackKey[0], (parseInt(trackInfo.trackKey[1]) + 1)])
                     }
                 } else if (localStorage.getItem('shuffle') == 'true') {
-                    if (props.trackData.trackKey[1] === (PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) {
-                        props.customTrack([props.trackData.trackKey[0], 0])
+                    if (trackInfo.trackKey[1] === (PLAYLISTC[trackInfo.trackKey[0]].playlistData.length)) {
+                        props.customTrack([trackInfo.trackKey[0], 0])
                     } else {
-                        props.customTrack([props.trackData.trackKey[0], Math.floor(Math.random() * parseInt(PLAYLISTC[props.trackData.trackKey[0]].playlistData.length)) + 0])
+                        props.customTrack([trackInfo.trackKey[0], Math.floor(Math.random() * parseInt(PLAYLISTC[trackInfo.trackKey[0]].playlistData.length)) + 0])
                     }
                 } else {
                     localStorage.setItem('shuffle', 'false')
                 }
             }
         } else {
-            if (props.trackData.isCustom == 'false') {
+            if (trackInfo.isCustom == 'false') {
             if (localStorage.getItem('shuffle') == 'true') {
                 props.songTrack([Math.floor(Math.random() * (SONGLIST.length - 1))])
            }
@@ -142,7 +152,6 @@ if (localStorage.getItem("fadetime") == null) {
         SongData()
     }
 
-    console.log(props.trackData.trackKey + " " + props.trackData.canSkip + " " + props.trackData.isCustom + " " + localStorage.getItem('shuffle'))
 
     
 
@@ -190,7 +199,7 @@ if (localStorage.getItem("fadetime") == null) {
             document.documentElement.style.setProperty('--footopa', '0');
             document.documentElement.style.setProperty('--imgfull', 'inline-flex');
             document.documentElement.style.setProperty('--sus', 'blur(4px) grayscale(20%) brightness(50%)');
-            document.documentElement.style.setProperty('--bg-footer1', 'url(' + props.trackData.trackImg + ')');
+            document.documentElement.style.setProperty('--bg-footer1', 'url(' + trackInfo.trackImg + ')');
         }
     };
 
@@ -261,7 +270,7 @@ if (localStorage.getItem("fadetime") == null) {
     }, [audioRef, volume]);
 
     localStorage.getItem('explicit');
-    if (props.isPlaying && props.trackData.trackName.includes("🅴") && localStorage.getItem('explicit') == 'no' || props.isPlaying && props.trackData.trackName.includes("🅴") && localStorage.getItem('explicit') == null) {
+    if (props.isPlaying && trackInfo.trackName.includes("🅴") && localStorage.getItem('explicit') == 'no' || props.isPlaying && trackInfo.trackName.includes("🅴") && localStorage.getItem('explicit') == null) {
           audioRef.current.pause();
           document.documentElement.style.setProperty('--error-ex', 'block');
           setTimeout(function() {document.documentElement.style.setProperty('--error-ex', 'none'); console.log("mogus")}, 10000)
@@ -280,9 +289,9 @@ if (localStorage.getItem("fadetime") == null) {
             increaseIndex();           
         }
     }
-    if (props.trackData.trackName != "Brak utworu") {
-    document.head.children.namedItem('description').content = props.trackData.trackArtist;
-    document.head.children.namedItem('author').content = props.trackData.trackArtist;
+    if (trackInfo.trackName != "Brak utworu") {
+    document.head.children.namedItem('description').content = trackInfo.trackArtist;
+    document.head.children.namedItem('author').content = trackInfo.trackArtist;
 } else {
     document.title = "Duck Music";
     document.head.children.namedItem('description').content = ' ';
@@ -369,22 +378,22 @@ window.addEventListener('load', useEffect(() => {
 
 
 
-    if (props.trackData.isCustom == 'false' && props.trackData.canSkip == 'true') {
+    if (trackInfo.isCustom == 'false' && trackInfo.canSkip == 'true') {
         localStorage.setItem("dmsavedata", JSON.stringify(
             [
                 {
                     "type": 0,
-                    "data": props.trackData.trackKey,
+                    "data": trackInfo.trackKey,
                     "time": currentTime
                 }
             ]
         ))
-    } else if (props.trackData.isCustom == 'false' && props.trackData.canSkip == 'false') {
+    } else if (trackInfo.isCustom == 'false' && trackInfo.canSkip == 'false') {
         localStorage.setItem("dmsavedata", JSON.stringify(
             [
                 {
                     "type": 1,
-                    "data": props.trackData.trackKey,
+                    "data": trackInfo.trackKey,
                     "time": currentTime
                 }
             ]
@@ -395,18 +404,18 @@ window.addEventListener('load', useEffect(() => {
 
     function SongData() {
         if ('mediaSession' in navigator) {
-            var li = props.trackData.trackArtist.replaceAll(",", ", ").lastIndexOf(",")
+            var li = trackInfo.trackArtist.replaceAll(",", ", ").lastIndexOf(",")
             navigator.mediaSession.metadata = new window.MediaMetadata({
-              title: props.trackData.trackName ? props.trackData.trackName : 'Fetching...',
-              artist: props.trackData.trackArtist.replaceAll(",", ", ").substring(0, li) + " i" + props.trackData.trackArtist.replaceAll(",", ", ").substring(li + 1),
-              album: props.trackData.album == undefined ?  "" : props.trackData.album,
+              title: trackInfo.trackName ? trackInfo.trackName : 'Fetching...',
+              artist: li != -1 ? trackInfo.trackArtist.replaceAll(",", ", ").substring(0, li) + " i" + trackInfo.trackArtist.replaceAll(",", ", ").substring(li + 1) : trackInfo.trackArtist,
+              album: trackInfo.album == undefined ?  "" : trackInfo.album,
               artwork: [
-                { src: props.trackData.trackImg, sizes: '96x96',   type: 'image/png' },
-                { src: props.trackData.trackImg, sizes: '128x128', type: 'image/png' },
-                { src: props.trackData.trackImg, sizes: '192x192', type: 'image/png' },
-                { src: props.trackData.trackImg, sizes: '256x256', type: 'image/png' },
-                { src: props.trackData.trackImg, sizes: '384x384', type: 'image/png' },
-                { src: props.trackData.trackImg, sizes: '512x512', type: 'image/png' },
+                { src: trackInfo.trackImg, sizes: '96x96',   type: 'image/png' },
+                { src: trackInfo.trackImg, sizes: '128x128', type: 'image/png' },
+                { src: trackInfo.trackImg, sizes: '192x192', type: 'image/png' },
+                { src: trackInfo.trackImg, sizes: '256x256', type: 'image/png' },
+                { src: trackInfo.trackImg, sizes: '384x384', type: 'image/png' },
+                { src: trackInfo.trackImg, sizes: '512x512', type: 'image/png' },
               ]
             });
           
@@ -418,10 +427,22 @@ window.addEventListener('load', useEffect(() => {
           }
     }
 
+    const [fstyle, setFooterStyle] = useState({opacity: 0, transform: 'translateY(130px) translateX(-50%)'});
+
+    useEffect(() => {
+        setFooterStyle({opacity: 0, transform: 'translateY(130px) translateX(-50%)'})
+        setTimeout(() => {
+            setTR(props.trackData)
+        }, 700)
+        setTimeout(() => {
+            setFooterStyle({opacity: 1, transform: 'translateY(0px) translateX(-50%)'})
+        }, 1000)
+    }, [props.trackData.trackKey[0]])
+
       
 
     return (
-        <footer className={styles.footer}>
+        <footer className={styles.footer} style={fstyle}>
             <div className={styles.cantplay}>
                 <h4>Duck Music nie może teraz tego odtworzyć</h4>
             </div>
@@ -429,7 +450,7 @@ window.addEventListener('load', useEffect(() => {
                 <h4>Odtwarzanie nieodpowiednich utworów jest wyłączone</h4>
             </div>
             {size.width > CONST.MOBILE_SIZE ?
-                <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />
+                <Lyrics currentTime={currentTime} song={trackInfo} songId={trackInfo.id} sly={trackInfo.lyrics} />
                 : ''
             }           
             
@@ -445,7 +466,7 @@ window.addEventListener('load', useEffect(() => {
                             />
                         </div>
                     }
-                    <FooterLeft />
+                    <FooterLeft data={trackInfo}/>
                 </div>
                 
                     {size.width > CONST.MOBILE_SIZE &&
@@ -459,7 +480,7 @@ window.addEventListener('load', useEffect(() => {
                     </div>
                 }
                 {size.width < CONST.MOBILE_SIZE &&
-                    <FadeIn visible="true" delay="500" className={styles.footerMe}>
+                    <div visible="true" delay="500" className={styles.footerMe}>
                     <MusicProgressBarF
                         currentTime={currentTime}
                         duration={duration}
@@ -467,7 +488,7 @@ window.addEventListener('load', useEffect(() => {
                     />
                         <MusicControlBoxPhone />
                                 
-                    </FadeIn>
+                    </div>
                 }
                     
                    
@@ -483,7 +504,7 @@ window.addEventListener('load', useEffect(() => {
                         ref={audioRef}
                         handleDuration={setDuration}
                         handleCurrentTime={setCurrentTime}
-                        trackData={props.trackData}
+                        trackData={trackInfo}
                         isPlaying={props.isPlaying}
                         handleEnd={EndSong}
                         load={SongData}
@@ -491,7 +512,7 @@ window.addEventListener('load', useEffect(() => {
                 
             </div>
             { size.width < CONST.MOBILE_SIZE ?
-                <Lyrics currentTime={currentTime} song={props.trackData} songId={props.trackData.id} sly={props.trackData.lyrics} />
+                <Lyrics currentTime={currentTime} song={trackInfo} songId={trackInfo.id} sly={trackInfo.lyrics} />
                 : ''
             }
             

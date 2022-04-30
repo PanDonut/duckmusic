@@ -224,7 +224,6 @@ onValue(refData1, (snapshot) => {
     }
       });
 
-      console.log(d.getDate() + "." + (d.getMonth() + 1));
       const [executedCmds, setexecutedCmds] = useState(
     [
         "Wpisz help aby zobaczyć listę dostępnych komend"
@@ -361,7 +360,7 @@ onValue(refData1, (snapshot) => {
      const [warning, setWarn] = useState(true);
     return (
         <Router>
-            <div className={styles.layout}> 
+            <div className={styles.layout} onClick={() => {}}> 
             {
                 warning == true && window.location.pathname == '/' ?
                 <div className={styles.windowspromote}>
