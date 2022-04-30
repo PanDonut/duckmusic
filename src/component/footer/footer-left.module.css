@@ -29,6 +29,46 @@
     background-size: contain;
     border-radius: 2px;
 }
+
+.u {
+    background-color: rgb(36, 37, 41);
+    width: 230px;
+    color: #fff0;
+    transition: 0.15s ease;
+    border-radius: 5px;
+    animation: load 1s ease infinite alternate-reverse !important;
+}
+.um {
+    background-color: rgb(36, 37, 41);
+    color: #fff0;
+    transition: 0.15s ease;
+    border-radius: 5px;
+    animation: load 1s ease infinite alternate-reverse;
+}
+.um img {
+    opacity: 0;
+    transition: 0.15s ease;
+}
+.aaa.ui {
+    background-color: rgb(36, 37, 41);
+    width: 150px;
+    color: #fff0;
+    transition: 0.15s ease;
+    border-radius: 5px;
+    animation: load 1s ease infinite alternate-reverse;
+    height: 20px;
+    top: 40px;
+}
+
+@keyframes load {
+    from {
+        background-color: rgb(36, 37, 41);
+    }
+    to {
+        background-color: rgb(58, 60, 66);
+    }
+}
+
 .imgBox img{
     height: 100%;
     user-drag: none;

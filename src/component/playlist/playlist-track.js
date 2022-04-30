@@ -69,7 +69,7 @@ function PlaylistTrack(props) {
         >   
             <button
                 className={styles.playBtn}
-                onClick={() => props.changePlay(!props.isPlaying)}
+                onClick={() => props.changePlay(true)}
             >
                 {thisSong 
                     ? <Icons.Pause /> 

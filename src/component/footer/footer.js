@@ -428,8 +428,15 @@ window.addEventListener('load', useEffect(() => {
     }
 
     const [fstyle, setFooterStyle] = useState({opacity: 0, transform: 'translateY(130px) translateX(-50%)'});
+    const [useStyle, setUsingStyle] = useState(true);
 
     useEffect(() => {
+    if (size.width > CONST.MOBILE_SIZE) {
+        setFooterStyle({opacity: 1, transform: ''})
+    }
+}, [Math.round(currentTime)])
+    useEffect(() => {
+        if (size.width < CONST.MOBILE_SIZE) {
         setFooterStyle({opacity: 0, transform: 'translateY(130px) translateX(-50%)'})
         setTimeout(() => {
             setTR(props.trackData)
@@ -437,6 +444,15 @@ window.addEventListener('load', useEffect(() => {
         setTimeout(() => {
             setFooterStyle({opacity: 1, transform: 'translateY(0px) translateX(-50%)'})
         }, 1000)
+    } else {
+        setUsingStyle(true)
+        setTimeout(() => {
+            setTR(props.trackData)
+        }, 700)
+        setTimeout(() => {
+            setUsingStyle(false)
+        }, 2000)
+    }
     }, [props.trackData.trackKey[0], props.trackData.trackKey[1]])
 
       
@@ -456,7 +472,7 @@ window.addEventListener('load', useEffect(() => {
             
             
             
-            <div className={styles.nowplayingbar}>
+            <div className={`${styles.nowplayingbar} ${useStyle == true ? styles.loaded : ''}`}>
                 <div onClick={() => { Expand1() }} className={styles.child1}>
                     {size.width < CONST.MOBILE_SIZE &&
                         <div className={styles.footerMid}>
@@ -466,7 +482,7 @@ window.addEventListener('load', useEffect(() => {
                             />
                         </div>
                     }
-                    <FooterLeft data={trackInfo}/>
+                    <FooterLeft data={trackInfo} styleit={useStyle}/>
                 </div>
                 
                     {size.width > CONST.MOBILE_SIZE &&

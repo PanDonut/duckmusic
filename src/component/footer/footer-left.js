@@ -17,9 +17,11 @@ function FooterLeft(props, increaseIndex, decreaseIndex){
         <div className={styles.footerLeft}>
             <ImgBox 
                 trackData={props.data}
+                i={props.styleit}
             />
             <SongDetails
                 trackData={props.data}
+                i={props.styleit}
             />
         </div>
     );
@@ -42,7 +44,7 @@ function changeColor(color, amount) { // #FFF not supportet rather use #FFFFFF
 
 
 
-function ImgBox({ trackData }) {
+function ImgBox({ trackData, i }) {
     const img = useRef(null);
     return (
         <div>
@@ -62,7 +64,7 @@ function ImgBox({ trackData }) {
 									console.log(error)
 							}}
 							</Color>
-        <div className={styles.imgBox}>
+        <div className={`${styles.imgBox} ${i == true ? styles.um : ''}`}>
             <img ref={img} src={trackData.trackImg}></img>
         </div>
             <div className={styles.imgBoxfull}>
@@ -72,7 +74,7 @@ function ImgBox({ trackData }) {
     );
 }
 
-function SongDetails(props, { trackData }, increaseIndex, decreaseIndex) {
+function SongDetails(props, { trackData, i }, increaseIndex, decreaseIndex) {
     const sus = useRef(null);
     const zus = useRef(null);
     const size = useWindowSize();
@@ -131,9 +133,9 @@ useEffect(() => {
     return (
         <div>
             <div className={styles.songDetails}>
-                <p id="sas" className={`${styles.tit} ${big == true ? styles.go : ''}`} ref={sus} onLoad={() => {if (sus.current) {
+                <p id="sas" className={`${styles.tit} ${big == true ? styles.go : ''} ${props.i == true ? styles.u : ''}`} ref={sus} onLoad={() => {if (sus.current) {
     }}}>{props.trackData.trackName}</p>
-    <div ref={zus} className={`${styles.aaa} ${styles.tit2} ${biga == true ? styles.go : ''}`}>
+    <div ref={zus} className={`${styles.aaa} ${styles.tit2} ${biga == true ? styles.go : ''} ${props.i == true ? styles.ui : ''}`}>
                 { props.trackData.trackArtist.split(",").map(item => {
                     return (
                 <div className={styles.Artist1} onClick={() => {{ document.documentElement.style.setProperty('--img-opacity', '1'); { history.push('/artist/' + item.toLowerCase().split(" ").join("-"))}}}}>
