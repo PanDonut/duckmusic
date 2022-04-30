@@ -437,7 +437,7 @@ window.addEventListener('load', useEffect(() => {
         setTimeout(() => {
             setFooterStyle({opacity: 1, transform: 'translateY(0px) translateX(-50%)'})
         }, 1000)
-    }, [props.trackData.trackKey[0]])
+    }, [props.trackData.trackKey[0], props.trackData.trackKey[1]])
 
       
 
