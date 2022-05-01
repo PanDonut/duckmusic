@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { changeTrack } from '../../../actions';
 import * as Icons from '../../icons';
 import IconButton from '../../buttons/icon-button';
-import PlayButton from '../../buttons/play-button';
+import PlayButton from '../../buttons/play-ph-button';
 import { useState } from 'react';
 import { aut } from '../../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";

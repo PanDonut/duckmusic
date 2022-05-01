@@ -438,12 +438,15 @@ window.addEventListener('load', useEffect(() => {
     useEffect(() => {
         if (size.width < CONST.MOBILE_SIZE) {
         setFooterStyle({opacity: 0, transform: 'translateY(130px) translateX(-50%)'})
+        audioVolumeOut(audioRef.current, () => {props.changePlay(false)});
         setTimeout(() => {
             setTR(props.trackData)
         }, 700)
-        setTimeout(() => {
-            setFooterStyle({opacity: 1, transform: 'translateY(0px) translateX(-50%)'})
+        setTimeout(() => {       
+            setFooterStyle({opacity: 1, transform: 'translateY(0px) translateX(-50%)'});
+            props.changePlay(true)
         }, 1000)
+        audioVolumeInTime(1500, audioRef.current, () => {console.log("IN")});
     } else {
         setUsingStyle(true)
         setTimeout(() => {
@@ -454,6 +457,72 @@ window.addEventListener('load', useEffect(() => {
         }, 2000)
     }
     }, [props.trackData.trackKey[0], props.trackData.trackKey[1]])
+
+    useEffect(() => {
+        console.log(props.isPlaying)
+        if (props.isPlaying == true) {
+            audioVolumeIn(audioRef.current, () => {console.log("played")})
+        }
+    }, [props.isPlaying])
+
+    function audioVolumeIn(q, callback){
+        if(q.volume){          
+           var InT = 0;
+           var setVolume = 1; // Target volume level for new song
+           var speed = 0.1; // Rate of increase
+           q.volume = InT;
+           var eAudio = setInterval(function(){
+            console.log(q.volume)
+               InT += speed;
+               q.volume = InT.toFixed(1);
+               if(InT.toFixed(1) >= setVolume){
+                  clearInterval(eAudio);
+                  callback()
+                  //alert('clearInterval eAudio'+ InT.toFixed(1));
+               };
+           },50);
+        };
+    };
+    function audioVolumeInTime(time, q, callback){
+        if(q.volume){          
+           var InT = 0;
+           var setVolume = 1; // Target volume level for new song
+           var speed = 0.1; // Rate of increase
+           q.volume = InT;
+           setTimeout(() => {
+           var eAudio = setInterval(function(){
+            console.log(q.volume)
+               InT += speed;
+               q.volume = InT.toFixed(1);
+               if(InT.toFixed(1) >= setVolume){
+                  clearInterval(eAudio);
+                  callback()
+                  //alert('clearInterval eAudio'+ InT.toFixed(1));
+               };
+           },50);
+        }, time)
+        };
+    };
+    
+    function audioVolumeOut(q, callback){
+        if(q.volume){
+           var InT = 0.4;
+           var setVolume = 0;  // Target volume level for old song 
+           var speed = 0.1;  // Rate of volume decrease
+           q.volume = InT;
+           var fAudio = setInterval(function(){
+            if (q.paused == false) {
+               InT -= speed;
+               q.volume = InT.toFixed(1);
+               if(InT.toFixed(1) <= setVolume){
+                  clearInterval(fAudio);
+                  callback()
+                  //alert('clearInterval fAudio'+ InT.toFixed(1));
+               };
+            }
+           },50);
+        };
+    };
 
       
 
@@ -524,6 +593,8 @@ window.addEventListener('load', useEffect(() => {
                         isPlaying={props.isPlaying}
                         handleEnd={EndSong}
                         load={SongData}
+                        fadeIn={audioVolumeIn}
+                        fadeOut={audioVolumeOut}
                     />
                 
             </div>
