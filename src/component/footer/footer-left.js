@@ -118,12 +118,12 @@ useEffect(() => {
     if (sus.current && zus.current) {
         document.documentElement.style.setProperty('--size-title', sus.current.clientWidth + 'px');
         document.documentElement.style.setProperty('--size-artist', zus.current.clientWidth + 'px');
-        if (sus.current.clientWidth > size.width - 250) {
+        if (sus.current.clientWidth > size.width - 200) {
             setBig(true)
         } else {
             setBig(false)
         }
-        if (zus.current.clientWidth > size.width - 250) {
+        if (zus.current.clientWidth > size.width - 200) {
             setBiga(true)
         } else {
             setBiga(false)
