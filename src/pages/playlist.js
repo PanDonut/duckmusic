@@ -83,6 +83,8 @@ function PlaylistPage(props) {
 	
 	
 
+	const [scrolled, setScrolled] = useState(false);
+
 	const handleScroll = (e) => {
 		if (Math.round(e.target.scrollTop) > 227) {
 			document.documentElement.style.setProperty('--playbg', 'linear-gradient(180deg, rgba(11,11,11,1) 0%, rgba(11,11,11,1) 37%, rgba(11,11,11,0.8018557764902836) 78%, rgba(11,11,11,0.5553571770505077) 89%, rgba(11,11,11,0) 100%)');
@@ -90,7 +92,12 @@ function PlaylistPage(props) {
 		} else {
 			document.documentElement.style.setProperty('--playbg', 'linear-gradient(180deg, rgba(0,0,0,0.47692580450148814) 0%, rgba(0,0,0,0.4) 37%, rgba(0,0,0,0.15) 78%, rgba(0,0,0,0.1) 89%, rgba(0,0,0,0) 100%)');
         }
+		e.target.scrollTop > 200 ?
+        setScrolled(true)
+        :
+        setScrolled(false)
 	}
+	
 
 	const size = useWindowSize();
 	const [playlistIndex, setPlaylistIndex] = useState(undefined);
@@ -139,7 +146,7 @@ function PlaylistPage(props) {
 			<div className={styles.Bg}></div>
 				{size.width < CONST.MOBILE_SIZE ?
 					<Topnav playlist={true} pl={PLAYLIST}/>
-					: <Topnav normal={true}/>}
+					: <Topnav useScrolled={scrolled} normal={true}/>}
 
 			{PLAYLIST.map((item) => {
 				if (item.link == path) {
