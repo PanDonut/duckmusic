@@ -37,6 +37,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    z-index: 9999;
 }
 
 .keys {
