@@ -1,5 +1,13 @@
 
-
+:root {
+    --_dui_bg_header_mobile: #fff;
+    --_dui_drag_grid: #111;
+    --_dui_dragger: #111;
+    --_dui_dragger_border: #222;
+    --_dui_dragger_tap: #222;
+    --_dui_draw_bg: #fff;
+    --_dui_bg_btn_grid: #00000010;
+}
 
 .love {
     width: 56px !important;
@@ -79,6 +87,7 @@
     z-index: -1;
     background-color: var(--hover-home-bg);
     animation: goinP 0.5s ease;
+    height: 100vh;
 }
 
 .sus {
@@ -439,6 +448,10 @@
         height: 100vh;
         overflow: hidden;
     }
+    .PlaylistPage {
+        height: 100vh;
+        overflow: hidden;
+    }
 
     .flexselect {
         background-color: #000000;
@@ -530,6 +543,7 @@
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
+        z-index: 1;
     }
 
     .overlay {
@@ -586,3 +600,126 @@
     transform: translateX(-50%);
     top: -100px;
 }
+
+/* DUI */
+
+._dui_drag_mob_grid {
+    background-color: var(--_dui_drag_grid);
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    z-index: 6;
+    color: #fff !important;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+    ._dui_drag_mob_grid {
+      transition: 0.1s ease;
+    }
+  }
+  
+  ._dui_dragger {
+    background-color: var(--_dui_dragger);
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-bottom: solid 1px var(--_dui_dragger_border);
+    width: 100%;
+    height: 50px;
+  }
+  
+  ._dui_dragger div {
+    background-color: var(--_dui_dragger_tap);
+    width: 25%;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    position: relative;
+    border-radius: 50px;
+    transform: translateX(-50%) translateY(-50%);
+    color: #fff !important;
+  }
+
+  ._dui_wrapper_dragger_mobile_grid_grid {
+    background-color: transparent;
+    display: grid;
+    width: 100%;
+    position: relative;
+    grid-auto-flow: column;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    top: 5px;
+    border-bottom: solid 1px var(--_dui_dragger_border);
+    padding-bottom: 25px;
+    color: #fff !important;
+  }
+  
+  ._dui_wrapper_dragger_mobile_grid_grid button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: #00000000;
+    display: grid;
+    grid-template-rows: calc(100% - 30px) 30px;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    border-radius: 10px;
+    color: #fff !important;
+  }
+  
+  @media (prefers-reduced-motion: no-preference) {
+  ._dui_wrapper_dragger_mobile_grid_grid button {
+    transition: 0.25s ease;
+  }
+  }
+  
+  ._dui_wrapper_dragger_mobile_grid_grid button:active {
+    background-color: var(--_dui_bg_btn_grid);
+  }
+  
+  ._dui_wrapper_dragger_mobile_grid_grid button p {
+    font-size: 15px;
+    font-weight: 700;
+    font-family: 'Lato', sans-serif;
+  }
+  
+  ._dui_wrapper_dragger_mobile_grid_grid button img {
+    width: calc(100% - 60px);
+    border-radius: 50%;
+  }
+
+  ._dui_mgd {
+    overflow-y: scroll;
+    width: 100vw;
+    position: relative;
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-rows: 50px;
+    top: 10px;
+    height: 100%;
+  }
+  
+  ._dui_mgd button {
+    border: none;
+    background-color: transparent;
+    border-bottom: solid 1px #88888820;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff !important;
+  }
+
+  .bigger {
+      transform: scale(2) translateX(-3px);
+  }

@@ -19,12 +19,8 @@ function Download_app() {
     const size = useWindowSize();
 
     return (
-        <div className={lay.layout}>
-			{size.width > CONST.MOBILE_SIZE
-				? <Sidebar />
-				: <MobileNavigation />
-			}
-        </div>
+        <>
+        </>
     )
 }
 

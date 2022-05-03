@@ -41,11 +41,7 @@ function QueueShow(props) {
         }
     });
     return (
-        <div className={lay.layout}>
-            {size.width > CONST.MOBILE_SIZE
-                ? <Sidebar />
-                : <MobileNavigation />
-            }
+        <>
             <div className='cont'>
             <Topnav normal={true}/>
             { 
@@ -60,7 +56,7 @@ function QueueShow(props) {
             )
             }
             </div>
-            </div>
+            </>
     )
 }
 

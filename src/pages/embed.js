@@ -49,7 +49,7 @@ function EmbedPage(props) {
 	};
 
 	return (
-		<div className={lay.layout}>
+		<>
 		<div className={styles.PlaylistPage}>
 			<div className={styles.gradientBg}></div>
             <div className={styles.gradientBgSoft}></div>
@@ -102,7 +102,7 @@ function EmbedPage(props) {
                 }
 			})}
 			</div>
-			</div>
+			</>
 	);
 }
 

@@ -77,6 +77,16 @@
     background: transparent;
     position: relative;
     padding-bottom: 150px;       
+    animation: goinP 0.5s ease;
+}
+
+@keyframes goinP {
+    from {
+        opacity: 0;
+    }
+    top {
+        opacity: 1;
+    }
 }
 
 

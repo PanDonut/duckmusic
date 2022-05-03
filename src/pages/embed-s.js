@@ -52,7 +52,7 @@ function EmbedPage(props) {
 	document.documentElement.style.setProperty('--to', '0');
 
 	return (
-		<div className={lay.layout}>
+		<>
 		<div className={styles.PlaylistPage}>
 			<div className={styles.gradientBg}></div>
             <div className={styles.gradientBgSoft}></div>
@@ -106,7 +106,7 @@ function EmbedPage(props) {
                 }
 			})}
 			</div>
-			</div>
+			</>
 	);
 }
 

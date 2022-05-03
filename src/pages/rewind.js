@@ -52,11 +52,7 @@ function Rewind() {
         ])
     });
     return (
-        <div className={lay.layout}>
-            {size.width > CONST.MOBILE_SIZE
-                ? <Sidebar />
-                : <MobileNavigation />
-            } 
+        <>
             <div className='bg12'>
                 { datayear != null ?
                     datayear.map(list => {
@@ -79,7 +75,7 @@ function Rewind() {
                     : ''
                 }
             </div>
-            </div>
+            </>
     )
 }
 

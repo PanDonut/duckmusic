@@ -10,7 +10,7 @@ import div from 'react-fade-in';
 
 import styles from "./home.module.css";
 
-import React from 'react';
+import React, { useState } from 'react';
 
 import Sidebar from '../component/sidebar/sidebar';
 import {
@@ -47,6 +47,13 @@ function Hide() {
 
 
 function Home() {
+    const [scrolled, setScrolled] = useState(false);
+    const handleScroll = (e) => {
+        e.target.scrollTop > 150 ?
+        setScrolled(true)
+        :
+        setScrolled(false)
+	}
 
 
     var userAgent = navigator.userAgent || navigator.vendor || window.opera;
@@ -86,12 +93,8 @@ function Home() {
         document.documentElement.style.setProperty('--rot', 'rotate(0deg)');
     };
     return (
-        <div className={lay.layout}>
-            {size.width > CONST.MOBILE_SIZE
-                ? <Sidebar />
-                : <MobileNavigation />
-            }
-        <div className={styles.Home}>
+        <>          
+        <div className={styles.Home} onScroll={handleScroll}>
                 <ToastContainer
                     transition={Slide}
                     position="top-center"
@@ -107,7 +110,7 @@ function Home() {
             <div className={styles.HoverBg}></div>
             <div className={styles.Bg}></div>
 
-                <Topnav normal={true}/>
+                <Topnav useScrolled={scrolled} normal={true}/>
             <div className={styles.Content}>
                 <section>
                     <div className={styles.SectionTitle}>
@@ -169,7 +172,7 @@ function Home() {
                 </div>
             </div>
             
-        </div>
+        </>
     );
 }
 

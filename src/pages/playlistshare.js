@@ -100,11 +100,7 @@ function PlaylistPage(props) {
 	var embed11 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	var embed111 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed-small/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	return (
-		<div className={lay.layout}>
-			{size.width > CONST.MOBILE_SIZE
-				? <Sidebar />
-				: <MobileNavigation />
-			}
+		<>
 			<div className={styles.PlaylistPage} onScroll={handleScroll}>
 				<ToastContainer
 					position="bottom-center"
@@ -232,7 +228,7 @@ function PlaylistPage(props) {
 					} 
 					) : ''}
 			</div>
-		</div>
+		</>
 	);
 }
 

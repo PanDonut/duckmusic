@@ -7,6 +7,8 @@ import styles from './navigation.module.css';
 import { useHistory } from 'react-router';
 import * as Icons from '../icons'
 import useWindowSize from '../../hooks/useWindowSize';
+import CONST from '../../constants/index';
+import logo from '../../logomusic.png';
 
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 
@@ -30,6 +32,14 @@ function Navigation() {
               </NavLink>
               );
         })
+      }
+      {
+        size.width > CONST.MOBILE_SIZE ?
+        <button className={`${styles.button} ${styles.logoimg}`}>
+          <img src={logo} />
+                  </button>
+        :
+        ''
       }
       { window !== window.parent || userAgent.includes('wv') ?
         ''

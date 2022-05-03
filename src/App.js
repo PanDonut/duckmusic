@@ -418,7 +418,7 @@ onValue(refData1, (snapshot) => {
             </div>
             : ''
                 }
-          <Switch>
+          <Switch className={styles.main}>
             <Route exact path="/">
                 <Home />
             </Route>
@@ -495,6 +495,7 @@ onValue(refData1, (snapshot) => {
                <NotFound />
             </Route>
                 </Switch>
+                </div>
                 {show ?
                     <div
                         className="menu"
@@ -524,6 +525,10 @@ onValue(refData1, (snapshot) => {
                     </div>
                  : ''}
                 <Footer fre={footerRef} className={styles.foot}/>
+                {size.width > CONST.MOBILE_SIZE
+                ? <Sidebar />
+                : <MobileNavigation />
+            }
                 <div className='keyguide'>
                     <div className='keys'>
                         <div className='key'><h3>Otwórz / zamknij to menu</h3><div className='kes'><span>ctrl</span><span>q</span></div></div>
@@ -531,8 +536,7 @@ onValue(refData1, (snapshot) => {
                         <div className='key'><h3>Następny utwór</h3><div className='kes'><span>ctrl</span><span>m</span></div></div>
                         <div className='key'><h3>Poprzedni utwór</h3><div className='kes'><span>ctrl</span><span>b</span></div></div>
                     </div>
-                </div>                
-            </div>
+                </div>                              
             { localStorage.getItem('deviceiddm') != usd && usd != 'none' && usd != null ?
             <div className='playingoverlay'>
                 <h3>{"Odtwarzam "}<span>{utr}</span>{" na urządzeniu " + usd}</h3>

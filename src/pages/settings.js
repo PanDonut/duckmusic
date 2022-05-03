@@ -144,11 +144,7 @@ function Settings(props) {
 
 
     return (
-        <div className={lay.layout}>
-            {size.width > CONST.MOBILE_SIZE
-                ? <Sidebar />
-                : <MobileNavigation />
-            }
+        <>
             <div className="body">
                 <Topnav back={true}/>
             <div visible="true" delay="50" className="marg">
@@ -208,53 +204,11 @@ function Settings(props) {
                     <div visible="true" delay="100" className="ust">
                         <h3>Odtwarzacz</h3>
                         <section>
-                            <h4>Płynne przejście między utworami</h4>
-                            <div className="container-pp">
-                                <p>{val + "s"}</p>
-                                <input type="range" id="rang" step="1" min="0" max="10" value={val} onChange={(e) => {setVal(e.target.value); localStorage.setItem('fadetime', e.target.value); console.log(val + " " + e.target.value)}}/>
-                            </div>
-                        </section>
-                        <section>
                             <h4>Nazwa urządzenia</h4>
                             <div className="container-pt">
                                 <input type="text" id="inpt" step="1" min="0" max="10" value={suss} onChange={(e) => {sSu(e.target.value); localStorage.setItem('deviceiddm', e.target.value)}}/>
                             </div>
                         </section>
-                    </div>
-                    <div visible="true" delay="100" className="ust-disabled">
-                        <h3>{decode("U&#322;atwienia dost&#281;pu")}</h3>
-                        {size.width < CONST.MOBILE_SIZE &&
-                            <div>
-                        <section>
-                            <h4>{decode("Przesu&#324; aby przewin&#261;&#263;")}<span/></h4>
-                            <div className="container--toggle-d">
-                                {
-                                    swipe === "yes" ?
-                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick2} checked />
-                                        :
-                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick2} />
-                                }
-                                <label htmlFor="toggle" className="toggle--label">
-                                    <span className="toggle--label-background"></span>
-                                </label>
-                            </div>
-                        </section>
-                        <section>
-                            <h4>{decode("Przesu&#324; aby przewin&#261;&#263; (Pe&#322;ny ekran)")}<span /></h4>
-                            <div className="container--toggle">
-                                {
-                                    swipefull === "yes" ?
-                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick3} checked />
-                                        :
-                                        <input type="checkbox" id="toggle" className="toggle--checkbox" onClick={handleOnClick3} />
-                                }
-                                <label htmlFor="toggle" className="toggle--label">
-                                    <span className="toggle--label-background"></span>
-                                </label>
-                            </div>
-                        </section>
-                            </div>
-                        }
                     </div>
                     <div visible="true" delay="100" className="ust">
                         <h3>Debug</h3>
@@ -273,7 +227,7 @@ function Settings(props) {
                     </div>
                 </div>
                 </div>
-        </div>
+        </>
         )
 }
 

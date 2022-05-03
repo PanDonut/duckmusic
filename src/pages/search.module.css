@@ -3,10 +3,19 @@
     color: #fff;
     overflow-y: hidden;
     overflow-x: hidden;
-    padding-left: 10px;
     height: calc(100vh - 100px);
     padding-bottom: 100px;
     backdrop-filter: blur(500000px);
+    animation: goinP 0.5s ease;
+}
+
+@keyframes goinP {
+    from {
+        opacity: 0;
+    }
+    top {
+        opacity: 1;
+    }
 }
 
 :root {
@@ -41,7 +50,7 @@
     }
 
     .SeachBox input {
-        color: #000;
+        color: #fff !important;
         padding: 6px 24px;
         height: 28px;
         width: 100%;
@@ -51,8 +60,12 @@
         font-size: 14px;
         font-weight: 400;
         line-height: 16px;
-        background-color: #ffffff99;
+        background-color: #ffffff20;
         backdrop-filter: blur(50px);
+    }
+
+    .SeachBox input::placeholder {
+        color: #999 !important;
     }
 @keyframes goIn {
     0% {
@@ -86,6 +99,17 @@
     padding-bottom: 32px;
     margin-bottom: 95px;
 }
+.SearchCardGridH {
+    overflow: scroll;
+    column-gap: 24px;
+    grid-column-gap: 24px;
+    display: grid;
+    width: calc(100vw - 85px);
+    grid-auto-flow: column;
+    grid-auto-columns: auto;
+    padding-left: 10px;
+}
+
 .SearchCardGrid {
     display: grid;
     grid-column-gap: 24px;
@@ -128,7 +152,7 @@
         height: 28px;
         width: 100%;
         border: 0;
-        border-radius: 500px;
+        border-radius: 7px;
         text-overflow: ellipsis;
         font-size: 14px;
         font-weight: 400;
@@ -184,4 +208,29 @@
     .SeachBox input {
         width: 100%;
     }
+}
+
+.x {
+    position:relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #00000060;
+    top: 0;
+    right: 0;
+    transform: translate(465px, -195px);
+    transition: 0.25s ease;
+    cursor: pointer;
+}
+
+.x:hover {
+    background-color: #ffffff20; 
+}
+
+.x:after {
+    content: 'x';
+    position: relative;
+    left: 11.5px;
+    top: 2px;
+    font-weight: 100;
 }

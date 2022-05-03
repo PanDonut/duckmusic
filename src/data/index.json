@@ -330,7 +330,7 @@
 		]
 	},
 	{
-		"index": "7",
+		"index": "3",
 		"type": "playlista",
 		"title": "Świąteczne Hity",
 		"link": "christmas2021",
@@ -376,13 +376,13 @@
 		]
 	},
 	{
-		"index": "8",
+		"index": "4",
 		"type": "playlista",
 		"title": "To Weeknd!",
 		"link": "mhkrguktu8prr2w7jku3h",
 		"ex": "no",
 		"artist": "The Weeknd",
-		"promoted": "prawda",
+		"promoted": "nieprawda",
 		"promodesc": "Posłuchaj jednego z najlepszych wokalistów dekady",
 		"imgUrl": "https://i.ibb.co/Y0jRjRQ/ab67616d00001e024ab2520c2c77a1d66b9ee21d.png",
 		"hoverColor": "#1d43ab",

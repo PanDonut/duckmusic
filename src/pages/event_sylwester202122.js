@@ -48,11 +48,7 @@ function Sylwester() {
 	const audioRef = useRef(null);
 
     return (
-        <div className={lay.layout}>
-            {size.width > CONST.MOBILE_SIZE
-                ? <Sidebar />
-                : <MobileNavigation />
-            }
+        <>
 			<div className="sylwester">
 				{
 					arr.filter((list) => arr.indexOf(list) == 1).map((item) => {
@@ -75,7 +71,7 @@ function Sylwester() {
 					)
 				}
             </div>
-        </div>
+        </>
         )
 }
 

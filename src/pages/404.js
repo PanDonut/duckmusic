@@ -40,11 +40,7 @@ function NotFound() {
     });
 
     return (
-        <div className={lay.layout}>
-            {size.width > CONST.MOBILE_SIZE
-                ? <Sidebar />
-                : <MobileNavigation />
-            }
+        <>
            <div className={styles.PlaylistPage}>
                 <ToastContainer
                     transition={Slide}
@@ -69,7 +65,7 @@ function NotFound() {
 							</div>
                 </div>
             </div>
-            </div>
+            </>
     );
 }
 

@@ -38,6 +38,46 @@ import MobileNavigation from '../component/sidebar/mobile-navigation';
 import convertTime from '../functions/convertTimeTxt';
 import div from 'react-fade-in';
 
+
+
+const clamp = (val, in_min, in_max, out_min, out_max) => (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+
+function DraggableMobileGrid({gridbuttons, listbuttons, topHook, setHook}) {
+	const size = useWindowSize();
+	return (
+	  <div className={styles._dui_wrapper_drag_mob_grid}>
+		<div className={styles._dui_dragger_bg} style={{opacity: (90 - topHook) / 100}} onClick={() => {setHook(100)}}></div>
+	  <div style={{top: `${topHook}%`}} className={styles._dui_drag_mob_grid}>
+		<div className={styles._dui_dragger} onTouchStart={(e) => {console.log(e)}} onTouchMove={(e) => {if (topHook > 0) {setHook(clamp(e.touches[0].clientY, 0, size.height, 0, 100))}}} onTouchEnd={() => {if (topHook <= 50) {setHook(5)} else if (topHook > 50 && topHook < 80) {setHook(35)} else {setHook(100)}}}>
+		  <div/>
+		</div>
+		<div style={{gridAutoColumns: gridbuttons.length == 1 ? `25vw` : `${100 / gridbuttons.length}vw`, height: gridbuttons.length == 1 ? `25vw` : `${100 / gridbuttons.length}vw`}} className={styles._dui_wrapper_dragger_mobile_grid_grid}>
+		{
+		  gridbuttons != undefined ?
+		  gridbuttons.map((item) => {
+			return (
+			  <button key={item.text} onClick={item.action}>{item.icon}<p>{item.text}</p></button>
+			)
+		  })
+		  : ''
+		}
+		</div>
+		<div className={styles._dui_mgd}>
+		  {
+			listbuttons != undefined ?
+			listbuttons.map((item) => {
+			  return (
+				<button key={item.text} onClick={item.action}>{item.text}</button>
+			  )
+			})
+			: ''
+		  }
+		</div>
+	  </div>
+	  </div>
+	)
+  }
+
 function PlaylistPage(props) {
 
 	
@@ -82,11 +122,7 @@ function PlaylistPage(props) {
 	var embed11 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	var embed111 = "<div id='embed-duckmusic-eFf56ch'>" + "\n <iframe class='embed-duckmusic-eFf56ch' src='" + "https://duckmusic.vercel.app/embed-small/" + path + "' frameBorder='0'></iframe>" + "\n <style>" + "\n .embed-duckmusic-eFf56ch {width: 100%;height: 100%;} #embed-duckmusic-eFf56ch {width: 400px;height: 600px;}" + "\n </style>" + "\n </div>";
 	return (
-		<div className={lay.layout}>
-			{size.width > CONST.MOBILE_SIZE
-				? <Sidebar />
-				: <MobileNavigation />
-			}
+		<>
 			<div className={styles.PlaylistPage} onScroll={handleScroll}>
 				<ToastContainer
 					position="bottom-center"
@@ -240,7 +276,7 @@ function PlaylistPage(props) {
                 }
 			})}
 			</div>
-		</div>
+		</>
 	);
 }
 

@@ -28,15 +28,18 @@ import { CreateEmptyPlaylist } from '../playlistcreator';
 
 
 function Library(props) {
+    const [scrolled, setScrolled] = useState(false);
+    const handleScroll = (e) => {
+        e.target.scrollTop > 75 ?
+        setScrolled(true)
+        :
+        setScrolled(false)
+	}
     const size = useWindowSize();
     return (
-        <div className={lay.layout}>
-            {size.width > CONST.MOBILE_SIZE
-                ? <Sidebar />
-                : <MobileNavigation />
-            }
-            <div className={styles.LibPage}>
-                <Topnav normal={true} />
+        <>
+            <div className={styles.LibPage} onScroll={handleScroll}>
+                <Topnav normal={true} sB={scrolled} />
                 <div className={styles.Library}>
                     <Route exact path="/library"><PlaylistTab /></Route>
                     <Route path="/library/podcasts"><PodcastTab /></Route>
@@ -44,7 +47,7 @@ function Library(props) {
                     <Route path="/library/albums"><AlbumTab /></Route>
                 </div>
             </div>
-        </div>
+        </>
     );
 }
 

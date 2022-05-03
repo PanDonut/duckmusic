@@ -6,7 +6,7 @@ import TextBoldL from "../text/text-bold-l";
 import TextRegularM from '../text/text-regular-m';
 import PlayButton from '../buttons/play-button';
 import div from 'react-fade-in';
-import styles from "./playlist-card-m-c.module.css";
+import styles from "./playlist-card-m-search.module.css";
 import SONGLIST from '../../data/songs.json'
 import { useCallback } from "react";
 import * as Icons from '../icons/index';

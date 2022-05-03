@@ -94,10 +94,6 @@ function Home({ isExpanded = false }) {
     };
     return (
         <div className={lay.layout} onTouchStart={touchStartEvent => handleTouchStart(touchStartEvent)} onTouchMove={touchMoveEvent => handleTouchMove(touchMoveEvent)} onTouchEnd={() => handleTouchEnd()}>
-            {size.width > CONST.MOBILE_SIZE
-                ? <Sidebar />
-                : <MobileNavigation />
-            }
             <div className={styl.Home}>
                 <ToastContainer
                     transition={Slide}

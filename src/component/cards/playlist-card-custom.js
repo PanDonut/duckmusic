@@ -19,8 +19,27 @@ function PlaylistCardM(props) {
 		<div className={styles.PlaylistCardSBox}>
 			<Link to={`/myplaylist/${props.data.link}`}>
 				<div visible="true" delay="100" className={styles.PlaylistCardS}>
-					<div className={`${styles.ImgBox} ${loaded == true ? '' : styles.loader}`}>
+					<div className={`${styles.ImgBox} ${props.data.playlistData.length >= 4 ? styles.gridImg : ''} ${loaded == true ? '' : styles.loader}`}>
+						{ props.data.playlistData.length < 4 ?
 						<img onLoad={() => {setLoad(true)}} src={props.data.playlistData[0] != undefined ? SONGS[props.data.playlistData[0].songindex].songimg : "https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/no.png?alt=media&token=b23a34e3-5ea9-4c32-bc04-19c0c05c99cd"} alt={props.data.title} />
+						:
+						<img src={SONGS[props.data.playlistData[0].songindex].songimg} alt={props.data.title} />
+						}
+						{ props.data.playlistData.length >= 4 ?
+						<img src={SONGS[props.data.playlistData[1].songindex].songimg} alt={props.data.title} />
+						:
+						''
+						}
+						{ props.data.playlistData.length >= 4 ?
+						<img src={SONGS[props.data.playlistData[2].songindex].songimg} alt={props.data.title} />
+						:
+						''
+						}
+						{ props.data.playlistData.length >= 4 ?
+						<img onLoad={() => {setLoad(true)}} src={SONGS[props.data.playlistData[3].songindex].songimg} alt={props.data.title} />
+						:
+						''
+						}
 					</div>
 					<div className={`${styles.Title} ${loaded == true ? '' : styles.loader}`}>
 						<TextBoldL>{props.data.title}</TextBoldL>

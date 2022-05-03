@@ -128,8 +128,8 @@ svg{
   font-size: 24px;
 }
 ::-webkit-scrollbar {
-    width: 10px;
-    height: 14px;    
+    width: 0px;
+    height: 0px;    
 }
 
 ::-webkit-scrollbar-thumb {
@@ -148,9 +148,7 @@ svg{
 }
 ::-moz-selection { color: inherit;  background: transparent; }
 ::selection      { color: inherit;  background: transparent; } 
-nav .activeLink button{
-  background-color: var(--sidenav-active);
-}
+
 nav .activeLink button p,
 nav .activeLink button svg{
   color: var(--text-white);

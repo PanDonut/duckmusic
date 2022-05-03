@@ -49,9 +49,47 @@ import Color from 'color-thief-react';
 
 const db = getDatabase(aut);
 var nameRef1 = ref(db, 'users/');
+const clamp = (val, in_min, in_max, out_min, out_max) => (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
 
+function DraggableMobileGrid({gridbuttons, listbuttons, topHook, setHook}) {
+	const size = useWindowSize();
+	return (
+	  <div className={styles._dui_wrapper_drag_mob_grid}>
+		<div className={styles._dui_dragger_bg} style={{opacity: (90 - topHook) / 100}} onClick={() => {setHook(100)}}></div>
+	  <div style={{top: `${topHook}%`}} className={styles._dui_drag_mob_grid}>
+		<div className={styles._dui_dragger} onTouchStart={(e) => {console.log(e)}} onTouchMove={(e) => {if (topHook > 0) {setHook(clamp(e.touches[0].clientY, 0, size.height, 0, 100))}}} onTouchEnd={() => {if (topHook <= 50) {setHook(5)} else if (topHook > 50 && topHook < 80) {setHook(35)} else {setHook(100)}}}>
+		  <div/>
+		</div>
+		<div style={{gridAutoColumns: gridbuttons.length == 1 ? `25vw` : `${100 / gridbuttons.length}vw`, height: gridbuttons.length == 1 ? `25vw` : `${100 / gridbuttons.length}vw`}} className={styles._dui_wrapper_dragger_mobile_grid_grid}>
+		{
+		  gridbuttons != undefined ?
+		  gridbuttons.map((item) => {
+			return (
+			  <button key={item.text} onClick={item.action}>{item.icon}<p>{item.text}</p></button>
+			)
+		  })
+		  : ''
+		}
+		</div>
+		<div className={styles._dui_mgd}>
+		  {
+			listbuttons != undefined ?
+			listbuttons.map((item) => {
+			  return (
+				<button key={item.text} onClick={item.action}>{item.text}</button>
+			  )
+			})
+			: ''
+		  }
+		</div>
+	  </div>
+	  </div>
+	)
+  }
 
 function PlaylistPage(props) {
+	const [t, s] = useState(100);
+
 	const [useControls, setUseControls] = useState(false);
 	useEffect(() => {
 		setTimeout(() => {
@@ -124,11 +162,7 @@ function PlaylistPage(props) {
 
 	const [sho, setSho] = useState(false);
 	return (
-		<div className={lay.layout}>
-			{size.width > CONST.MOBILE_SIZE
-				? <Sidebar />
-				: <MobileNavigation />
-			}
+		<>
 			<div className={styles.PlaylistPage11} onScroll={handleScroll}>
 				<ToastContainer
 					position="bottom-center"
@@ -141,7 +175,7 @@ function PlaylistPage(props) {
 					draggable
 					pauseOnHover				/>
 				{size.width < CONST.MOBILE_SIZE ?
-					<Topnav playlist={true} />
+					<Topnav playlist={true} isSong={s} />
 					: <Topnav normal={true}/>}
 
 				{SONGLIST.map((item) => {
@@ -178,20 +212,7 @@ function PlaylistPage(props) {
 									</div>									
 								</div>
 								: ''
-                            }
-							{size.width < CONST.MOBILE_SIZE && navigator.onLine &&
-								<div className={styles.overlay}>
-									<PlaylistDetails data={item} />
-									<div className={styles.ovlist}>
-										<button className={styles.btn} onClick={() => { setSho(true) }}>
-
-
-											<AddButton />
-											<h2>Dodaj do playlisty</h2>
-										</button>
-									</div>
-								</div>
-							}
+                            }						
 
 							<PlaylistDetails data={item} con={useControls}/>
 							<div className={styles.GridIcons}>
@@ -241,6 +262,32 @@ function PlaylistPage(props) {
 										</button>
 									</div>
 								}
+								{size.width < CONST.MOBILE_SIZE && navigator.onLine && PLAYLISTC != null &&
+									<DraggableMobileGrid topHook={t} setHook={s} 
+									listbuttons={
+										PLAYLISTC.map(list => {
+											return {
+												"text": list.title,
+												"action": () => {
+													AddToPlaylist(SONGLIST.indexOf(item), PLAYLISTC.indexOf(list)); s(100);
+												}
+											}
+										})
+								    } 
+									gridbuttons={[{"icon": <div className={`${styles.love} ${styles.bigger} ${likedSongs.includes(SONGLIST.indexOf(item)) ? styles.isactive : ''}`}><title>Lubię to!</title></div>,"text": " ","action": () => {
+										if (!likedSongs.includes(SONGLIST.indexOf(item))) {
+											setLikedSongs(oldArray => [...oldArray, SONGLIST.indexOf(item)]);
+											console.log(likedSongs);
+											var dat = likedSongs;
+											dat.push(SONGLIST.indexOf(item))
+											set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/dmusic"), {
+												liked: JSON.stringify(dat)
+										});
+									} else {
+										RemoveLiked(likedSongs.indexOf(SONGLIST.indexOf(item))); forceUpdate()
+									}
+									}}]} />
+								}
 								
 							</div>
 
@@ -249,7 +296,7 @@ function PlaylistPage(props) {
                 }
 			})}
 			</div>
-		</div>
+		</>
 	);
 }
 

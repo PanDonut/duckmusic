@@ -6,7 +6,7 @@ import TextBoldL from "../text/text-bold-l";
 import TextRegularM from '../text/text-regular-m';
 import PlayButton from '../buttons/play-button';
 import div from 'react-fade-in';
-import styles from "./playlist-card-m.module.css";
+import styles from "./playlist-card-m-search.module.css";
 import PLAYLIST from '../../data/index.json'
 import { AddToHistory } from "./funcs";
 

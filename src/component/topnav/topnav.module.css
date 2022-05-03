@@ -6,10 +6,20 @@
     height: 60px;
     z-index: 99;
     background-color: transparent;
+    transition: background-color 0.25s ease;
 }
 .Topnav div {
     padding: 10px 32px;
 }
+
+.navA {
+    background-color: var(--hover-home-bg);
+}
+
+.navI {
+    background-color: #000;
+}
+
 .Topnav div div{
     position: relative;
     margin: 0;

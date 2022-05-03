@@ -14,13 +14,17 @@ import { useEffect } from 'react';
 import * as Icons from '../icons';
 
 
-function Topnav({ search = false, tabButtons = false, normal = false, playlist = false, back = false, pl }, props) {
+function Topnav({ sB = false, useScrolled = false, search = false, tabButtons = false, normal = false, playlist = false, back = false, pl, isSong = undefined }, props) {
 	const size = useWindowSize();
 	let history = useHistory();
 	const { path } = useParams();
 
 	function open() {
+		if (isSong == undefined) {
 		document.documentElement.style.setProperty('--dispopen', 'block');
+		} else {
+			isSong(35);
+		}
     }
 	const [sus, setSus] = useState(false);
 	const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
@@ -45,7 +49,7 @@ function Topnav({ search = false, tabButtons = false, normal = false, playlist =
     });
 
     return (
-		<nav className={styles.Topnav}>
+		<nav className={`${styles.Topnav} ${useScrolled == true ? styles.navA : sB == true ? styles.navI : ''}`}>
 			{sus ?
                     <div
                         className="menu fx"

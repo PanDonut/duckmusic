@@ -1,20 +1,35 @@
 .PlaylistCardSBox{
     position: relative;
     overflow: hidden;
-    transition: transform 0s ease;
+    transition: transform 0s ease, background-color 0.25s ease;
+    width: 500px;
+    border-radius: 7px;
+    height: 200px;
+    background-color: #ffffff02;
+    top: 0;
 }
+
+.PlaylistCardSBox:hover {
+    background-color: #ffffff10;
+    cursor: pointer;
+}
+
 .PlaylistCardS {
     position: relative;
     padding: 16px;
-    border-radius: 4px;
     -webkit-transition: background-color .3s ease;
     transition: background-color .3s ease;
-    min-height: 100px;
+    display: flex;
+    top: 0;
 }
 .ImgBox{
-    position: relative;
+    position: absolute;
     -webkit-box-shadow: 0 -4px 16px rgb(0 0 0 / 50%);
     box-shadow: 0 -4px 16px rgb(0 0 0 / 50%);
+    width: 150px;
+    height: 150px;
+    top: 25px;
+    left: 25px;
 }
 .ImgBox img{
     height: 100%;
@@ -69,6 +84,8 @@
 .Title{
     margin-top: 16px;
     min-height: 62px;
+    position: absolute;
+    left: 190px;
 }
 .Title p{
     margin: 0px;
@@ -78,6 +95,8 @@
     color: var(--text-gray);
     margin-top: 4px;
     -webkit-line-clamp: 2;
+    max-width: 300px;
+    max-height: 100px;
 }
 .PlaylistCardSBox:hover .IconBox{
     opacity: 1;

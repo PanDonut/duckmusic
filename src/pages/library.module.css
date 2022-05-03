@@ -4,6 +4,17 @@
     overflow-x: hidden;
     background-color: var(--main-background);
     backdrop-filter: blur(500000px);
+    animation: goinP 0.5s ease;
+    height: 100vh;
+}
+
+@keyframes goinP {
+    from {
+        opacity: 0;
+    }
+    top {
+        opacity: 1;
+    }
 }
 .Library{
     padding: 32px;
