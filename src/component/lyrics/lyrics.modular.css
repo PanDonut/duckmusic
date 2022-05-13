@@ -188,6 +188,7 @@ h6 {
     display: var(--disp-ly);
     transform: var(--expanded);
     width: 100%;
+    overflow: hidden;
 }
 
 .mm-lyrics1 {

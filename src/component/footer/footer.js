@@ -37,6 +37,22 @@ import {
 } from "@mebtte/react-media-session";
 
 function Footer(props) {
+  async function showPictureInPictureWindow() {
+    const canvas = document.createElement('canvas');
+canvas.width = canvas.height = 512;
+
+const video = document.createElement('video');
+video.srcObject = canvas.captureStream();
+video.muted = true;
+    const image = new Image();
+    image.crossOrigin = true;
+    image.src = [...navigator.mediaSession.metadata.artwork].pop().src;
+    await image.decode();
+  
+    canvas.getContext('2d').drawImage(image, 0, 0, 512, 512);
+    await video.play();
+    await video.requestPictureInPicture();
+  }
   const [trackInfo, setTR] = useState({
     songid: "0",
     trackKey: [0, 0],
