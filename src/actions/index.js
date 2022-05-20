@@ -4,6 +4,8 @@ export const CUSTOMTRACK = "CUSTOMTRACK";
 export const SONGTRACK = "SONGTRACK";
 export const FIREBASEG = "FIREBASEG";
 export const KONSOL = "KONSOL"
+export const REWINDY = "REWINDY"
+export const REW = "REW"
 
 export const changePlay = (isPlaying) => {
   return { type: PLAYPAUSE, payload: isPlaying };
@@ -28,4 +30,10 @@ export const firebaseg = (trackKey) => {
 
 export const konsol = (trackKey) => {
   return { type: KONSOL, payload: trackKey };
+};
+export const setrewind = (trackKey) => {
+  return { type: REW, payload: trackKey };
+};
+export const setrewinyear = (trackKey) => {
+  return { type: REWINDY, payload: trackKey };
 };

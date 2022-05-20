@@ -1,6 +1,6 @@
 import PLAYLIST from "../data/index.json";
 import SONGLIST from "../data/songs.json";
-import { PLAYPAUSE, CHANGETRACK, CUSTOMTRACK, SONGTRACK, FIREBASEG, KONSOL } from "../actions/index";
+import { PLAYPAUSE, CHANGETRACK, CUSTOMTRACK, SONGTRACK, FIREBASEG, KONSOL, REW, REWINDY } from "../actions/index";
 import axios from 'axios';
 import { aut } from '../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
@@ -32,6 +32,8 @@ const INITIAL_STATE = {
         isCustom: false
     },
     konsola: false,
+    rewind: false,
+    rewindyear: '2022',
     lyrics: [],
     currentLine: 0,
     loading: true,
@@ -153,6 +155,16 @@ export const reducer = (state = INITIAL_STATE, action) => {
         return {
             ...state,
             konsola: action.payload
+        }
+      case REW:
+        return {
+            ...state,
+            rewind: action.payload
+        }
+      case REWINDY:
+        return {
+            ...state,
+            rewindyear: action.payload
         }
 
     default:
