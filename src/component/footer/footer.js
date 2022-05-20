@@ -582,7 +582,6 @@ video.muted = true;
         transform: "translateY(130px) translateX(-50%)",
       });
       audioVolumeOut(audioRef.current, () => {
-        props.changePlay(false);
       });
       setTimeout(() => {
         setTR(props.trackData);
@@ -592,7 +591,6 @@ video.muted = true;
           opacity: 1,
           transform: "translateY(0px) translateX(-50%)",
         });
-        props.changePlay(true);
       }, 1000);
       audioVolumeInTime(1500, audioRef.current, () => {
         console.log("IN");
