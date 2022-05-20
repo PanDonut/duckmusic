@@ -59,10 +59,12 @@ import Download_app from "./pages/download_app";
 import ShareCustomPlaylist from "./pages/playlistshare";
 import ShowOff from "./pages/showoff";
 import ViewRewind from "./pages/rewind_viewer";
+
 let indexn = null;
 
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function App(props) {
+  
   const [si, sE] = useState(false);
   const db1 = getDatabase();
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
@@ -1074,11 +1076,7 @@ function App(props) {
       ) : (
         ""
       )}
-      { props.rewind == true ?
-      <ViewRewind year={props.rewindyear}/>
-      :
-      ''
-      }
+      {props.rewind == true ? <ViewRewind year={props.rewindyear} /> : ""}
       {props.konsola == true ? (
         <Draggable>
           <div className="console-lay">
@@ -1177,7 +1175,7 @@ const mapStateToProps = (state) => {
     isPlaying: state.isPlaying,
     konsola: state.konsola,
     rewindyear: state.rewindyear,
-    rewind: state.rewind
+    rewind: state.rewind,
   };
 };
 
