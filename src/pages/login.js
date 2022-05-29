@@ -15,7 +15,7 @@ export default function LoginPage() {
             event.source.postMessage("closenow", "*")
         }     
     });
-    window.open("http://localhost:3001/v2/auth/login", 'Logowanie', "popup")
+    window.open("https://login.theduck.ml/v2/auth/login", 'Logowanie', "popup")
   }, []);
   return <div className="loginpage"></div>;
 }
