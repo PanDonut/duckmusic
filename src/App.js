@@ -21,7 +21,7 @@ import {
   logEvent,
 } from "firebase/analytics";
 import { getDatabase, ref, onValue, set } from "firebase/database";
-import { signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import useWindowSize from "./hooks/useWindowSize";
 import Sidebar from "./component/sidebar/sidebar";
 import MobileNavigation from "./component/sidebar/mobile-navigation";
@@ -294,9 +294,13 @@ function App(props) {
     ""
   );
 
+  const auth = getAuth();
+
   useEffect(() => {
     if (GetUID() != null && localStorage.getItem("dmpass") != null) {
-      console.log(
+      signInWithEmailAndPassword(
+        auth,
+        localStorage.getItem("emaildm"),
         localStorage
           .getItem("dmpass")
           .split("")
