@@ -11,6 +11,7 @@ import { useHistory } from "react-router-dom";
 import PLAYLIST from "../../data/index.json";
 import Color from 'color-thief-react';
 import useWindowSize from '../../hooks/useWindowSize'
+import { GetUID } from "../../pages/functions";
 
 function FooterLeft(props, increaseIndex, decreaseIndex){
     return (
@@ -98,7 +99,7 @@ function SongDetails(props, { trackData, i }, increaseIndex, decreaseIndex) {
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
     if (localStorage.getItem("emaildm") != null) {
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {

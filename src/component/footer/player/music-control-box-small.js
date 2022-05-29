@@ -8,13 +8,14 @@ import { aut } from '../../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import PLAYLIST from "../../../data/index.json";
 import styles from "./music-control-box-small.module.css";
+import { GetUID } from '../../../pages/functions';
 
 function MusicControlBox(props, {audioRef}) {
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
     if (localStorage.getItem('emaildm') != null) {
-        const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+        const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
         onValue(nameRef, (snapshot) => {
             const data = snapshot.val();
             if (data != null) {

@@ -36,21 +36,22 @@ import {
   HAS_MEDIA_SESSION,
 } from "@mebtte/react-media-session";
 import { GetUID } from "../../pages/functions";
+import { useHistory } from "react-router-dom";
 
 function Footer(props) {
   async function showPictureInPictureWindow() {
-    const canvas = document.createElement('canvas');
-canvas.width = canvas.height = 512;
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = 512;
 
-const video = document.createElement('video');
-video.srcObject = canvas.captureStream();
-video.muted = true;
+    const video = document.createElement("video");
+    video.srcObject = canvas.captureStream();
+    video.muted = true;
     const image = new Image();
     image.crossOrigin = true;
     image.src = [...navigator.mediaSession.metadata.artwork].pop().src;
     await image.decode();
-  
-    canvas.getContext('2d').drawImage(image, 0, 0, 512, 512);
+
+    canvas.getContext("2d").drawImage(image, 0, 0, 512, 512);
     await video.play();
     await video.requestPictureInPicture();
   }
@@ -75,7 +76,7 @@ video.muted = true;
     const nameRef = ref(
       db,
       "users/" +
-        localStorage.getItem("emaildm").split(".").join("") +
+        GetUID() +
         "/duckmusic/playlist"
     );
     onValue(nameRef, (snapshot) => {
@@ -435,6 +436,8 @@ video.muted = true;
     }
   };
 
+  const history = useHistory();
+
   window.addEventListener(
     "load",
     useEffect(() => {
@@ -488,11 +491,10 @@ video.muted = true;
       }
       if (
         GetUID() == null &&
-        window.location.pathname != "/logout"
+        window.location.pathname != "/logout" &&
+        window.location.pathname != "/login"
       ) {
-        document.location.href =
-          "https://dauth.vercel.app/v2/auth/login&redirect=duckmusic.vercel.app/continue=" +
-          window.location.pathname.split("/").join(">");
+        history.push("/login")
       }
     }, [])
   );
@@ -582,8 +584,7 @@ video.muted = true;
         opacity: 0,
         transform: "translateY(130px) translateX(-50%)",
       });
-      audioVolumeOut(audioRef.current, () => {
-      });
+      audioVolumeOut(audioRef.current, () => {});
       setTimeout(() => {
         setTR(props.trackData);
       }, 700);
@@ -777,4 +778,9 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {changeTrack, changePlay, customTrack, songTrack,})(Footer);
+export default connect(mapStateToProps, {
+  changeTrack,
+  changePlay,
+  customTrack,
+  songTrack,
+})(Footer);

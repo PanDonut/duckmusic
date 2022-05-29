@@ -13,7 +13,7 @@ import SONGLIST from '../data/songs.json'
 import { useState } from 'react';
 import {getDatabase, get, set, ref, onValue} from 'firebase/database'
 import { aut } from '../dauth.js'
-
+import { GetUID } from './functions';
 function QueueShow(props) {
     const size = useWindowSize();
     const history = useHistory();
@@ -23,7 +23,7 @@ function QueueShow(props) {
     const [datamap, setDMap] = useState(``);
     const [posts, setPosts] = useState(null);
     const db = getDatabase(aut);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {

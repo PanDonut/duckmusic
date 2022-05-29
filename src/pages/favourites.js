@@ -44,8 +44,8 @@ function PlaylistPage(props) {
 
 	const [PLAYLIST, setPLAYLIST] = useState(null);
 	const db = getDatabase(aut);
-	const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
-	const nameRef1 = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/liked');
+	const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
+	const nameRef1 = ref(db, 'users/' + GetUID() + '/duckmusic/liked');
     onValue(nameRef1, (snapshot) => {
         const data = snapshot.val();
             if (data != null || data != undefined) {

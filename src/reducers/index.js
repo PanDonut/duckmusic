@@ -5,11 +5,12 @@ import axios from 'axios';
 import { aut } from '../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { useState } from 'react';
+import { GetUID } from "../pages/functions";
 
 let CPLAYLIST = null;
 const db = getDatabase(aut);
 if (localStorage.getItem('emaildm') != null) {
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (CPLAYLIST == null) {

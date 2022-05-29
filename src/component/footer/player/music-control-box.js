@@ -15,6 +15,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { aut } from '../../../dauth';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { decode } from 'he';
+import { GetUID } from '../../../pages/functions';
 
 function MusicControlBox(props, {audior}) {
 
@@ -25,7 +26,7 @@ function MusicControlBox(props, {audior}) {
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
     if (localStorage.getItem('emaildm') != null) {
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {

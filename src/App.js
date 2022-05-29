@@ -65,6 +65,7 @@ import Confetti from "canvas-confetti";
 import { io } from "socket.io-client";
 import { CreateEmptyPlaylist } from "./playlistcreator";
 import { GetUID } from "./pages/functions";
+import LoginPage from "./pages/login";
 
 let indexn = null;
 
@@ -294,7 +295,7 @@ function App(props) {
     ""
   );
 
-  const auth = getAuth();
+  const auth = getAuth(aut);
 
   useEffect(() => {
     if (GetUID() != null && localStorage.getItem("dmpass") != null) {
@@ -1031,6 +1032,9 @@ function App(props) {
           </Route>
           <Route exact path="/info">
             <Info />
+          </Route>
+          <Route exact path="/login">
+            <LoginPage />
           </Route>
           <Route>
             <NotFound />

@@ -12,6 +12,7 @@ import SONGS from '../../data/songs.json';
 import styles from "./playlist-track.module.css";
 import { RgbStringColorPicker } from "react-colorful";
 import { CreatePlaylist, AddToPlaylist } from '../../playlistcreator'
+import { GetUID } from "../../pages/functions";
 
 function PlaylistTrack(props) {
     const [thisSong, setthisSong] = useState(false);
@@ -38,7 +39,7 @@ function PlaylistTrack(props) {
 
     const [PLAYLIST, setPLAYLIST] = useState(null);
     const db = getDatabase(aut);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {

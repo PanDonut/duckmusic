@@ -9,7 +9,7 @@ function Logout() {
     localStorage.removeItem("namedm");
     localStorage.removeItem("emaildm");
     localStorage.removeItem("dmpass");
-    SetUID(null);
+    localStorage.removeItem("duckmusic.userid");
 
     setTimeout(function () {
       window.location.replace("https://duckmusic.vercel.app/");

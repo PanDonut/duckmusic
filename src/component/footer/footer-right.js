@@ -9,6 +9,7 @@ import useWindowSize from '../../hooks/useWindowSize';
 import MusicControlBoxPh from './player/music-control-box-ph';
 import Connection from '../../pages/connection';
 import { useHistory } from 'react-router-dom';
+import { GetUID } from "../../pages/functions";
 
 function FooterRight({ volume, setVolume, ctime, opn, clo }) {
 
