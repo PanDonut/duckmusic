@@ -61,6 +61,7 @@
     -ms-user-select: none;
     z-index: -1;
     animation: goinP 0.5s ease;
+    min-height: 100vh;
 }
 
 @keyframes goinP {
@@ -722,4 +723,14 @@
 
   .bigger {
       transform: scale(2) translateX(-3px);
+  }
+
+
+  .heartcanvas {
+      position: absolute;
+      z-index: 99999;
+      background-color: transparent;
+      pointer-events: none;
+      left: -45px;
+      bottom: 15px;
   }

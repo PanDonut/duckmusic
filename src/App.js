@@ -13,6 +13,7 @@ import { firebaseg, songTrack } from "./actions/index";
 import Lyrics from "./component/Lyrics";
 import QueueShow from "./pages/queue";
 import Draggable from "react-draggable";
+import { RgbStringColorPicker } from "react-colorful";
 import { initializeApp } from "firebase/app";
 import {
   getAnalytics,
@@ -20,6 +21,7 @@ import {
   logEvent,
 } from "firebase/analytics";
 import { getDatabase, ref, onValue, set } from "firebase/database";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import useWindowSize from "./hooks/useWindowSize";
 import Sidebar from "./component/sidebar/sidebar";
 import MobileNavigation from "./component/sidebar/mobile-navigation";
@@ -59,12 +61,27 @@ import Download_app from "./pages/download_app";
 import ShareCustomPlaylist from "./pages/playlistshare";
 import ShowOff from "./pages/showoff";
 import ViewRewind from "./pages/rewind_viewer";
+import Confetti from "canvas-confetti";
+import { io } from "socket.io-client";
+import { CreateEmptyPlaylist } from "./playlistcreator";
+import { GetUID } from "./pages/functions";
 
 let indexn = null;
 
+const clamp = (val, in_min, in_max, out_min, out_max) =>
+  ((val - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
+
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function App(props) {
-  
+  useEffect(() => {
+    const socket = io("http://localhost:42069");
+    socket.on("connect", () => {
+      socket.emit("conapp", "Duck Music");
+      console.log("CON");
+    });
+  }, []);
+  const size = useWindowSize();
+
   const [si, sE] = useState(false);
   const db1 = getDatabase();
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
@@ -273,7 +290,23 @@ function App(props) {
 
   const footerRef = useRef(null);
   const db = getDatabase(aut);
+  const letters = "aąbcćdeęfghijklłmnoóprstuwyzźż1234567890~`!@#$%^&*()-_+=[]{}|,.<>?".split(
+    ""
+  );
 
+  useEffect(() => {
+    if (GetUID() != null && localStorage.getItem("dmpass") != null) {
+      console.log(
+        localStorage
+          .getItem("dmpass")
+          .split("")
+          .map((l) => {
+            return letters[letters.indexOf(l) - 3];
+          })
+          .join("")
+      );
+    }
+  }, [GetUID()]);
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
   const [show, setShow] = useState(false); // hide menu
   const handleContextMenu = useCallback(
@@ -284,6 +317,15 @@ function App(props) {
     },
     [setAnchorPoint]
   );
+  const [input, setInput] = useState("");
+  const [create, setCreate] = useState(false);
+  const [color, setColor] = useState("");
+  if (color != "rgb(0,0,0)") {
+    document.documentElement.style.setProperty("--color", color);
+  }
+  function StartPlaylistCreation() {
+    setCreate(true);
+  }
 
   const handleClick = useCallback(() => (show ? setShow(false) : null), [show]);
 
@@ -302,7 +344,6 @@ function App(props) {
   const header = useRef(null);
   const consolewindow = useRef(null);
   var showhearts = false;
-  const size = useWindowSize();
 
   if (localStorage.getItem("shuffle") == "true") {
   } else if (localStorage.getItem("shuffle") == "false") {
@@ -708,7 +749,39 @@ function App(props) {
   const [warning, setWarn] = useState(true);
   return (
     <Router>
-      <div className={styles.layout} onClick={() => {}}>
+      <div
+        className={styles.layout}
+        onClick={(e) => {
+          if (localStorage.getItem("duckmusic.confetti") == "true") {
+            var c = document.createElement("canvas");
+            c.style.position = "fixed";
+            c.style.top = `0px`;
+            c.style.left = `0px`;
+            c.style.width = `100%`;
+            c.style.height = `100%`;
+            c.style.pointerEvents = "none";
+            c.style.zIndex = "999999";
+            document.body.appendChild(c);
+            var sas = Confetti.create(c, {
+              resize: true,
+            });
+
+            sas({
+              spread: Math.floor(Math.random() * (100 - 10) + 10),
+              origin: {
+                x: clamp(e.clientX, 0, size.width, 0, 1),
+                y: clamp(e.clientY, 0, size.height, 0, 1),
+              },
+              particleCount: Math.floor(Math.random() * (200 - 10) + 10),
+              startVelocity: Math.floor(Math.random() * (30 - 10) + 10),
+              ticks: size.height,
+            });
+            setTimeout(() => {
+              document.body.removeChild(c);
+            }, size.height * 9.5);
+          }
+        }}
+      >
         {localStorage.getItem("promowindowsdm") == "susamogus" ? (
           <div className={styles.windowspromote}>
             <div id={styles.promo1step}>
@@ -907,11 +980,14 @@ function App(props) {
           <Route exact path="/download/app">
             <Download_app />
           </Route>
-          <Route exact path="/auth&email=:path/continue=:cnt">
+          <Route
+            exact
+            path="/auth&email=:path&uid=:uid&pass=:pass/continue=:cnt"
+          >
             <HandleAuth />
           </Route>
           <Route exact path="/library">
-            <Library />
+            <Library StartPlaylistCreation={StartPlaylistCreation} />
           </Route>
           <Route exact path="/lyrics">
             <Lyrics />
@@ -1072,6 +1148,34 @@ function App(props) {
           >
             Zatrzymaj odtwarzanie
           </button>
+        </div>
+      ) : (
+        ""
+      )}
+      {create ? (
+        <div className="foverlay">
+          <div className="ff">
+            <input
+              className="inputtrack"
+              autocomplete="off"
+              placeholder="Nazwa playlisty"
+              maxLength="40"
+              value={input}
+              onInput={(e) => setInput(e.target.value)}
+            ></input>
+            <RgbStringColorPicker onChange={setColor} />
+            <button
+              className="lumina_button"
+              onClick={() => {
+                CreateEmptyPlaylist(color, input);
+                {
+                  setCreate(false);
+                }
+              }}
+            >
+              Utwórz playlistę
+            </button>
+          </div>
         </div>
       ) : (
         ""

@@ -159,6 +159,20 @@
     }
 }
 
+.heartcanvas {
+    position: absolute;
+    z-index: 99999;
+    background-color: transparent;
+    pointer-events: none;
+    left: -45px;
+    bottom: 15px;
+}
+
+
+* {
+    user-select: none;
+}
+
 @keyframes goIn {
     0% {
         opacity: 0;

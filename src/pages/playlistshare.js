@@ -18,7 +18,6 @@ import * as Icons from '../component/icons';
 import { NavLink, useLocation, Link, useHistory } from "react-router-dom";
 import { decode } from 'he';
 import Footer from '../component/footer/footer';
-import Modal from 'react-responsive-modal-scroll/lib/css';
 import './react-responsive-modal.css';
 import styles from './playlist.module.css';
 import { useEffect, useState } from 'react';

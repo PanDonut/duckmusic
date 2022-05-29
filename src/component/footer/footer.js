@@ -35,6 +35,7 @@ import {
   useMediaSession,
   HAS_MEDIA_SESSION,
 } from "@mebtte/react-media-session";
+import { GetUID } from "../../pages/functions";
 
 function Footer(props) {
   async function showPictureInPictureWindow() {
@@ -486,7 +487,7 @@ video.muted = true;
         localStorage.setItem("dmupdate", 0);
       }
       if (
-        localStorage.getItem("emaildm") == null &&
+        GetUID() == null &&
         window.location.pathname != "/logout"
       ) {
         document.location.href =

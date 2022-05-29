@@ -2,12 +2,13 @@ import PLAYLIST from './data/index.json';
 import SONGLIST from './data/songs.json';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { aut } from './dauth.js';
+import { GetUID } from './pages/functions';
 
 export function CreatePlaylist(firstindex, color, name) {
     const db = getDatabase(aut);
     let pl = [];
     const index = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -35,7 +36,7 @@ export function CreatePlaylist(firstindex, color, name) {
             }
         )
 
-    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + GetUID() + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 }
@@ -44,7 +45,7 @@ export function CreateEmptyPlaylist(color, name) {
     const db = getDatabase(aut);
     let pl = [];
     const index = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -69,7 +70,7 @@ export function CreateEmptyPlaylist(color, name) {
             }
         )
 
-    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + GetUID() + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 
@@ -79,7 +80,7 @@ export function CreateEmptyPlaylist(color, name) {
 export function AddToPlaylist(song, index, item) {
     const db = getDatabase(aut);
     let pl = [];
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -96,7 +97,7 @@ export function AddToPlaylist(song, index, item) {
                     }
                 )
 
-    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + GetUID() + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 }
@@ -104,7 +105,7 @@ export function AddToPlaylist(song, index, item) {
 export function RemoveItem(index, song) {
     const db = getDatabase(aut);
     let pl = [];
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -117,7 +118,7 @@ export function RemoveItem(index, song) {
     pl.splice(index, 1);
     console.log(pl);
 
-    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + GetUID() + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 }
@@ -126,7 +127,7 @@ export function ImportPlaylist(file) {
     const db = getDatabase(aut);
     let pl = [];
     const index = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -142,7 +143,7 @@ export function ImportPlaylist(file) {
         pl.push(JSON.parse(file))
     }
 
-    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + GetUID() + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 
@@ -152,7 +153,7 @@ export function ImportPlaylist(file) {
 export function RemoveSong(index, song) {
     const db = getDatabase(aut);
     let pl = [];
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/duckmusic/playlist');
+    const nameRef = ref(db, 'users/' + GetUID() + '/duckmusic/playlist');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -165,7 +166,7 @@ export function RemoveSong(index, song) {
     pl[index].playlistData.splice(song, 1);
     console.log(pl);
 
-    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/duckmusic"), {
+    set(ref(db, 'users/' + GetUID() + "/duckmusic"), {
         playlist: JSON.stringify(pl)
     });
 }
@@ -173,7 +174,7 @@ export function RemoveSong(index, song) {
 export function RemoveLiked(index, song) {
     const db = getDatabase(aut);
     let pl = [];
-    const nameRef = ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + '/dmusic/liked');
+    const nameRef = ref(db, 'users/' + GetUID() + '/dmusic/liked');
     onValue(nameRef, (snapshot) => {
         const data = snapshot.val();
         if (data != null) {
@@ -187,7 +188,7 @@ export function RemoveLiked(index, song) {
     pl.splice(index, 1);
     console.log(pl);
 
-    set(ref(db, 'users/' + localStorage.getItem('emaildm').split('.').join("") + "/dmusic"), {
+    set(ref(db, 'users/' + GetUID() + "/dmusic"), {
         liked: JSON.stringify(pl)
     });
 }

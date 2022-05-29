@@ -101,7 +101,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 999;
+    z-index: 9999999;
     background: rgb(0,0,0);
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 25%,var(--color) 100%);
     display: flex;

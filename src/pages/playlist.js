@@ -16,7 +16,6 @@ import { NavLink, useLocation, Link } from "react-router-dom";
 import { decode } from 'he';
 import SONGLIST from '../data/songs.json'
 import Footer from '../component/footer/footer';
-import Modal from 'react-responsive-modal-scroll/lib/css';
 import './react-responsive-modal.css';
 import styles from './playlist.module.css';
 import { useEffect, useState } from 'react';
@@ -239,16 +238,6 @@ function PlaylistPage(props) {
 										>
 											<EmbedButton />
 										</button>
-										<Modal open={open} onClose={() => setOpen(false)}>
-											<div className={styles.pop}>
-												<button onClick={() => { copy(embed11); { notifyembed(); { setOpen(false); } } }}>
-													{decode("Zwyk&#322;y embed")}
-												</button>
-												<button onClick={() => { copy(embed111); { notifyembed(); { setOpen(false); } } }}>
-													{decode("Ma&#322;y embed")}
-												</button>
-											</div>
-										</Modal>
 
 									</div>
 								}

@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useEffect, useRef, useState } from 'react';
-import Slider from 'react-smooth-range-input';
 import styles from "./slider.module.css";
 
 function RangeSlider({value, minvalue, maxvalue, handleChange}){

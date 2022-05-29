@@ -8,6 +8,7 @@ import styles from "./library.module.css";
 import { aut } from "../dauth";
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { ImportPlaylist, RemoveItem } from "../playlistcreator";
+import { getAuth, onAuthStateChanged } from "firebase/auth";
 import Sidebar from "../component/sidebar/sidebar";
 import CONST from "../constants/index";
 import useWindowSize from "../hooks/useWindowSize";
@@ -25,6 +26,7 @@ import TextRegularM from "../component/text/text-regular-m";
 import PlayButton from "../component/buttons/play-button";
 import div from "react-fade-in";
 import { CreateEmptyPlaylist } from "../playlistcreator";
+import { GetUID } from "./functions";
 
 function Library(props) {
   const [scrolled, setScrolled] = useState(false);
@@ -37,7 +39,11 @@ function Library(props) {
       <div className={styles.LibPage} onScroll={handleScroll}>
         <Topnav normal={true} sB={scrolled} />
         <div className={styles.Library}>
-          <PlaylistTab setrewinyear={props.setrewinyear} setrewind={props.setrewind} />
+          <PlaylistTab
+            setrewinyear={props.setrewinyear}
+            setrewind={props.setrewind}
+            StartPlaylistCreation={props.StartPlaylistCreation}
+          />
         </div>
       </div>
     </>
@@ -45,6 +51,8 @@ function Library(props) {
 }
 
 function PlaylistTab(props) {
+  const [uid, setUID] = useState("");
+  const auth = getAuth();
   let col = "rgb(0,0,0)";
   const [color, setColor] = useState("rgb(0,0,0)");
   if (color != "rgb(0,0,0)") {
@@ -62,12 +70,7 @@ function PlaylistTab(props) {
   const [datamap, setDMap] = useState(``);
   const [posts, setPosts] = useState(null);
   const db = getDatabase(aut);
-  const nameRef = ref(
-    db,
-    "users/" +
-      localStorage.getItem("emaildm").split(".").join("") +
-      "/duckmusic/playlist"
-  );
+  const nameRef = ref(db, "users/" + GetUID() + "/duckmusic/playlist");
   onValue(nameRef, (snapshot) => {
     const data = snapshot.val();
     if (data != null) {
@@ -100,12 +103,7 @@ function PlaylistTab(props) {
   }
   const [show, setShow] = useState(false);
   var likedSongs = [];
-  const nameRef1 = ref(
-    db,
-    "users/" +
-      localStorage.getItem("emaildm").split(".").join("") +
-      "/dmusic/liked"
-  );
+  const nameRef1 = ref(db, "users/" + GetUID() + "/dmusic/liked");
   onValue(nameRef1, (snapshot) => {
     const data = snapshot.val();
     if (data != null || data != undefined) {
@@ -114,34 +112,6 @@ function PlaylistTab(props) {
   });
   return (
     <div>
-      {create ? (
-        <div className="foverlay">
-          <div className="ff">
-            <input
-              className="inputtrack"
-              autocomplete="off"
-              placeholder="Nazwa playlisty"
-              maxLength="40"
-              value={input}
-              onInput={(e) => setInput(e.target.value)}
-            ></input>
-            <RgbStringColorPicker onChange={setColor} />
-            <button
-              className="lumina_button"
-              onClick={() => {
-                CreateEmptyPlaylist(color, input);
-                {
-                  setCreate(false);
-                }
-              }}
-            >
-              Utwórz playlistę
-            </button>
-          </div>
-        </div>
-      ) : (
-        ""
-      )}
       {loader == true ? (
         <div className={styles.wrapper}>
           <div className={styles.loader} id={styles.loader} />
@@ -161,7 +131,7 @@ function PlaylistTab(props) {
         <button
           className="lumina_button"
           onClick={() => {
-            StartPlaylistCreation();
+            props.StartPlaylistCreation();
           }}
         >
           Nowa playlista
