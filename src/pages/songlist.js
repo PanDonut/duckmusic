@@ -43,6 +43,7 @@ import { RemoveLiked } from "../playlistcreator";
 import Color from "color-thief-react";
 import axios from "axios";
 import Confetti from "canvas-confetti";
+import { GetUID } from "./functions";
 
 const db = getDatabase(aut);
 var nameRef1 = ref(db, "users/");
@@ -156,7 +157,7 @@ function PlaylistPage(props) {
   const nameRef = ref(
     db,
     "users/" +
-      localStorage.getItem("emaildm").split(".").join("") +
+      GetUID() +
       "/duckmusic/playlist"
   );
   onValue(nameRef, (snapshot) => {

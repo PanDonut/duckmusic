@@ -74,6 +74,7 @@ const clamp = (val, in_min, in_max, out_min, out_max) =>
 
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function App(props) {
+  const db = getDatabase(aut);
   useEffect(() => {
     const socket = io("http://localhost:42069");
     socket.on("connect", () => {
@@ -89,6 +90,46 @@ function App(props) {
   let pl = null;
   let [usd, setUsd] = useState("none");
   let [utr, setUtr] = useState(null);
+  const favRef = ref(db, "users/" + GetUID() + "/dmusic/liked");
+  useEffect(() => {
+    if (localStorage.getItem("duckmusic.favourites_all_the_time") == null) {
+      onValue(favRef, (snapshot) => {
+        const data = JSON.parse(snapshot.val());
+        if (data) {
+          var s = [
+            {
+              index: PLAYLIST.length,
+              type: "playlista",
+              title: "ULUBIONE",
+              link: "420698231",
+              ex: "no",
+              imgUrl: "https://i.ibb.co/M96JJgP/playlist-jesien-chill.png",
+              hoverColor: "rgb(255, 145, 0)",
+              artist: " ",
+              playlistBg: "rgb(255, 192, 56)",
+              playlistData: [],
+            },
+          ];
+          data.forEach((element, index) => {
+            s[0].playlistData.push({
+              index: index + 1,
+              songindex: element,
+            });
+          });
+          s[0].playlistData.sort(() => Math.random() - 0.5)
+          localStorage.setItem(
+            "duckmusic.favourites_all_the_time",
+            JSON.stringify(s)
+          );
+        }
+      });
+    }
+  }, []);
+  useEffect(() => {
+    // PLAYLIST.push(
+    //   JSON.parse(localStorage.getItem("duckmusic.favourites_all_the_time"))[0]
+    // );
+  }, []);
   if (localStorage.getItem("emaildm") != null && si == false) {
     const refData = ref(
       db1,
@@ -290,7 +331,6 @@ function App(props) {
   }
 
   const footerRef = useRef(null);
-  const db = getDatabase(aut);
   const letters = "aąbcćdeęfghijklłmnoóprstuwyzźż1234567890~`!@#$%^&*()-_+=[]{}|,.<>?".split(
     ""
   );

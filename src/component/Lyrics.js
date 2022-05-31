@@ -1,4 +1,4 @@
-﻿import React, { useEffect, useState } from "react";
+﻿import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
 import createState from "../hooks/createState";
 import { useDispatch } from "react-redux";
@@ -18,6 +18,7 @@ function Lyrics({ song, currentTime, songId, sly }) {
   const [topsc, setTop] = useState(0);
   const [cu, setCu] = useState([]);
   const [ly, setLy] = useState(null);
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
 
   function Enter() {
     setIsFullscreen(true);
@@ -33,6 +34,10 @@ function Lyrics({ song, currentTime, songId, sly }) {
     );
     handle.exit();
   }
+
+  useEffect(() => {
+    forceUpdate();
+  }, song)
 
   let lyrics = song.lyrics;
 

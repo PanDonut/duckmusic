@@ -1,736 +1,757 @@
-
 :root {
-    --_dui_bg_header_mobile: #fff;
-    --_dui_drag_grid: #111;
-    --_dui_dragger: #111;
-    --_dui_dragger_border: #222;
-    --_dui_dragger_tap: #222;
-    --_dui_draw_bg: #fff;
-    --_dui_bg_btn_grid: #00000010;
+  --_dui_bg_header_mobile: #fff;
+  --_dui_drag_grid: #111;
+  --_dui_dragger: #111;
+  --_dui_dragger_border: #222;
+  --_dui_dragger_tap: #222;
+  --_dui_draw_bg: #fff;
+  --_dui_bg_btn_grid: #00000010;
 }
 
 .love {
-    width: 56px !important;
-    height: 56px !important;
-    background: url("./heart.png") no-repeat !important;
-    background-position: 0 -4px !important;
-    background-size: 1792px 64px !important;
-    cursor: pointer !important;
-    transition: background-position 1s steps(28) !important;
-    transition-duration: 0s !important;
-    border-radius: 0px !important;
-  }
-  
-  .love.isactive {
-      transition-duration: 1s !important;
-      background-position: -1730px -4px !important;
-    }
-  
-  .stage {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+  width: 56px !important;
+  height: 56px !important;
+  background: url("./heart.png") no-repeat !important;
+  background-position: 0 -4px !important;
+  background-size: 1792px 64px !important;
+  cursor: pointer !important;
+  transition: background-position 1s steps(28) !important;
+  transition-duration: 0s !important;
+  border-radius: 0px !important;
+}
 
-  .add {
-    width: 56px !important;
-    height: 56px !important;
-    background: url("./check.png") no-repeat !important;
-    background-position: 0 -4px !important;
-    background-size: 64px 64px !important;
-    cursor: pointer !important;
-    transition: background-position 1s steps(28) !important;
-    transition-duration: 0s !important;
-    border-radius: 0px !important;
-  }
+.love.isactive {
+  transition-duration: 1s !important;
+  background-position: -1730px -4px !important;
+}
+
+.stage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.add {
+  width: 56px !important;
+  height: 56px !important;
+  background: url("./check.png") no-repeat !important;
+  background-position: 0 -4px !important;
+  background-size: 64px 64px !important;
+  cursor: pointer !important;
+  transition: background-position 1s steps(28) !important;
+  transition-duration: 0s !important;
+  border-radius: 0px !important;
+}
 
 .PlaylistPage {
-    overflow-y: scroll;
-    overflow-x: hidden;
-    background: transparent;
-    position: relative;
-    padding-bottom: 150px;
-    color: var(--text-tit);
-    -webkit-tap-highlight-color: transparent;
-    user-drag: none;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    z-index: -1;
-    animation: goinP 0.5s ease;
-    min-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: transparent;
+  position: relative;
+  color: var(--text-tit);
+  -webkit-tap-highlight-color: transparent;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  z-index: -1;
+  animation: goinP 0.5s ease;
+  min-height: calc(100vh - 100px);
+  padding-bottom: 100px;
 }
 
 @keyframes goinP {
-    from {
-        opacity: 0;
-    }
-    top {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  top {
+    opacity: 1;
+  }
 }
 .PlaylistPage11 {
-    overflow-y: auto;
-    overflow-x: hidden;
-    background: transparent;
-    position: relative;
-    color: var(--text-tit);
-    -webkit-tap-highlight-color: transparent;
-    user-drag: none;
-    -webkit-user-drag: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-    z-index: -1;
-    background-color: var(--hover-home-bg);
-    animation: goinP 0.5s ease;
-    height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: transparent;
+  position: relative;
+  color: var(--text-tit);
+  -webkit-tap-highlight-color: transparent;
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  z-index: -1;
+  background-color: var(--hover-home-bg);
+  animation: goinP 0.5s ease;
+  height: 100vh;
 }
 
 .sus {
-    margin-top: -60px;
+  margin-top: -60px;
 }
 
 .flexselect {
-    background-color: #00000030;
-    display: flex;
-    position: fixed;
-    width: 75%;
-    height: 70%;
-    left: 50%;
-    top: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    flex-direction: column;
-    align-content: center;
-    align-items: center
+  background-color: #00000030;
+  display: flex;
+  position: fixed;
+  width: 75%;
+  height: 70%;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
 }
 
 .selectoverlay {
-    background-color: #000000dd;
-    position: fixed;
-    z-index: 9999999999;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    top: 0;
-    transition: 0.5s ease;
+  background-color: #000000dd;
+  position: fixed;
+  z-index: 9999999999;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  transition: 0.5s ease;
 }
 
 .listitem {
-    background-color: #00000030;
-    transition: 0.25s ease;
-    width: 100%;
-    text-align: center;
+  background-color: #00000030;
+  transition: 0.25s ease;
+  width: 100%;
+  text-align: center;
 }
 
-    .listitem:hover {
-        cursor: pointer;
-        background-color: #00000050;
-    }
+.listitem:hover {
+  cursor: pointer;
+  background-color: #00000050;
+}
 
 .time {
-    margin: 0px;
-    width: 100%;
-    text-align: end;
+  margin: 0px;
+  width: 100%;
+  text-align: end;
 }
 .pop {
-    background-color: #0d0c11;
-    display: flex;
-    height: 200px;
-    justify-content: space-between;
-    align-items: center;
-    overflow: scroll;
-    width: 100%;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    padding-left: 32px;
-    justify-content: space-around;
+  background-color: #0d0c11;
+  display: flex;
+  height: 200px;
+  justify-content: space-between;
+  align-items: center;
+  overflow: scroll;
+  width: 100%;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 32px;
+  justify-content: space-around;
 }
 .pop button {
-    color: #000;
-    border: 0;
-    background-color: #fff;
-    padding: 10px;
-    transition: 0.25s ease-in-out;
+  color: #000;
+  border: 0;
+  background-color: #fff;
+  padding: 10px;
+  transition: 0.25s ease-in-out;
 }
-    .pop button:hover {
-        color: #000;
-        border: 0;
-        background-color: #fff;
-        transform: scale(1.1);
-        transition: 0.25s ease-in-out;
-    }
-.gradientBg{
-    height: 340px;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    transition: background 1s ease;
-    width: 200vw;
-    background-color: var(--hover-home-bg);
-    transition: 0.5s !important;
+.pop button:hover {
+  color: #000;
+  border: 0;
+  background-color: #fff;
+  transform: scale(1.1);
+  transition: 0.25s ease-in-out;
+}
+.gradientBg {
+  height: 340px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: background 1s ease;
+  width: 200vw;
+  background-color: var(--hover-home-bg);
+  transition: 0.5s !important;
 }
 .gradientBgSoft {
-    position: absolute;
-    width: 200vw;
-    left: 0;
-    top: 340px;
-    height: 200%;
-    width: 100%;
-    z-index: -2;
-    background-color: transparent;
-    background-image: -webkit-gradient(linear,left top,left bottom,from(rgba(0,0,0,.6)),to(transparent));
-    background-image: linear-gradient(180deg, var(--hover-home-bg),rgba(0,0,0,.0));
-    transition: 0.5s !important;
+  position: absolute;
+  width: 200vw;
+  left: 0;
+  top: 340px;
+  height: 200%;
+  width: 100%;
+  z-index: -2;
+  background-color: transparent;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 0, 0, 0.6)),
+    to(transparent)
+  );
+  background-image: linear-gradient(
+    180deg,
+    var(--hover-home-bg),
+    rgba(0, 0, 0, 0)
+  );
+  transition: 0.5s !important;
 }
 
 .bbg {
-    position: fixed;
-    height: 100vh;
-    left: 0;
-    right: 0;
-    z-index: -1;
-    background: -webkit-gradient(linear,left top,left bottom,from(transparent),to(rgba(0,0,0,.5)));
-    background: linear-gradient(transparent,rgba(0,0,0,.5));
-    -webkit-transition: background 1s ease;
-    transition: background 1s ease;
-    width: var(--sidenav-width);
-    left: -2px;
-    background-color: var(--hover-home-bg);
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    to(rgba(0, 0, 0, 0.5))
+  );
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  -webkit-transition: background 1s ease;
+  transition: background 1s ease;
+  width: var(--sidenav-width);
+  left: -2px;
+  background-color: var(--hover-home-bg);
 }
 
 .GridIcons {
-    display: inline-block;
+  display: inline-block;
 }
 
 .notexist {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    overflow-y: hidden;
-    background-color: rgb(9, 8, 10);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  overflow-y: hidden;
+  background-color: rgb(9, 8, 10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .notexist div h4 {
-    font-weight: 900;
-    z-index: 90;
+  font-weight: 900;
+  z-index: 90;
 }
 
 .loader {
-    width: 100px;
-    height: 100px;
-    border-radius: 100%;
-    position: relative;
-    margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  position: relative;
+  margin: 0 auto;
 }
 
 .wrapper {
-    left: 0;
-    top: 0;
-    position: fixed;
-    z-index: 125; /* Index Overlayu (pod Stopką, nad UI) */
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    backdrop-filter: blur(15px);
-    background-color: rgba(18, 18, 18, 0.9);
-    animation: wrapperanim ease 0.25s;
+  left: 0;
+  top: 0;
+  position: fixed;
+  z-index: 125; /* Index Overlayu (pod Stopką, nad UI) */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+  background-color: rgba(18, 18, 18, 0.9);
+  animation: wrapperanim ease 0.25s;
 }
 
 @keyframes wrapperanim {
-    from {
-        backdrop-filter: blur(2px);
-        transform: scale(1.2)
-    }
-    to {
-        backdrop-filter: blur(15px);
-        transform: scale(1);
-    }
+  from {
+    backdrop-filter: blur(2px);
+    transform: scale(1.2);
+  }
+  to {
+    backdrop-filter: blur(15px);
+    transform: scale(1);
+  }
 }
 
 /* LOADER 1 */
 
-#loader:before, #loader:after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    left: -10px;
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    border: 10px solid transparent;
-    border-top-color: #3498db;
-    transform: scale(0.5);
+#loader:before,
+#loader:after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  border: 10px solid transparent;
+  border-top-color: #3498db;
+  transform: scale(0.5);
 }
 
 #loader:before {
-    z-index: 100;
-    animation: spin 1s infinite;
-    transform: scale(0.5);
+  z-index: 100;
+  animation: spin 1s infinite;
+  transform: scale(0.5);
 }
 
 #loader:after {
-    border: 10px solid #ccc;
-    transform: scale(0.5);
+  border: 10px solid #ccc;
+  transform: scale(0.5);
 }
 
 @keyframes spin {
-    0% {
-        -webkit-transform: rotate(0deg) scale(0.5);
-        -ms-transform: rotate(0deg) scale(0.5);
-        -o-transform: rotate(0deg) scale(0.5);
-        transform: rotate(0deg) scale(0.5);
-    }
+  0% {
+    -webkit-transform: rotate(0deg) scale(0.5);
+    -ms-transform: rotate(0deg) scale(0.5);
+    -o-transform: rotate(0deg) scale(0.5);
+    transform: rotate(0deg) scale(0.5);
+  }
 
-    100% {
-        -webkit-transform: rotate(360deg) scale(0.5);
-        -ms-transform: rotate(360deg) scale(0.5);
-        -o-transform: rotate(360deg) scale(0.5);
-        transform: rotate(360deg) scale(0.5);
-    }
-} 
+  100% {
+    -webkit-transform: rotate(360deg) scale(0.5);
+    -ms-transform: rotate(360deg) scale(0.5);
+    -o-transform: rotate(360deg) scale(0.5);
+    transform: rotate(360deg) scale(0.5);
+  }
+}
 
 .notexist div {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .notexist div h4:hover {
-    text-decoration: underline 2px white;
+  text-decoration: underline 2px white;
 }
 
 .GridIcons1 {
-    display: inline-block;
-    height: 106px;
+  display: inline-block;
+  height: 106px;
 }
-.Bg{
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0px;
-    z-index: -3;
-    background-color: var(--main-background);
-    transition: 0.5s !important;
-}
-
-.PlaylistIcons{
-    display: inline-flex;
-    align-items: center;
-    flex-direction: row;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    padding-left: 32px;
-    position: relative;
-}
-.PlaylistIcons button{
-    border: 0;
-    background-color: transparent;
-}
-.PlaylistIcons div{
-    width: 56px;
-    height: 56px;
-    border-radius: 28px;
-    background-color: #5b88e1;
-}
-.PlaylistIcons div button{
-    width: 56px;
-    height: 56px;
-}
-.PlaylistIcons div button svg{
-    font-size: 28px;
-    fill: #fff !important;
-}
-.PlaylistIcons button svg{
-    font-size: 28px;
-}
-.PlaylistIcons1{
-    display: inline-flex;
-    align-items: center;
-    flex-direction: row;
-    padding-bottom: 24px;
-    position: relative;
-    transition: all 0.25s;
-    margin-left: 15px;
-    top: 20px;
-}
-.PlaylistIcons1 button{
-    border: 0;
-    background-color: transparent;
-    transition: all 0.25s;
-}
-.PlaylistIcons1 div{
-    width: 28px;
-    height: 56px;
-    border-radius: 28px;
-    background-color: transparent;
-    transition: all 0.25s;
-}
-.PlaylistIcons1 div button{
-    width: 28px;
-    height: 56px;
-    transition: all 0.25s;
-}
-.PlaylistIcons1 div button svg{
-    font-size: 32px;
-    fill: #fff !important;
-    transition: all 0.25s;
-    stroke: #fff;
-}
-.PlaylistIcons1 button svg{
-    font-size: 28px;
-    transition: all 0.25s;
-}
-.moreIcon{
-    margin-left: 24px;
-    font-size: 28px;
-    color: hsla(0,0%,100%,.6);
+.Bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0px;
+  z-index: -3;
+  background-color: var(--main-background);
+  transition: 0.5s !important;
 }
 
-.PlaylistSongs{
-    padding: 0 32px;
+.PlaylistIcons {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  padding-left: 32px;
+  position: relative;
 }
-.ListHead{
-    margin: 0 20px 16px 40px;
-    padding: 8px 16px;
-    color: #b3b3b3;
-    border-bottom: 1px solid hsla(0,0%,100%,.1);
-    display: grid;
-    grid-gap: 16px;
-    grid-template-columns: 16px 1fr 1fr;
+.PlaylistIcons button {
+  border: 0;
+  background-color: transparent;
 }
-.ListHead p:nth-child(1){
-    font-size: 18px;
+.PlaylistIcons div {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #5b88e1;
 }
-.ListHead p{
-    margin: 0px;
-    letter-spacing: .03em;
+.PlaylistIcons div button {
+  width: 56px;
+  height: 56px;
 }
-.ListHead svg{
-    fill: #b3b3b3;
-    font-size: 16px;
+.PlaylistIcons div button svg {
+  font-size: 28px;
+  fill: #fff !important;
 }
-.SongBtn{
-    display: block;
-    width: 100%;
-    background: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
+.PlaylistIcons button svg {
+  font-size: 28px;
 }
-.SongBtn p{
-    margin: 0;
-    font-weight: 400;
+.PlaylistIcons1 {
+  display: inline-flex;
+  align-items: center;
+  flex-direction: row;
+  padding-bottom: 24px;
+  position: relative;
+  transition: all 0.25s;
+  margin-left: 15px;
+  top: 20px;
 }
-.SongBtn img{
-    width: 36px;
-    height: 36px;
+.PlaylistIcons1 button {
+  border: 0;
+  background-color: transparent;
+  transition: all 0.25s;
+}
+.PlaylistIcons1 div {
+  width: 28px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: transparent;
+  transition: all 0.25s;
+}
+.PlaylistIcons1 div button {
+  width: 28px;
+  height: 56px;
+  transition: all 0.25s;
+}
+.PlaylistIcons1 div button svg {
+  font-size: 32px;
+  fill: #fff !important;
+  transition: all 0.25s;
+  stroke: #fff;
+}
+.PlaylistIcons1 button svg {
+  font-size: 28px;
+  transition: all 0.25s;
+}
+.moreIcon {
+  margin-left: 24px;
+  font-size: 28px;
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+.PlaylistSongs {
+  padding: 0 32px;
+}
+.ListHead {
+  margin: 0 20px 16px 40px;
+  padding: 8px 16px;
+  color: #b3b3b3;
+  border-bottom: 1px solid hsla(0, 0%, 100%, 0.1);
+  display: grid;
+  grid-gap: 16px;
+  grid-template-columns: 16px 1fr 1fr;
+}
+.ListHead p:nth-child(1) {
+  font-size: 18px;
+}
+.ListHead p {
+  margin: 0px;
+  letter-spacing: 0.03em;
+}
+.ListHead svg {
+  fill: #b3b3b3;
+  font-size: 16px;
+}
+.SongBtn {
+  display: block;
+  width: 100%;
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.SongBtn p {
+  margin: 0;
+  font-weight: 400;
+}
+.SongBtn img {
+  width: 36px;
+  height: 36px;
 }
 .SongBtn span p:last-child,
-.SongBtn p:last-child{
-    color: rgb(179, 179, 179);
+.SongBtn p:last-child {
+  color: rgb(179, 179, 179);
 }
 @media screen and (max-width: 640px) {
-    .PlaylistPage11 {
-        height: 100vh;
-        overflow: hidden;
-    }
-    .PlaylistPage {
-        height: 100vh;
-        overflow: hidden;
-    }
+  .PlaylistPage11 {
+    height: 100vh;
+    overflow: hidden;
+  }
+  .PlaylistPage {
+    height: 100vh;
+    overflow: hidden;
+  }
 
-    .flexselect {
-        background-color: #000000;
-        width: 100%;
-        height: 100%;
-        padding-bottom: 70px;
-    }
-    .btn {
-        display: flex;
-        border: none;
-        background: none;
-        width: 100vw;
-        align-items: center;
-        margin-left: 5%;
-    }
+  .flexselect {
+    background-color: #000000;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 70px;
+  }
+  .btn {
+    display: flex;
+    border: none;
+    background: none;
+    width: 100vw;
+    align-items: center;
+    margin-left: 5%;
+  }
 
-    .ovlist {
-        padding-top: 15%;
-    }
+  .ovlist {
+    padding-top: 15%;
+  }
 
-    .btn h2 {
-        color: #fff;
-        margin-left: 10px;
-    }
-    .bbg {
-        display: none;
-    }
+  .btn h2 {
+    color: #fff;
+    margin-left: 10px;
+  }
+  .bbg {
+    display: none;
+  }
 
-    .btn svg {
-        width: 30px;
-        height: 30px;
-        stroke: #888 !important;
-    }
+  .btn svg {
+    width: 30px;
+    height: 30px;
+    stroke: #888 !important;
+  }
 
-       
-            .btn svg {
-                fill: #888 !important;
-            }
+  .btn svg {
+    fill: #888 !important;
+  }
 
-    .PlaylistPage{
-        padding-bottom: 150px;
-    }
-    .PlaylistIcons div{
-        width: 38px;
-        height: 38px;
-        margin-right: 0px;
-    }
-    .PlaylistIcons div button{
-        width: 38px;
-        height: 38px;
-    }
-    .PlaylistIcons div button svg{
-        font-size: 21px;
-    }
-    .ListHead{
-        padding: 8px;
-        margin: 0 16px 8px 16px;
-        grid-template-columns: 16px 1fr 26px;
-    }
-    .PlaylistSongs{
-        padding: 0px 16px;
-    }
-    .SongBtn {
-        padding: 0;
-        -webkit-tap-highlight-color: transparent;
-    }
-    .PlaylistIcons1 {
-        display: inline-flex;
-        align-items: center;
-        padding-top: 24px;
-        padding-bottom: 24px;
-        position: relative;
-        transition: all 0.25s;
-        margin-left: 0px;
-    }
-    .GridIcons {
-        width: 100vw;
-        text-align: center;
-    }
-    .GridIcons button {
-        margin-top: 10px;
-        background-color: #5b88e1;
-        border: none;
-        border-radius: 25px;
-        padding: 15px 35px;
-        color: #fff;
-        font-weight: 700;
-        z-index: 99;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 1;
-    }
+  .PlaylistPage {
+    padding-bottom: 150px;
+  }
+  .PlaylistIcons div {
+    width: 38px;
+    height: 38px;
+    margin-right: 0px;
+  }
+  .PlaylistIcons div button {
+    width: 38px;
+    height: 38px;
+  }
+  .PlaylistIcons div button svg {
+    font-size: 21px;
+  }
+  .ListHead {
+    padding: 8px;
+    margin: 0 16px 8px 16px;
+    grid-template-columns: 16px 1fr 26px;
+  }
+  .PlaylistSongs {
+    padding: 0px 16px;
+  }
+  .SongBtn {
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .PlaylistIcons1 {
+    display: inline-flex;
+    align-items: center;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    position: relative;
+    transition: all 0.25s;
+    margin-left: 0px;
+  }
+  .GridIcons {
+    width: 100vw;
+    text-align: center;
+  }
+  .GridIcons button {
+    margin-top: 10px;
+    background-color: #5b88e1;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 35px;
+    color: #fff;
+    font-weight: 700;
+    z-index: 99;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
 
-    .overlay {
-        position: fixed;
-        background: rgb(13,12,17);
-        background: linear-gradient(0deg, rgba(13,12,17,1) 0%, rgba(7,6,9,1) 29%, rgba(6,5,7,0.9335084375547094) 51%, rgba(4,3,5,0.8886905103838411) 74%, rgba(0,0,0,0.7710434515603116) 100%);
-        z-index: 999;
-        width: 100vw;
-        height: 100vh;
-        text-align: center;
-        display: var(--dispopen);
-        animation: openthis 0.25s ease;
-        transform: translateY(-50px);
-        color: #fff !important;
-    }
+  .overlay {
+    position: fixed;
+    background: rgb(13, 12, 17);
+    background: linear-gradient(
+      0deg,
+      rgba(13, 12, 17, 1) 0%,
+      rgba(7, 6, 9, 1) 29%,
+      rgba(6, 5, 7, 0.9335084375547094) 51%,
+      rgba(4, 3, 5, 0.8886905103838411) 74%,
+      rgba(0, 0, 0, 0.7710434515603116) 100%
+    );
+    z-index: 999;
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+    display: var(--dispopen);
+    animation: openthis 0.25s ease;
+    transform: translateY(-50px);
+    color: #fff !important;
+  }
 
-    .overlay h1 {
-        color: #fff !important;
-    }
+  .overlay h1 {
+    color: #fff !important;
+  }
 
-    .overlay p {
-        color: rgb(45, 45, 45) !important;
-    }
+  .overlay p {
+    color: rgb(45, 45, 45) !important;
+  }
 
-    .overlay h3 {
-        color: #fff !important;
-    }
+  .overlay h3 {
+    color: #fff !important;
+  }
 
-    @keyframes openthis {
-        0% {
-            opacity: 0;
-            transform: translateY(50vh);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(-50px);
-        }
+  @keyframes openthis {
+    0% {
+      opacity: 0;
+      transform: translateY(50vh);
     }
+    100% {
+      opacity: 1;
+      transform: translateY(-50px);
+    }
+  }
 }
 
 .eyes {
-    width: 30vw !important;
-    height: 30vw !important;
-    background-image: url("./eyes.png");
-    background-repeat: no-repeat;
-    cursor: pointer !important;
-    border-radius: 0px !important;
-    position: relative;
-    background-size: contain;
-    background-position: 0 0;
-    transition: background-position 1s steps(6) !important;
-    transition-duration: 0.5s !important;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -100px;
+  width: 30vw !important;
+  height: 30vw !important;
+  background-image: url("./eyes.png");
+  background-repeat: no-repeat;
+  cursor: pointer !important;
+  border-radius: 0px !important;
+  position: relative;
+  background-size: contain;
+  background-position: 0 0;
+  transition: background-position 1s steps(6) !important;
+  transition-duration: 0.5s !important;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -100px;
 }
 
 /* DUI */
 
 ._dui_drag_mob_grid {
-    background-color: var(--_dui_drag_grid);
-    position: fixed;
-    height: 100vh;
-    width: 100%;
-    left: 0;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    z-index: 6;
-    color: #fff !important;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
-    ._dui_drag_mob_grid {
-      transition: 0.1s ease;
-    }
-  }
-  
-  ._dui_dragger {
-    background-color: var(--_dui_dragger);
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
-    position: relative;
-    top: 0;
-    left: 0;
-    border-bottom: solid 1px var(--_dui_dragger_border);
-    width: 100%;
-    height: 50px;
-  }
-  
-  ._dui_dragger div {
-    background-color: var(--_dui_dragger_tap);
-    width: 25%;
-    height: 10px;
-    top: 50%;
-    left: 50%;
-    position: relative;
-    border-radius: 50px;
-    transform: translateX(-50%) translateY(-50%);
-    color: #fff !important;
-  }
+  background-color: var(--_dui_drag_grid);
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  left: 0;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  z-index: 6;
+  color: #fff !important;
+}
 
-  ._dui_wrapper_dragger_mobile_grid_grid {
-    background-color: transparent;
-    display: grid;
-    width: 100%;
-    position: relative;
-    grid-auto-flow: column;
-    justify-items: center;
-    align-items: center;
-    justify-content: center;
-    top: 5px;
-    border-bottom: solid 1px var(--_dui_dragger_border);
-    padding-bottom: 25px;
-    color: #fff !important;
+@media (prefers-reduced-motion: no-preference) {
+  ._dui_drag_mob_grid {
+    transition: 0.1s ease;
   }
-  
-  ._dui_wrapper_dragger_mobile_grid_grid button {
-    width: 100%;
-    height: 100%;
-    border: none;
-    background-color: #00000000;
-    display: grid;
-    grid-template-rows: calc(100% - 30px) 30px;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    justify-items: center;
-    border-radius: 10px;
-    color: #fff !important;
-  }
-  
-  @media (prefers-reduced-motion: no-preference) {
+}
+
+._dui_dragger {
+  background-color: var(--_dui_dragger);
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  position: relative;
+  top: 0;
+  left: 0;
+  border-bottom: solid 1px var(--_dui_dragger_border);
+  width: 100%;
+  height: 50px;
+}
+
+._dui_dragger div {
+  background-color: var(--_dui_dragger_tap);
+  width: 25%;
+  height: 10px;
+  top: 50%;
+  left: 50%;
+  position: relative;
+  border-radius: 50px;
+  transform: translateX(-50%) translateY(-50%);
+  color: #fff !important;
+}
+
+._dui_wrapper_dragger_mobile_grid_grid {
+  background-color: transparent;
+  display: grid;
+  width: 100%;
+  position: relative;
+  grid-auto-flow: column;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  top: 5px;
+  border-bottom: solid 1px var(--_dui_dragger_border);
+  padding-bottom: 25px;
+  color: #fff !important;
+}
+
+._dui_wrapper_dragger_mobile_grid_grid button {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #00000000;
+  display: grid;
+  grid-template-rows: calc(100% - 30px) 30px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+  border-radius: 10px;
+  color: #fff !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
   ._dui_wrapper_dragger_mobile_grid_grid button {
     transition: 0.25s ease;
   }
-  }
-  
-  ._dui_wrapper_dragger_mobile_grid_grid button:active {
-    background-color: var(--_dui_bg_btn_grid);
-  }
-  
-  ._dui_wrapper_dragger_mobile_grid_grid button p {
-    font-size: 15px;
-    font-weight: 700;
-    font-family: 'Lato', sans-serif;
-  }
-  
-  ._dui_wrapper_dragger_mobile_grid_grid button img {
-    width: calc(100% - 60px);
-    border-radius: 50%;
-  }
+}
 
-  ._dui_mgd {
-    overflow-y: scroll;
-    width: 100vw;
-    position: relative;
-    display: grid;
-    grid-auto-flow: row;
-    grid-auto-rows: 50px;
-    top: 10px;
-    height: 100%;
-  }
-  
-  ._dui_mgd button {
-    border: none;
-    background-color: transparent;
-    border-bottom: solid 1px #88888820;
-    position: relative;
-    vertical-align: middle;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff !important;
-  }
+._dui_wrapper_dragger_mobile_grid_grid button:active {
+  background-color: var(--_dui_bg_btn_grid);
+}
 
-  .bigger {
-      transform: scale(2) translateX(-3px);
-  }
+._dui_wrapper_dragger_mobile_grid_grid button p {
+  font-size: 15px;
+  font-weight: 700;
+  font-family: "Lato", sans-serif;
+}
 
+._dui_wrapper_dragger_mobile_grid_grid button img {
+  width: calc(100% - 60px);
+  border-radius: 50%;
+}
 
-  .heartcanvas {
-      position: absolute;
-      z-index: 99999;
-      background-color: transparent;
-      pointer-events: none;
-      left: -45px;
-      bottom: 15px;
-  }
+._dui_mgd {
+  overflow-y: scroll;
+  width: 100vw;
+  position: relative;
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 50px;
+  top: 10px;
+  height: 100%;
+}
+
+._dui_mgd button {
+  border: none;
+  background-color: transparent;
+  border-bottom: solid 1px #88888820;
+  position: relative;
+  vertical-align: middle;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff !important;
+}
+
+.bigger {
+  transform: scale(2) translateX(-3px);
+}
+
+.heartcanvas {
+  position: absolute;
+  z-index: 99999;
+  background-color: transparent;
+  pointer-events: none;
+  left: -45px;
+  bottom: 15px;
+}

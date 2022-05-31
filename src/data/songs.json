@@ -460,10 +460,11 @@
   },
   {
     "index": "1",
-    "songName": "🅴 Blinding Squad",
+    "songName": "Blinding Squad",
     "songimg": "https://i.ibb.co/RCvsgpj/squad.png",
     "songArtist": "Dmuch Boys",
     "album": "",
+    "ex": true,
     "link": "https://drive.google.com/u/0/uc?id=1DAnEr7h4SzDntdrMZ0xtKTN3MhYhQsAx&export=download",
     "songID": "2",
     "lyrics": []

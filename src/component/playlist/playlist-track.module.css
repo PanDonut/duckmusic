@@ -40,6 +40,31 @@
         transition: 0.10s ease-in-out;
     }
 
+    .explicit {
+        background-color: rgba(255,255,255,.6);
+        box-sizing: border-box;
+        position: absolute;
+        color: #6a6a6a;
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Helvetica,Arial,sans-serif;
+        font-weight: 700;
+        font-size: 12px;
+    }
+
+    .txta p {
+        flex-direction: row;
+        display: flex;
+    }
+    .spce {
+        display: flex;
+        flex-direction: row;
+    }
+
 .playBtn{
     position: absolute;
     opacity: 0;
