@@ -66,6 +66,7 @@ import { io } from "socket.io-client";
 import { CreateEmptyPlaylist } from "./playlistcreator";
 import { GetUID } from "./pages/functions";
 import LoginPage from "./pages/login";
+import SmallWidget from "./pages/smallwidget";
 
 let indexn = null;
 
@@ -116,7 +117,7 @@ function App(props) {
               songindex: element,
             });
           });
-          s[0].playlistData.sort(() => Math.random() - 0.5)
+          s[0].playlistData.sort(() => Math.random() - 0.5);
           localStorage.setItem(
             "duckmusic.favourites_all_the_time",
             JSON.stringify(s)
@@ -998,6 +999,9 @@ function App(props) {
           <Route exact path="/">
             <Home />
           </Route>
+          <Route exact path="/widget&song=:path&autoplay=:autoplay&loop=:loop">
+            <SmallWidget />
+          </Route>
           <Route exact path="/debug/showoff/:data">
             <ShowOff />
           </Route>
@@ -1125,40 +1129,56 @@ function App(props) {
       ) : (
         ""
       )}
-      <Footer fre={footerRef} className={styles.foot} />
-      {size.width > CONST.MOBILE_SIZE ? <Sidebar /> : <MobileNavigation />}
-      <div className="keyguide">
-        <div className="keys">
-          <div className="key">
-            <h3>Otwórz / zamknij to menu</h3>
-            <div className="kes">
-              <span>ctrl</span>
-              <span>q</span>
+      {window.location.pathname.includes("widget&song") == false ? (
+        <Footer fre={footerRef} className={styles.foot} />
+      ) : (
+        ""
+      )}
+      {window.location.pathname.includes("widget&song") == false ? (
+        size.width > CONST.MOBILE_SIZE ? (
+          <Sidebar />
+        ) : (
+          <MobileNavigation />
+        )
+      ) : (
+        ""
+      )}
+      {window.location.pathname.includes("widget&song") == false ? (
+        <div className="keyguide">
+          <div className="keys">
+            <div className="key">
+              <h3>Otwórz / zamknij to menu</h3>
+              <div className="kes">
+                <span>ctrl</span>
+                <span>q</span>
+              </div>
             </div>
-          </div>
-          <div className="key">
-            <h3>Odtwarzaj / zatrzymaj utwór</h3>
-            <div className="kes">
-              <span>ctrl</span>
-              <span>spacja</span>
+            <div className="key">
+              <h3>Odtwarzaj / zatrzymaj utwór</h3>
+              <div className="kes">
+                <span>ctrl</span>
+                <span>spacja</span>
+              </div>
             </div>
-          </div>
-          <div className="key">
-            <h3>Następny utwór</h3>
-            <div className="kes">
-              <span>ctrl</span>
-              <span>m</span>
+            <div className="key">
+              <h3>Następny utwór</h3>
+              <div className="kes">
+                <span>ctrl</span>
+                <span>m</span>
+              </div>
             </div>
-          </div>
-          <div className="key">
-            <h3>Poprzedni utwór</h3>
-            <div className="kes">
-              <span>ctrl</span>
-              <span>b</span>
+            <div className="key">
+              <h3>Poprzedni utwór</h3>
+              <div className="kes">
+                <span>ctrl</span>
+                <span>b</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ) : (
+        ""
+      )}
       {localStorage.getItem("deviceiddm") != usd &&
       usd != "none" &&
       usd != null ? (
