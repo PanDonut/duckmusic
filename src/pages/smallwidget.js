@@ -13,41 +13,7 @@ export default function SmallWidget() {
         }
       );
     }
-  }, [document.getElementById("wave")]);
-  useEffect(() => {
-    if (document.getElementsByTagName("audio")[0]) {
-      var audioCtx = new AudioContext();
-      var processor = audioCtx.createScriptProcessor(2048, 1, 1);
-      var source;
-      var audio = document.getElementsByTagName("audio")[0];
-
-      audio.addEventListener(
-        "canplaythrough",
-        function () {
-          source = audioCtx.createMediaElementSource(
-            document.getElementsByTagName("audio")[0]
-          );
-          source.connect(processor);
-          source.connect(audioCtx.destination);
-          processor.connect(audioCtx.destination);
-          //audio.play();
-        },
-        false
-      );
-
-      // loop through PCM data and calculate average
-      // volume for a given 2048 sample buffer
-      processor.onaudioprocess = function (evt) {
-        var input = evt.inputBuffer.getChannelData(0),
-          len = input.length,
-          total = (i = 0),
-          rms;
-        while (i < len) total += Math.abs(input[i++]);
-        rms = Math.sqrt(total / len);
-        //console.log(( rms * 100 ));
-      };
-    }
-  }, [document.getElementsByTagName("audio")[0]]);
+  }, [document.getElementById("wave")]);;
   return (
     <>
       {SONGS.map((item) => {
