@@ -59,7 +59,7 @@
   -ms-user-select: none;
   z-index: -1;
   animation: goinP 0.5s ease;
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 300px);
   padding-bottom: 200px;
 }
 
