@@ -67,6 +67,7 @@ import { CreateEmptyPlaylist } from "./playlistcreator";
 import { GetUID } from "./pages/functions";
 import LoginPage from "./pages/login";
 import SmallWidget from "./pages/smallwidget";
+import TermsOfService from "./pages/tos";
 
 let indexn = null;
 
