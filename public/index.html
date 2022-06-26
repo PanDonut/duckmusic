@@ -230,6 +230,87 @@
     </style>
 </head>
   <body>
+    <style>
+        .spinner {
+          position: fixed;
+          height: calc(4vh + 4vw);
+          width: calc(4vh + 4vw);
+          background-color: transparent;
+          margin-top: calc(30vh);
+          top: 50%;
+        }
+        .spinner.centered {
+            margin-top: 0px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            left: 50%;
+        }
+        .spn {
+          animation: 1.4s linear infinite svg-animation;
+          max-width: 200px;
+        }
+  
+        @keyframes svg-animation {
+          0% {
+            transform: rotateZ(0deg);
+          }
+          100% {
+            transform: rotateZ(360deg);
+          }
+        }
+  
+        .spn circle {
+          animation: 1.4s linear infinite both circle-animation;
+          display: block;
+          fill: transparent;
+          stroke: #5A9EE2;
+          stroke-linecap: round;
+          stroke-dasharray: calc(283 * 1);
+          stroke-dashoffset: calc(280 * 1);
+          stroke-width: 15px;
+          transform-origin: 50% 50%;
+        }
+  
+        @keyframes circle-animation {
+          0% {
+            stroke-dashoffset: 260;
+            transform: rotate(0);
+          }
+  
+          45%,
+          55% {
+            stroke-dashoffset: 160;
+            transform: rotate(45deg);
+          }
+  
+          100% {
+            stroke-dashoffset: 260;
+            transform: rotate(360deg);
+          }
+        }
+        @keyframes splashspinner {
+          0% {
+            top: 30%;
+            opacity: 0;
+          }
+          50% {
+            top: 30%;
+            opacity: 0;
+          }
+          100% {
+            top: 50%;
+            opacity: 1;
+          }
+        }
+        @keyframes spinnersplash {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
     <noscript>Uruchom JavaScript.</noscript>
     <div id="root">
         <div class="loader-wrapper">

@@ -17,20 +17,20 @@ html {
 
 
 :root {
-    --solid-main: #0d0c11;
-    --sidenav-black: #121214;
-    --sidenav-active: #0d0c11;
+    --solid-main: #0b0b0b;
+    --sidenav-black: #111111;
+    --sidenav-active: #0b0b0b;
     --text-gray: #b3b3b3;
     --text-white: #fff;
-    --main-background: #0d0c11;
-    --card-background: #121214;
+    --main-background: #0b0b0b;
+    --card-background: #111111;
     --sidenav-width: 238px;
     --sidenav-margin-left: 24px;
     --sidenav-margin-right: 24px;
     --small-cards-column-width: 270px;
     --cards-column-width: 180px;
-    --hover-home-bg: #0d0c11;
-    --bgcol: #0d0c11;
+    --hover-home-bg: #0b0b0b;
+    --bgcol: #0b0b0b;
     --scroll: hsla(0, 0%, 90%, .07);
     --mobile-side: #181818;
     --logo: #fff;

@@ -73,12 +73,7 @@ function Footer(props) {
   const db = getDatabase(aut);
   const db1 = getDatabase();
   if (localStorage.getItem("emaildm") != null) {
-    const nameRef = ref(
-      db,
-      "users/" +
-        GetUID() +
-        "/duckmusic/playlist"
-    );
+    const nameRef = ref(db, "users/" + GetUID() + "/duckmusic/playlist");
     onValue(nameRef, (snapshot) => {
       const data = snapshot.val();
       if (data != null) {
@@ -494,7 +489,7 @@ function Footer(props) {
         window.location.pathname != "/logout" &&
         window.location.pathname != "/login"
       ) {
-        history.push("/login")
+        history.push("/login");
       }
     }, [])
   );
@@ -676,98 +671,105 @@ function Footer(props) {
     }
   }
 
-  return (
-    <footer className={styles.footer} style={fstyle}>
-      <div className={styles.cantplay}>
-        <h4>Duck Music nie może teraz tego odtworzyć</h4>
-      </div>
-      <div className={styles.cantplayex}>
-        <h4>Odtwarzanie nieodpowiednich utworów jest wyłączone</h4>
-      </div>
-      {size.width > CONST.MOBILE_SIZE ? (
-        <Lyrics
-          currentTime={currentTime}
-          song={trackInfo}
-          songId={trackInfo.id}
-          sly={trackInfo.lyrics}
-        />
-      ) : (
-        ""
-      )}
+  const [showFull, setShowFull] = useState(false);
 
-      <div
-        className={`${styles.nowplayingbar} ${
-          useStyle == true ? styles.loaded : ""
-        }`}
-      >
+  return (
+    <>
+      <footer className={styles.footer} style={fstyle}>
+        <div className={styles.cantplay}>
+          <h4>Duck Music nie może teraz tego odtworzyć</h4>
+        </div>
+        <div className={styles.cantplayex}>
+          <h4>Odtwarzanie nieodpowiednich utworów jest wyłączone</h4>
+        </div>
+        {size.width > CONST.MOBILE_SIZE ? (
+          <Lyrics
+            currentTime={currentTime}
+            song={trackInfo}
+            songId={trackInfo.id}
+            sly={trackInfo.lyrics}
+          />
+        ) : (
+          ""
+        )}
+
         <div
-          onClick={() => {
-            Expand1();
-          }}
-          className={styles.child1}
+          className={`${styles.nowplayingbar} ${
+            useStyle == true ? styles.loaded : ""
+          }`}
         >
-          {size.width < CONST.MOBILE_SIZE && (
+          <div
+            onClick={() => {
+              Expand1();
+            }}
+            className={styles.child1}
+          >
+            {size.width < CONST.MOBILE_SIZE && (
+              <div className={styles.footerMid}>
+                <MusicProgressBarBot
+                  currentTime={currentTime}
+                  duration={duration}
+                />
+              </div>
+            )}
+            <FooterLeft setShowFull={setShowFull} data={trackInfo} styleit={useStyle} />
+          </div>
+
+          {size.width > CONST.MOBILE_SIZE && (
             <div className={styles.footerMid}>
-              <MusicProgressBarBot
+              <MusicControlBox />
+              <MusicProgressBar
                 currentTime={currentTime}
                 duration={duration}
+                handleTrackClick={handleTrackClick}
               />
             </div>
           )}
-          <FooterLeft data={trackInfo} styleit={useStyle} />
+          {size.width < CONST.MOBILE_SIZE && (
+            <div visible="true" delay="500" className={styles.footerMe}>
+              <MusicProgressBarF
+                currentTime={currentTime}
+                duration={duration}
+                handleTrackClick={handleTrackClick}
+              />
+              <MusicControlBoxPhone />
+            </div>
+          )}
+
+          <FooterRight
+            ctime={currentTime}
+            volume={volume}
+            setVolume={setVolume}
+            opn={Expand}
+            clo={Hide}
+          ></FooterRight>
+          <Audio
+            ref={audioRef}
+            handleDuration={setDuration}
+            handleCurrentTime={setCurrentTime}
+            trackData={trackInfo}
+            isPlaying={props.isPlaying}
+            handleEnd={EndSong}
+            load={SongData}
+            fadeIn={audioVolumeIn}
+            fadeOut={audioVolumeOut}
+          />
         </div>
-
-        {size.width > CONST.MOBILE_SIZE && (
-          <div className={styles.footerMid}>
-            <MusicControlBox />
-            <MusicProgressBar
-              currentTime={currentTime}
-              duration={duration}
-              handleTrackClick={handleTrackClick}
-            />
-          </div>
+        {size.width < CONST.MOBILE_SIZE ? (
+          <Lyrics
+            currentTime={currentTime}
+            song={trackInfo}
+            songId={trackInfo.id}
+            sly={trackInfo.lyrics}
+          />
+        ) : (
+          ""
         )}
-        {size.width < CONST.MOBILE_SIZE && (
-          <div visible="true" delay="500" className={styles.footerMe}>
-            <MusicProgressBarF
-              currentTime={currentTime}
-              duration={duration}
-              handleTrackClick={handleTrackClick}
-            />
-            <MusicControlBoxPhone />
-          </div>
-        )}
-
-        <FooterRight
-          ctime={currentTime}
-          volume={volume}
-          setVolume={setVolume}
-          opn={Expand}
-          clo={Hide}
-        ></FooterRight>
-        <Audio
-          ref={audioRef}
-          handleDuration={setDuration}
-          handleCurrentTime={setCurrentTime}
-          trackData={trackInfo}
-          isPlaying={props.isPlaying}
-          handleEnd={EndSong}
-          load={SongData}
-          fadeIn={audioVolumeIn}
-          fadeOut={audioVolumeOut}
-        />
+      </footer>     
+      <div className="full-pc" style={{transform: `translateY(${showFull == true ? '0vh' :'100vh'})`, opacity: `${showFull == true ? '1' : '0'}`}}>
+        <div className="full-pc-bg" />
       </div>
-      {size.width < CONST.MOBILE_SIZE ? (
-        <Lyrics
-          currentTime={currentTime}
-          song={trackInfo}
-          songId={trackInfo.id}
-          sly={trackInfo.lyrics}
-        />
-      ) : (
-        ""
-      )}
-    </footer>
+    </>
   );
 }
 
