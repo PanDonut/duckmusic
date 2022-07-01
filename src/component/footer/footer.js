@@ -464,7 +464,7 @@ function Footer(props, {SocialSocket}) {
         }
         console.log(audioRef.current);
       }
-    }, 2100)
+    }, 2150)
     }
   }, [PLAYLIST])
 
