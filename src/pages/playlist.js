@@ -12,7 +12,7 @@ import PlaylistDetails from "../component/playlist/playlist-details";
 import PlaylistTrack from "../component/playlist/playlist-track";
 import * as Icons from "../component/icons";
 import PLAYLIST from "../data/index.json";
-import { NavLink, useLocation, Link } from "react-router-dom";
+import { NavLink, useLocation, Link, useHistory } from "react-router-dom";
 import { decode } from "he";
 import SONGLIST from "../data/songs.json";
 import Footer from "../component/footer/footer";
@@ -111,6 +111,7 @@ function DraggableMobileGrid({ gridbuttons, listbuttons, topHook, setHook }) {
 }
 
 function PlaylistPage(props) {
+  const history = useHistory();
   const [scrolled, setScrolled] = useState(false);
 
   const handleScroll = (e) => {
@@ -129,7 +130,7 @@ function PlaylistPage(props) {
         "linear-gradient(180deg, rgba(0,0,0,0.47692580450148814) 0%, rgba(0,0,0,0.4) 37%, rgba(0,0,0,0.15) 78%, rgba(0,0,0,0.1) 89%, rgba(0,0,0,0) 100%)"
       );
     }
-    e.target.scrollTop > 200 ? setScrolled(true) : setScrolled(false);
+    e.target.scrollTop > 580 ? setScrolled(true) : setScrolled(false);
   };
 
   const size = useWindowSize();
@@ -180,6 +181,15 @@ function PlaylistPage(props) {
     "\n </style>" +
     "\n </div>";
   const [, forceUpdate] = useReducer((x) => x + 1, 0);
+  var [recc1, setRecc1] = useState([]);
+  var [recc2, setRecc2] = useState([]);
+  var [recc3, setRecc3] = useState([]);
+  useEffect(() => {
+    setRecc1(PLAYLIST.filter(itm => itm.link != path)[Math.floor((Math.random()*PLAYLIST.filter(itm => itm.link != path).length))]);
+    setRecc2(PLAYLIST.filter(itm => itm.link != path)[Math.floor((Math.random()*PLAYLIST.filter(itm => itm.link != path).length))]);
+    setRecc3(PLAYLIST.filter(itm => itm.link != path)[Math.floor((Math.random()*PLAYLIST.filter(itm => itm.link != path).length))]);
+    forceUpdate();
+  }, [])
   return (
     <>
       <div className={styles.PlaylistPage} onScroll={handleScroll}>
@@ -194,8 +204,8 @@ function PlaylistPage(props) {
           draggable
           pauseOnHover
         />
+        <div style={{backgroundImage: `url(${PLAYLIST.filter(item => item.link == path)[0].banner ? PLAYLIST.filter(item => item.link == path)[0].banner : PLAYLIST.filter(item => item.link == path)[0].imgUrl}`}} className={styles.imgBg}></div>
         <div className={styles.gradientBg}></div>
-        <div className={styles.gradientBgSoft}></div>
         <div className={styles.Bg}></div>
         {size.width < CONST.MOBILE_SIZE ? (
           <Topnav playlist={true} pl={PLAYLIST} />
@@ -290,15 +300,15 @@ function PlaylistPage(props) {
                 <PlaylistDetails data={item} />
                 <div className={styles.GridIcons}>
                   {size.width > CONST.MOBILE_SIZE && (
-                    <div className={styles.PlaylistIcons}>
                       <button
+                      className="mogus"
                         onClick={() =>
                           props.changeTrack([PLAYLIST.indexOf(item), 0])
                         }
                       >
-                        <PlayButton isthisplay={isthisplay} />
+                        <PlayButton isthisplay={isthisplay} cstm="true" />
+                        {`${props.isPlaying == true && isthisplay == true && props.trackData.isCustom == "false" ? "ZATRZYMAJ" : "SŁUCHAJ"}`}
                       </button>
-                    </div>
                   )}
                   {size.width < CONST.MOBILE_SIZE && (
                     <button
@@ -308,33 +318,6 @@ function PlaylistPage(props) {
                     >
                       Słuchaj
                     </button>
-                  )}
-                  {size.width > CONST.MOBILE_SIZE && (
-                    <div className={styles.PlaylistIcons1}>
-                      <button
-                        onClick={() => {
-                          copy(link11);
-                          {
-                            notify();
-                          }
-                        }}
-                      >
-                        <LinkButton />
-                      </button>
-                      <button
-                        onClick={() => {
-                          copy(embed11);
-                          {
-                            notifyembed();
-                            {
-                              setOpen(false);
-                            }
-                          }
-                        }}
-                      >
-                        <EmbedButton />
-                      </button>
-                    </div>
                   )}
                 </div>
 
@@ -346,26 +329,39 @@ function PlaylistPage(props) {
                 <div visible="true" delay="50" className={styles.PlaylistSongs}>
                   {item.playlistData.map((song) => {
                     return (
-                      <button
-                        key={song.songindex}
-                        onClick={() =>
-                          props.changeTrack([
-                            PLAYLIST.indexOf(item),
-                            item.playlistData.indexOf(song),
-                          ])
-                        }
-                        className={styles.SongBtn}
-                      >
                         <PlaylistTrack
                           data={{
                             listType: item.type,
+                            sas: item,
                             sin: song.index,
                             song: SONGLIST[song.songindex],
+                            s: song
                           }}
                         />
-                      </button>
                     );
                   })}
+                </div>
+                <div className="Related" style={{position: scrolled == true ? 'fixed' : 'absolute', top: scrolled == true ? '-490px' : '90px'}}>
+                  <div className="Albums">
+                    <div onClick={() => {history.push(`/${recc1.type ? 'album' : 'playlist'}/${recc1.link}`)}} className="Album r1">
+                      <img src={recc1 != undefined ? recc1.imgUrl : ''} />
+                      <h2>{`POLECAN${recc1.type == "album" ? "Y ALBUM" : "A PLAYLISTA"}`}</h2>
+                      <h3>{recc1.artist}</h3>
+                      <h1>{recc1.title}</h1>
+                    </div>
+                    <div onClick={() => {history.push(`/${recc2.type ? 'album' : 'playlist'}/${recc2.link}`)}} className="Album r2">
+                      <img src={recc2 != undefined ? recc2.imgUrl : ''} />
+                      <h2>{`POLECAN${recc2.type == "album" ? "Y ALBUM" : "A PLAYLISTA"}`}</h2>
+                      <h3>{recc2.artist}</h3>
+                      <h1>{recc2.title}</h1>
+                    </div>
+                    <div onClick={() => {history.push(`/${recc3.type ? 'album' : 'playlist'}/${recc3.link}`)}} className="Album r3">
+                      <img src={recc3 != undefined ? recc3.imgUrl : ''} />
+                      <h2>{`POLECAN${recc3.type == "album" ? "Y ALBUM" : "A PLAYLISTA"}`}</h2>
+                      <h3>{recc3.artist}</h3>
+                      <h1>{recc3.title}</h1>
+                    </div>
+                  </div>
                 </div>
               </div>
             );
@@ -379,6 +375,7 @@ function PlaylistPage(props) {
 const mapStateToProps = (state) => {
   return {
     trackData: state.trackData,
+    isPlaying: state.isPlaying
   };
 };
 

@@ -2,7 +2,7 @@ import React, { useReducer } from 'react';
 import { connect } from 'react-redux';
 import { changePlay } from '../../actions';
 import * as Icons from '../icons';
-import IconButton from '../buttons/icon-button';
+import IconButton from './icon-button';
 
 import styles from './play-button.module.css'
 import { useState } from 'react';
@@ -19,8 +19,8 @@ function PlayButton(props) {
     "#db1414", "#db144c", "#ff5c8a", "#b52a84", "#fc2b2b"
 ]
         return (
-            <div className={styles.playBtn} tabIndex="0" role="button" onClick={() => {props.changePlay(!props.isPlaying); }}>
-                {props.isPlaying && props.isthisplay && props.trackData.isCustom != props.cstm
+            <div className="btnPlay" tabIndex="0" role="button" onClick={() => {props.changePlay(!props.isPlaying); }}>
+                {props.isPlaying && props.isthisplay
                         ? <Icons.Pause />
                         : <Icons.Play />
                 }
@@ -30,7 +30,6 @@ function PlayButton(props) {
 
 const mapStateToProps = (state) => {
   return {
-    trackData: state.trackData,
     isPlaying: state.isPlaying
   };
 };

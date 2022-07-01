@@ -22,7 +22,7 @@ function PlaylistCardM(props) {
 
 	return (
 		<div className={styles.PlaylistCardSBox}>
-			<Link onClick={() => {if (window.location.pathname.includes("search")) {AddToHistory(props.data.index, "playlist")}}} to={`/playlist/${props.data.link}`}>
+			<Link onClick={() => {if (window.location.pathname.includes("search")) {AddToHistory(props.data.index, "playlist")}}} to={`/${props.data.type ? 'album' : 'playlist'}/${props.data.link}`}>
 				<div visible="true" delay="100" className={styles.PlaylistCardS}>
 					<div className={`${styles.ImgBox} ${loaded == true ? '' : styles.loader}`}>
 						<img onLoad={() => {setLoad(true)}} src={props.data.imgUrl} alt={props.data.title} />

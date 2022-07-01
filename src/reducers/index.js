@@ -28,8 +28,6 @@ if (localStorage.getItem("emaildm") != null) {
   });
 }
 
-var playlistwmods = PLAYLIST;
-console.log(playlistwmods)
 
 const INITIAL_STATE = {
   trackData: {
@@ -69,7 +67,7 @@ export const reducer = (state = INITIAL_STATE, action) => {
           trackKey: action.payload,
           track: `${
             SONGLIST[
-              playlistwmods[action.payload[0]].playlistData[action.payload[1]]
+              PLAYLIST[action.payload[0]].playlistData[action.payload[1]]
                 .songindex
             ].link
           }`,

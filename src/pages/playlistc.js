@@ -203,8 +203,10 @@ function PlaylistPage(props) {
           draggable
           pauseOnHover
         />
+        {PLAYLIST != null &&
+        <div style={{backgroundImage: `url(${PLAYLIST.filter(item => item.link == path)[0].banner ? PLAYLIST.filter(item => item.link == path)[0].banner : SONGLIST[PLAYLIST.filter(item => item.link == path)[0].playlistData[0]] ? SONGLIST[PLAYLIST.filter(item => item.link == path)[0].playlistData[0].songindex].songimg : ''}`}} className={styles.imgBg}></div>
+        }
         <div className={styles.gradientBg}></div>
-        <div className={styles.gradientBgSoft}></div>
         <div className={styles.Bg}></div>
         {size.width < CONST.MOBILE_SIZE ? (
           <Topnav playlist={true} pl={PLAYLIST} isSong={s} />
@@ -416,15 +418,15 @@ function PlaylistPage(props) {
                     />
                     <div className={styles.GridIcons}>
                       {size.width > CONST.MOBILE_SIZE && (
-                        <div className={styles.PlaylistIcons}>
-                          <button
-                            onClick={() =>
-                              props.customTrack([PLAYLIST.indexOf(item), 0])
-                            }
-                          >
-                            <PlayButton isthisplay={isthisplay} />
-                          </button>
-                        </div>
+                      <button
+                      className="mogus"
+                        onClick={() =>
+                          props.customTrack([PLAYLIST.indexOf(item), 0])
+                        }
+                      >
+                        <PlayButton isthisplay={isthisplay} cstm="false" />
+                        {`${props.isPlaying == true && isthisplay == true && props.trackData.isCustom == "true" ? "ZATRZYMAJ" : "SŁUCHAJ"}`}
+                      </button>
                       )}
                       {size.width < CONST.MOBILE_SIZE && (
                         <button
@@ -434,49 +436,6 @@ function PlaylistPage(props) {
                         >
                           Słuchaj
                         </button>
-                      )}
-                      {size.width > CONST.MOBILE_SIZE && (
-                        <div className={styles.PlaylistIcons1}>
-                          <button
-                            onClick={() => {
-                              copy(link11);
-                              {
-                                notify();
-                              }
-                            }}
-                          >
-                            <LinkButton1 />
-                          </button>
-                          <button
-                            onClick={() => {
-                              var json_string = JSON.stringify(
-                                item,
-                                undefined,
-                                2
-                              );
-                              var link = document.createElement("a");
-                              link.download =
-                                "dm_generated_" + item.index + ".dmusic";
-                              var blob = new Blob([json_string], {
-                                type: "text/plain",
-                              });
-                              link.href = window.URL.createObjectURL(blob);
-                              link.click();
-                            }}
-                          >
-                            <LinkButton />
-                          </button>
-                          <button
-                            onClick={() => {
-                              RemoveItem(PLAYLIST.indexOf(item));
-                              {
-                                history.push("/library");
-                              }
-                            }}
-                          >
-                            <RemoveButton />
-                          </button>
-                        </div>
                       )}
                     </div>
 
@@ -488,37 +447,31 @@ function PlaylistPage(props) {
                     <div
                       visible="true"
                       delay="50"
-                      className={styles.PlaylistSongs}
+                      className={`${styles.PlaylistSongs} ${styles.PlaylistSongz}`}
                     >
                       {item.playlistData[0] != undefined ? (
                         item.playlistData.map((song) => {
                           return (
-                            <button
-                              key={song.songindex}
-                              onClick={() =>
-                                props.customTrack([
-                                  PLAYLIST.indexOf(item),
-                                  item.playlistData.indexOf(song),
-                                ])
-                              }
-                              className={styles.SongBtn}
-                            >
                               <PlaylistTrack
                                 data={{
                                   listType: item.type,
                                   sin: song.index,
                                   song: SONGLIST[song.songindex],
                                   sing: item,
+                                  plind: PLAYLIST.indexOf(item),
+                                  sngind: song.songindex,
                                   pla: PLAYLIST.indexOf(item),
                                   ind: song,
                                   inde: item.playlistData.indexOf(song),
+                                  pld: item.playlistData
                                 }}
                               />
-                            </button>
                           );
                         })
                       ) : (
-                        <div className={styles.eyes}></div>
+                        <div className="Nothing">
+                          Trochę tu pusto
+                        </div>
                       )}
                     </div>
                   </div>
@@ -534,6 +487,7 @@ function PlaylistPage(props) {
 const mapStateToProps = (state) => {
   return {
     trackData: state.trackData,
+    isPlaying: state.isPlaying
   };
 };
 

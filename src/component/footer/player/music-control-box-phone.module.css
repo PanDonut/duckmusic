@@ -17,7 +17,7 @@
 }
 
     .musicControl div {
-        background: #5b88e1;
+        background: var(--akcent);
         width: 70px;
         height: 70px;
         border-radius: 50%;
@@ -67,12 +67,12 @@
 
     .buttonactive svg {
         font-size: 26px;
-        fill: #5b88e1;
+        fill: var(--akcent);
         color: hsla(0,0%,100%,.7);
     }
 
         .buttonactive svg:hover {
-            fill: #5b88e1;
+            fill: var(--akcent);
             color: rgb(255, 255, 255);
             transition: 0.25s;
         }

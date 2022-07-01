@@ -74,67 +74,12 @@ function Search() {
     const [, forceUpdate] = useReducer(x => x + 1, 0);
  
     return (
-        <>
+        <> 
             <div className={styles.SearchPage} onScroll={handleScroll}>
-                <Topnav sB={scrolled} normal={true}/>
-                
-                    <div className={styles.SeachBox}>
-                    <input className={styles.SeachInpt} autocomplete="off" id="txts" placeholder="Wyszukaj tytuł lub wykonawcę" maxLength="80" value={input} onInput={e => setInput(e.target.value)}></input>
+                <div className='SearchBox'>
+                    <input spellCheck={false} type="text" className='SearchInput' />
                 </div>
-                <div className={styles.new} onScroll={handleScroll}>
-                <h1>Ostatnio wyszukiwane</h1>
-                <div visible="true" delay="50" className={styles.SearchCardGridH}>
-                    {JSON.parse(localStorage.getItem("duckmusic.search_history")).reverse().map((list) => {
-                        var title = list.title;
-                        let arrrr = JSON.parse(localStorage.getItem("duckmusic.search_history"));
-                        if (list.type == "playlist") {
-                        return (
-                            <div>                           
-                            <PlaylistCardSe
-                                key={PLAYLIST[list.index].title}
-                                data={PLAYLIST[list.index]}
-                            />
-                            <div className={styles.x} onClick={() => {arrrr.splice(arrrr.indexOf(list), 1); localStorage.setItem("duckmusic.search_history", JSON.stringify(arrrr)); forceUpdate();}}></div>
-                            </div>
-                        );
-                        } else {
-                            return (
-                                <div>                               
-                                <PlaylistCardMe
-                                    key={SONGLIST[list.index].title}
-                                    data={SONGLIST[list.index]}
-                                />
-                                <div className={styles.x} onClick={() => {arrrr.splice(arrrr.indexOf(list), 1); localStorage.setItem("duckmusic.search_history", JSON.stringify(arrrr)); forceUpdate();}}></div>
-                                </div>
-                            );
-                        }
-                    })}
-                </div>
-                <h1>Playlisty</h1>
-                <div visible="true" delay="50" className={styles.SearchCardGrid}>
-                    {PLAYLIST.filter(item => item.title.toLowerCase().includes(input.toLowerCase()) || item.artist.toLowerCase().includes(input.toLowerCase())).map((list) => {
-                        var title = list.title;
-                        return (
-                            <PlaylistCardS
-                                key={list.title}
-                                data={list}
-                            />
-                        );
-                    })}
-                </div>
-                <h1>Utwory</h1>
-                <div visible="true" delay="50" className={styles.SearchCardGrid}>
-                    {SONGLIST.filter(item => item.songName.toLowerCase().includes(input.toLowerCase()) || item.songArtist.toLowerCase().includes(input.toLowerCase())).sort((a, b) => 0.5 - Math.random()).map((list) => {
-                        return (
-                            <PlaylistCardM
-                                key={list.title}
-                                data={list}
-                            />
-                        );
-                    })}
-                </div>
-                    </div>
-        </div>
+            </div>
         </>
     );
 }

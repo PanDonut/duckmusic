@@ -1,23 +1,15 @@
 .Topnav{
     position: sticky;
-    top: 0;
+    top: 25px;
     right: 0;
-    left: 0;
     height: 60px;
     z-index: 99;
     background-color: transparent;
     transition: background-color 0.25s ease;
+    pointer-events: none;
 }
 .Topnav div {
     padding: 10px 32px;
-}
-
-.navA {
-    background-color: var(--hover-home-bg);
-}
-
-.navI {
-    background-color: #121214;
 }
 
 .Topnav div div{

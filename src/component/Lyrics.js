@@ -30,7 +30,7 @@ function Lyrics({ song, currentTime, songId, sly }) {
     setIsFullscreen(false);
     document.documentElement.style.setProperty(
       "--ly-height",
-      "calc(100vh - 94px)"
+      "calc(100vh - 90px)"
     );
     handle.exit();
   }
@@ -348,6 +348,7 @@ function Lyrics({ song, currentTime, songId, sly }) {
     }
   } else {
     return (
+      <div className="lybg">
       <div className="mm-lyrics">
         {translate == false ? (
           <button
@@ -492,6 +493,7 @@ function Lyrics({ song, currentTime, songId, sly }) {
               })
             : ""}
         </div>
+      </div>
       </div>
     );
   }

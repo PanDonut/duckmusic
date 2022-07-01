@@ -94,7 +94,7 @@ function PlaylistTrack(props) {
                 id={styles.eI4wjv0hVNk2}
                 d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
                 transform="translate(-4.99902,-7)"
-                fill="#5b88e1"
+                fill="var(--akcent)"
                 stroke="none"
                 stroke-width="1"
               />
@@ -107,7 +107,7 @@ function PlaylistTrack(props) {
                 id={styles.eI4wjv0hVNk3}
                 d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
                 transform="translate(-4.99902,-7)"
-                fill="#5b88e1"
+                fill="var(--akcent)"
                 stroke="none"
                 stroke-width="1"
               />
@@ -120,7 +120,7 @@ function PlaylistTrack(props) {
                 id={styles.eI4wjv0hVNk4}
                 d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
                 transform="translate(-4.9990,-7)"
-                fill="#5b88e1"
+                fill="var(--akcent)"
                 stroke="none"
                 stroke-width="1"
               />
@@ -133,7 +133,7 @@ function PlaylistTrack(props) {
                 id={styles.eI4wjv0hVNk5}
                 d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
                 transform="translate(-4,-7)"
-                fill="#5b88e1"
+                fill="var(--akcent)"
                 stroke="none"
                 stroke-width="1"
               />

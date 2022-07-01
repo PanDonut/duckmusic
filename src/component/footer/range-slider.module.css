@@ -6,11 +6,11 @@
 }
 .range__slider {
 	-webkit-appearance: none;
-	background-color: #535353;
-	height: 4px;
+	background-color: #282828;
+	height: 6px;
 	overflow: hidden;
 	width: auto;
-	border-radius: 2px;
+	border-radius: 0px;
 	transition: 0.25s ease;
 }
 .spanThumb {
@@ -24,43 +24,43 @@
 }
 .range__slider::-webkit-slider-runnable-track {
 	-webkit-appearance: none;
-	height: 4px;
+	height: 6px;
 	transition: 0.25s ease;
 }
 .range__slider::-webkit-slider-thumb {
 	-webkit-appearance: none;
 	position: relative;
 	z-index: 9;
-	background: #b3b3b3;
+	background: var(--akcent);
 	border-radius: 50%;
-	box-shadow: -410px 0 0 408px #b3b3b3;
+	box-shadow: calc(-100vw - 2px) 0 0 100vw var(--akcent);
 	cursor: pointer;
-	height: 4px;
+	height: 6px;
 	width: 4px;
 	transition: 0.25s ease;
 	border: 0;
 }
 .range__slider::-moz-range-thumb {
-	background: #b3b3b3;
+	background: var(--akcent);
 	border-radius: 50%;
-	box-shadow: -410px 0 0 408px #b3b3b3;
+	box-shadow: calc(-100vw - 2px) 0 0 100vw var(--akcent);
 	cursor: pointer;
-	height: 4px;
+	height: 6px;
 	width: 4px;
 	transition: 0.25s ease;
 	border: 0;
 }
 .range__slider::-moz-range-track {
-	background-color: #535353;
+	background-color: #282828;
 	transition: 0.25s ease;
 }
 .range__slider::-moz-range-progress {
-	background-color: #b3b3b3;
+	background-color: var(--akcent);
 	transition: 0.25s ease;
-	height: 4px;
+	height: 6px;
 }
 .range__slider::-ms-fill-upper {
-	background-color: #535353;
+	background-color: #282828;
 	transition: 0.25s ease;
 }
 .range__slider::-ms-fill-lower {
@@ -68,17 +68,19 @@
 	transition: 0.25s ease;
 }
 .progressBar:hover .range__slider::-webkit-slider-thumb {
-	background: #5b88e1;
-	box-shadow: -410px 0 0 408px #5b88e1;
+	background: var(--akcent);
+	box-shadow: calc(-100vw - 2px) 0 0 100vw var(--akcent);
 	transition: 0.25s ease;
 }
 .progressBar:hover .range__slider::-moz-range-thumb {
-	background: #1db954;
+	background: var(--akcent);
 	transition: 0.25s ease;
-	box-shadow: -410px 0 0 408px #5b88e1;
+	box-shadow: calc(-100vw - 2px) 0 0 100vw var(--akcent);
 }
 .progressBar:hover span {
-	background: #5b88e1 !important;
-	transition: 0.25s ease;
+	background: #fff !important;
 	opacity: 1 !important;
+	z-index: 1000;
+	border: 4px #fff solid;
+	cursor: pointer;
 }

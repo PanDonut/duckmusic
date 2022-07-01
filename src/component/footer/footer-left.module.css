@@ -6,7 +6,7 @@
 
 .footerLeft {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
     user-drag: none;
     -webkit-user-drag: none;
@@ -17,8 +17,8 @@
     z-index: 10;   
 }
 .imgBox {
-    width: 56px;
-    height: 56px;
+    width: 85px;
+    height: 85px;
     display: var(--imgn);
     user-drag: none;
     -webkit-user-drag: none;
@@ -89,6 +89,7 @@
     color: var(--text-white);
     transition: var(--txt-ov);
     animation: var(--anim);
+    font-weight: 400;
 }
 .songDetails p small{
     color: var(--text-gray);
@@ -199,7 +200,7 @@
 
 
 .songDetailsfull p small {
-    color: #5b88e1;
+    color: var(--akcent);
     font-size: 13px;
 }
 
@@ -250,6 +251,10 @@
         justify-content: flex-start;
         flex-direction: row;
     }
+
+    .Artist1 p {
+        font-weight: 100;
+    }
     
     .Artist1 p:hover {
         filter: brightness(100%);
@@ -261,18 +266,24 @@
         grid-auto-flow: column;
         grid-auto-columns: auto;
         position: absolute;
-        top: 20px;
+        top: -5px;
+        font-weight: 400;
     }
 
     .Artist1 p {
         margin: 0px;
-        color: var(--text-white);
-        font-weight: 500;
+        color: var(--text-gray);
+        font-weight: 300;
         font-size: 13px;
         height: auto;
         width: 100%;
         overflow: visible;
         white-space: nowrap;
+    }
+    .Artist1 {
+        color: var(--text-gray) !important;
+        font-weight: 300;
+        font-size: 13px;
     }
 
     .tit.go {

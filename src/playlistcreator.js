@@ -3,6 +3,7 @@ import SONGLIST from './data/songs.json';
 import { getDatabase, ref, onValue, set } from "firebase/database";
 import { aut } from './dauth.js';
 import { GetUID } from './pages/functions';
+import { useEffect, useState } from 'react';
 
 export function CreatePlaylist(firstindex, color, name) {
     const db = getDatabase(aut);
@@ -191,4 +192,40 @@ export function RemoveLiked(index, song) {
     set(ref(db, 'users/' + GetUID() + "/dmusic"), {
         liked: JSON.stringify(pl)
     });
+}
+
+export function LikeSong(index) {
+    const db = getDatabase(aut);
+    let pl = [];
+    const nameRef = ref(db, 'users/' + GetUID() + '/dmusic/liked');
+    var [likedSongs, setLikedSongs] = useState([]);
+    var nameRef1 = ref(
+        db,
+        "users/" +
+          GetUID() +
+          "/dmusic/liked"
+      );
+      onValue(nameRef1, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null || data != undefined || likedSongs == []) {
+          setLikedSongs(JSON.parse(data));
+        }
+      });
+        console.log(likedSongs);
+        var dat = likedSongs;
+        dat.push(index);
+        set(
+          ref(
+            db,
+            "users/" +
+              GetUID() +
+              "/dmusic"
+          ),
+          {
+            liked: JSON.stringify(dat),
+          }
+        );
+}
+
+export function SendFriendRequest(email) {
 }

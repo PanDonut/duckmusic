@@ -98,7 +98,7 @@
     width: 56px;
     height: 56px;
     border-radius: 28px;
-    background-color: #5b88e1;
+    background-color: var(--akcent);
 }
 .PlaylistIcons div button{
     width: 56px;
@@ -392,7 +392,7 @@
     }
     .GridIcons button {
         margin-top: 10px;
-        background-color: #5b88e1;
+        background-color: var(--akcent);
         border: none;
         border-radius: 25px;
         padding: 15px 35px;

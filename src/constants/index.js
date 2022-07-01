@@ -10,32 +10,26 @@ export default {
 
     export const MENU = [
         {
-            title: 'Główna',
+            title: 'Odkrywaj',
             path: '/',
             icon: <Icon.Home />,
             iconSelected: <Icon.HomeActive />
         },
         {
-            title: 'Biblioteka',
-            path: '/library',
+            title: 'Aktywność',
+            path: '/activity',
             icon: <Icon.Library />,
             iconSelected: <Icon.LibraryActive />
-        },
+        },      
         {
-            title: 'Szukaj',
-            path: '/search',
-            icon: <Icon.Search />,
-            iconSelected: <Icon.SearchActive />
-        },       
-        {
-            title: 'Profil',
-            path: '/profile',
+            title: 'Radio',
+            path: '/radio',
             icon: <Icon.Profile />,
             iconSelected: <Icon.Profile />
         },
         {
-            title: 'Ustawienia',
-            path: '/settings',
+            title: 'Biblioteka',
+            path: '/library',
             icon: <Icon.Settings />,
             iconSelected: <Icon.Settings />
         },

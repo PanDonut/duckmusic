@@ -1,6 +1,6 @@
 [
 	{
-		"index": "0",
+		"index": "1",
 		"type": "playlista",
 		"title": "Duck Mix",
 		"link": "duckmix1",
@@ -10,7 +10,7 @@
 		"ex": "no",
 		"imgUrl": "https://i.ibb.co/gTcL5Hx/thenight.png",
 		"hoverColor": "rgb(161, 0, 0)",
-		"artist": "Carly Rae Jepsen, Taylor Swift, Vance Joy, Dawid Podsiadło, Toto, Bruno Mars, Ed Helms, Camila Cabello, Shawn Mendes, Rick Astley, Pitbull, Rachel Platten, OneRepublic, Fools Garden i inni",
+		"artist": "Carly Rae Jepsen, Taylor Swift, Vance Joy, Dawid Podsiadło, Toto i inni",
 		"playlistBg": "rgb(161, 0, 0)",
 		"playlistData": [
 			{
@@ -149,7 +149,7 @@
 		]
 	},
 	{
-		"index": "1",
+		"index": "2",
 		"type": "playlista",
 		"title": "Rytm Jesieni",
 		"link": "rytm_jesieni",
@@ -268,7 +268,7 @@
 		]
 	},
 	{
-		"index": "2",
+		"index": "3",
 		"type": "playlista",
 		"title": "Jesienny Odpoczynek",
 		"link": "jesienny_odp",
@@ -326,11 +326,15 @@
 			{
 				"index": "12",
 				"songindex": 69
+			},
+			{
+				"index": "13",
+				"songindex": 58
 			}
 		]
 	},
 	{
-		"index": "3",
+		"index": "4",
 		"type": "playlista",
 		"title": "Świąteczne Hity",
 		"link": "christmas2021",
@@ -376,7 +380,7 @@
 		]
 	},
 	{
-		"index": "4",
+		"index": "5",
 		"type": "playlista",
 		"title": "To Weeknd!",
 		"link": "mhkrguktu8prr2w7jku3h",

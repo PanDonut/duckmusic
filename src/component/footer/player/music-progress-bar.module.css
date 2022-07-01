@@ -7,12 +7,15 @@
     justify-content: center;
     width: 100%;
     z-index: 1000000;
+    position: fixed;
+    bottom: 83px;
+    left: 0;
 }
 .musicProgress span p{
     margin: 0px 8px;
     word-break: normal;
     font-size: 11px;
-    color: rgb(179, 179, 179);
+    color: var(--text-gray);
 }
 .musicProgress div{
     display: flex;

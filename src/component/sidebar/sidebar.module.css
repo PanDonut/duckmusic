@@ -2,19 +2,63 @@
     /*width: var(--sidenav-width);*/
     background-color: var(--sidenav-black);
     position: fixed;
-    backdrop-filter: blur(500000px);
-    width: 75px;
+    width: 85px;
     height: 100%;
     top: 0;
     left: 0;
-    z-index: 7;
+    z-index: 8;
     transition: width 0.25s ease, z-index 0.15s ease;
-    overflow: hidden;
+    overflow: visible;
 }
 
-.SideNavbar:hover {
+.SideNavbar:hover + .SideWide {
+    /* No zasadniczo to ten redesign będzie super,
+    a to się nie nadaje
     z-index: 9;
-    width: 300px;
+    width: 300px;*/
+    left: 65px;
+    opacity: 1;
+}
+
+.SideWide:hover {
+    left: 65px;
+    opacity: 1;
+}
+
+.SideWide {
+    position: absolute;
+    height: 100%;
+    width: 260px;
+    top: 0;
+    left: -270px;
+    z-index: 7;
+    background-color: rgb(24, 24, 24);
+    transition: 0.15s ease;
+    opacity: 0;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    padding-top: 95px;
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+@supports (filter: none) {
+    .SideWide {
+        background-color: #1a1a1acc;
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blur(10px);
+    }
+}
+  
+.SideWide h2 {
+    text-align: left;
+    left: 36px;
+    width: 100%;
+    position: relative;
+    font-size: 16px;
+    letter-spacing: 1.75px;
 }
 
 .Fixed{

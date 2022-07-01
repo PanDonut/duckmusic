@@ -24,7 +24,10 @@ function Settings() {
                 <Topnav back={true} />
                 <div className="body1">
                 
-                <img src={localStorage.getItem('image')} />
+                <img src={`https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/users%2F${localStorage.getItem('emaildm').replaceAll(
+                      ".",
+                      ""
+                    )}%2Fprofile.png?alt=media`} />
             <div visible="true" delay="50" className="marg">
                     <h5>Profil</h5>
                     <h1>{localStorage.getItem('name')}</h1>

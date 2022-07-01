@@ -1,6 +1,6 @@
 ﻿import React, { useState, useEffect, useCallback, useRef } from "react";
 import { connect } from "react-redux";
-import { changePlay } from "../../actions";
+import { changePlay, customTrack } from "../../actions";
 import TextBoldL from "../text/text-bold-l";
 import TextRegularM from "../text/text-regular-m";
 import Playgif from "../../image/now-play.gif";
@@ -60,8 +60,14 @@ function PlaylistTrack(props) {
     document.documentElement.style.setProperty("--color", color);
   }
   return (
-    <div>
+    <div className="TrackRel">
       <div
+        onClick={() =>
+          props.customTrack([
+            props.data.plind,
+            props.data.sing.playlistData.indexOf(props.data.ind),
+          ])
+        }
         className={`${styles.trackDiv} ${thisSong ? "activeTrack" : ""}`}
         style={
           props.data.listType === "album1"
@@ -70,6 +76,7 @@ function PlaylistTrack(props) {
         }
       >
         <button
+        tabIndex="-1"
           className={styles.playBtn}
           onClick={() => props.changePlay(!props.isPlaying)}
         >
@@ -77,130 +84,141 @@ function PlaylistTrack(props) {
         </button>
 
         {thisSong ? (
-          <svg
-            id={styles.eI4wjv0hVNk}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 14 14"
-            width="16px"
-            height="16px"
-            shape-rendering="geometricPrecision"
-            text-rendering="geometricPrecision"
-          >
-            <g
-              id={styles.eI4wjv0hVNk2_ts}
-              transform="translate(4.99902,14) scale(1,1)"
+          // <svg
+          //   id={styles.eI4wjv0hVNk}
+          //   xmlns="http://www.w3.org/2000/svg"
+          //   viewBox="0 0 14 14"
+          //   width="16px"
+          //   height="16px"
+          //   shape-rendering="geometricPrecision"
+          //   text-rendering="geometricPrecision"
+          // >
+          //   <g
+          //     id={styles.eI4wjv0hVNk2_ts}
+          //     transform="translate(4.99902,14) scale(1,1)"
+          //   >
+          //     <path
+          //       id={styles.eI4wjv0hVNk2}
+          //       d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
+          //       transform="translate(-4.99902,-7)"
+          //       fill="var(--akcent)"
+          //       stroke="none"
+          //       stroke-width="1"
+          //     />
+          //   </g>
+          //   <g
+          //     id={styles.eI4wjv0hVNk3_ts}
+          //     transform="translate(9.116667,14) scale(1,0.16)"
+          //   >
+          //     <path
+          //       id={styles.eI4wjv0hVNk3}
+          //       d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
+          //       transform="translate(-4.99902,-7)"
+          //       fill="var(--akcent)"
+          //       stroke="none"
+          //       stroke-width="1"
+          //     />
+          //   </g>
+          //   <g
+          //     id={styles.eI4wjv0hVNk4_ts}
+          //     transform="translate(12,14) scale(1,2)"
+          //   >
+          //     <path
+          //       id={styles.eI4wjv0hVNk4}
+          //       d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
+          //       transform="translate(-4.9990,-7)"
+          //       fill="var(--akcent)"
+          //       stroke="none"
+          //       stroke-width="1"
+          //     />
+          //   </g>
+          //   <g
+          //     id={styles.eI4wjv0hVNk5_ts}
+          //     transform="translate(1,14) scale(1,0.56)"
+          //   >
+          //     <path
+          //       id={styles.eI4wjv0hVNk5}
+          //       d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
+          //       transform="translate(-4,-7)"
+          //       fill="var(--akcent)"
+          //       stroke="none"
+          //       stroke-width="1"
+          //     />
+          //   </g>
+          // </svg>
+          <div className="circ">
+            <svg
+              className="circle"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                id={styles.eI4wjv0hVNk2}
-                d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
-                transform="translate(-4.99902,-7)"
-                fill="#5b88e1"
-                stroke="none"
-                stroke-width="1"
-              />
-            </g>
-            <g
-              id={styles.eI4wjv0hVNk3_ts}
-              transform="translate(9.116667,14) scale(1,0.16)"
-            >
-              <path
-                id={styles.eI4wjv0hVNk3}
-                d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
-                transform="translate(-4.99902,-7)"
-                fill="#5b88e1"
-                stroke="none"
-                stroke-width="1"
-              />
-            </g>
-            <g
-              id={styles.eI4wjv0hVNk4_ts}
-              transform="translate(12,14) scale(1,2)"
-            >
-              <path
-                id={styles.eI4wjv0hVNk4}
-                d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
-                transform="translate(-4.9990,-7)"
-                fill="#5b88e1"
-                stroke="none"
-                stroke-width="1"
-              />
-            </g>
-            <g
-              id={styles.eI4wjv0hVNk5_ts}
-              transform="translate(1,14) scale(1,0.56)"
-            >
-              <path
-                id={styles.eI4wjv0hVNk5}
-                d="M3.99902,14L5.99902,14L5.99902,0L3.99902,0L3.99902,14ZM-0.000977,0"
-                transform="translate(-4,-7)"
-                fill="#5b88e1"
-                stroke="none"
-                stroke-width="1"
-              />
-            </g>
-          </svg>
+              <circle style={{animation: document.documentElement.style.getPropertyValue("--percent") != "sas" || document.documentElement.style.getPropertyValue("--percent") != "Infinity" ? '' : 'alternate-reverse linear infinite 1s fl'}} cx="50" cy="50" r="35" />
+            </svg>
+          </div>
         ) : (
-          <p className={styles.SongIndex}>{props.data.sin}</p>
-        )}
-
-        {props.data.listType === "album1" ? (
-          ""
-        ) : (
-          <img src={props.data.song.songimg} />
+          <p className={styles.SongIndex}>
+            {props.data.pld.indexOf(
+              props.data.pld.filter(
+                (ym) => ym.songindex == props.data.sngind
+              )[0]
+            ) + 1}
+          </p>
         )}
 
         <span className={styles.txta}>
           <TextBoldL>{props.data.song.songName}</TextBoldL>
           <TextRegularM>
-            {props.data.song.ex == true ? (
-              <>
-                <span className={styles.explicit}>E </span>
-                <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-              </>
-            ) : (
-              ""
-            )}
-            {props.data.song.lyrics != undefined ? (
-              <>
-                <span
-                  className={styles.explicit}
-                  style={{
-                    width: "45px",
-                    marginLeft: props.data.song.ex == true ? "20px" : "auto",
-                  }}
-                >
-                  TEKST{" "}
-                </span>
-                <span>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                </span>
-              </>
-            ) : (
-              ""
-            )}
             {`${props.data.song.songArtist}`}
           </TextRegularM>
         </span>
-        <button
-          className={styles.dots}
-          onClick={() => {
-            RemoveSong(props.data.pla, props.data.inde);
-          }}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            fill="#fff"
-            stroke="#fff"
-            class="bi bi-three-dots-vertical"
-            viewBox="0 0 24 24"
-          >
-            <title id="binIconTitle">Usuń z playlisty</title>{" "}
-            <path d="M19 6L5 6M14 5L10 5M6 10L6 20C6 20.6666667 6.33333333 21 7 21 7.66666667 21 11 21 17 21 17.6666667 21 18 20.6666667 18 20 18 19.3333333 18 16 18 10" />
-          </svg>
-        </button>
+        {props.data.song.ex == true && props.data.song.lyrics != undefined ? (
+          <>
+            <span className={styles.explicit}>E </span>
+          </>
+        ) : (
+          <div />
+        )}
+        {props.data.song.lyrics != undefined ? (
+          <>
+            <span
+              className={styles.explicit}
+              style={{
+                width: "45px",
+              }}
+            >
+              TEKST{" "}
+            </span>
+          </>
+        ) : props.data.song.ex == true &&
+          props.data.song.lyrics == undefined ? (
+          <>
+            <span className={styles.explicit}>E </span>
+          </>
+        ) : (
+          <div />
+        )}
       </div>
+      {navigator.onLine ? (
+          <button
+            className='dots'
+            onClick={() => {
+              RemoveSong(props.data.pla, props.data.sing.playlistData.indexOf(props.data.ind))
+            }}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="currentColor"
+              class="bi bi-three-dots-vertical"
+              viewBox="0 0 16 16"
+            >
+              <path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"></path>
+            </svg>
+          </button>
+        ) : (
+          ""
+        )}
     </div>
   );
 }
@@ -212,4 +230,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { changePlay })(PlaylistTrack);
+export default connect(mapStateToProps, { changePlay, customTrack })(PlaylistTrack);

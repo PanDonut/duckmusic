@@ -12,7 +12,8 @@ export default function LoginPage() {
             localStorage.setItem("emaildm", event.data.mail);
             localStorage.setItem("name", event.data.name);
             SetUID(event.data.uid);
-            event.source.postMessage("closenow", "*")
+            event.source.postMessage("closenow", "*");
+            window.location.pathname = "/";
         }     
     });
     window.open("https://login.theduck.ml/v2/auth/login", 'Logowanie', "popup")

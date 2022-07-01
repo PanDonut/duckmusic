@@ -2,16 +2,16 @@
     width: 225px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
+    justify-content: space-evenly;
+    margin-bottom: 0px;
     -webkit-tap-highlight-color: transparent;
     z-index: 1000000;
 }
 .button {
     border: 0;
     background: transparent;
-    width: 32px;
-    height: 32px;
+    width: 38px;
+    height: 38px;
     padding: 0;
     display: flex;
     align-items: center;
@@ -26,8 +26,6 @@
 .button svg:hover {
     fill: var(--btns);
     color: rgb(255, 255, 255);
-    width: 20px;
-    height: 20px;
     transition: 0.25s;
 }
 
@@ -47,18 +45,18 @@
 
     .buttonactive svg {
         font-size: 20px;
-        fill: #5b88e1;
+        fill: var(--akcent);
         color: hsla(0,0%,100%,.7);
     }
 
         .buttonactive svg:hover {
-            fill: #5b88e1;
+            fill: var(--akcent);
             color: rgb(255, 255, 255);
             transition: 0.25s;
         }
 
         .buttonactive:after {
-            background-color: #5b88e1;
+            background-color: var(--akcent);
         }
 
 .notification {

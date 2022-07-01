@@ -163,16 +163,32 @@
   transform: scale(1.1);
   transition: 0.25s ease-in-out;
 }
-.gradientBg {
-  height: 340px;
+.imgBg {
+  height: 400px;
   position: absolute;
   left: 0;
   right: 0;
   z-index: -1;
   transition: background 1s ease;
-  width: 200vw;
-  background-color: var(--hover-home-bg);
+  width: 100vw;
   transition: 0.5s !important;
+  background-position: center top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: blur(12px);
+}
+.gradientBg {
+  height: 330px;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 120px;
+  z-index: -1;
+  transition: background 1s ease;
+  width: 200vw;
+  background-color: rgba(24, 24, 24, 0.85);
+  transition: 0.5s !important;
+  backdrop-filter: blur(10px);
 }
 .gradientBgSoft {
   position: absolute;
@@ -362,7 +378,7 @@
   width: 56px;
   height: 56px;
   border-radius: 28px;
-  background-color: #5b88e1;
+  background-color: var(--akcent);
 }
 .PlaylistIcons div button {
   width: 56px;
@@ -420,6 +436,11 @@
 
 .PlaylistSongs {
   padding: 0 32px;
+  width: calc(100% - 400px);
+}
+.PlaylistSongz {
+  padding: 0 32px;
+  width: unset;
 }
 .ListHead {
   margin: 0 20px 16px 40px;
@@ -549,7 +570,7 @@
   }
   .GridIcons button {
     margin-top: 10px;
-    background-color: #5b88e1;
+    background-color: var(--akcent);
     border: none;
     border-radius: 25px;
     padding: 15px 35px;

@@ -1,12 +1,16 @@
 .SearchPage {
-    background-color: var(--bgcol);
+    background-color: #1a1a1acc;
     color: #fff;
     overflow-y: hidden;
     overflow-x: hidden;
-    height: calc(100vh - 100px);
-    padding-bottom: 100px;
-    backdrop-filter: blur(500000px);
-    animation: goinP 0.5s ease;
+    height: calc(100vh - 90px);
+    width: calc(100% - 85px);
+    padding-bottom: 0px;
+    backdrop-filter: blur(35px);
+    position: fixed;
+    top: 0;
+    left: 85px;
+    z-index: 99;
 }
 
 @keyframes goinP {

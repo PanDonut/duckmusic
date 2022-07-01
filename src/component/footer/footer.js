@@ -38,7 +38,7 @@ import {
 import { GetUID } from "../../pages/functions";
 import { useHistory } from "react-router-dom";
 
-function Footer(props) {
+function Footer(props, {SocialSocket}) {
   async function showPictureInPictureWindow() {
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 512;
@@ -391,7 +391,7 @@ function Footer(props) {
       trackInfo.trackArtist;
     document.head.children.namedItem("author").content = trackInfo.trackArtist;
   } else {
-    document.title = "Duck Music";
+    document.title = "Music";
     document.head.children.namedItem("description").content = " ";
     document.head.children.namedItem("author").content = " ";
   }
@@ -433,9 +433,12 @@ function Footer(props) {
 
   const history = useHistory();
 
-  window.addEventListener(
-    "load",
-    useEffect(() => {
+  const [av, setAv] = useState(false);
+
+  useEffect(() => {
+    if (PLAYLIST[0].title == "Kremówkuj z tym") {
+      setTimeout(() => {
+        setAv(true);
       if (localStorage.getItem("dmsavedata") != null) {
         if (JSON.parse(localStorage.getItem("dmsavedata"))[0].type == 0) {
           props.changeTrack(
@@ -461,6 +464,13 @@ function Footer(props) {
         }
         console.log(audioRef.current);
       }
+    }, 2100)
+    }
+  }, [PLAYLIST])
+
+  window.addEventListener(
+    "load",
+    useEffect(() => {
       const url = `https://raw.githubusercontent.com/PanDonut/duckmusic/main/public/updates.json`;
       const url1 = `/updates.json`;
       axios
@@ -672,12 +682,18 @@ function Footer(props) {
   }
 
   const [showFull, setShowFull] = useState(false);
-
+  useEffect(() => {
+    if (currentTime != 0) {
+    document.documentElement.style.setProperty("--percent", currentTime / duration)
+    } else {
+      document.documentElement.style.setProperty("--percent", "sas");
+    }
+  }, [Math.round(currentTime)])
   return (
     <>
-      <footer className={styles.footer} style={fstyle}>
+      <footer className={`${styles.footer} ${av == true ? '' : 'N'}`} style={fstyle}>
         <div className={styles.cantplay}>
-          <h4>Duck Music nie może teraz tego odtworzyć</h4>
+          <h4>Music nie może teraz tego odtworzyć</h4>
         </div>
         <div className={styles.cantplayex}>
           <h4>Odtwarzanie nieodpowiednich utworów jest wyłączone</h4>

@@ -17,20 +17,20 @@ html {
 
 
 :root {
-    --solid-main: #0b0b0b;
-    --sidenav-black: #111111;
-    --sidenav-active: #0b0b0b;
-    --text-gray: #b3b3b3;
-    --text-white: #fff;
-    --main-background: #0b0b0b;
-    --card-background: #111111;
+    --solid-main: rgb(24, 24, 24);
+    --sidenav-black: rgb(25, 25, 25);
+    --sidenav-active: #1a1a1a;
+    --text-gray: #6d6d6d;
+    --text-white: #ddd;
+    --main-background: rgb(24, 24, 24);
+    --card-background: rgb(24, 24, 24);
     --sidenav-width: 238px;
     --sidenav-margin-left: 24px;
     --sidenav-margin-right: 24px;
     --small-cards-column-width: 270px;
     --cards-column-width: 180px;
-    --hover-home-bg: #0b0b0b;
-    --bgcol: #0b0b0b;
+    --hover-home-bg: rgb(24, 24, 24);
+    --bgcol: rgb(24, 24, 24);
     --scroll: hsla(0, 0%, 90%, .07);
     --mobile-side: #181818;
     --logo: #fff;
@@ -151,8 +151,13 @@ svg{
 
 nav .activeLink button p,
 nav .activeLink button svg{
-  color: var(--text-white);
-  fill: var(--text-white);
+  color: var(--text-white) !important;
+  fill: var(--text-white) !important;
+}
+
+nav .activeLink button svg * {
+  color: var(--text-white) !important;
+  fill: var(--text-white) !important;
 }
 nav .activeLink button p {
   opacity: 1;
@@ -167,8 +172,8 @@ p{
   overflow: hidden;
 }
 .activeIcon svg{
-  fill: #5b88e1 !important;
-  color: #5b88e1 !important;
+  fill: var(--akcent) !important;
+  color: var(--akcent) !important;
 }
 .PrevBtn,
 .NextBtn{
@@ -176,7 +181,7 @@ p{
     height: 32px;
     width: 32px;
     border-radius: 50%;
-    background-color: rgba(0,0,0,.7);
+    background-color: transparent;
     color: #fff;
     display: inline-flex;
     justify-content: center;
@@ -185,16 +190,14 @@ p{
     cursor: pointer;
     padding: 0;
     margin-right: 16px;
+    pointer-events: all;
 }
 .PrevBtn svg,
 .NextBtn svg{
     font-size: 22px;
 }
 .activeTrack{
-  background-color: hsla(0,0%,100%,.2) !important;
-}
-.activeTrack span p:first-child{
-  color: #5b88e1 !important;
+  background-color: transparent !important;
 }
 .activeTabBtn{
     background-color: #333;

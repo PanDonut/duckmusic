@@ -17,7 +17,7 @@ function PlaylistCardM(props) {
 
 	return (
 		<div className={styles.PlaylistCardSBox}>
-			<Link to={`/myplaylist/${props.data.link}`}>
+			<Link to={`/library/myplaylist/${props.data.link}`}>
 				<div visible="true" delay="100" className={styles.PlaylistCardS}>
 					<div className={`${styles.ImgBox} ${props.data.playlistData.length >= 4 ? styles.gridImg : ''} ${loaded == true ? '' : styles.loader}`}>
 						{ props.data.playlistData.length < 4 ?

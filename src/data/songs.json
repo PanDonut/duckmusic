@@ -720,7 +720,8 @@
     "lyrics":[]
   },
   {
-    "songName": "🅴 The Hills",
+    "songName": "The Hills",
+    "ex": true,
     "songimg": "https://i.scdn.co/image/ab67616d00001e027fcead687e99583072cc217b",
     "songArtist": "The Weeknd",
     "album": "",
@@ -737,7 +738,7 @@
     "songName": "Save Your Tears",
     "songimg": "https://i.scdn.co/image/ab67616d00001e028863bc11d2aa12b54f5aeb36",
     "songArtist": "The Weeknd",
-    "album": "",
+    "album": "After Hours",
     "link": "https://drive.google.com/u/0/uc?id=1u8AvErFEnxPw9B3vyeC56e3wK9OaOBLm&export=download"
   },
   {
@@ -806,16 +807,17 @@
   },
   {
     "songName": "Heat Waves",
-    "songimg": "https://i.scdn.co/image/ab67616d00001e02ab9d1ae18b640b7b0ce390d4",
+    "songimg": "https://i.scdn.co/image/ab67616d00001e02712701c5e263efc8726b1464",
     "songArtist": "Glass Animals",
     "album": "Dreamland",
     "link": "https://drive.google.com/uc?export=download&id=1QVpoO6f7keqxOnkABACS1QODmiZVP9Cz"
   },
   {
-    "songName": "🅴 Papież tańczy",
+    "songName": "Papież tańczy",
+    "ex": true,
     "songimg": "https://i.ibb.co/4TphN2g/sddefault.jpg",
     "songArtist": "Wapiesz",
-    "album": " ",
+    "album": "Kremówkuj z tym",
     "link": "https://drive.google.com/uc?export=download&id=1FuRA3hZ6uKs3YR_a64McSt_WKyhQr2WK"
   }
 ]

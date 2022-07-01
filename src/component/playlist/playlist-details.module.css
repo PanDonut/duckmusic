@@ -94,25 +94,30 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    color: var(--hover-home-bg) !important;
     filter: brightness(450%);
 }
 .textBox h3{
     margin: 0;
-    margin-top: 4px;
+    top: -10px;
     letter-spacing: -0.4px;
+    color: #222 !important;
+    font-weight: 400;
+    font-size: 16px;
+    position: relative;
 }
 .textBox h1{
     overflow: hidden;
     white-space: nowrap;
     margin: 0;
-    padding: 0.08em 0px;
-    font-size: 96px;
-    font-weight: 700;
+    font-size: 72px;
+    font-weight: 500;
     letter-spacing: -.04em;
     text-transform: none;
     text-overflow: ellipsis;
     width: 60vw !important;
+    color: #ddd;
+    top: -25px;
+    position: relative;
 }
 
 .textBox1{
@@ -136,7 +141,7 @@
     padding: 0.08em 0px;
     font-size: 96px;
     line-height: 96px;
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -.04em;
     text-transform: none;
 }
@@ -145,7 +150,14 @@
     display: flex;
     align-items: center;
     margin-top: 16px;
-    justify-content: flex-start
+    justify-content: flex-start;
+    top: -45px;
+    position: relative;
+}
+
+.Artist p {
+    color: #222 !important;
+    font-weight: 500;
 }
 
 .Artist1 {

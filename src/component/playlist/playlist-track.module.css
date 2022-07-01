@@ -7,7 +7,7 @@
     color: white;
     position: relative;
     display: grid;
-    grid-template-columns: 26px 36px 1fr 38px;
+    grid-template-columns: 26px 1fr 50px 50px 38px;
     align-items: center;
     text-align: left;
     padding: 0px 16px;
@@ -15,35 +15,16 @@
     height: 56px;
 }
 
-.dots {
-    background: transparent;
-    border: none;
-    z-index: 1;
-    border-radius: 50%;
-    transition: 0.01s ease-in-out;
-    height: 16px;
-    width: 16px
-}
+/* .trackDiv:focus-within {
+    outline: 2px solid #fff;
+} */
 
-    .dots:active svg {
-        -webkit-box-shadow: 0px 0px 0px 15px rgba(255,255,255,0.3);
-        box-shadow: 0px 0px 0px 15px rgba(255,255,255,0.3);
-    }
 
-    .dots svg:after {
-        transition: 0.15s ease-in-out;
-    }
-
-    .dots svg {
-        fill: var(--text-white);
-        border-radius: 50%;
-        transition: 0.10s ease-in-out;
-    }
 
     .explicit {
         background-color: rgba(255,255,255,.6);
         box-sizing: border-box;
-        position: absolute;
+        position: relative;
         color: #6a6a6a;
         width: 16px;
         height: 16px;
@@ -59,6 +40,8 @@
     .txta p {
         flex-direction: row;
         display: flex;
+        gap: 7px;
+        font-weight: 400;
     }
     .spce {
         display: flex;
@@ -69,11 +52,12 @@
     position: absolute;
     opacity: 0;
     background: none;
-    left: 5px;
+    left: 13px;
     z-index: 2;
     width: 32px;
     height: 32px;
     border: 0;
+    top: 13px;
 }
 .playBtn svg{
     font-size: 18px;
@@ -103,7 +87,7 @@
 
 #eI4wjv0hVNk2_ts {
     animation: eI4wjv0hVNk2_ts__ts 1250ms ease infinite alternate-reverse forwards;
-    fill: #5b88e1;
+    fill: var(--akcent);
 }
 
 @keyframes eI4wjv0hVNk2_ts__ts {
@@ -135,7 +119,7 @@
 
 #eI4wjv0hVNk3_ts {
     animation: eI4wjv0hVNk3_ts__ts 1250ms ease infinite alternate-reverse forwards;
-    fill: #5b88e1;
+    fill: var(--akcent);
 }
 
 @keyframes eI4wjv0hVNk3_ts__ts {
@@ -167,7 +151,7 @@
 
 #eI4wjv0hVNk4_ts {
     animation: eI4wjv0hVNk4_ts__ts 1250ms ease infinite alternate-reverse forwards;
-    fill: #5b88e1;
+    fill: var(--akcent);
 }
 
 @keyframes eI4wjv0hVNk4_ts__ts {
@@ -199,7 +183,7 @@
 
 #eI4wjv0hVNk5_ts {
     animation: eI4wjv0hVNk5_ts__ts 1250ms ease infinite alternate-reverse forwards;
-    fill: #5b88e1;
+    fill: var(--akcent);
 }
 
 @keyframes eI4wjv0hVNk5_ts__ts {
@@ -227,4 +211,18 @@
     100% {
         transform: translate(1px,14px) scale(1,0.56)
     }
+}
+
+.txta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.txta p:last-child {
+    color: #666 !important;
+}
+
+.SongIndex {
+    text-align: center;
 }

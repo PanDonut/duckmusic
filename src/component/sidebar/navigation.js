@@ -21,13 +21,12 @@ function Navigation() {
       <div className={styles.navBtns}>
         {
         MENU.map((menu) => {
-            const selected = router.pathname === menu.path;         
+            const selected = router.pathname.includes(menu.path);         
   
           return (
               <NavLink className={styles.sus} to={menu.path} exact activeClassName="activeLink" key={menu.title}>
-                  <button className={styles.button}>
+                  <button className={styles.button} tabIndex="-1">
                       {selected ? menu.iconSelected : menu.icon}
-                      <TextBoldM>{menu.title}</TextBoldM>
                   </button>
               </NavLink>
               );

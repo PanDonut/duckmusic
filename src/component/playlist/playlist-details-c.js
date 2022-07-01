@@ -33,26 +33,9 @@ function PlaylistDetails({ data, artists }) {
             <div className={styles.textBox}>
                 <TitleS>{data.type}</TitleS>
                 <h1>{data.title}</h1>
-				<div className={styles.ar1}>
-				{
-					data.playlistData.map(list => {
-						return (
-							<>
-								{
-                 SONGS[list.songindex].songArtist.split(",").map(item => {
-                    return (
-                <div className={styles.Artist1} onClick={() => {{ document.documentElement.style.setProperty('--img-opacity', '1'); { history.push('/artist/' + item.toLowerCase().split(" ").join("-"))}}}}>
-                    <TextBoldM>{item}</TextBoldM>&nbsp;
+				<div className={styles.Artist}>
+                    <TextBoldM>{" "}</TextBoldM>
                 </div>
-                    );
-                }
-				 )
-			}
-				 </>
-                )
-			})
-				}
-            </div>
 			</div>
         </div>
 	);

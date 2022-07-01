@@ -3,6 +3,9 @@
     overflow: hidden;
     transition: transform 0s ease;
 }
+/* .PlaylistCardSBox:focus-within {
+    outline: 2px solid #fff;
+} */
 .PlaylistCardS {
     position: relative;
     padding: 16px;

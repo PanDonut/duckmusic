@@ -6,7 +6,7 @@
     --dispbt2: none;
     --dispbt1: none;
     --disp-ly: none;
-    --ly-height: calc(100vh - 94px);
+    --ly-height: calc(100vh - 90px);
 }
 
 .lyrics-card {
@@ -57,7 +57,27 @@
 
     .ex svg {
         fill: var(--svg-fo);
-        width: 18px;
+        width: 23px;
+        height: 23px;
+    }
+
+.ix {
+    background: transparent;
+    border: none;
+    align-items: center;
+    justify-content: center;
+}
+
+    .ix:hover {
+        cursor: pointer;
+    }
+
+        .ix:hover svg {
+            fill: var(--svg-ho);
+        }
+
+    .ix svg {
+        width: 20px;
         height: 20px;
     }
 
@@ -79,8 +99,8 @@
 
 .hi svg {
     fill: var(--akcent);
-    width: 20px;
-    height: 18px;
+    width: 23px;
+    height: 23px;
 }
 
 
@@ -189,6 +209,9 @@ h6 {
     transform: var(--expanded);
     width: 100%;
     overflow: hidden;
+    filter: brightness(80%);
+    background: var(--song-hover);
+    background: linear-gradient(180deg, var(--song-hover) 0%, var(--song-a) 100%);
 }
 
 .mm-lyrics1 {

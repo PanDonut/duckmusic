@@ -2,7 +2,7 @@
 
 .menup {
     font-size: 14px;
-    background-color: var(--menu);
+    background-color: var(--sidenav-black);
     border-radius: 5px;
     padding: 5px 0 5px 0;
     width: 150px;
@@ -14,10 +14,8 @@
     justify-content: center;
     flex-direction: column;
     animation: open 0.25s ease;
-    opacity: var(--menuop);
+    opacity: 1;
     z-index: 9999999999;
-    backdrop-filter: var(--blur);
-    -webkit-backdrop-filter: var(--blur);
     position: absolute;
 }
 
@@ -43,12 +41,10 @@
 @keyframes open {
     from {
         opacity: 0;
-        transform: scaleY(0);
     }
 
     to {
-        opacity: var(--menuop);
-        transform: scaleY(1);
+        opacity: 1;
     }
 }
 
@@ -102,8 +98,8 @@
     top: 0;
     left: 0;
     z-index: 9999999;
-    background: rgb(0,0,0);
-    background: linear-gradient(0deg, rgba(0,0,0,1) 0%,rgba(0,0,0,1) 25%,var(--color) 100%);
+    backdrop-filter: blur(35px);
+    background-color: #1a1a1acc;
     display: flex;
     justify-content: center;
 }
@@ -117,8 +113,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-around;
     padding-bottom: 10px;
 }
 

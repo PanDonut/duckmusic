@@ -335,53 +335,7 @@ function PlaylistPage(props) {
                       <button
                         onClick={() => {
                           forceUpdate();
-                          if (!likedSongs.includes(SONGLIST.indexOf(item))) {
-                            setLikedSongs((oldArray) => [
-                              ...oldArray,
-                              SONGLIST.indexOf(item),
-                            ]);
-                            console.log(likedSongs);
-                            var dat = likedSongs;
-                            dat.push(SONGLIST.indexOf(item));
-                            set(
-                              ref(
-                                db,
-                                "users/" +
-                                  localStorage
-                                    .getItem("emaildm")
-                                    .split(".")
-                                    .join("") +
-                                  "/dmusic"
-                              ),
-                              {
-                                liked: JSON.stringify(dat),
-                              }
-                            );
-                            if (
-                              localStorage.getItem("duckmusic.confetti") == 'true'
-                            ) {
-                              var sas = Confetti.create(
-                                document.getElementsByTagName("canvas")[0],
-                                {
-                                  resize: true,
-                                }
-                              );
-                              sas({
-                                spread: 50,
-                                origin: {
-                                  x: 0.5,
-                                  y: 0.75,
-                                },
-                                particleCount: 50,
-                                startVelocity: 10,
-                              });
-                            }
-                          } else {
-                            RemoveLiked(
-                              likedSongs.indexOf(SONGLIST.indexOf(item))
-                            );
-                            forceUpdate();
-                          }
+                          
                         }}
                       >
                         <div

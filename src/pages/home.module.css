@@ -230,7 +230,7 @@ body {
 }
 
 .mrag button {
-    background-color: #5b88e1;
+    background-color: var(--akcent);
     border: none;
     bottom: 0;
     padding: 10px 15px;

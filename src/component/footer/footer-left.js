@@ -81,12 +81,6 @@ function ImgBox({ trackData, i, setShowFull }) {
         }}
       </Color>
       <div className={`${styles.imgBox} ${i == true ? styles.um : ""}`}>
-        <div
-          className="full-it"
-          onClick={() => {
-            setShowFull(true);
-          }}
-        ></div>
         <img ref={img} src={trackData.trackImg}></img>
       </div>
       <div className={styles.imgBoxfull}>
@@ -134,28 +128,6 @@ function SongDetails(props, { trackData, i }, increaseIndex, decreaseIndex) {
 
   const [big, setBig] = useState(false);
   const [biga, setBiga] = useState(false);
-  useEffect(() => {
-    if (sus.current && zus.current) {
-      document.documentElement.style.setProperty(
-        "--size-title",
-        sus.current.clientWidth + "px"
-      );
-      document.documentElement.style.setProperty(
-        "--size-artist",
-        zus.current.clientWidth + "px"
-      );
-      if (sus.current.clientWidth > size.width - 225) {
-        setBig(true);
-      } else {
-        setBig(false);
-      }
-      if (zus.current.clientWidth > size.width - 225) {
-        setBiga(true);
-      } else {
-        setBiga(false);
-      }
-    }
-  });
   return (
     <div>
       <div className={styles.songDetails}>
@@ -206,6 +178,16 @@ function SongDetails(props, { trackData, i }, increaseIndex, decreaseIndex) {
             );
           })}
         </div>
+        <p
+        className="albumText"
+          ref={sus}
+          onLoad={() => {
+            if (sus.current) {
+            }
+          }}
+        >
+          {props.trackData.album}
+        </p>
       </div>
       <div className={styles.songDetailsfull}>
         {props.trackData.trackArtist.split(",").map((item) => {

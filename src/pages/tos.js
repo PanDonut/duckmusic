@@ -6,7 +6,7 @@ export default function TermsOfService() {
       <p>Version 1.0</p>
 
       <p>
-        The Duck Music website located at https://music.theduck.ml is a
+        The Music website located at https://music.theduck.ml is a
         copyrighted work belonging to TheDuck Studios. Certain features of the
         Site may be subject to additional guidelines, terms, or rules, which
         will be posted on the Site in connection with such features.

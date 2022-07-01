@@ -56,6 +56,7 @@ import { aut } from "./dauth";
 import Login from "./login";
 import "./security.js";
 import "./menu.css";
+import "./Search.css";
 import HandleAuth from "./authorization.js";
 import Download_app from "./pages/download_app";
 import ShareCustomPlaylist from "./pages/playlistshare";
@@ -63,11 +64,13 @@ import ShowOff from "./pages/showoff";
 import ViewRewind from "./pages/rewind_viewer";
 import Confetti from "canvas-confetti";
 import { io } from "socket.io-client";
-import { CreateEmptyPlaylist } from "./playlistcreator";
+import { CreateEmptyPlaylist, SendFriendRequest } from "./playlistcreator";
 import { GetUID } from "./pages/functions";
 import LoginPage from "./pages/login";
 import SmallWidget from "./pages/smallwidget";
 import TermsOfService from "./pages/tos";
+import constants from "./constants/index";
+import Activity from "./pages/activity";
 
 let indexn = null;
 
@@ -77,13 +80,17 @@ const clamp = (val, in_min, in_max, out_min, out_max) =>
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function App(props) {
   const db = getDatabase(aut);
+  var [SocialSocket, setSocialSocket] = useState(undefined);
   useEffect(() => {
-    const socket = io("http://localhost:42069");
-    socket.on("connect", () => {
-      socket.emit("conapp", "Duck Music");
-      console.log("CON");
-    });
+    setSocialSocket(io("https://thundering-abyssinian-heart.glitch.me/"));
   }, []);
+  useEffect(() => {
+    if (SocialSocket != undefined) {
+      SocialSocket.on("connect", () => {
+        console.log("CON");
+      });
+    }
+  }, [SocialSocket])
   const size = useWindowSize();
 
   const [si, sE] = useState(false);
@@ -132,6 +139,17 @@ function App(props) {
     //   JSON.parse(localStorage.getItem("duckmusic.favourites_all_the_time"))[0]
     // );
   }, []);
+  useEffect(() => {
+    console.log("TRY")
+    if (SocialSocket != undefined) {
+      SocialSocket.emit("Activity", localStorage.getItem("emaildm"), {
+        "AppName": "Duck Music",
+        "trackName": props.trackData.trackName,
+        "trackImg": props.trackData.trackImg,
+        "trackArtist": props.trackData.trackArtist
+      })
+    }
+  }, [props.trackData.trackName, SocialSocket])
   if (localStorage.getItem("emaildm") != null && si == false) {
     const refData = ref(
       db1,
@@ -512,7 +530,7 @@ function App(props) {
       if (command == "help") {
         setexecutedCmds((oldArray) => [
           ...oldArray,
-          "help \nhelp - Wyświetla listę dostępnych komend\ndelcache - Usuwa dane offline\nreload <true/false/brak> - Restartuje Duck Music\nplayer <command[play/pause/toggle/song <id>]>\nmanipulate <zmienna> - Ustaw wartość zmiennej\nclear - Czyści konsolę\ncalculate <działanie[minus/plus/divide/multiply]> <liczba> [działanie] <liczba>\nstart - Czyści konsolę i pokazuje startową informację konsoli\nkeybinds/shortcuts - Pokazuje menu skrótów klawiszowych\n'I don't even game' - ?",
+          "help \nhelp - Wyświetla listę dostępnych komend\ndelcache - Usuwa dane offline\nreload <true/false/brak> - Restartuje Music\nplayer <command[play/pause/toggle/song <id>]>\nmanipulate <zmienna> - Ustaw wartość zmiennej\nclear - Czyści konsolę\ncalculate <działanie[minus/plus/divide/multiply]> <liczba> [działanie] <liczba>\nstart - Czyści konsolę i pokazuje startową informację konsoli\nkeybinds/shortcuts - Pokazuje menu skrótów klawiszowych\n'I don't even game' - ?",
         ]);
       } else if (command == "delcache") {
         caches.delete("duckmusic-offline-version-storage");
@@ -795,6 +813,8 @@ function App(props) {
   });
   const [warning, setWarn] = useState(true);
   return (
+    <>
+    { size.width > constants.MOBILE_SIZE ?
     <Router>
       <div
         className={styles.layout}
@@ -864,7 +884,7 @@ function App(props) {
             </div>
             <div id={styles.promo2step}>
               <h1>Świetnie!</h1>
-              <h2>Możesz więc zainstalować nową aplikację Duck Music!</h2>
+              <h2>Możesz więc zainstalować nową aplikację Music!</h2>
               <h3>Zalety to:</h3>
               <h4>Szybsze ładowanie</h4>
               <h4>Automatyczne aktualizacje</h4>
@@ -903,7 +923,7 @@ function App(props) {
               <h2>Szanujemy Twoją decyzję</h2>
               <h3>
                 Jeżeli zmienisz zdanie kliknij 'Zainstaluj nową wersję' w
-                Ustawieniach Duck Music
+                Ustawieniach Music
               </h3>
               <div id={styles.selectbtns}>
                 <button
@@ -943,9 +963,9 @@ function App(props) {
             <h1>
               {"Cześć " +
                 localStorage.getItem("name") +
-                ", witaj na Duck Music!"}
+                ", witaj na Music!"}
             </h1>
-            <h3>Czy chcesz nauczyć się jak korzystać z Duck Music?</h3>
+            <h3>Czy chcesz nauczyć się jak korzystać z Music?</h3>
             <div id={styles.selectbtns}>
               <button
                 className={styles.btnyes}
@@ -978,7 +998,7 @@ function App(props) {
         {tourStep == 1 ? (
           <div className={styles.tour}>
             <h1>{"Świetnie!"}</h1>
-            <h3>Czy chcesz nauczyć się jak korzystać z Duck Music?</h3>
+            <h3>Czy chcesz nauczyć się jak korzystać z Music?</h3>
             <div id={styles.selectbtns}>
               <button
                 className={styles.btnno}
@@ -1003,6 +1023,9 @@ function App(props) {
           <Route exact path="/widget&song=:path&autoplay=:autoplay&loop=:loop">
             <SmallWidget />
           </Route>
+          <Route exact path="/activity">
+            <Activity />
+          </Route>
           <Route exact path="/debug/showoff/:data">
             <ShowOff />
           </Route>
@@ -1024,7 +1047,7 @@ function App(props) {
           <Route exact path="/logout">
             <Logout />
           </Route>
-          <Route exact path="/myplaylist/:path">
+          <Route exact path="/library/myplaylist/:path">
             <PlaylistPageC />
           </Route>
           <Route exact path="/download/app">
@@ -1060,6 +1083,9 @@ function App(props) {
           <Route exact path="/playlist/:path">
             <PlaylistPage />
           </Route>
+          <Route exact path="/album/:path">
+            <PlaylistPage />
+          </Route>
           <Route exact path="/card/:path">
             <Card />
           </Route>
@@ -1068,9 +1094,6 @@ function App(props) {
           </Route>
           <Route exact path="/embed-small/:path">
             <EmbedSmall />
-          </Route>
-          <Route exact path="/search">
-            <Search />
           </Route>
           <Route exact path="/liveevent/sylwester202122">
             <Sylwester2021 />
@@ -1131,7 +1154,7 @@ function App(props) {
         ""
       )}
       {window.location.pathname.includes("widget&song") == false ? (
-        <Footer fre={footerRef} className={styles.foot} />
+        <Footer fre={footerRef} className={styles.foot} SocialSocket={SocialSocket} />
       ) : (
         ""
       )}
@@ -1141,42 +1164,6 @@ function App(props) {
         ) : (
           <MobileNavigation />
         )
-      ) : (
-        ""
-      )}
-      {window.location.pathname.includes("widget&song") == false ? (
-        <div className="keyguide">
-          <div className="keys">
-            <div className="key">
-              <h3>Otwórz / zamknij to menu</h3>
-              <div className="kes">
-                <span>ctrl</span>
-                <span>q</span>
-              </div>
-            </div>
-            <div className="key">
-              <h3>Odtwarzaj / zatrzymaj utwór</h3>
-              <div className="kes">
-                <span>ctrl</span>
-                <span>spacja</span>
-              </div>
-            </div>
-            <div className="key">
-              <h3>Następny utwór</h3>
-              <div className="kes">
-                <span>ctrl</span>
-                <span>m</span>
-              </div>
-            </div>
-            <div className="key">
-              <h3>Poprzedni utwór</h3>
-              <div className="kes">
-                <span>ctrl</span>
-                <span>b</span>
-              </div>
-            </div>
-          </div>
-        </div>
       ) : (
         ""
       )}
@@ -1338,6 +1325,10 @@ function App(props) {
           })
         : ""}
     </Router>
+    :
+    'Music nie jest obecnie dostępne na twoim urządzeniu :('
+        }
+    </>
   );
 }
 

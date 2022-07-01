@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { changeTrack, customTrack } from '../../../actions';
 import * as Icons from '../../icons';
 import IconButton from '../../buttons/icon-button';
-import PlayButton from '../../buttons/play-button';
+import PlayButton from '../../buttons/play-buttonz';
 
 import React, { useEffect, useState } from 'react';
 
@@ -18,10 +18,6 @@ import { decode } from 'he';
 import { GetUID } from '../../../pages/functions';
 
 function MusicControlBox(props, {audior}) {
-
-    const [looping, setLooping] = React.useState(localStorage.getItem('loop'));
-
-    const [shuffling, setShuffling] = React.useState(localStorage.getItem('shuffle'));
     let isMounted = true;
     const [PLAYLISTC, setPosts] = useState(null);
     const db = getDatabase(aut);
@@ -156,47 +152,14 @@ function MusicControlBox(props, {audior}) {
     });
 
     return (
-        <div className={styles.musicControl}>
-            { looping === 'false' ?
-                <button className={styles.button} id={styles.bme} onClick={() => { setLooping("true"); { localStorage.setItem('loop', 'true'); {looptoast() }}} }>
-                    <Icons.Loop />
-                    <svg className={styles.circ1} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 31.955 31.955">
-                        <circle cx="15.979" cy="15.977" r="6.117" />
-                    </svg>
-            </button>   :        
-                <button className={styles.buttonactive} onClick={() => { setLooping("false"); { localStorage.setItem('loop', 'false'); { loopftoast() } } }}>
-                    <Icons.Loop />
-                    <svg className={styles.circ} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 31.955 31.955">
-                        <circle cx="15.979" cy="15.977" r="6.117"/>
-                    </svg>
-
-            </button>
-        }
+        <div className={styles.musicControl}>          
             <button className={styles.button} onClick={decreaseIndex}>
                 <Icons.Prev />
             </button>
             <PlayButton isthisplay={true}/>
             <button className={styles.button} onClick={increaseIndex}>
                 <Icons.Next />
-            </button>
-            {shuffling === 'false' ?
-                <button className={styles.button} id={styles.bme} onClick={() => { setShuffling("true"); { localStorage.setItem('shuffle', 'true'); { shuffletoast() } } }}>
-                    <Icons.Mix />
-                    <svg className={styles.circ1} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 31.955 31.955">
-                        <circle cx="15.979" cy="15.977" r="6.117" />
-                    </svg>
-                </button> :
-                <button className={styles.buttonactive} onClick={() => { setShuffling("false"); { localStorage.setItem('shuffle', 'false'); { shuffleftoast() } } }}>
-                    <Icons.Mix />
-                    <svg className={styles.circ} version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 31.955 31.955">
-                        <circle cx="15.979" cy="15.977" r="6.117" />
-                    </svg>
-                </button>
-            }
+            </button>           
         </div>
     );
 }

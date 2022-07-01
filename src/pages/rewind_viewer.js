@@ -23,7 +23,7 @@ function ViewRewind(props) {
           <h1>[zachęta]</h1>
         </div>
         <div className="card_r">
-          <h1>{`W roku ${props.rewindyear} przesłuchałeś _ minut na Duck Music`}</h1>
+          <h1>{`W roku ${props.rewindyear} przesłuchałeś _ minut na Music`}</h1>
         </div>
         <div className="card_r">
           <h1>{`W roku ${props.rewindyear} INFOTEXT_INSERT`}</h1>

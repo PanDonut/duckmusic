@@ -30,6 +30,7 @@ import { decode } from "he";
 import PLAYLIST from "../data/index.json";
 
 import { useHistory } from "react-router-dom";
+import Search from "./search";
 
 oncontextmenu = function (e) {
   e.preventDefault();

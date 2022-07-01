@@ -60,6 +60,6 @@
 	background-color: #b3b3b3;
 }
 .progressBar:hover span {
-	background: #5b88e1 !important;
+	background: var(--akcent) !important;
 	opacity: 1 !important;
 }
