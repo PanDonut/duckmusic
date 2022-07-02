@@ -436,7 +436,7 @@ function Footer(props, {SocialSocket}) {
   const [av, setAv] = useState(false);
 
   useEffect(() => {
-    if (PLAYLIST[0].title == SONGLIST.filter(item => item.album != "")[SONGLIST.filter(item => item.album != "").length - 1]) {
+    if (PLAYLIST[0].title == SONGLIST.filter(item => item.album != "")[SONGLIST.filter(item => item.album != "").length - 1].album) {
       setTimeout(() => {
         setAv(true);
       if (localStorage.getItem("dmsavedata") != null) {
