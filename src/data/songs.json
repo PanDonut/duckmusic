@@ -819,5 +819,13 @@
     "songArtist": "Wapiesz",
     "album": "Kremówkuj z tym",
     "link": "https://drive.google.com/uc?export=download&id=1FuRA3hZ6uKs3YR_a64McSt_WKyhQr2WK"
+  },
+  {
+    "songName": "I Want To Break Free",
+    "ex": true,
+    "songimg": "https://i.scdn.co/image/ab67616d00001e025be5f807f6f0549e198a44b4",
+    "songArtist": "Queen",
+    "album": "The Works",
+    "link": "https://drive.google.com/u/0/uc?id=1kTfuq2zPuPgQUVfemghnx5ldT-N3lvh3&export=download"
   }
 ]
