@@ -80,7 +80,7 @@ function ImgBox({ trackData, i, setShowFull }) {
           console.log(error);
         }}
       </Color>
-      <div className={`${styles.imgBox} ${i == true ? styles.um : ""}`}>
+      <div className={`${styles.imgBox} ${i == true ? 'SzkieletonLadowacz' : ""}`}>
         <img ref={img} src={trackData.trackImg}></img>
       </div>
       <div className={styles.imgBoxfull}>
@@ -133,9 +133,8 @@ function SongDetails(props, { trackData, i }, increaseIndex, decreaseIndex) {
       <div className={styles.songDetails}>
         <p
           id="sas"
-          className={`${styles.tit} ${big == true ? styles.go : ""} ${
-            props.i == true ? styles.u : ""
-          }`}
+          className={`${styles.tit} ${big == true ? styles.go : ""} ${props.i == false? '' : 'SzkieletonLadowacz'}`}
+          style={{width: `${props.i == false ? '' : '200px'}`, height: `${props.i == false ? '' : '20px'}`, transition: '0s'}}
           ref={sus}
           onLoad={() => {
             if (sus.current) {
@@ -148,7 +147,8 @@ function SongDetails(props, { trackData, i }, increaseIndex, decreaseIndex) {
           ref={zus}
           className={`${styles.aaa} ${styles.tit2} ${
             biga == true ? styles.go : ""
-          } ${props.i == true ? styles.ui : ""}`}
+          } ${props.i == false? '' : 'SzkieletonLadowacz'}`}
+          style={{width: `${props.i == false ? '' : '160px'}`, height: `${props.i == false ? '' : '15px'}`, transition: '0s', top: props.i == true ? '12px' : ''}}
         >
           {props.trackData.trackArtist.split(",").map((item) => {
             return (
@@ -179,8 +179,9 @@ function SongDetails(props, { trackData, i }, increaseIndex, decreaseIndex) {
           })}
         </div>
         <p
-        className="albumText"
+        className={`albumText ${props.i == false ? '' : 'SzkieletonLadowacz '}`}
           ref={sus}
+          style={{width: `${props.i == false ? '' : '80px'}`, height: `${props.i == false ? '' : '15px'}`, transition: '0s', color: "#fff0 !important"}}
           onLoad={() => {
             if (sus.current) {
             }

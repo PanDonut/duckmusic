@@ -86,7 +86,6 @@
 }
 .songDetails p{
     margin: 0px;
-    color: var(--text-white);
     transition: var(--txt-ov);
     animation: var(--anim);
     font-weight: 400;

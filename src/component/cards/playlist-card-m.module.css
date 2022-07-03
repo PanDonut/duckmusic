@@ -94,6 +94,7 @@
 .ImgBox {
     border-radius: 7px;
     overflow: hidden;
+    min-height: 160px;
 }
 
 @media screen and (max-width: 640px) {
