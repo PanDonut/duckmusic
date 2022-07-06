@@ -1086,6 +1086,9 @@ function App(props) {
           <Route exact path="/album/:path">
             <PlaylistPage />
           </Route>
+          <Route exact path="/library/songs/:path">
+            <PlaylistPage />
+          </Route>
           <Route exact path="/card/:path">
             <Card />
           </Route>

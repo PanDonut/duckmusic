@@ -822,10 +822,18 @@
   },
   {
     "songName": "I Want To Break Free",
-    "ex": true,
+    "ex": false,
     "songimg": "https://i.scdn.co/image/ab67616d00001e025be5f807f6f0549e198a44b4",
     "songArtist": "Queen",
     "album": "The Works",
     "link": "https://drive.google.com/u/0/uc?id=1kTfuq2zPuPgQUVfemghnx5ldT-N3lvh3&export=download"
+  },
+  {
+    "songName": "Radio Ga Ga",
+    "ex": false,
+    "songimg": "https://i.scdn.co/image/ab67616d00001e025be5f807f6f0549e198a44b4",
+    "songArtist": "Queen",
+    "album": "The Works",
+    "link": "https://drive.google.com/u/0/uc?id=11MeUVrkoLvpeZZOK60ntdHae4EN0Ks7d&export=download"
   }
 ]

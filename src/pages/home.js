@@ -134,17 +134,9 @@ function Home() {
               className={styles.SectionCardsMedium}
             >
               <>
-                {PLAYLIST.filter(
-                  (list) =>
-                    list.ex == "no" ||
-                    list.ex == localStorage.getItem("explicit")
-                )
-                  .sort(() => Math.random() - 0.5)
-                  .map((item) => {
-                    if (
-                      localStorage.getItem("old") == "yes" ||
-                      size.width > CONST.MOBILE_SIZE
-                    ) {
+                {PLAYLIST.filter(list => list.title != "Ulubione" && list.title != "_def").sort(() => Math.random() - 0.5).map((item) => {
+                    if (localStorage.getItem("old") == "yes" ||size.width > CONST.MOBILE_SIZE) 
+                    {
                       return <PlaylistCardM key={item.title} data={item} />;
                     }
                   })}

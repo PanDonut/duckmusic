@@ -14,13 +14,14 @@ import { getDatabase, onValue, ref } from 'firebase/database';
 
 
 var albums = {};
+async function LoadPlaylists() {
 SONGS.filter(item => item.album != undefined && item.album != null && item.album != "").forEach(element => {
     if (albums[element.album] == null || albums[element.album] == undefined) {
         albums[element.album] = [];
     }
     albums[element.album].push(SONGS.indexOf(element));
 });
-Object.keys(albums).forEach(key => {
+await Object.keys(albums).forEach(key => {
     var ar = {
 		"index": Math.random().toString(36).substring(2, 15) + key,
 		"type": "album",
@@ -86,6 +87,9 @@ onValue(nameRef1, (snapshot) => {
         PLAYLISTS.unshift(rer);
     }
 });
+}
+
+LoadPlaylists();
 
 const store = createStore(reducer);
 ReactDOM.render(
