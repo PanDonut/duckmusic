@@ -71,6 +71,7 @@ import SmallWidget from "./pages/smallwidget";
 import TermsOfService from "./pages/tos";
 import constants from "./constants/index";
 import Activity from "./pages/activity";
+import ReturnSongs from "./pages/return_songs";
 
 let indexn = null;
 
@@ -1061,6 +1062,9 @@ function App(props) {
           </Route>
           <Route exact path="/library">
             <Library StartPlaylistCreation={StartPlaylistCreation} />
+          </Route>
+          <Route exact path="/songlist">
+            <ReturnSongs />
           </Route>
           <Route exact path="/lyrics">
             <Lyrics />
