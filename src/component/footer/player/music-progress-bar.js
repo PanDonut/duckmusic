@@ -10,7 +10,7 @@ function MusicProgressBar({ currentTime, duration, handleTrackClick}){
         <div className={styles.musicProgress}>
             <RangeSlider value={currentTime} minvalue={0} maxvalue={duration} handleChange={handleTrackClick}/>
             <span className='TimeSpan'>
-                <TextRegularM>{`${convertTime(currentTime)}/${convertTime(duration)}`}</TextRegularM>
+                <TextRegularM>{`${window.location.href.includes(":3") ? currentTime : ''} ${convertTime(currentTime)}/${convertTime(duration)}`}</TextRegularM>
             </span>
         </div>
     );

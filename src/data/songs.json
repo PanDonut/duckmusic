@@ -835,5 +835,22 @@
     "songArtist": "Queen",
     "album": "The Works",
     "link": "https://drive.google.com/u/0/uc?id=11MeUVrkoLvpeZZOK60ntdHae4EN0Ks7d&export=download"
+  },
+  {
+    "songName": "We Will Rock You",
+    "ex": false,
+    "songimg": "https://i.scdn.co/image/ab67616d00001e0293c65b02f4a72cd6eccf446d",
+    "songArtist": "Queen",
+    "album": "News of the World",
+    "link": "https://drive.google.com/u/0/uc?id=1DA-5xPxh6Dj-b7wGZ3VV6lrBB0KKsKqh&export=download",
+    "lyrics": []
+  },
+  {
+    "songName": "Bohemian Rhapsody",
+    "ex": false,
+    "songimg": "https://i.scdn.co/image/ab67616d00001e02e319baafd16e84f0408af2a0",
+    "songArtist": "Queen",
+    "album": "A Night at the Opera",
+    "link": "https://drive.google.com/u/0/uc?id=1zVkb9SwY-XJ5jX5k6GyJgVgvngSusllj&export=download"
   }
 ]

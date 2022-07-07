@@ -20,7 +20,7 @@ function PlayButton(props) {
 ]
         return (
             <div className={styles.playBtn} tabIndex="0" role="button" onClick={() => {props.changePlay(!props.isPlaying); }}>
-                {props.isPlaying && props.isthisplay && props.trackData.isCustom != props.cstm
+                {props.isPlaying && props.isthisplay
                         ? <Icons.Pause />
                         : <Icons.Play />
                 }

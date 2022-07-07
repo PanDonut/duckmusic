@@ -6,6 +6,8 @@ export const FIREBASEG = "FIREBASEG";
 export const KONSOL = "KONSOL"
 export const REWINDY = "REWINDY"
 export const REW = "REW"
+export const QUEUE = "QUEUE"
+export const QUEUEVIEW = "QUEUEVIEW"
 
 export const changePlay = (isPlaying) => {
   return { type: PLAYPAUSE, payload: isPlaying };
@@ -36,4 +38,12 @@ export const setrewind = (trackKey) => {
 };
 export const setrewinyear = (trackKey) => {
   return { type: REWINDY, payload: trackKey };
+};
+
+export const setQueue = (trackKey) => {
+  return { type: QUEUE, payload: trackKey };
+};
+
+export const setQueueVis = (trackKey) => {
+  return { type: QUEUEVIEW, payload: trackKey };
 };

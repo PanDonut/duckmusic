@@ -1,6 +1,6 @@
 ﻿import { useParams } from "react-router";
 import { connect } from "react-redux";
-import { changeTrack } from "../actions";
+import { changeTrack, setQueue } from "../actions";
 import react, { useReducer } from "react";
 import Topnav from "../component/topnav/topnav";
 import TextRegularM from "../component/text/text-regular-m";
@@ -143,7 +143,7 @@ function PlaylistPage(props) {
   }
 
   useEffect(() => {
-    setIsthisPlay(playlistIndex === props.trackData.trackKey[0]);
+    setIsthisPlay(playlistIndex + 1 === props.trackData.trackKey[0]);
   });
 
   oncontextmenu = function (e) {
@@ -190,6 +190,7 @@ function PlaylistPage(props) {
     setRecc3(PLAYLIST.filter(itm => itm.link != path)[Math.floor((Math.random()*PLAYLIST.filter(itm => itm.link != path).length))]);
     forceUpdate();
   }, [])
+  console.warn(props.queue)
   return (
     <>
       <div className={styles.PlaylistPage} onScroll={handleScroll}>
@@ -302,12 +303,24 @@ function PlaylistPage(props) {
                   {size.width > CONST.MOBILE_SIZE && (
                       <button
                       className="mogus"
-                        onClick={() =>
-                          props.changeTrack([PLAYLIST.indexOf(item), 0])
+                        onClick={() => {
+                          var queue = [];
+                          item.playlistData.forEach(element => {
+                            queue.push(SONGLIST[element.songindex])
+                          });
+                          props.setQueue(
+                            {
+                              name: item.title,
+                              data: queue
+                            }
+                          );
+                          props.changeTrack([PLAYLIST.indexOf(item) + 1, 0]);
+                          forceUpdate();
+                        }
                         }
                       >
                         <PlayButton isthisplay={isthisplay} cstm="true" />
-                        {`${props.isPlaying == true && isthisplay == true && props.trackData.isCustom == "false" ? "ZATRZYMAJ" : "SŁUCHAJ"}`}
+                        {`${props.queue.name == item.title ? "ZATRZYMAJ" : "SŁUCHAJ"}`}
                       </button>
                   )}
                   {size.width < CONST.MOBILE_SIZE && (
@@ -375,8 +388,9 @@ function PlaylistPage(props) {
 const mapStateToProps = (state) => {
   return {
     trackData: state.trackData,
-    isPlaying: state.isPlaying
+    isPlaying: state.isPlaying,
+    queue: state.queue
   };
 };
 
-export default connect(mapStateToProps, { changeTrack })(PlaylistPage);
+export default connect(mapStateToProps, { changeTrack, setQueue })(PlaylistPage);

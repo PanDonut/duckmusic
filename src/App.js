@@ -6,7 +6,7 @@
   useReducer,
 } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { changePlay } from "./actions";
+import { changePlay, setQueueVis } from "./actions";
 import { konsol } from "./actions";
 import { connect } from "react-redux";
 import { firebaseg, songTrack } from "./actions/index";
@@ -72,6 +72,7 @@ import TermsOfService from "./pages/tos";
 import constants from "./constants/index";
 import Activity from "./pages/activity";
 import ReturnSongs from "./pages/return_songs";
+import PlaylistTrack from "./component/playlist/playlist-track-queue";
 
 let indexn = null;
 
@@ -357,6 +358,8 @@ function App(props) {
   );
 
   const auth = getAuth(aut);
+
+  console.warn(props.queue)
 
   useEffect(() => {
     if (GetUID() != null && localStorage.getItem("dmpass") != null) {
@@ -1215,6 +1218,39 @@ function App(props) {
       ) : (
         ""
       )}
+      { props.queueview == true ?
+      <div className="QueueBg">
+        <div className="QueueBack" onClick={() => {props.setQueueVis(false)}}></div>  
+        <div className="QueueView">
+          <div className="QueueList">
+          {/* <div className="QueueLoader">
+            <div className="spinner centered">
+              <svg
+              className="spn"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="35" />
+              </svg>
+            </div>
+          </div> */}
+          {
+            props.queue.data.map((song, index) => {
+              return (
+                <PlaylistTrack
+                          data={{
+                            index: index,
+                            song: song
+                          }}
+                        />
+              )
+            })
+          }
+          </div>
+        </div>     
+      </div>
+      :
+      ''
+      }
       {create ? (
         <div className="foverlay">
           <div className="ff">
@@ -1347,6 +1383,8 @@ const mapStateToProps = (state) => {
     konsola: state.konsola,
     rewindyear: state.rewindyear,
     rewind: state.rewind,
+    queue: state.queue,
+    queueview: state.queueview,
   };
 };
 
@@ -1355,4 +1393,5 @@ export default connect(mapStateToProps, {
   changePlay,
   songTrack,
   konsol,
+  setQueueVis
 })(App);

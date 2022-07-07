@@ -9,6 +9,8 @@ import {
   KONSOL,
   REW,
   REWINDY,
+  QUEUE,
+  QUEUEVIEW
 } from "../actions/index";
 import axios from "axios";
 import { aut } from "../dauth";
@@ -50,6 +52,11 @@ const INITIAL_STATE = {
   error: false,
   myisPlaying: false,
   custplay: [],
+  queue: {
+    name: " ",
+    data: []
+  },
+  queueview: true
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -66,46 +73,25 @@ export const reducer = (state = INITIAL_STATE, action) => {
           ...state.trackData,
           trackKey: action.payload,
           track: `${
-            SONGLIST[
-              PLAYLIST[action.payload[0]].playlistData[action.payload[1]]
-                .songindex
-            ].link
+            state.queue.data[action.payload[1]].link
           }`,
           album: `${
-            SONGLIST[
-              PLAYLIST[action.payload[0]].playlistData[action.payload[1]]
-                .songindex
-            ].album
+            state.queue.data[action.payload[1]].album
           }`,
           trackName: `${
-            SONGLIST[
-              PLAYLIST[action.payload[0]].playlistData[action.payload[1]]
-                .songindex
-            ].songName
+            state.queue.data[action.payload[1]].songName
           }`,
           trackImg: `${
-            SONGLIST[
-              PLAYLIST[action.payload[0]].playlistData[action.payload[1]]
-                .songindex
-            ].songimg
+            state.queue.data[action.payload[1]].songimg
           }`,
           trackArtist: `${
-            SONGLIST[
-              PLAYLIST[action.payload[0]].playlistData[action.payload[1]]
-                .songindex
-            ].songArtist
+            state.queue.data[action.payload[1]].songArtist
           }`,
           id: `${
-            SONGLIST[
-              PLAYLIST[action.payload[0]].playlistData[action.payload[1]]
-                .songindex
-            ].songID
+            state.queue.data[action.payload[1]].songID
           }`,
           lyrics: `${
-            SONGLIST[
-              PLAYLIST[action.payload[0]].playlistData[action.payload[1]]
-                .songindex
-            ].lyrics
+            state.queue.data[action.payload[1]].lyrics
           }`,
           canSkip: `${true}`,
           isCustom: `${false}`,
@@ -184,6 +170,16 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         custplay: `${action.payload[0]}`,
+      };
+    case QUEUE:
+      return {
+        ...state,
+        queue: action.payload,
+      };
+    case QUEUEVIEW:
+      return {
+        ...state,
+        queueview: action.payload,
       };
     case KONSOL:
       return {

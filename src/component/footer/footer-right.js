@@ -10,15 +10,17 @@ import MusicControlBoxPh from './player/music-control-box-ph';
 import Connection from '../../pages/connection';
 import { useHistory } from 'react-router-dom';
 import { GetUID } from "../../pages/functions";
+import { connect } from 'react-redux';
+import { setQueueVis } from '../../actions';
 
-function FooterRight({ volume, setVolume, ctime, opn, clo }) {
+function FooterRight(props, { volume, setVolume, ctime, opn, clo }) {
 
 
     const size = useWindowSize();
     return (
         <div className={styles.footerRight}>
             {size.width > CONST.MOBILE_SIZE &&
-                <SoundLevel currentTi={ctime} opn={opn} clo={clo} volume={volume} setVolume={setVolume} />
+                <SoundLevel props={props} currentTi={ctime} opn={opn} clo={clo} volume={volume} setVolume={setVolume} />
             }
             {size.width < CONST.MOBILE_SIZE &&
                 <>
@@ -31,7 +33,7 @@ function FooterRight({ volume, setVolume, ctime, opn, clo }) {
     );
 }
 
-function SoundLevel({ volume, setVolume, currentTi, opn, clo }){
+function SoundLevel({ volume, setVolume, currentTi, opn, clo, props }){
     const [looping, setLooping] = useState(localStorage.getItem('loop'));
     const [shuffling, setShuffling] = useState(localStorage.getItem('shuffle'));
     const[lastVolume, setLastVolume] = useState(1);
@@ -51,6 +53,9 @@ function SoundLevel({ volume, setVolume, currentTi, opn, clo }){
 
     return (
         <div className={styles.soundBar}>
+            <button style={{fill: props.queueview == false ? 'var(--svg-fo)' : 'var(--akcent)'}} className="ix" onClick={() => { console.log(`_ShowQueue()`); props.setQueueVis(true) }}>
+                    <Icons.Queue />
+            </button>
             {shuffling === 'false' ?
                 <button style={{fill: 'var(--svg-fo)'}} className="ix" onClick={() => { setShuffling("true"); { localStorage.setItem('shuffle', 'true'); } }}>
                     <Icons.Mix />
@@ -86,5 +91,20 @@ function SoundLevel({ volume, setVolume, currentTi, opn, clo }){
     );
 }
 
+const mapStateToProps = (state) => {
+    return {
+      trackData: state.trackData,
+      custplay: state.custplay,
+      isPlaying: state.isPlaying,
+      konsola: state.konsola,
+      rewindyear: state.rewindyear,
+      rewind: state.rewind,
+      queue: state.queue,
+      queueview: state.queueview,
+    };
+  };
 
-export default FooterRight;
+
+export default connect(mapStateToProps, {
+    setQueueVis
+  })(FooterRight);

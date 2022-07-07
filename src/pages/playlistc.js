@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import { connect } from "react-redux";
-import { changeTrack, customTrack } from "../actions";
+import { changeTrack, customTrack, setQueue } from "../actions";
 import react from "react";
 import LinkButton1 from "../component/buttons/link-button";
 import { aut } from "../dauth";
@@ -37,6 +37,7 @@ import MobileNavigation from "../component/sidebar/mobile-navigation";
 import convertTime from "../functions/convertTimeTxt";
 import div from "react-fade-in";
 import { GetUID } from "./functions";
+import { useReducer } from "react";
 
 const clamp = (val, in_min, in_max, out_min, out_max) =>
   ((val - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min;
@@ -142,6 +143,7 @@ function PlaylistPage(props) {
     }
   };
 
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
   const size = useWindowSize();
   const [playlistIndex, setPlaylistIndex] = useState(undefined);
   const [isthisplay, setIsthisPlay] = useState(false);
@@ -420,8 +422,20 @@ function PlaylistPage(props) {
                       {size.width > CONST.MOBILE_SIZE && (
                       <button
                       className="mogus"
-                        onClick={() =>
-                          props.customTrack([PLAYLIST.indexOf(item), 0])
+                        onClick={() => {
+                          var queue = [];
+                          item.playlistData.forEach(element => {
+                            queue.push(SONGLIST[element.songindex])
+                          });
+                          props.setQueue(
+                            {
+                              name: item.title,
+                              data: queue
+                            }
+                          );
+                          props.changeTrack([PLAYLIST.indexOf(item) + 1, 0]);
+                          forceUpdate();
+                        }
                         }
                       >
                         <PlayButton isthisplay={isthisplay} cstm="false" />
@@ -491,6 +505,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { changeTrack, customTrack })(
+export default connect(mapStateToProps, { changeTrack, customTrack, setQueue })(
   PlaylistPage
 );
