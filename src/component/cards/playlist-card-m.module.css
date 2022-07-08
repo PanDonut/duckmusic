@@ -103,6 +103,9 @@
         transition: transform 0.05s ease;
         filter: brightness(50%);
     }
+    .ImgBox img {
+        box-sizing: 100px;
+    }
 }
 
 .loader {

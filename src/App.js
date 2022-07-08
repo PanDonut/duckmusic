@@ -64,7 +64,7 @@ import ShowOff from "./pages/showoff";
 import ViewRewind from "./pages/rewind_viewer";
 import Confetti from "canvas-confetti";
 import { io } from "socket.io-client";
-import { CreateEmptyPlaylist, SendFriendRequest } from "./playlistcreator";
+import { connectHeart, CreateEmptyPlaylist, printHeartRate, SendFriendRequest, setupConsoleGraphExample } from "./playlistcreator";
 import { GetUID } from "./pages/functions";
 import LoginPage from "./pages/login";
 import SmallWidget from "./pages/smallwidget";
@@ -818,10 +818,9 @@ function App(props) {
   const [warning, setWarn] = useState(true);
   return (
     <>
-    { size.width > constants.MOBILE_SIZE ?
     <Router>
       <div
-        className={styles.layout}
+        className={size.width > CONST.MOBILE_SIZE ? styles.layout : ''}
         onClick={(e) => {
           if (localStorage.getItem("duckmusic.confetti") == "true") {
             var c = document.createElement("canvas");
@@ -1233,6 +1232,7 @@ function App(props) {
               </svg>
             </div>
           </div> */}
+          <h1>Kolejka</h1>
           {
             props.queue.data.map((song, index) => {
               return (
@@ -1244,8 +1244,9 @@ function App(props) {
                         />
               )
             })
-          }
+          }         
           </div>
+          <div className="QueueGradient" />
         </div>     
       </div>
       :
@@ -1368,9 +1369,6 @@ function App(props) {
           })
         : ""}
     </Router>
-    :
-    'Music nie jest obecnie dostępne na twoim urządzeniu :('
-        }
     </>
   );
 }

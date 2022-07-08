@@ -1,11 +1,12 @@
 .MobileNav{
     position: fixed;
     z-index: 13;
-    background: var(--mobile-side);
+    background: rgba(21,21,21,1);
     bottom: 0;
     left: 0;
     right: 0;
-    border-top: 1px solid black;
     transition: ease 1s;
     height: 40px;
+    -webkit-box-shadow: 1px -25px 50px 50px rgba(21,21,21,1); 
+    box-shadow: 1px -25px 50px 50px rgba(21,21,21,1);
 }

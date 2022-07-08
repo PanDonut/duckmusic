@@ -27,7 +27,6 @@ function PlaylistCardM(props) {
 					</div>
 					<div className={`${styles.Title} ${loaded == true ? '' : styles.loader}`}>
 						<TextBoldL>{props.data.title}</TextBoldL>
-						<TextRegularM>{props.data.type.toUpperCase() + ' · ' + props.data.artist}</TextRegularM>
 					</div>
 				</div>
 			</Link>

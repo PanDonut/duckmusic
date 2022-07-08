@@ -27,7 +27,7 @@ function RangeSlider({value, minvalue, maxvalue, handleChange}){
 
     return (
         <div className={styles.progressBar}>
-            <input tabIndex="-1" ref={inputRef} type="range" onChange={handleInputChange} className={styles.range__slider} min={minvalue} max={maxvalue} step="0.00001" value={value} />
+            <input tabIndex="-1" ref={inputRef} type="range" onChange={handleInputChange} className={styles.range__slider} min={minvalue} max={maxvalue} step="0.01" value={value} />
             <span
                 className={styles.spanThumb}
                 style={{left: `${(decimalValue * inputRefWidth.current) - 3}px`}}

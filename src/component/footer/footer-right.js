@@ -85,7 +85,7 @@ function SoundLevel({ volume, setVolume, currentTi, opn, clo, props }){
             <div tabIndex="0" role="button" onClick={soundBtn}>
                 <IconButton icon={<Icons.Sound />} activeicon={<Icons.SoundClose />}/>
             </div>
-            <RangeSlider minvalue={0} maxvalue={1} value={volume} handleChange={setVolume}/>
+            <RangeSlider minvalue={0} maxvalue={1} value={localStorage.getItem("dmvol")} handleChange={(e) => {localStorage.setItem("dmvol", e)}}/>
             </div>
 
     );

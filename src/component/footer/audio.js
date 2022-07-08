@@ -15,7 +15,7 @@ const Audio = forwardRef(({ trackData, handleDuration, handleCurrentTime, isPlay
         }}}
         onEnded={(e) => handleEnd()}
         preload='none'
-        onLoadedData={() => {load(); fadeIn(ref.current, () => {console.log("LoadedDataEvent");})}}
+        onLoadedData={() => {load();}}
         src={trackData.track}
         autoPlay={isPlaying}
       />

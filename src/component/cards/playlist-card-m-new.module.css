@@ -2,6 +2,7 @@
     position: relative;
     overflow: hidden;
     transition: transform 0s ease;
+    min-width: 180px;
 }
 .PlaylistCardS {
     position: relative;
@@ -12,9 +13,7 @@
     min-height: 100px;
 }
 .ImgBox{
-    position: relative;
-    -webkit-box-shadow: 0 -4px 16px rgb(0 0 0 / 50%);
-    box-shadow: 0 -4px 16px rgb(0 0 0 / 50%);
+    position: relative;   
 }
 .ImgBox img{
     height: 100%;
@@ -67,17 +66,13 @@
     fill: #fff !important;
 }
 .Title{
-    margin-top: 16px;
+    margin-top: 0px;
     min-height: 62px;
+    margin-left: 5px;
 }
 .Title p{
     margin: 0px;
-    color: var(--text-white);
-}
-.Title p:last-child{
-    color: var(--text-gray);
-    margin-top: 4px;
-    -webkit-line-clamp: 2;
+    color: #bbb;
 }
 .PlaylistCardSBox:hover .IconBox{
     opacity: 1;
@@ -85,6 +80,10 @@
 
 .ImgBox img {
     transition: 0.15s ease;
+    object-fit: cover;
+    object-position: center center;
+    -webkit-box-shadow: 0 -4px 16px rgb(0 0 0 / 50%);
+    box-shadow: 0 -4px 16px rgb(0 0 0 / 50%);
 }
 
 @media screen and (max-width: 640px) {
@@ -92,6 +91,12 @@
         transform: scale(0.95);
         transition: transform 0.05s ease;
         filter: brightness(50%);
+    }
+    .ImgBox {
+        border-radius: 18px;
+    }
+    .ImgBox img {
+        border-radius: 18px;
     }
 }
 

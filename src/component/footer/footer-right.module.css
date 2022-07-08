@@ -12,6 +12,7 @@
 }
 .soundBar input{
     width: 93px;
+    border-radius: 100px;
 }
 
 .pip {

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState, useCallback } from "react";
 import { connect } from "react-redux";
-import { changeTrack, changePlay, customTrack, songTrack } from "../../actions";
+import { changeTrack, changePlay, customTrack, songTrack, setQueue } from "../../actions";
 import useWindowSize from "../../hooks/useWindowSize";
 import FooterLeft from "./footer-left";
 import createState from "../../hooks/createState";
@@ -353,8 +353,8 @@ function Footer(props, {SocialSocket}) {
   }
 
   useEffect(() => {
-    audioRef.current.volume = volume;
-  }, [audioRef, volume]);
+    audioRef.current.volume = parseFloat(localStorage.getItem("dmvol"));
+  }, [audioRef, parseFloat(localStorage.getItem("dmvol"))]);
 
   localStorage.getItem("explicit");
   if (
@@ -435,28 +435,16 @@ function Footer(props, {SocialSocket}) {
 
   const [av, setAv] = useState(false);
 
+  const [, forceUpdate] = useReducer((x) => x + 1, 0);
+
   useEffect(() => {
     if (PLAYLIST[0].title == SONGLIST.filter(item => item.album != "")[SONGLIST.filter(item => item.album != "").length - 1].album) {
-      setTimeout(() => {
-        setAv(true);
+      setTimeout(() => {      
+        props.setQueue(JSON.parse(localStorage.getItem("dmsavequeue")));
+        props.changeTrack([1, 0]); 
+        forceUpdate();
+        console.log(props.queue)     
       if (localStorage.getItem("dmsavedata") != null) {
-        if (JSON.parse(localStorage.getItem("dmsavedata"))[0].type == 0) {
-          props.changeTrack(
-            JSON.parse(localStorage.getItem("dmsavedata"))[0].data
-          );
-        } else if (
-          JSON.parse(localStorage.getItem("dmsavedata"))[0].type == 1
-        ) {
-          props.songTrack(
-            JSON.parse(localStorage.getItem("dmsavedata"))[0].data
-          );
-        } else if (
-          JSON.parse(localStorage.getItem("dmsavedata"))[0].type == 2
-        ) {
-          props.customTrack(
-            JSON.parse(localStorage.getItem("dmsavedata"))[0].data
-          );
-        }
         if (audioRef.current) {
           audioRef.current.currentTime = JSON.parse(
             localStorage.getItem("dmsavedata")
@@ -464,7 +452,10 @@ function Footer(props, {SocialSocket}) {
         }
         console.log(audioRef.current);
       }
-    }, 2150)
+    }, 1150)
+    setTimeout(() => {
+      setAv(true);
+    }, 2000)
     }
   }, [PLAYLIST])
 
@@ -504,27 +495,20 @@ function Footer(props, {SocialSocket}) {
     }, [])
   );
 
-  if (trackInfo.isCustom == "false" && trackInfo.canSkip == "true") {
+  if (av == true) {
     localStorage.setItem(
       "dmsavedata",
       JSON.stringify([
         {
           type: 0,
-          data: trackInfo.trackKey,
+          data: [1454, trackInfo.trackKey[1]],
           time: currentTime,
         },
       ])
     );
-  } else if (trackInfo.isCustom == "false" && trackInfo.canSkip == "false") {
     localStorage.setItem(
-      "dmsavedata",
-      JSON.stringify([
-        {
-          type: 1,
-          data: trackInfo.trackKey,
-          time: currentTime,
-        },
-      ])
+      "dmsavequeue",
+      JSON.stringify(props.queue)
     );
   }
 
@@ -585,10 +569,6 @@ function Footer(props, {SocialSocket}) {
   }, [Math.round(currentTime)]);
   useEffect(() => {
     if (size.width < CONST.MOBILE_SIZE) {
-      setFooterStyle({
-        opacity: 0,
-        transform: "translateY(130px) translateX(-50%)",
-      });
       audioVolumeOut(audioRef.current, () => {});
       setTimeout(() => {
         setTR(props.trackData);
@@ -599,9 +579,6 @@ function Footer(props, {SocialSocket}) {
           transform: "translateY(0px) translateX(-50%)",
         });
       }, 1000);
-      audioVolumeInTime(1500, audioRef.current, () => {
-        console.log("IN");
-      });
     } else {
       setUsingStyle(true);
       setTimeout(() => {
@@ -613,26 +590,21 @@ function Footer(props, {SocialSocket}) {
     }
   }, [props.trackData.trackKey[0], props.trackData.trackKey[1]]);
 
-  useEffect(() => {
-    console.log(props.isPlaying);
-    if (props.isPlaying == true) {
-      audioVolumeIn(audioRef.current, () => {
-        console.log("played");
-      });
-    }
-  }, [props.isPlaying]);
+  if (localStorage.getItem("dmvol") == null) {
+    localStorage.setItem("dmvol", 1)
+  }
 
-  function audioVolumeIn(q, callback) {
+  function audioVolumeIn(q, callback, tar) {
     if (q.volume) {
       var InT = 0;
-      var setVolume = 1; // Target volume level for new song
+      var setVolume = tar; // Target volume level for new song
       var speed = 0.1; // Rate of increase
       q.volume = InT;
       var eAudio = setInterval(function () {
         console.log(q.volume);
         InT += speed;
-        q.volume = InT.toFixed(1);
-        if (InT.toFixed(1) >= setVolume) {
+        q.volume = InT;
+        if (InT >= setVolume) {
           clearInterval(eAudio);
           callback();
           //alert('clearInterval eAudio'+ InT.toFixed(1));
@@ -640,18 +612,18 @@ function Footer(props, {SocialSocket}) {
       }, 50);
     }
   }
-  function audioVolumeInTime(time, q, callback) {
+  function audioVolumeInTime(time, q, callback, tar) {
     if (q.volume) {
       var InT = 0;
-      var setVolume = 1; // Target volume level for new song
+      var setVolume = tar; // Target volume level for new song
       var speed = 0.1; // Rate of increase
       q.volume = InT;
       setTimeout(() => {
         var eAudio = setInterval(function () {
           console.log(q.volume);
           InT += speed;
-          q.volume = InT.toFixed(1);
-          if (InT.toFixed(1) >= setVolume) {
+          q.volume = InT;
+          if (InT >= setVolume) {
             clearInterval(eAudio);
             callback();
             //alert('clearInterval eAudio'+ InT.toFixed(1));
@@ -793,6 +765,7 @@ const mapStateToProps = (state) => {
   return {
     trackData: state.trackData,
     isPlaying: state.isPlaying,
+    queue: state.queue
   };
 };
 
@@ -801,4 +774,5 @@ export default connect(mapStateToProps, {
   changePlay,
   customTrack,
   songTrack,
+  setQueue
 })(Footer);

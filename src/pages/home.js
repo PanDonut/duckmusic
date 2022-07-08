@@ -7,10 +7,10 @@ import PlaylistCardMNew from "../component/cards/playlist-card-m-new";
 import ExpandButton from "../component/buttons/expand-button";
 
 import div from "react-fade-in";
-
 import styles from "./home.module.css";
 
 import React, { useState } from "react";
+import getBrowserFingerprint from 'get-browser-fingerprint';
 
 import Sidebar from "../component/sidebar/sidebar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -31,6 +31,7 @@ import PLAYLIST from "../data/index.json";
 
 import { useHistory } from "react-router-dom";
 import Search from "./search";
+import { connectHeart, printHeartRate, setupConsoleGraphExample } from "../playlistcreator";
 
 oncontextmenu = function (e) {
   e.preventDefault();
@@ -77,6 +78,8 @@ function Home() {
     document.documentElement.style.setProperty("--disp1", "none");
     document.documentElement.style.setProperty("--rot", "rotate(0deg)");
   }
+  var PLAYLISTFILTERED = PLAYLIST.filter(list => list.title != "Ulubione" && list.title != "_def").sort(() => Math.random() - 0.5);
+  if (size.width > CONST.MOBILE_SIZE) {
   return (
     <>
       <div className={styles.Home} onScroll={handleScroll}>
@@ -92,14 +95,12 @@ function Home() {
           pauseOnHover
           limit={1}
         />
-        <div className={styles.HoverBg}></div>
-        <div className={styles.Bg}></div>
 
         <Topnav useScrolled={scrolled} normal={true} />
         <div className={styles.Content}>
           <section>
             <div className={styles.SectionTitle}>
-              <TitleL>{timetext}</TitleL>
+              <TitleL>{size.width > CONST.MOBILE_SIZE ? timetext : `Cześć, ${localStorage.getItem('name')}!`}</TitleL>
             </div>
 
             <section>
@@ -169,6 +170,130 @@ function Home() {
       </div>
     </>
   );
+} else {
+  return (
+    <>
+      <div className={styles.Home} onScroll={handleScroll}>
+        <ToastContainer
+          transition={Slide}
+          position="top-center"
+          autoClose={50000}
+          hideProgressBar={false}
+          newestOnTop
+          closeOnClick
+          rtl={false}
+          draggable
+          pauseOnHover
+          limit={1}
+        />
+
+        <Topnav useScrolled={scrolled} normal={true} />
+        <div className={styles.Content}>
+          <section>
+            <div className={styles.SectionTitle}>
+              <TitleL>{size.width > CONST.MOBILE_SIZE ? timetext : `Cześć, ${localStorage.getItem('name')}!`}</TitleL>
+            </div>
+
+            <section>
+              <>
+                {PLAYLIST.filter((item) => item.promoted == "prawda").map(
+                  (list) => {
+                    return (
+                      <div className={styles.gradC}>
+                        <img src={list.imgUrl} />
+                        <div visible="true" delay="150" className={styles.mrag}>
+                          <h2>{list.title}</h2>
+                          <h4>{list.artist}</h4>
+                          <h3>{list.promodesc}</h3>
+                          <Link to={"/playlist/" + list.link}>
+                            <button>{decode("S&#322;uchaj")}</button>
+                          </Link>
+                        </div>
+                      </div>
+                    );
+                  }
+                )}
+              </>
+            </section>
+          </section>
+
+          <section>
+            <div className={styles.SectionTitle1}>
+              <TitleM>Odkrywaj</TitleM>
+            </div>
+            <div
+              visible="true"
+              delay="500"
+              className={styles.SectionCardsMedium}
+            >
+              <>
+                {PLAYLIST.filter(list => list.title != "Ulubione" && list.title != "_def").sort(() => Math.random() - 0.5).map((item) => {
+                    if (localStorage.getItem("old") == "yes" ||size.width > CONST.MOBILE_SIZE) 
+                    {
+                      return <PlaylistCardM key={item.title} data={item} />;
+                    }
+                  })}
+              </>
+            </div>
+            <div className="HeartBeatView" onClick={() => {
+              console.clear();
+              setupConsoleGraphExample(100, 400);
+              connectHeart({ onChange: printHeartRate }).catch(console.error);
+            }}></div>
+            <div
+              visible="true"
+              delay="250"
+              className="SectionCardsPhone"
+            >
+              {PLAYLISTFILTERED.map((item) => {
+                  if (
+                    (localStorage.getItem("old") == "no" &&
+                      size.width < CONST.MOBILE_SIZE) ||
+                    (localStorage.getItem("old") == null &&
+                      size.width < CONST.MOBILE_SIZE)
+                  ) {
+                    return <PlaylistCardMNew key={item.title} data={item} />;
+                  }
+                })}
+            </div>
+            <div
+              visible="true"
+              delay="250"
+              className="SectionCardsPhone"
+            >
+              {PLAYLISTFILTERED.map((item) => {
+                  if (
+                    (localStorage.getItem("old") == "no" &&
+                      size.width < CONST.MOBILE_SIZE) ||
+                    (localStorage.getItem("old") == null &&
+                      size.width < CONST.MOBILE_SIZE)
+                  ) {
+                    return <PlaylistCardMNew key={item.title} data={item} />;
+                  }
+                })}
+            </div>
+            <div
+              visible="true"
+              delay="250"
+              className="SectionCardsPhone"
+            >
+              {PLAYLISTFILTERED.map((item) => {
+                  if (
+                    (localStorage.getItem("old") == "no" &&
+                      size.width < CONST.MOBILE_SIZE) ||
+                    (localStorage.getItem("old") == null &&
+                      size.width < CONST.MOBILE_SIZE)
+                  ) {
+                    return <PlaylistCardMNew key={item.title} data={item} />;
+                  }
+                })}
+            </div>
+          </section>
+        </div>
+      </div>
+    </>
+  );
+}
 }
 
 export default Home;

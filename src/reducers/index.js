@@ -56,7 +56,7 @@ const INITIAL_STATE = {
     name: " ",
     data: []
   },
-  queueview: true
+  queueview: false
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {

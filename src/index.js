@@ -12,7 +12,9 @@ import { aut } from './dauth';
 import { GetUID } from './pages/functions';
 import { getDatabase, onValue, ref } from 'firebase/database';
 
-
+if (localStorage.getItem("dmvol") == null) {
+    localStorage.setItem("dmvol", 1)
+}
 var albums = {};
 async function LoadPlaylists() {
 SONGS.filter(item => item.album != undefined && item.album != null && item.album != "").forEach(element => {

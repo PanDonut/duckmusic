@@ -45,7 +45,10 @@
 
     .Topnav{
         background-color: transparent;
-        height: 50px;
+        height: 50px;       
+    }
+    .Topnav * {
+        display: none;
     }
             .Topnav div div {
                 position: absolute;
