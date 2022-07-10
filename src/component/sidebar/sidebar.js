@@ -45,8 +45,8 @@ function Sidebar() {
         <nav className={styles.SideNavbar}>
           <div>
               <div className='Avatar'>
-                { localStorage.getItem('emaildm') != null ?
-                <img src={`https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/users%2F${localStorage.getItem('emaildm').replaceAll(
+                { localStorage.getItem('emailduckmusic') != null ?
+                <img src={`https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/users%2F${localStorage.getItem('emailduckmusic').replaceAll(
                       ".",
                       ""
                     )}%2Fprofile.png?alt=media`} />

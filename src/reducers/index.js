@@ -10,7 +10,8 @@ import {
   REW,
   REWINDY,
   QUEUE,
-  QUEUEVIEW
+  QUEUEVIEW,
+  MOBILEFOOTER
 } from "../actions/index";
 import axios from "axios";
 import { aut } from "../dauth";
@@ -20,7 +21,7 @@ import { GetUID } from "../pages/functions";
 
 let CPLAYLIST = null;
 const db = getDatabase(aut);
-if (localStorage.getItem("emaildm") != null) {
+if (localStorage.getItem("emailduckmusic") != null) {
   const nameRef = ref(db, "users/" + GetUID() + "/duckmusic/playlist");
   onValue(nameRef, (snapshot) => {
     const data = snapshot.val();
@@ -56,7 +57,8 @@ const INITIAL_STATE = {
     name: " ",
     data: []
   },
-  queueview: false
+  queueview: false,
+  mobilefooter: false
 };
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -180,6 +182,11 @@ export const reducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         queueview: action.payload,
+      };
+    case MOBILEFOOTER:
+      return {
+        ...state,
+        mobilefooter: action.payload,
       };
     case KONSOL:
       return {

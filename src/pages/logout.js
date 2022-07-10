@@ -7,7 +7,7 @@ function Logout() {
   const history = useHistory();
   if (navigator.onLine) {
     localStorage.removeItem("namedm");
-    localStorage.removeItem("emaildm");
+    localStorage.removeItem("emailduckmusic");
     localStorage.removeItem("dmpass");
     localStorage.removeItem("duckmusic.userid");
 

@@ -5,8 +5,9 @@
   useCallback,
   useReducer,
 } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { changePlay, setQueueVis } from "./actions";
+import { useSwipeable } from 'react-swipeable';
+import { BrowserRouter as Router, Switch, Route, Link, useHistory } from "react-router-dom";
+import { changePlay, changeTrack, setMobileFooter, setQueueVis } from "./actions";
 import { konsol } from "./actions";
 import { connect } from "react-redux";
 import { firebaseg, songTrack } from "./actions/index";
@@ -64,7 +65,7 @@ import ShowOff from "./pages/showoff";
 import ViewRewind from "./pages/rewind_viewer";
 import Confetti from "canvas-confetti";
 import { io } from "socket.io-client";
-import { connectHeart, CreateEmptyPlaylist, printHeartRate, SendFriendRequest, setupConsoleGraphExample } from "./playlistcreator";
+import { connectHeart, CreateEmptyPlaylist, IsLikedSong, LikeSong, printHeartRate, RemoveLiked, SendFriendRequest, setupConsoleGraphExample } from "./playlistcreator";
 import { GetUID } from "./pages/functions";
 import LoginPage from "./pages/login";
 import SmallWidget from "./pages/smallwidget";
@@ -73,6 +74,8 @@ import constants from "./constants/index";
 import Activity from "./pages/activity";
 import ReturnSongs from "./pages/return_songs";
 import PlaylistTrack from "./component/playlist/playlist-track-queue";
+import convertTime from "./functions/convertTime";
+import axios from "axios";
 
 let indexn = null;
 
@@ -81,6 +84,7 @@ const clamp = (val, in_min, in_max, out_min, out_max) =>
 
 var isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 function App(props) {
+  const [currentTime, setCurrentTime] = useState(0);
   const db = getDatabase(aut);
   var [SocialSocket, setSocialSocket] = useState(undefined);
   useEffect(() => {
@@ -141,34 +145,103 @@ function App(props) {
     //   JSON.parse(localStorage.getItem("duckmusic.favourites_all_the_time"))[0]
     // );
   }, []);
-  useEffect(() => {
-    console.log("TRY")
-    if (SocialSocket != undefined) {
-      SocialSocket.emit("Activity", localStorage.getItem("emaildm"), {
-        "AppName": "Duck Music",
-        "trackName": props.trackData.trackName,
-        "trackImg": props.trackData.trackImg,
-        "trackArtist": props.trackData.trackArtist
-      })
+  const handlers = useSwipeable({
+    onSwiped: (eventData) => console.log("User Swiped!", eventData),
+    onTap: () => {console.log("BRING DA PLAYER"); props.setMobileFooter(!props.mobilefooter)}
+  });
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     if (SocialSocket != undefined) {
+  //       SocialSocket.emit("Activity", localStorage.getItem("emailduckmusic"), {
+  //         "AppName": "Music",
+  //         "queue": props.queue,
+  //         "time": currentTime,
+  //         "currentSong": props.trackData.trackKey,
+  //         "device": localStorage.getItem("deviceiddm")
+  //       })
+  //     };
+  //     axios.get("https://thundering-abyssinian-heart.glitch.me/activity").then(res => {
+  //       console.log(res.data)
+  //     })
+  //   }, 5000)   
+  // }, []);
+  function NextSong() {
+    if (localStorage.getItem("shuffle") == "false") {
+      if (
+        props.trackData.trackKey[1] ===
+        PLAYLIST[props.trackData.trackKey[0]].playlistData.length
+      ) {
+        props.changeTrack([props.trackData.trackKey[0], 0]);
+      } else {
+        props.changeTrack([
+          props.trackData.trackKey[0],
+          parseInt(props.trackData.trackKey[1]) + 1,
+        ]);
+      }
+    } else if (localStorage.getItem("shuffle") == "true") {
+      if (
+        props.trackData.trackKey[1] ===
+        PLAYLIST[props.trackData.trackKey[0]].playlistData.length
+      ) {
+        props.changeTrack([props.trackData.trackKey[0], 0]);
+      } else {
+        props.changeTrack([
+          props.trackData.trackKey[0],
+          Math.floor(
+            Math.random() *
+              parseInt(
+                PLAYLIST[props.trackData.trackKey[0]].playlistData.length
+              ) -
+              1
+          ),
+        ]);
+      }
     }
-  }, [props.trackData.trackName, SocialSocket])
-  if (localStorage.getItem("emaildm") != null && si == false) {
+  }
+  function PrevSong() {
+    if (localStorage.getItem("shuffle") == "false") {
+      if (
+        props.trackData.trackKey[1] ===
+        PLAYLIST[props.trackData.trackKey[0]].playlistData.length
+      ) {
+        props.changeTrack([props.trackData.trackKey[0], 0]);
+      } else {
+        props.changeTrack([
+          props.trackData.trackKey[0],
+          parseInt(props.trackData.trackKey[1]) - 1,
+        ]);
+      }
+    } else if (localStorage.getItem("shuffle") == "true") {
+      if (
+        props.trackData.trackKey[1] ===
+        PLAYLIST[props.trackData.trackKey[0]].playlistData.length
+      ) {
+        props.changeTrack([props.trackData.trackKey[0], 0]);
+      } else {
+        props.changeTrack([
+          props.trackData.trackKey[0],
+          parseInt(props.trackData.trackKey[1]) - 1,
+        ]);
+      }
+    }
+  }
+  if (localStorage.getItem("emailduckmusic") != null && si == false) {
     const refData = ref(
       db1,
       "userdata/" +
-        localStorage.getItem("emaildm").split(".").join("") +
+        localStorage.getItem("emailduckmusic").split(".").join("") +
         "/playing/deviceid"
     );
     const refData1 = ref(
       db1,
       "userdata/" +
-        localStorage.getItem("emaildm").split(".").join("") +
+        localStorage.getItem("emailduckmusic").split(".").join("") +
         "/playing/track"
     );
     const refReq = ref(
       db1,
       "userrequests/" +
-        localStorage.getItem("emaildm").split(".").join("") +
+        localStorage.getItem("emailduckmusic").split(".").join("") +
         "/pause"
     );
     onValue(refData, (snapshot) => {
@@ -320,7 +393,7 @@ function App(props) {
             ref(
               db1,
               "userrequests/" +
-                localStorage.getItem("emaildm").split(".").join("")
+                localStorage.getItem("emailduckmusic").split(".").join("")
             ),
             {
               pause: null,
@@ -359,13 +432,14 @@ function App(props) {
 
   const auth = getAuth(aut);
 
-  console.warn(props.queue)
+
+  var hist = useHistory();
 
   useEffect(() => {
     if (GetUID() != null && localStorage.getItem("dmpass") != null) {
       signInWithEmailAndPassword(
         auth,
-        localStorage.getItem("emaildm"),
+        localStorage.getItem("emailduckmusic"),
         localStorage
           .getItem("dmpass")
           .split("")
@@ -464,7 +538,7 @@ function App(props) {
     }
   }
 
-  if (localStorage.getItem("emaildm") != null && props.isPlaying == true) {
+  if (localStorage.getItem("emailduckmusic") != null && props.isPlaying == true) {
     if (setIt == true) {
       setI(false);
     }
@@ -472,7 +546,7 @@ function App(props) {
       ref(
         db1,
         "userdata/" +
-          localStorage.getItem("emaildm").split(".").join("") +
+          localStorage.getItem("emailduckmusic").split(".").join("") +
           "/playing"
       ),
       {
@@ -481,7 +555,7 @@ function App(props) {
       }
     );
   } else if (
-    localStorage.getItem("emaildm") != null &&
+    localStorage.getItem("emailduckmusic") != null &&
     props.isPlaying == false &&
     setIt == false
   ) {
@@ -490,7 +564,7 @@ function App(props) {
       ref(
         db1,
         "userdata/" +
-          localStorage.getItem("emaildm").split(".").join("") +
+          localStorage.getItem("emailduckmusic").split(".").join("") +
           "/playing"
       ),
       {
@@ -508,7 +582,7 @@ function App(props) {
         ref(
           db1,
           "userdata/" +
-            localStorage.getItem("emaildm").split(".").join("") +
+            localStorage.getItem("emailduckmusic").split(".").join("") +
             "/playing"
         ),
         {
@@ -960,7 +1034,7 @@ function App(props) {
         ) : (
           ""
         )}
-        {localStorage.getItem("emaildm") != null &&
+        {localStorage.getItem("emailduckmusic") != null &&
         localStorage.getItem("dmtour") == "mogus" ? (
           <div className={styles.tour}>
             <h1>
@@ -1163,7 +1237,7 @@ function App(props) {
         ""
       )}
       {window.location.pathname.includes("widget&song") == false ? (
-        <Footer fre={footerRef} className={styles.foot} SocialSocket={SocialSocket} />
+        <Footer fre={footerRef} setCT={setCurrentTime} className={styles.foot} SocialSocket={SocialSocket} />
       ) : (
         ""
       )}
@@ -1191,7 +1265,7 @@ function App(props) {
                 ref(
                   db1,
                   "userrequests/" +
-                    localStorage.getItem("emaildm").split(".").join("")
+                    localStorage.getItem("emailduckmusic").split(".").join("")
                 ),
                 {
                   pause: JSON.stringify([usd, "true"]),
@@ -1201,7 +1275,7 @@ function App(props) {
                 ref(
                   db1,
                   "userdata/" +
-                    localStorage.getItem("emaildm").split(".").join("") +
+                    localStorage.getItem("emailduckmusic").split(".").join("") +
                     "/playing"
                 ),
                 {
@@ -1280,6 +1354,106 @@ function App(props) {
       ) : (
         ""
       )}
+      <div className={`${props.mobilefooter == true ? 'FooterMobile' : 'FooterMobileOff'} MobileFooter`}>
+        <div/>       
+        <div className="Top">
+          <div></div>
+          <h2>{props.queue.name}</h2>
+          <div></div>
+        </div>
+        <div/>
+        <div className="Image">
+          <img src={props.trackData.trackImg} />
+        </div>     
+        <div className="TitleText">
+          <h2>{props.trackData.trackName}</h2>
+          <h3>{`${props.trackData.trackArtist} • ${props.trackData.album}`}</h3>
+          <button className="FooterHeart" onClick={() => {
+            var indexOfSong = SONGLIST.indexOf(SONGLIST.filter(item => item.songName == props.trackData.trackName && item.songArtist == props.trackData.trackArtist)[0]);
+            var liked = IsLikedSong(indexOfSong);
+            if (liked == true) {
+              RemoveLiked(indexOfSong);  
+              forceUpdate();           
+            } else {
+              LikeSong(indexOfSong);
+              forceUpdate();
+            }    
+          }}>
+            {
+              IsLikedSong(SONGLIST.indexOf(SONGLIST.filter(item => item.songName == props.trackData.trackName && item.songArtist == props.trackData.trackArtist)[0])) == true ?
+              <svg fill="#fff" viewBox="0 0 295.559 295.559">
+                <path d="M294.626,88.215c-2.388-17.766-9.337-34.209-20.099-47.555c-9.956-12.346-22.871-21.525-36.365-25.844
+                c-10.026-3.201-19.906-4.824-29.374-4.824c-24.577,0-46.313,10.811-62.147,30.678c-17.638-20.154-38.392-30.355-61.812-30.357
+                c-8.839,0-18.06,1.516-27.408,4.502c-13.505,4.32-26.423,13.498-36.382,25.844C10.274,54.004,3.322,70.449,0.934,88.215
+                c-3.858,28.701,4.289,60.008,23.562,90.533c22.278,35.285,59.255,69.889,109.904,102.848c3.989,2.598,8.617,3.971,13.381,3.971
+                c4.764,0,9.392-1.373,13.383-3.973c50.646-32.957,87.623-67.561,109.9-102.848C290.335,148.221,298.482,116.916,294.626,88.215z"/>
+              </svg>
+              :
+              <svg fill="#ffffff00" className="NotLiked" viewBox="0 0 295.559 295.559">
+                <path d="M294.626,88.215c-2.388-17.766-9.337-34.209-20.099-47.555c-9.956-12.346-22.871-21.525-36.365-25.844
+                c-10.026-3.201-19.906-4.824-29.374-4.824c-24.577,0-46.313,10.811-62.147,30.678c-17.638-20.154-38.392-30.355-61.812-30.357
+                c-8.839,0-18.06,1.516-27.408,4.502c-13.505,4.32-26.423,13.498-36.382,25.844C10.274,54.004,3.322,70.449,0.934,88.215
+                c-3.858,28.701,4.289,60.008,23.562,90.533c22.278,35.285,59.255,69.889,109.904,102.848c3.989,2.598,8.617,3.971,13.381,3.971
+                c4.764,0,9.392-1.373,13.383-3.973c50.646-32.957,87.623-67.561,109.9-102.848C290.335,148.221,298.482,116.916,294.626,88.215z"/>
+              </svg>
+            }
+          </button>
+        </div>
+        <div className="Time">
+          <input type="range" min={0} max={document.getElementsByTagName("audio")[0] ? document.getElementsByTagName("audio")[0].duration : 1000} value={Math.round(currentTime)} />
+          <div className="Times">
+            <h3>{convertTime(currentTime)}</h3>
+            <h3>{document.getElementsByTagName("audio")[0] ? convertTime(document.getElementsByTagName("audio")[0].duration) : 1000}</h3>
+          </div>
+        </div>
+        <div className="Controls">
+          <button onClick={() => {
+            if (localStorage.getItem('shuffle') == 'true') {
+              localStorage.setItem('shuffle', 'false');
+              forceUpdate()
+            } else {
+              localStorage.setItem('shuffle', 'true');
+              forceUpdate()
+            }
+          }}>
+            <svg height="27" width="27" style={{fill: `${localStorage.getItem('shuffle') == 'true' ? 'var(--akcent)' : '#eaebeb'}`}} viewBox="0 0 24 24" class="Svg-sc-1bi12j5-0 EQkJl"><rect width="24" height="24" transform="rotate(180 12 12)" opacity="0"/><path d="M18 9.31a1 1 0 0 0 1 1 1 1 0 0 0 1-1V5a1 1 0 0 0-1-1h-4.3a1 1 0 0 0-1 1 1 1 0 0 0 1 1h1.89L12 10.59 6.16 4.76a1 1 0 0 0-1.41 1.41L10.58 12l-6.29 6.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L18 7.42z"/><path d="M19 13.68a1 1 0 0 0-1 1v1.91l-2.78-2.79a1 1 0 0 0-1.42 1.42L16.57 18h-1.88a1 1 0 0 0 0 2H19a1 1 0 0 0 1-1.11v-4.21a1 1 0 0 0-1-1z"/></svg>
+          </button>
+          <button onClick={() => {
+            PrevSong();
+            forceUpdate();
+          }}>
+            <svg style={{transform: 'rotate(180deg)'}} height="24" width="24" viewBox="0 0 224.175 224.175" class="Svg-sc-1bi12j5-0 EQkJl"><path d="M185.513,0L185.513,0c-7.4,0-13.7,6.3-13.7,14.2v71.9L46.213,2.2c-2.1-1-4.7-2.1-7.9-2.1c-7.4,0-13.7,6.3-13.7,14.2V210c0,11,12.6,17.8,21.5,11.5l125.6-83.4V210c-0.5,18.9,28.4,18.9,27.8,0V14.3C200.213,6.3,193.413,0,185.513,0z M52.513,183.7V39.9l108.2,71.9L52.513,183.7z"/></svg>
+          </button>
+          <button className="Play" onClick={() => {
+            props.changePlay(!props.isPlaying);
+            forceUpdate();
+          }}>
+            {
+              props.isPlaying == true ?
+            <svg height="26" width="26" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 EQkJl"><path d="M2.7 1a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7H2.7zm8 0a.7.7 0 00-.7.7v12.6a.7.7 0 00.7.7h2.6a.7.7 0 00.7-.7V1.7a.7.7 0 00-.7-.7h-2.6z"></path></svg>
+            :
+            <svg height="26" width="26" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 EQkJl"><path d="M3 1.713a.7.7 0 011.05-.607l10.89 6.288a.7.7 0 010 1.212L4.05 14.894A.7.7 0 013 14.288V1.713z"></path></svg>
+            }
+          </button>
+          <button onClick={() => {
+            NextSong();
+            forceUpdate();
+          }}>
+            <svg height="24" width="24" viewBox="0 0 224.175 224.175" class="Svg-sc-1bi12j5-0 EQkJl"><path d="M185.513,0L185.513,0c-7.4,0-13.7,6.3-13.7,14.2v71.9L46.213,2.2c-2.1-1-4.7-2.1-7.9-2.1c-7.4,0-13.7,6.3-13.7,14.2V210c0,11,12.6,17.8,21.5,11.5l125.6-83.4V210c-0.5,18.9,28.4,18.9,27.8,0V14.3C200.213,6.3,193.413,0,185.513,0z M52.513,183.7V39.9l108.2,71.9L52.513,183.7z"/></svg>
+          </button>
+          <button onClick={() => {
+            if (localStorage.getItem('loop') == 'true') {
+              localStorage.setItem('loop', 'false');
+              forceUpdate()
+            } else {
+              localStorage.setItem('loop', 'true');
+              forceUpdate()
+            }
+          }}>
+            <svg style={{fill: `${localStorage.getItem('loop') == 'true' ? 'var(--akcent)' : '#eaebeb'}`}} height="26" width="26" viewBox="0 0 16 16" class="Svg-sc-1bi12j5-0 EQkJl"><path d="M0 4.75A3.75 3.75 0 013.75 1h8.5A3.75 3.75 0 0116 4.75v5a3.75 3.75 0 01-3.75 3.75H9.81l1.018 1.018a.75.75 0 11-1.06 1.06L6.939 12.75l2.829-2.828a.75.75 0 111.06 1.06L9.811 12h2.439a2.25 2.25 0 002.25-2.25v-5a2.25 2.25 0 00-2.25-2.25h-8.5A2.25 2.25 0 001.5 4.75v5A2.25 2.25 0 003.75 12H5v1.5H3.75A3.75 3.75 0 010 9.75v-5z"></path></svg>
+          </button>
+        </div>
+      </div>
       {props.rewind == true ? <ViewRewind year={props.rewindyear} /> : ""}
       {props.konsola == true ? (
         <Draggable>
@@ -1368,6 +1542,11 @@ function App(props) {
             );
           })
         : ""}
+        { size.width < CONST.MOBILE_SIZE &&
+        <div className='UseNavigate' {...handlers}>
+          <div className='NavigateBar'></div>
+        </div>
+        }
     </Router>
     </>
   );
@@ -1383,6 +1562,7 @@ const mapStateToProps = (state) => {
     rewind: state.rewind,
     queue: state.queue,
     queueview: state.queueview,
+    mobilefooter: state.mobilefooter
   };
 };
 
@@ -1391,5 +1571,7 @@ export default connect(mapStateToProps, {
   changePlay,
   songTrack,
   konsol,
-  setQueueVis
+  setQueueVis,
+  setMobileFooter,
+  changeTrack
 })(App);

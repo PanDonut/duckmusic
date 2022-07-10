@@ -28,7 +28,7 @@ function Authorize() {
   });
   localStorage.setItem("dmpass", pass);
 
-  localStorage.setItem("emaildm", path);
+  localStorage.setItem("emailduckmusic", path);
   GetImg(aut, path.split(".").join(""));
   console.log(cnt.replace(">", "/"));
   setTimeout(function () {

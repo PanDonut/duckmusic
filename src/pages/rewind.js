@@ -15,14 +15,14 @@ function Rewind() {
     const db = getDatabase();
     var [datayear, setDataYear] = useState(null);
 
-    const nameRef1 = ref(db, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + '/rewind/' + path + '/songs');
+    const nameRef1 = ref(db, 'userdata/' + localStorage.getItem('emailduckmusic').split('.').join("") + '/rewind/' + path + '/songs');
     onValue(nameRef1, (snapshot) => {
         const data = snapshot.val();
         if (datayear == null) {
             setDataYear(JSON.parse(data));
         }
     });
-    set(ref(db, 'userdata/' + localStorage.getItem('emaildm').split('.').join("") + "/rewind/" + path), {
+    set(ref(db, 'userdata/' + localStorage.getItem('emailduckmusic').split('.').join("") + "/rewind/" + path), {
         songs: JSON.stringify([
             {
                 "totaltime": 600,

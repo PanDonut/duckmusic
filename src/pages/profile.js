@@ -24,14 +24,14 @@ function Settings() {
                 <Topnav back={true} />
                 <div className="body1">
                 
-                <img src={`https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/users%2F${localStorage.getItem('emaildm').replaceAll(
+                <img src={`https://firebasestorage.googleapis.com/v0/b/duck-auth.appspot.com/o/users%2F${localStorage.getItem('emailduckmusic').replaceAll(
                       ".",
                       ""
                     )}%2Fprofile.png?alt=media`} />
             <div visible="true" delay="50" className="marg">
                     <h5>Profil</h5>
                     <h1>{localStorage.getItem('name')}</h1>
-                    <h5 className="cu">{localStorage.getItem('emaildm')}</h5>
+                    <h5 className="cu">{localStorage.getItem('emailduckmusic')}</h5>
                     </div>
                     </div>
                 </div>

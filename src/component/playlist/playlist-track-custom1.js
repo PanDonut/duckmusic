@@ -40,8 +40,6 @@ function PlaylistTrack(props) {
     }
   });
 
-  console.log(props.data.ind);
-
   const [PLAYLIST, setPLAYLIST] = useState(null);
   const db = getDatabase(aut);
   const nameRef = ref(db, "users/" + GetUID() + "/duckmusic/playlist");

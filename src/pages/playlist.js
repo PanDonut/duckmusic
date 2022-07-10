@@ -190,7 +190,6 @@ function PlaylistPage(props) {
     setRecc3(PLAYLIST.filter(itm => itm.link != path)[Math.floor((Math.random()*PLAYLIST.filter(itm => itm.link != path).length))]);
     forceUpdate();
   }, [])
-  console.warn(props.queue)
   return (
     <>
       <div className={styles.PlaylistPage} onScroll={handleScroll}>

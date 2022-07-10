@@ -186,7 +186,7 @@ export function RemoveLiked(index, song) {
     });
 
     console.log(index);
-    pl.splice(index, 1);
+    pl.splice(pl.indexOf(index), 1);
     console.log(pl);
 
     set(ref(db, 'users/' + GetUID() + "/dmusic"), {
@@ -198,7 +198,7 @@ export function LikeSong(index) {
     const db = getDatabase(aut);
     let pl = [];
     const nameRef = ref(db, 'users/' + GetUID() + '/dmusic/liked');
-    var [likedSongs, setLikedSongs] = useState([]);
+    var likedSongs = [];
     var nameRef1 = ref(
         db,
         "users/" +
@@ -208,7 +208,7 @@ export function LikeSong(index) {
       onValue(nameRef1, (snapshot) => {
         const data = snapshot.val();
         if (data != null || data != undefined || likedSongs == []) {
-          setLikedSongs(JSON.parse(data));
+          likedSongs = JSON.parse(data);
         }
       });
         console.log(likedSongs);
@@ -225,6 +225,26 @@ export function LikeSong(index) {
             liked: JSON.stringify(dat),
           }
         );
+}
+
+export function IsLikedSong(index) {
+    const db = getDatabase(aut);
+    let pl = [];
+    const nameRef = ref(db, 'users/' + GetUID() + '/dmusic/liked');
+    var likedSongs = [];
+    var nameRef1 = ref(
+        db,
+        "users/" +
+          GetUID() +
+          "/dmusic/liked"
+      );
+      onValue(nameRef1, (snapshot) => {
+        const data = snapshot.val();
+        if (data != null || data != undefined || likedSongs == []) {
+          likedSongs = JSON.parse(data);
+        }
+      });
+      return likedSongs.includes(index)
 }
 
 export function LikeArtist(index) {

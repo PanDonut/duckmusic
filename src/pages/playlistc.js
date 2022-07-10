@@ -1,6 +1,6 @@
 import { useParams } from "react-router";
 import { connect } from "react-redux";
-import { changeTrack, customTrack, setQueue } from "../actions";
+import { changePlay, changeTrack, customTrack, setQueue } from "../actions";
 import react from "react";
 import LinkButton1 from "../component/buttons/link-button";
 import { aut } from "../dauth";
@@ -444,11 +444,24 @@ function PlaylistPage(props) {
                       )}
                       {size.width < CONST.MOBILE_SIZE && (
                         <button
-                          onClick={() =>
-                            props.customTrack([PLAYLIST.indexOf(item), 0])
-                          }
+                        onClick={() => {
+                          var queue = [];
+                          item.playlistData.forEach(element => {
+                            queue.push(SONGLIST[element.songindex])
+                          });
+                          props.setQueue(
+                            {
+                              name: item.title,
+                              data: queue
+                            }
+                          );
+                          props.changeTrack([PLAYLIST.indexOf(item) + 1, 0]);
+                          forceUpdate();
+                          props.changePlay(true);
+                        }
+                        }
                         >
-                          Słuchaj
+                          {`${props.isPlaying == true && isthisplay == true && props.trackData.isCustom == "true" ? "Zatrzymaj" : "Słuchaj"}`}
                         </button>
                       )}
                     </div>
@@ -505,6 +518,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { changeTrack, customTrack, setQueue })(
+export default connect(mapStateToProps, { changeTrack, customTrack, setQueue, changePlay })(
   PlaylistPage
 );

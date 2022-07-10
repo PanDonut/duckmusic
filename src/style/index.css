@@ -150,6 +150,7 @@ svg{
 ::selection      { color: inherit;  background: transparent; } 
 
 nav .activeLink button p,
+nav .activeLink button h3,
 nav .activeLink button svg{
   color: var(--text-white) !important;
   fill: var(--text-white) !important;

@@ -111,7 +111,7 @@ function SongDetails(props, { trackData, i }, increaseIndex, decreaseIndex) {
   let isMounted = true;
   const [PLAYLISTC, setPosts] = useState(null);
   const db = getDatabase(aut);
-  if (localStorage.getItem("emaildm") != null) {
+  if (localStorage.getItem("emailduckmusic") != null) {
     const nameRef = ref(db, "users/" + GetUID() + "/duckmusic/playlist");
     onValue(nameRef, (snapshot) => {
       const data = snapshot.val();

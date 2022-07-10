@@ -32,6 +32,8 @@ import PLAYLIST from "../data/index.json";
 import { useHistory } from "react-router-dom";
 import Search from "./search";
 import { connectHeart, printHeartRate, setupConsoleGraphExample } from "../playlistcreator";
+import { GetUID } from "./functions";
+import { useEffect } from "react";
 
 oncontextmenu = function (e) {
   e.preventDefault();
@@ -64,6 +66,11 @@ function Home() {
     }
   }
 
+  useEffect(() => {
+    if (GetUID() == null || GetUID() == 'undefined' || localStorage.getItem("emailduckmusic") == null || localStorage.getItem("emailduckmusic") == 'undefined' || localStorage.getItem("name") == null || localStorage.getItem("name") == 'undefined') {
+      history.push("/login")
+    }
+  }, [])
 
   function Expand() {
     document.documentElement.style.setProperty("--expand", "380px");

@@ -135,11 +135,11 @@ function PlaylistPage(props) {
   }, []);
   var [likedSongs, setLikedSongs] = useState([]);
   useEffect(() => {
-    if (localStorage.getItem("emaildm") != null) {
+    if (localStorage.getItem("emailduckmusic") != null) {
       nameRef1 = ref(
         db,
         "users/" +
-          localStorage.getItem("emaildm").split(".").join("") +
+          localStorage.getItem("emailduckmusic").split(".").join("") +
           "/dmusic/liked"
       );
       onValue(nameRef1, (snapshot) => {
@@ -399,7 +399,7 @@ function PlaylistPage(props) {
                                     db,
                                     "users/" +
                                       localStorage
-                                        .getItem("emaildm")
+                                        .getItem("emailduckmusic")
                                         .split(".")
                                         .join("") +
                                       "/dmusic"

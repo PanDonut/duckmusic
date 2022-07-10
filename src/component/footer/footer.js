@@ -38,7 +38,7 @@ import {
 import { GetUID } from "../../pages/functions";
 import { useHistory } from "react-router-dom";
 
-function Footer(props, {SocialSocket}) {
+function Footer(props, {SocialSocket, setCT}) {
   async function showPictureInPictureWindow() {
     const canvas = document.createElement("canvas");
     canvas.width = canvas.height = 512;
@@ -72,7 +72,7 @@ function Footer(props, {SocialSocket}) {
   const [PLAYLISTC, setPosts] = useState(null);
   const db = getDatabase(aut);
   const db1 = getDatabase();
-  if (localStorage.getItem("emaildm") != null) {
+  if (localStorage.getItem("emailduckmusic") != null) {
     const nameRef = ref(db, "users/" + GetUID() + "/duckmusic/playlist");
     onValue(nameRef, (snapshot) => {
       const data = snapshot.val();
@@ -496,12 +496,13 @@ function Footer(props, {SocialSocket}) {
   );
 
   if (av == true) {
+    console.log(props.queue.data)
     localStorage.setItem(
       "dmsavedata",
       JSON.stringify([
         {
           type: 0,
-          data: [1454, trackInfo.trackKey[1]],
+          data: [1454, SONGLIST.filter(item => item.songName == props.trackData.trackName && item.songArtist == props.trackData.trackArtist)[0]],
           time: currentTime,
         },
       ])
@@ -565,11 +566,13 @@ function Footer(props, {SocialSocket}) {
   useEffect(() => {
     if (size.width > CONST.MOBILE_SIZE) {
       setFooterStyle({ opacity: 1, transform: "" });
-    }
+    }   
   }, [Math.round(currentTime)]);
   useEffect(() => {
+    props.setCT(currentTime)
+  }, [currentTime]);
+  useEffect(() => {
     if (size.width < CONST.MOBILE_SIZE) {
-      audioVolumeOut(audioRef.current, () => {});
       setTimeout(() => {
         setTR(props.trackData);
       }, 700);

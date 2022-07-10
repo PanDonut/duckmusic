@@ -1,6 +1,6 @@
 import React from 'react'
 import { NavLink, useLocation } from "react-router-dom";
-import { MENU } from '../../constants'
+import { MENU, MENUMOBILE, MENUMOBILE2 } from '../../constants'
 import { MENUOFF, DWN, DWNM } from '../../constants'
 import TextBoldM from '../text/text-bold-m';
 import styles from './navigation.module.css';
@@ -20,6 +20,9 @@ function Navigation() {
     return (
       <div className={styles.navBtns}>
         {
+          size.width > CONST.MOBILE_SIZE == true ?
+          <>
+          {
         MENU.map((menu) => {
             const selected = router.pathname.includes(menu.path);         
   
@@ -31,6 +34,38 @@ function Navigation() {
               </NavLink>
               );
         })
+        }
+        </>
+        :
+        <>
+        {
+        MENUMOBILE.map((menu) => {
+          const selected = router.pathname.includes(menu.path);         
+
+        return (
+            <NavLink className={styles.sus} to={menu.path} exact activeClassName="activeLink" key={menu.title}>
+                <button className={styles.button} tabIndex="-1">
+                    {selected ? menu.iconSelected : menu.icon}
+                    <h3>{menu.title}</h3>
+                </button>
+            </NavLink>
+            );
+      })
+      }
+      {
+        MENUMOBILE2.map((menu) => {
+          const selected = router.pathname.includes(menu.path);         
+
+        return (
+            <NavLink className={styles.sus} to={menu.path} exact activeClassName="activeLink" key={menu.title}>
+                <button className={styles.button} tabIndex="-1">
+                    {selected ? menu.iconSelected : menu.icon}
+                    <h3>{menu.title}</h3>
+                </button>
+            </NavLink>
+            );
+      })}
+      </>
       }
       {
         size.width > CONST.MOBILE_SIZE ?

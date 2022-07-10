@@ -8,6 +8,7 @@ export const REWINDY = "REWINDY"
 export const REW = "REW"
 export const QUEUE = "QUEUE"
 export const QUEUEVIEW = "QUEUEVIEW"
+export const MOBILEFOOTER = "MOBILEFOOTER"
 
 export const changePlay = (isPlaying) => {
   return { type: PLAYPAUSE, payload: isPlaying };
@@ -46,4 +47,8 @@ export const setQueue = (trackKey) => {
 
 export const setQueueVis = (trackKey) => {
   return { type: QUEUEVIEW, payload: trackKey };
+};
+
+export const setMobileFooter = (trackKey) => {
+  return { type: MOBILEFOOTER, payload: trackKey };
 };

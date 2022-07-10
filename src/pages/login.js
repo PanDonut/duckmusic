@@ -6,13 +6,14 @@ import "./login.css";
 export default function LoginPage() {
   useEffect(() => {
     window.addEventListener("message", (event) => {
-        if (event.data != "__KILLPROCESS") {
+        if (event.data.password != undefined) {
             console.log(event.data);
             localStorage.setItem("dmpass", event.data.password);
-            localStorage.setItem("emaildm", event.data.mail);
+            localStorage.setItem("emailduckmusic", event.data.mail);
             localStorage.setItem("name", event.data.name);
             SetUID(event.data.uid);
-        } else {
+        } 
+        if (event.data == "__KILLPROCESS") {
           window.location.pathname = "/";
           setTimeout(() => {
             window.location.reload(true);
