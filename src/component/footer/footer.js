@@ -440,13 +440,14 @@ function Footer(props, {SocialSocket, setCT}) {
   useEffect(() => {
     if (PLAYLIST[0].title == SONGLIST.filter(item => item.album != "")[SONGLIST.filter(item => item.album != "").length - 1].album) {
       setTimeout(() => {    
-        if (localStorage.getItem("dmsavequeue") == null) {
-          localStorage.setItem("dmsavequeue", JSON.stringify({
+        if (localStorage.getItem("dmsavequeue") != null) {
+        props.setQueue(JSON.parse(localStorage.getItem("dmsavequeue")));
+        } else {
+          props.setQueue({
             name: "",
             data: []
-          }))
-        }  
-        props.setQueue(JSON.parse(localStorage.getItem("dmsavequeue")));
+          })
+        }
         props.changeTrack([1, 0]); 
         forceUpdate();
         console.log(props.queue)     
