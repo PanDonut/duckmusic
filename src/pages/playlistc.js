@@ -211,7 +211,7 @@ function PlaylistPage(props) {
         <div className={styles.gradientBg}></div>
         <div className={styles.Bg}></div>
         {size.width < CONST.MOBILE_SIZE ? (
-          <Topnav playlist={true} pl={PLAYLIST} isSong={s} />
+          ''
         ) : (
           <Topnav normal={true} />
         )}
@@ -222,6 +222,7 @@ function PlaylistPage(props) {
                 return (
                   <div
                     key={item.title}
+                    className="SCRL"
                     onLoad={() => {
                       changeBg(item.playlistBg);
                       setPlaylistIndex(PLAYLIST.indexOf(item));

@@ -1381,6 +1381,15 @@ function App(props) {
             } else {
               LikeSong(indexOfSong);
               forceUpdate();
+              // var heart1 = document.createElement('div');
+              // var heart2 = document.createElement('div');
+              // var heart3 = document.createElement('div');
+              // heart1.className = "heart1"
+              // heart2.className = "heart2"
+              // heart3.className = "heart3"
+              // document.getElementsByClassName("FooterHeart")[0].appendChild(heart1);
+              // document.getElementsByClassName("FooterHeart")[0].appendChild(heart2);
+              // document.getElementsByClassName("FooterHeart")[0].appendChild(heart3);
             }    
           }}>
             {

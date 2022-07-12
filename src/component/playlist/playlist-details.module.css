@@ -186,7 +186,7 @@
 }
     .Artist:last-child {
         margin: 0;
-        margin-left: 6px;
+        margin-left: 0px;
         
     }
 
@@ -204,7 +204,11 @@
     font-size: 35px;
 }
 @media screen and (max-width: 640px) {
-    
+    .textBox {
+        gap: 7px !important;
+        position: relative;
+        top: 10px;
+    }
     .playlistDetails{
         grid-template-columns: 1fr;
         row-gap: 8px;
@@ -221,6 +225,7 @@
         text-align: center;
         position: relative;
         transform: translateX(-50%);
+        width: 80vw !important;
     }
     .Artist{
         justify-content: center;

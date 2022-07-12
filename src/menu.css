@@ -434,8 +434,8 @@
 }
 
 .mogus {
-  position: absolute;
-  top: 270px;
+  position: relative;
+  top: -70px;
   left: 300px;
   width: 150px;
   height: 40px;
@@ -886,7 +886,7 @@
     bottom: 0vh;
     z-index: 13;
     position: fixed;
-    transition: 0.3s ease;
+    transition: 0.3s ease, border-radius 0.3s ease;
     background: rgb(21,21,21);
     background: linear-gradient(357deg, rgba(21,21,21,1) 0%, rgba(21,21,21,1) 20%, rgba(59,30,34,1) 100%);
     transform: translateY(100vh);
@@ -902,7 +902,7 @@
     bottom: 0vh;
     z-index: 13;
     position: fixed;
-    transition: 0.4s ease;
+    transition: 0.4s ease, border-radius 0.6s ease;
     background: rgb(21,21,21);
     background: linear-gradient(357deg, rgba(21,21,21,1) 0%, #3b1e22 20%);
     left: 0vw;
@@ -1135,4 +1135,10 @@
 
   .PrevSng {
     transform: rotate(180deg);
+  }
+
+  .SCRL {
+    overflow: auto;
+    height: calc(100vh - 150px);
+    padding-bottom: 150px;
   }

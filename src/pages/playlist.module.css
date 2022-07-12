@@ -163,7 +163,7 @@
   transition: 0.25s ease-in-out;
 }
 .imgBg {
-  height: 400px;
+  height: 335px;
   position: absolute;
   left: 0;
   right: 0;
@@ -549,6 +549,7 @@
   }
   .PlaylistSongs {
     padding: 0px 16px;
+    width: calc(100% - 22px);
   }
   .SongBtn {
     padding: 0;
@@ -576,10 +577,9 @@
     color: #fff;
     font-weight: 700;
     z-index: 99;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     z-index: 1;
+    top: -70px;
   }
 
   .overlay {

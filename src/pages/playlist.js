@@ -208,7 +208,7 @@ function PlaylistPage(props) {
         <div className={styles.gradientBg}></div>
         <div className={styles.Bg}></div>
         {size.width < CONST.MOBILE_SIZE ? (
-          <Topnav playlist={true} pl={PLAYLIST} />
+          ''
         ) : (
           <Topnav useScrolled={scrolled} normal={true} />
         )}
@@ -353,6 +353,7 @@ function PlaylistPage(props) {
                     );
                   })}
                 </div>
+                { size.width > CONST.MOBILE_SIZE ?
                 <div className="Related" style={{position: scrolled == true ? 'fixed' : 'absolute', top: scrolled == true ? '-490px' : '90px'}}>
                   <div className="Albums">
                     <div onClick={() => {history.push(`/${recc1.type ? 'album' : 'playlist'}/${recc1.link}`)}} className="Album r1">
@@ -375,6 +376,9 @@ function PlaylistPage(props) {
                     </div>
                   </div>
                 </div>
+                :
+                ''
+                }
               </div>
             );
           }

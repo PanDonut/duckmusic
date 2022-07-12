@@ -82,6 +82,18 @@
         padding: 0;
         padding-left: 6px;
         width: calc(100% - 8px);
+        grid-template-columns: 26px 1fr 50px 50px 38px;
+    }
+    .txta {
+        flex-direction: column !important;
+        gap: 0px !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+    }
+    
+    .txta * {
+        margin: 0;
+        white-space: nowrap;
     }
 }
 

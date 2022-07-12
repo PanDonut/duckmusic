@@ -14,6 +14,8 @@ import styles from "./playlist-track.module.css";
 import { RgbStringColorPicker } from "react-colorful";
 import { CreatePlaylist, AddToPlaylist } from "../../playlistcreator";
 import { GetUID } from "../../pages/functions";
+import useWindowSize from "../../hooks/useWindowSize";
+import constants from "../../constants";
 
 function PlaylistTrack(props) {
   const [thisSong, setthisSong] = useState(false);
@@ -59,6 +61,8 @@ function PlaylistTrack(props) {
     }
   });
 
+  var size = useWindowSize();
+
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
   console.log(anchorPoint);
   const positi = useRef(null);
@@ -85,6 +89,7 @@ function PlaylistTrack(props) {
             : {}
         }
       >
+        { size.width > constants.MOBILE_SIZE ?
         <button
         tabIndex="-1"
           className={styles.playBtn}
@@ -92,8 +97,11 @@ function PlaylistTrack(props) {
         >
           {thisSong ? <Icons.Pause /> : <Icons.Play />}
         </button>
+        :
+        ''
+        }
 
-        {thisSong ? (
+        {thisSong && size.width > constants.MOBILE_SIZE ? (
           // <svg
           //   id={styles.eI4wjv0hVNk}
           //   xmlns="http://www.w3.org/2000/svg"

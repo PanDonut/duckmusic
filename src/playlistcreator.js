@@ -285,7 +285,8 @@ export function SendFriendRequest(email) {
 
 export async function connectHeart(props) {
     const device = await navigator.bluetooth.requestDevice({
-      acceptAllDevices: true,
+        filters: [{services:[ 'heart_rate' ]}],
+        acceptAllDevices: false,
     })
     console.log(`%c\n👩🏼‍⚕️`, 'font-size: 82px;', 'Starting HR...\n\n')
     const server = await device.gatt.connect()
