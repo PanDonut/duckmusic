@@ -22,6 +22,6 @@ export default function LoginPage() {
     });
   }, []);
   return <div className="loginpage">
-    <iframe className="loginFrame" src="http://192.168.0.108:3001/v3/auth/login&form=iframe&theme=light" />
+    <iframe className="loginFrame" src="https://login.theduck.ml/v3/auth/login&form=iframe&theme=light" />
   </div>;
 }
