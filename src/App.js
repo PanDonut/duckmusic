@@ -527,13 +527,13 @@ function App(props) {
 
   if (localStorage.getItem("deviceiddm") == null) {
     if (isIOS == true) {
-      localStorage.setItem("deviceiddm", "IPhone");
+      localStorage.setItem("deviceiddm", "iPhone");
     } else {
       localStorage.setItem(
         "deviceiddm",
         Math.random().toString(36).substring(2, 15) +
-          Math.random().toString(36).substring(2, 15) +
-          Math.random().toString(36).substring(2, 15)
+        Math.random().toString(36).substring(2, 15) +
+        Math.random().toString(36).substring(2, 15)
       );
     }
   }
@@ -890,6 +890,10 @@ function App(props) {
     }
   });
   const [warning, setWarn] = useState(true);
+  if (GetUID() == null || GetUID() == 'undefined' || localStorage.getItem("emailduckmusic") == null || localStorage.getItem("emailduckmusic") == 'undefined' || localStorage.getItem("name") == null || localStorage.getItem("name") == 'undefined') {
+    return <LoginPage />
+  }
+  else {
   return (
     <>
     <Router>
@@ -1550,6 +1554,7 @@ function App(props) {
     </Router>
     </>
   );
+}
 }
 
 const mapStateToProps = (state) => {
