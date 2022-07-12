@@ -324,8 +324,20 @@ function PlaylistPage(props) {
                   )}
                   {size.width < CONST.MOBILE_SIZE && (
                     <button
-                      onClick={() =>
-                        props.changeTrack([PLAYLIST.indexOf(item), 0])
+                      onClick={() => {
+                          var queue = [];
+                          item.playlistData.forEach(element => {
+                            queue.push(SONGLIST[element.songindex])
+                          });
+                          props.setQueue(
+                            {
+                              name: item.title,
+                              data: queue
+                            }
+                          );
+                          props.changeTrack([PLAYLIST.indexOf(item) + 1, 0]);
+                          forceUpdate();
+                        }
                       }
                     >
                       Słuchaj
