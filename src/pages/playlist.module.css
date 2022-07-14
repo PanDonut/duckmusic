@@ -187,7 +187,6 @@
   width: 200vw;
   background-color: rgba(24, 24, 24, 0.85);
   transition: 0.5s !important;
-  backdrop-filter: blur(10px);
 }
 .gradientBgSoft {
   position: absolute;

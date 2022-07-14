@@ -852,5 +852,13 @@
     "songArtist": "Queen",
     "album": "A Night at the Opera",
     "link": "https://drive.google.com/u/0/uc?id=1zVkb9SwY-XJ5jX5k6GyJgVgvngSusllj&export=download"
+  },
+  {
+    "songName": "Bohemian Rhapsody – Our Cut",
+    "ex": false,
+    "songimg": "https://i.ibb.co/6RFVPcv/victor-roa-queen-cover-final.jpg",
+    "songArtist": "Queen,TheDuck Studios",
+    "album": "Our Cut",
+    "link": "https://drive.google.com/u/0/uc?id=1vq5lLbs8hW45gi5XPegWQvf0y9CLdUuE&export=download"
   }
 ]

@@ -3,7 +3,6 @@
   overflow-y: scroll;
   overflow-x: hidden;
   background-color: var(--main-background);
-  backdrop-filter: blur(500000px);
   animation: goinP 0.5s ease;
   height: 100vh;
 }

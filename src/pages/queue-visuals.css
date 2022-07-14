@@ -1,4 +1,4 @@
 .cont {
     background-color: var(--main-background);
-    backdrop-filter: blur(500000px);
+    backdrop-filter: blur(100px);
 }

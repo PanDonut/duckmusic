@@ -467,44 +467,7 @@ function Footer(props, {SocialSocket, setCT}) {
     }
   }, [PLAYLIST])
 
-  window.addEventListener(
-    "load",
-    useEffect(() => {
-      const url = `https://raw.githubusercontent.com/PanDonut/duckmusic/main/public/updates.json`;
-      const url1 = `/updates.json`;
-      axios
-        .get(url)
-        .then((res) => {
-          axios
-            .get(url1)
-            .then((res1) => {
-              if (res1.data < res.data) {
-                window.location.reload(true);
-              }
-              console.log(res1.data);
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      if (localStorage.getItem("dmupdate") == null) {
-        localStorage.setItem("dmupdate", 0);
-      }
-      if (
-        GetUID() == null &&
-        window.location.pathname != "/logout" &&
-        window.location.pathname != "/login"
-      ) {
-        history.push("/login");
-      }
-    }, [])
-  );
-
   if (av == true) {
-    console.log(props.queue.data)
     localStorage.setItem(
       "dmsavedata",
       JSON.stringify([
@@ -665,6 +628,7 @@ function Footer(props, {SocialSocket, setCT}) {
   }
 
   const [showFull, setShowFull] = useState(false);
+  // Progress do spinnera
   useEffect(() => {
     if (currentTime != 0) {
     document.documentElement.style.setProperty("--percent", currentTime / duration)

@@ -43,11 +43,7 @@ function PlaylistTrack(props) {
     }
   });
 
-  console.log(
-    props.data.sas.playlistData.filter(
-      (ym) => ym.songindex == props.data.s.songindex
-    )[0]
-  );
+
 
   const [PLAYLIST, setPLAYLIST] = useState(null);
   const db = getDatabase(aut);
@@ -64,7 +60,6 @@ function PlaylistTrack(props) {
   var size = useWindowSize();
 
   const [anchorPoint, setAnchorPoint] = useState({ x: 0, y: 0 });
-  console.log(anchorPoint);
   const positi = useRef(null);
 
   let col = "rgb(0,0,0)";

@@ -12,7 +12,6 @@
 
 .body2 {
     background-color: var(--main-background);
-    backdrop-filter: blur(500000px);
 }
 
 .body1 {

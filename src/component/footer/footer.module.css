@@ -135,10 +135,6 @@
         background-size: cover;
         background: var(--song-a);
     }
-        .nowplayingbar:first-child {
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(50px);
-        }
     .footerMe {
         display: var(--phmu);
         position: absolute;

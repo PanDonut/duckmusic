@@ -46,7 +46,7 @@ function Topnav({ sB = false, useScrolled = false, search = false, tabButtons = 
             document.removeEventListener("click", handleClick);
 			document.removeEventListener("contextmenu", handleClick);
         };
-    });
+    }, []);
 
     return (
 		<nav className={`${styles.Topnav} ${useScrolled == true ? styles.navA : sB == true ? styles.navI : ''}`}>	

@@ -42,7 +42,7 @@ function PlaylistCardM(props) {
             document.removeEventListener("click", handleClick);
 			document.removeEventListener("contextmenu", handleClick);
         };
-    });
+    }, []);
 
 
 

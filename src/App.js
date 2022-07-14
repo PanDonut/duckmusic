@@ -477,7 +477,7 @@ function App(props) {
     return () => {
       document.removeEventListener("click", handleClick);
     };
-  });
+  }, []);
 
   useEffect(() => {
     keepTheme();
@@ -573,24 +573,26 @@ function App(props) {
     );
   }
 
-  window.addEventListener("beforeunload", function (e) {
-    // the absence of a returnValue property on the event will guarantee the browser unload happens
-    if (si == false) {
-      sE(true);
-      delete e["returnValue"];
-      set(
-        ref(
-          db1,
-          "userdata/" +
-            localStorage.getItem("emailduckmusic").split(".").join("") +
-            "/playing"
-        ),
-        {
-          deviceid: "none",
-        }
-      );
-    }
-  });
+  useEffect(() => {
+    window.addEventListener("beforeunload", function (e) {
+      // the absence of a returnValue property on the event will guarantee the browser unload happens
+      if (si == false) {
+        sE(true);
+        delete e["returnValue"];
+        set(
+          ref(
+            db1,
+            "userdata/" +
+              localStorage.getItem("emailduckmusic").split(".").join("") +
+              "/playing"
+          ),
+          {
+            deviceid: "none",
+          }
+        );
+      }
+    });
+  }, [])
 
   const [executedCmds, setexecutedCmds] = useState([
     "Wpisz help aby zobaczyć listę dostępnych komend",

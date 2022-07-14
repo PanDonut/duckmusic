@@ -38,7 +38,7 @@ function Sidebar() {
         document.removeEventListener("mousemove", handleMove);
         document.removeEventListener("mouseup", handleUp);
       };
-    });
+    }, []);
 
     return (
       <>    
