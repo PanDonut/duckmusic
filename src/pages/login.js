@@ -22,6 +22,6 @@ export default function LoginPage() {
     });
   }, []);
   return <div className="loginpage">
-    <iframe className="loginFrame" src="https://login.theduck.ml/v3/auth/login&form=iframe&theme=light" />
+    <iframe className="loginFrame" src="https://login.theduck.ml/v3/auth/login&form=iframe&theme=dark&appId=420691" />
   </div>;
 }
